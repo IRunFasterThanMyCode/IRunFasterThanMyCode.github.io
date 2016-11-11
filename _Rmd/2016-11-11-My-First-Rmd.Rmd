@@ -1,0 +1,32 @@
+---
+layout: post
+title: "My First R Markdown"
+author: Sam Robson
+published: false
+status: process
+draft: false
+tags: R 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## So this is R Markdown, huh?
+
+So all I need to do is to write an R markdown file, click **Knit**, and I am good to go. 
+
+## Have a useless plot
+
+Not all of my plots are useless, honest.
+
+```{r useless_plot, echo=FALSE}
+plot(1:10)
+```
+
+## And some useless stats
+
+```{r summary}
+summary(rnorm(100))
+```
+
