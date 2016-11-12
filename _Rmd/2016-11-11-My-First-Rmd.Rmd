@@ -15,6 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## So this is R Markdown, huh?
 
 So all I need to do is to write an R markdown file, click **Knit**, and I am good to go. 
+***
 
 ## Have a useless plot
 
