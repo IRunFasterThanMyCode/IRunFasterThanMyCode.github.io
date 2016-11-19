@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: "My First R Markdown"
 author: Sam Robson
 published: true
