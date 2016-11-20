@@ -1,13 +1,9 @@
 ---
 layout: page
 comments: true
-title: "How To"
-author: Sam Robson
-published: false
-status: process
-draft: false
-tags: R, help,user manual, How To, Tutorial
-permalink: /about/
+title: "R Tutorial"
+tags: R, tutorial 
+permalink: /tutorial/
 ---
 
 # How To Use R
@@ -83,7 +79,7 @@ z
 
 Variables can take many forms, or "classes". The most common are "numeric" (which you can do numerical calculations on), character (can contain letters, numbers, symbols etc., but cannot run numerical calculations), and logical (TRUE or FALSE). You can check the class of a variable by using the "class()"" function:
 
-``` {r eval = TRUE, echo = TRUE}
+``` {r eval = FALSE, echo = TRUE}
 x <- 12345
 class(x)
 x + 1 # x is numeric, so addition is well defined
@@ -155,7 +151,7 @@ my_vector <- c(1,2,3,4,5)
 my_vector
 ```
 
-This is a very useful way of storing linked data together. You can access the individual elements of the vector by using square brackets ("["") to take a subset of the data. The elements in the vector are numbered from 1 upwards, so to take the first and last values we do the following:
+This is a very useful way of storing linked data together. You can access the individual elements of the vector by using square brackets ("[") to take a subset of the data. The elements in the vector are numbered from 1 upwards, so to take the first and last values we do the following:
 
 ``` {r echo = TRUE, eval = TRUE}
 my_vector <- c(10,20,30,40,50)
@@ -175,7 +171,7 @@ sub_vector <- my_vector[1:4] # Takes the first 4 values in my_vector
 sub_vector
 ```
 
-Here, the ":"" in the brackets simply means to take all of the numbers from 1 through to 4, so this returns the first 4 elements of the vector. For instance, this is a simple way to take the numbers from 1 to 20:
+Here, the ":" in the brackets simply means to take all of the numbers from 1 through to 4, so this returns the first 4 elements of the vector. For instance, this is a simple way to take the numbers from 1 to 20:
 
 ``` {r echo = TRUE, eval = TRUE}
 1:20
