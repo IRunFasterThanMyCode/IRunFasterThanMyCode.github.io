@@ -4,21 +4,24 @@ comments: true
 title: "R Tutorial"
 tags: R, tutorial 
 permalink: /tutorial/
+output:
+  md_document:
+    variant: markdown_github
 ---
 
 # How To Use R
 
-This tutorial is a basic introduction to R. R is a software package that is a free to use open-source version of the S programming language. It is designed mainly for running statistical analyses and is very powerful in this regard. Follow through the tutorial and run the example commands by typing them into the command line as you go to see what happens.  Don’t be afraid to play around with things as you go -- it’s the best way to find out what certain functions do.
+This tutorial is a basic introduction to R that was originally written for biologists to get a basic understanding of how R functions. R is a software package that is a free to use open-source version of the S programming language. It is designed mainly for running statistical analyses and is very powerful in this regard. Follow through the tutorial and run the example commands by typing them into the command line as you go to see what happens.  Don’t be afraid to play around with things as you go -- it’s the best way to find out what certain functions do.
 
-You will notice that I have added comments to some of the code using the "#" comment character. Everything to the right of this character is ignored by R. This can be used to add comments to your code, for instance to explain what a particular code chunk does. You can NEVER have too many comments!
+You will notice that I have added comments to some of the code using the <tt>#</tt> comment character. Everything to the right of this character is ignored by R. This can be used to add comments to your code, for instance to explain what a particular code chunk does. You can NEVER have too many comments!
 
 ## 1: Installing R
 
 First of all, you will need to download and install R. The R website can be found at [r-project.org](http://www.r-project.org). R is updated quite regularly -- there is an updated release roughly every 6 months, with various developmental versions released between the official versions. The functions in R are actively maintained to ensure that they run as they should, and new functionality is added all of the time.
 
-The current version is 3.3.2. To download it, go to the Comprehensive R Archive Network ([cran.r-project.org](https://cran.r-project.org)). There are ready-made binaries available for MAC, windows, and most Linux distributions, so follow the links and download as instructed. You can also download the source code in a tarball, and can compile and install it using *make*.
+The current version is 3.3.2. To download it, go to the Comprehensive R Archive Network ([cran.r-project.org](https://cran.r-project.org)). There are ready-made binaries available for MAC, windows, and most Linux distributions, so follow the links and download as instructed. You can also download the source code in a tarball, and can compile and install it using <tt>make</tt>.
 
-It is also worth taking a look at the Integrated Development Environment [RStudio]https://www.rstudio.com, which is a great open-source interface for R.
+It is also worth taking a look at the Integrated Development Environment [RStudio](https://www.rstudio.com), which is a great open-source interface for R.
 
 ## 2: Basics of R
 
@@ -26,17 +29,17 @@ It is also worth taking a look at the Integrated Development Environment [RStudi
 
 Open the R environment. This is a command line version allowing you to see the results of the commands that you enter as you run them.
 
-The command line is shown by the ">" character. Simply type your command here and press return to see the results. If your command is not complete, then the command line character will change to a "+"" to indicate that more input is required, for instance a missing parenthesis:
+The command line is shown by the <tt>></tt> character. Simply type your command here and press return to see the results. If your command is not complete, then the command line character will change to a <tt>+</tt> to indicate that more input is required, for instance a missing parenthesis:
 
 ```{r echo = TRUE, eval = FALSE}
 print ("Hello World!" # Final parenthesis missing - CTRL+c or ESC to end
 ```
 
-R stores "variables"" using names made up of characters and numbers. A variable, as the name suggests, is a data "object" that can take any value that you want, and can be changed.
+R stores "variables" using names made up of characters and numbers. A variable, as the name suggests, is a data "object" that can take any value that you want, and can be changed.
 
-The variable name can be anything that you like, although it must begin with a character. Whilst it is perfectly acceptable to use simple variable names such as 'x', 'y', 'i', I recommend using a more descriptive name (e.g. “patient_height” instead of “x”). There are lots of different variable naming conventions to choose from (e.g. see [here](https://en.wikipedia.org/wiki/Naming_convention_(programming))), but once you have chosen one try and stick to it.
+The variable name can be anything that you like, although it must begin with a character. Whilst it is perfectly acceptable to use simple variable names such as <tt>x</tt>, <tt>y</tt>, <tt>i</tt>, I recommend using a more descriptive name (e.g. <tt>patient_height</tt> instead of <tt>x</tt>). There are lots of different variable naming conventions to choose from (e.g. see [here](https://en.wikipedia.org/wiki/Naming_convention_(programming))), but once you have chosen one try and stick to it.
 
-To assign a value to the variable, use the "<-" command (less-than symbol followed by minus symbol). You can also use the "=" symbol, but this has other uses (for instance using "==" to test for equality) so I prefer to use the “<-” command:
+To assign a value to the variable, use the <tt><-</tt> command (less-than symbol followed by minus symbol). You can also use the <tt>=</tt> symbol, but this has other uses (for instance using <tt>==</tt> to test for equality) so I prefer to use the <tt><-</tt> command:
 
 ```{r echo=TRUE, eval=TRUE}
 x <- 3
@@ -45,20 +48,17 @@ x <- 5
 x # Returns the value stored in 'x' - now 5
 ```
 
-Simple arithmetic can be performed using the standard arithmetic operators (’+’, ’-’, ’*’, ’/’), as well as the exponent operator (’^’). There is a level of precedence to these functions - the exponent will be calculated first, followed by multiplication and division, followed by plus and minus. For this reason, you must be careful that your arithmetic is doing what you expect it to do. You can get around this by encapsulating subsets of the sum in parentheses, which will be calculated from the inside out:
+Simple arithmetic can be performed using the standard arithmetic operators (<tt>+</tt>, <tt>-</tt>, <tt>*</tt>, <tt>/</tt>), as well as the exponent operator (<tt>^</tt>). There is a level of precedence to these functions -- the exponent will be calculated first, followed by multiplication and division, followed by plus and minus. For this reason, you must be careful that your arithmetic is doing what you expect it to do. You can get around this by encapsulating subsets of the sum in parentheses, which will be calculated from the inside out:
 
 ```{r echo = TRUE, eval = TRUE}
-x <- 1+2*3 #Equals7 
-x
-y <- (1 + 2) * 3 # Equals 9 
-y
-z <- 1 + (2 * 3) # Equals 7 
-z
+1+2*3 
+(1 + 2) * 3 
+1 + (2 * 3) 
 ```
 
-Personally I think that you can NEVER have too many parentheses - they ensure that your equations are doing what they should, and they can help improve the readability of things making it easier to see what a calculation is trying to achieve.
+Personally I think that you can NEVER have too many parentheses -- they ensure that your equations are doing what they should, and they can help improve the readability of things making it easier to see what a calculation is trying to achieve.
 
-Another operator that you may not have seen before is the "modulo" operator ('%%'), which gives you the remainder left after dividing by the number:
+Another operator that you may not have seen before is the "modulo" operator (<tt>%%</tt>), which gives you the remainder left after dividing by the number:
 
 ``` {r eval = TRUE, echo = TRUE}
 6%%2 # 6 is divisible by 2 exactly three times, so the remainder is 0 
@@ -75,22 +75,25 @@ z <- x + y
 z
 ```
 
-### 2.2 Data Classes
+### 2.2: Data Classes
 
-Variables can take many forms, or "classes". The most common are "numeric" (which you can do numerical calculations on), character (can contain letters, numbers, symbols etc., but cannot run numerical calculations), and logical (TRUE or FALSE). You can check the class of a variable by using the "class()"" function:
+Variables can take many forms, or "classes". The most common are "numeric" (which you can do numerical calculations on), character (can contain letters, numbers, symbols etc., but cannot run numerical calculations), and logical (TRUE or FALSE). The speech marks character <tt>"</tt> is used to show that the class of y is "character". You can also use the apostrophe <tt>'</tt>. There *is* a difference between these, but for now this is not important. You can check the class of a variable by using the <tt>class()</tt> function:
 
-``` {r eval = FALSE, echo = TRUE}
+``` {r eval = TRUE, echo = TRUE}
 x <- 12345
 class(x)
-x + 1 # x is numeric, so addition is well defined
 y <- "12345"
 class(y)
-y+1 # y is a character, so addition is not defined - produces an error
 ```
 
-This threw up an error. Can you see why? The speech marks character '"' is used to show that the class of y is "character". You can also use the apostrophe '. There is a difference between these, but for now this is not important.
+Addition is a well-defined operation on numerical objects, but is not defined on character class objects. Attempting to use a function which has not been defined for the object in question will throw an error:
 
-To see which objects are currently present in the R environment, use the "ls()" command. To remove a particular object, use the "rm()" command. BE CAREFUL -- once you have removed an object, it is gone forever!
+``` {r eval = TRUE, echo = TRUE, error = TRUE}
+x + 1 # x is numeric, so addition is well defined
+y + 1 # y is a character, so addition is not defined - produces an error
+```
+
+To see which objects are currently present in the R environment, use the <tt>ls()</tt> command. To remove a particular object, use the <tt>rm()</tt> command. *BE CAREFUL* -- once you have removed an object, it is gone forever!
 
 ``` {r echo = TRUE, eval = TRUE}
 x <- 5
@@ -98,41 +101,43 @@ ls ()
 rm(x)
 ls ()
 rm(list=ls()) # Removes all objects in the current R session
+ls ()
 ```
 
-You can also change the class of a variable by assigning to the "class()" function:
+You can also change the class of a variable by assigning to the <tt>class()</tt> function:
 
-``` {r echo = TRUE, eval = TRUE}
+``` {r echo = TRUE, eval = TRUE, error = TRUE}
 x <- "12345"
 x+1
 class(x)
-class(x) <- "numeric" class(x)
+class(x) <- "numeric" 
+class(x)
 x+1
 ```
 
-The other important data class is "logical", which is simply a binary TRUE or FALSE value. There are certain operators that are used to compare two variables. The obvious ones are “is less than” ('<'), "is greater than" ('>'), "is equal to"" ('=='). You can also combine these to see "is less than or equal to" ('<=') or "is greater than or equal to" ('>='). If the statement is true, then it will return the output "TRUE". Otherwise it will return "FALSE":
+The other important data class is "logical", which is simply a binary TRUE or FALSE value. There are certain operators that are used to compare two variables. The obvious ones are "is less than" (<tt><</tt>), "is greater than" (<tt>></tt>), "is equal to"" (<tt>==</tt>). You can also combine these to see "is less than or equal to" (<tt><=</tt>) or "is greater than or equal to" (<tt>>=</tt>). If the statement is true, then it will return the output "TRUE". Otherwise it will return "FALSE":
 
 ``` {r echo = TRUE, eval = TRUE}
 x <- 2
 y <- 3
-x <= y # Returns TRUE 
-x >= y # Returns FALSE
+x <= y
+x >= y
 ```
 
-You can also combine these logical tests to ask complex questions by using the "AND"" ('&&') or the "OR" ('||') operators. You can also negate the output of a logical test by using the "NOT" ('!') operator. This lets you test for very specific events in your data. Again, I recommend using parentheses to break up your tests to ensure that the tests occur in the order which you expect:
+You can also combine these logical tests to ask complex questions by using the "AND" (<tt>&&</tt>) or the "OR" (<tt>||</tt>) operators. You can also negate the output of a logical test by using the "NOT" (<tt>!</tt>) operator. This lets you test for very specific events in your data. Again, I recommend using parentheses to break up your tests to ensure that the tests occur in the order which you expect:
 
 ``` {r echo = TRUE, eval = TRUE}
 x <- 3
 y <- 7
 z <- 6
-(x<=3&&y>=8)&&z==6 #ReturnsFALSE 
-(x<=3&&y>=8)||z==6 #ReturnsTRUE
+(x <= 3 && y >= 8) && z == 6  
+(x <= 3 && y >= 8) || z == 6 
 ```
 
-One important set of functions are the log and exponential functions. The exponential function is the function ex, such that ex is its own derivate (d(ex) = ex). The value e is the constant 2.718281828..., and is a very important value in mathematics (hence why it has it’s own constant). Logarithms are the inverse of exponents. Here are some examples:
+One important set of functions are the log and exponential functions. The exponential function is the function $e^x$, such that $e^x$ is its own derivate ($\frac{d}{dx} e^x) = e^x$). The value e is the constant 2.718281828..., which is the limit $\lim_{n \to \infty} (1+\frac{1}{n})^n$. It is a very important value in mathematics (hence why it has its own constant). Logarithms are the inverse of exponents, with natural log being log base $e$. Here are some examples:
 
 ``` {r echo = TRUE, eval = TRUE}
-￼log (8)     ## Natural logarithm (log base e)
+log (8)     ## Natural logarithm - base e
 log2 (8)    ## Log base 2
 exp (1)     ## e
 exp (5)     ## e^5
@@ -142,36 +147,32 @@ exp(log(8)) ## log and exponential cancel out - base e
 log2 (2^8)  ## log and exponential cancel out - base 2
 ```
 
-### 2.3 Vectors
+### 2.3: Vectors
 
-Single values are all well and good, but R has a number of ways to store multiple values in a single data structure. The simplest one of these is as a "vector" -- simply a list of values of the same class. You create a vector by using the "c()" (concatenate) function:
+Single values are all well and good, but R has a number of ways to store multiple values in a single data structure. The simplest one of these is as a "vector" -- simply a list of values of the same class. You create a vector by using the <tt>c()</tt> (concatenate) function:
 
 ``` {r echo = TRUE, eval = TRUE}
 my_vector <- c(1,2,3,4,5) 
 my_vector
 ```
 
-This is a very useful way of storing linked data together. You can access the individual elements of the vector by using square brackets ("[") to take a subset of the data. The elements in the vector are numbered from 1 upwards, so to take the first and last values we do the following:
+This is a very useful way of storing linked data together. You can access the individual elements of the vector by using square brackets (<tt>[</tt>) to take a subset of the data. The elements in the vector are numbered from 1 upwards, so to take the first and last values we do the following:
 
 ``` {r echo = TRUE, eval = TRUE}
 my_vector <- c(10,20,30,40,50)
-first_value <- my_vector[1] # Gets the first value, 10 
-last_value  <- my_vector[5] # Gets the fifth value, 50
-no_value    <- my_vector[6] # No sixth value, so throws an error 
-first_value
-last_value
-no_value
+my_vector[1]
+my_vector[5]
+my_vector[6]
 ```
 
-As you can see, an error occurs if you try and take an element that does not exist. The subset can be as long as you like, as long as it's not longer than the full set:
+As you can see, a value $NA$ (Not Applicable) is returned if you try to take an element that does not exist. The subset can be as long as you like, as long as it's not longer than the full set:
 
 ``` {r echo = TRUE, eval = TRUE}
 my_vector <- c(10,20,30,40,50)
-sub_vector <- my_vector[1:4] # Takes the first 4 values in my_vector 
-sub_vector
+my_vector[1:4]
 ```
 
-Here, the ":" in the brackets simply means to take all of the numbers from 1 through to 4, so this returns the first 4 elements of the vector. For instance, this is a simple way to take the numbers from 1 to 20:
+Here, the <tt>:</tt> in the brackets simply means to take all of the numbers from 1 through to 4, so this returns the first 4 elements of the vector. For instance, this is a simple way to take the numbers from 1 to 20:
 
 ``` {r echo = TRUE, eval = TRUE}
 1:20
@@ -186,7 +187,7 @@ my_vector[-length(my_vector)]
 my_vector[-c(1,3,5)]
 ```
 
-Another way to generate a regular sequence in R is to use the "seq()" command. You supply the start number and the end number, and then either supply the parameter "by" to define the regular interval between values, or the parameter "length" to specify the total number of values to return between the start and end value:
+Another way to generate a regular sequence in R is to use the <tt>seq()</tt> command. You supply the start number and the end number, and then either supply the parameter <tt>by</tt> to define the regular interval between values, or the parameter <tt>length</tt> to specify the total number of values to return between the start and end value:
 
 ``` {r echo = TRUE, eval = TRUE}
 seq(from = 1, to = 20, by = 1) # Returns the same as 1:20
@@ -194,22 +195,23 @@ seq(from = 1, to = 20, by = 2) # Just the even numbers between 1 and 20
 seq(from = 1, to = 20, length = 10) # Slightly different to above
 ```
 
-You can also use the "rep()" function to give a vector of the specified length containing repeated values:
+You can also use the <tt>rep()</tt> function to give a vector of the specified length containing repeated values:
 
 ``` {r echo = TRUE, eval = TRUE}
 rep(10, times = 5)      # Returns vector containing five copies of the number 10 
 rep(c(1,2,3), each = 5) # Returns five 1s, then five 2s, then five 3s
 ```
 
-One of the most powerful features of R is the fact that arithmetic can be conducted on entire vectors rather than having to loop through all values in the vector. Vectorisation of calculations in this way can give huge improvements in performance. For instance, if you sum two vectors (of equal size), the result will be a vector where the ith entry is the sum of the ith entries from the input vectors:
+One of the most powerful features of R is the fact that arithmetic can be conducted on entire vectors rather than having to loop through all values in the vector. Vectorisation of calculations in this way can give huge improvements in performance. For instance, if you sum two vectors (of equal size), the result will be a vector where the $i^th$ entry is the sum of the $i^th$ entries from the input vectors:
 
 ``` {r echo = TRUE, eval = TRUE}
-x <- c(2,3,2,4,5) y <- c(4,1,1,2,3) 
+x <- c(2,3,2,4,5) 
+y <- c(4,1,1,2,3) 
 x+y
 x*y
 ```
 
-### 2.4 Lists
+### 2.4: Lists
 
 Another data structure that is very useful is the "list". A list contains a number of things in a similar way to the vector, but the things that it contains can all be completely different classes. They can even be vectors and other lists (a list of lists):
 
@@ -222,10 +224,8 @@ To subset a list, the syntax is slightly different and you use double square bra
 
 ``` {r echo = TRUE, eval = TRUE}
 my_list <- list(12345, "12345", c(1,2,3,4,5)) 
-first_value <- my_list[[1]]
-last_value  <- my_list[[3]]
-first_value
-last_value
+my_list[[1]]
+my_list[[3]]
 ```
 
 If your list contains lists or vectors, you can subset these as well by using multiple sets of square brackets:
@@ -235,7 +235,7 @@ my_list <- list(12345, "12345", c(1,2,3,4,5))
 my_list[[3]][5]
 ```
 
-Can you see the difference between subsetting using "[[" and using "["?
+Can you see the difference between subsetting using <tt>[[</tt> and using <tt>[</tt>?
 
 ``` {r echo = TRUE, eval = TRUE}
 my_list <- list(12345, "12345", c(1,2,3,4,5)) 
@@ -244,7 +244,7 @@ my_list[3]    ## Returns a list
 my_list[3][5] ## Not defined!
 ```
 
-You can give names to the values in a vector or in a list by using the "names()" function to make it easier to follow what the values are:
+You can give names to the values in a vector or in a list by using the <tt>names()</tt> function to make it easier to follow what the values are:
 
 ``` {r echo = TRUE, eval = TRUE}
 my_vector        <- c(1:5)
@@ -256,18 +256,17 @@ You can use these names instead of the reference number to subset lists and vect
 ``` {r echo = TRUE, eval = TRUE}
 my_vector        <- c(1:5)
 names(my_vector) <- c("length", "width", "height", "weight", "age") 
-age              <- my_vector["age"]
-age
+my_vector["age"]
 ```
 
-The number of values in a vector or list can be found by using the "length()" function:
+The number of values in a vector or list can be found by using the <tt>length()</tt> function:
 
 ``` {r echo = TRUE, eval = TRUE}
 my_vector <- 1:5 
 length(my_vector)
 ```
 
-We can also sort the data simply using the *sort()* function. If we want to get the indeces of the sorted vector (for instance to order a second vector based on the values in the first), we can use the *order()* function:
+We can also sort the data simply using the <tt>sort()</tt> function. If we want to get the indeces of the sorted vector (for instance to order a second vector based on the values in the first), we can use the <tt>order()</tt> function:
 
 ``` {r echo = TRUE, eval = TRUE}
 ## Some values and their corresponding names
@@ -293,12 +292,13 @@ By default the sort functions sort from lowest to highest. You can sort in decre
 sort(my_vals , decreasing = TRUE)
 ```
 
-### 2.5 Matrices
+### 2.5: Matrices
 
 Another data format is a "matrix"" (also known as an "array" in R). This is simply a table of values, and can be thought of as a multidimensional vector. To access specific values in the matrix, you again use the square bracket accessor function, but this time must specify both the row (first value) and column (second value):
 
 ``` {r echo = TRUE, eval = TRUE}
-my_matrix <- matrix(1:20, nrow = 5, ncol = 4) my_matrix
+my_matrix <- matrix(1:20, nrow = 5, ncol = 4) 
+my_matrix
 my_matrix[3,4] <- 99999
 my_matrix
 ```
@@ -318,16 +318,14 @@ sub_matrix <- my_matrix[1:2, 3:4]
 sub_matrix
 ```
 
-The *cbind()* (column bind) and *rbind* (row bind) functions can also be used to concatenate vectors together by row or by column to give a matrix:
+The <tt>cbind()</tt> (column bind) and <tt>rbind()</tt> (row bind) functions can also be used to concatenate vectors together by row or by column to give a matrix:
 
 ``` {r echo = TRUE, eval = TRUE}
-my_matrix_col <- cbind(c(1,2,3), c(4,5,6), c(7,8,9)) 
-my_matrix_col
-my_matrix_row <- rbind(c(1,2,3), c(4,5,6), c(7,8,9)) 
-my_matrix_row
+cbind(c(1,2,3), c(4,5,6), c(7,8,9)) 
+rbind(c(1,2,3), c(4,5,6), c(7,8,9)) 
 ```
 
-You can change the names of both the rows and the columns by using the *rownames()* and *colnames()* functions:
+You can change the names of both the rows and the columns by using the <tt>rownames()</tt> and <tt>colnames()</tt> functions:
 
 ``` {r echo = TRUE, eval = TRUE}
 my_matrix           <- matrix(1:20, nrow = 5, ncol = 4) 
@@ -336,7 +334,7 @@ colnames(my_matrix) <- c("col1", "col2", "col3", "col4")
 my_matrix
 ```
 
-The dimensions of the matrix can be found by using the *dim()* function, which gives the number of rows (first value) and the number of columns (second value) of the matrix. You can access the number of rows or columns directly by using the *nrows()* or *ncols()* functions respectively:
+The dimensions of the matrix can be found by using the <tt>dim()</tt> function, which gives the number of rows (first value) and the number of columns (second value) of the matrix. You can access the number of rows or columns directly by using the <tt>nrows()</tt> or <tt>ncols()</tt> functions respectively:
 
 ``` {r echo = TRUE, eval = TRUE}
 my_matrix <- matrix(1:20, nrow = 5, ncol = 4) 
@@ -345,46 +343,48 @@ nrows(my_matrix)
 ncols(my_matrix)
 ```
 
-### 2.6 Functions
+### 2.6: Functions
 
-R also uses functions (also known as methods) which simply take in one or more values, do something to them, and return the results of whatever this something is. A simple example is the *sum()* function, which takes in two or more values in the form of a vector, and returns the sum of all of the values:
+R also uses functions (also known as methods, subroutines, and procedures) which simply take in one or more values, do something to them, and return a result. A simple example is the <tt>sum()</tt> function, which takes in two or more values in the form of a vector, and returns the sum of all of the values:
 
 ``` {r echo = TRUE, eval = TRUE}
-my_vector <- c(1:5) 
-my_sum <- sum(my_vector) 
-my_sum
+my_vector <- 1:5
+sum(my_vector) 
 ```
 
-In this example, the *sum()* function takes only one variable (in this case a numeric vector). Sometimes functions take more than one variable (also known as "arguments"). These are named values that must be specified for the function to run. For example, the "cor()" function returns the correlation between two vectors. This requires several variables to be supplied -- two vectors of equal length -- and you can also supply a number of additional arguments to control how the function works, including the "method"" argument, which lets you specify which method to use to calculate the correlation:
+In this example, the <tt>sum()</tt> function takes only one variable (in this case a numeric vector). Sometimes functions take more than one variable (also known as "arguments"). These are named values that must be specified for the function to run. For example, the <tt>cor()</tt> function returns the correlation between two vectors. This requires several variables to be supplied -- two vectors, $x$ and $y$, of equal length -- and you can also supply a number of additional arguments to control how the function works, including the <tt>method</tt> argument, which lets you specify which method to use to calculate the correlation:
 
 ``` {r echo = TRUE, eval = TRUE}
 sample1 <- c(0.9, 1.2, 8.9, -0.3, 6.4)
 sample2 <- c(0.6, 1.3, 9.0, -0.5, 6.2)
-pearson_cor  <- cor(sample1, sample2 , method = "pearson")
-spearman_cor <- cor(sample1, sample2 , method = "spearman")
-pearson_cor
-spearman_cor
+cor(sample1, sample2 , method = "pearson")
+cor(sample1, sample2 , method = "spearman")
 ```
 
-Note that the Pearson correlation is the default, so you could get this by simply typing:
+Note that we gave a name to the third argument ("method"), but not the first two. If you do not name arguments, they will be taken and assigned to the arguments in the order in which they are input. The first two arguments required by the function are $x$ and $y$ -- the two vectors to compare. So there is no problem with not naming these (although you could if you wanted to say $x=sample1$). Any arguments not submitted will use their default value. For instance, the Pearson correlation is the default for <tt>method</tt>, so you could get this by simply typing:
 
 ``` {r echo = TRUE, eval = TRUE}
 pearson_cor <- cor(sample1 , sample2)
 ```
 
-Note that we named the third argument ("method""), but not the first two. If you do not name arguments, they will be taken and assigned to the arguments in the order in which they are input. The first two arguments required by the function are "x" and "y" -- the two vectors to compare. So there is no problem with not naming these (although you could if you wanted to). However, there are more arguments for "cor()"" for which we are happy to use the default value before we get to "method"", so we need to name it to make sure that "pearson"" is not assigned to the wrong variable in the function. It is always safer to name the arguments if you are unsure of the order.
+However, there is another argument for <tt>cor()</tt>, <tt>use</tt>, for which we are happy to use the default value before we get to <tt>method</tt>. We therefore need to name <tt>method</tt> to make sure that "pearson"" is not assigned to the <tt>use</tt> argument in the function. It is always safer to name the arguments if you are unsure of the order. You can check the arguments using the <tt>args()<tt> function:
 
-If you want to find out what a function does, there is a lot of documentation available in R. It is usually incredibly helpful (depending on who has written it...). To see the documentation for a specific function, use the "help()"" function. If you want to try and find a function, you can search using a keyword by using the "help.search()" function:
+``` {r echo = TRUE, eval = TRUE}
+args(cor)
+```
+
+If you want to find out what a function does, there is a lot of very helpful documentation available in R. To see the documentation for a specific function, use the <tt>help()</tt> function. If you want to try and find a function, you can search using a keyword by using the <tt>help.search()</tt> function:
 
 ``` {r echo = TRUE, eval = TRUE}
 help(cor)
-?cor # Alternative for help() help.search("correlation")
+?cor # Alternative for help() 
+help.search("correlation")
 ??correlation # Alternative for help.search()
 ```
 
-### 2.7 Printing
+### 2.7: Printing
 
-“print()” can be used to print whatever is stored in the variable the function is called on. Print is what is known as an “overloaded” function, which means that there are many functions named “print()”, each written to deal with a variable of a different class, and the correct one is used based on the variable that you supply. So calling “print()” on a numeric variable will print the value stored in the variable. Calling it on a vector prints all of the values stored in the vector. Calling it on a list will print the contents of the list split into an easily identifiable way. There are also many more classes in R for which print is defined, but there are too many to describe here:
+<tt>print()</tt> can be used to print whatever is stored in the variable the function is called on. Print is what is known as an "overloaded"" function, which means that there are many functions named <tt>print()</tt>, each written to deal with a variable of a different class. The correct one is used based on the variable that you supply. So calling <tt>print()</tt> on a numeric variable will print the value stored in the variable. Calling it on a vector prints all of the values stored in the vector. Calling it on a list will print the contents of the list split into an easily identifiable way. There are also many more classes in R for which print is defined, but there are too many to describe here:
 
 ``` {r echo = TRUE, eval = TRUE}
 x <- 1
@@ -395,24 +395,25 @@ z <- list(val1 = 1:5, val2 = 6:10)
 print (z)
 ```
 
-If you notice, using “print()” is the default when you just call the variable itself:
+If you notice, using <tt>print()</tt> is the default when you just call the variable itself:
 
 ``` {r echo = TRUE, eval = TRUE}
 z <- list(val1 = 1:5, val2 = 6:10) print (z)
 z
 ```
 
-“cat()” is similar to print in that the results of calling it are that text is printed to the console. The main use for “cat()” is to conCATenate two or more variables together and instantly print them to the console. The additional argument “sep” gives the character to use to separate the different variables:
+<tt>cat()</tt> is similar to print in that the results of calling it are that text is printed to the console. The main use for <tt>cat()</tt> is to con**CAT**enate two or more variables together and instantly print them to the console. The additional argument <tt>sep</tt> specifies the character to use to separate the different variables:
 
 ``` {r echo = TRUE, eval = TRUE}
-cat("hello", "world", sep = " ") x <- 1:5
+cat("hello", "world", sep = " ") 
+x <- 1:5
 y <- "bottles of beer"
 cat(x, y, sep = "\t")
 ```
 
-The “\t” is a special printing character that you can use with the “cat()” function that prints a tab character. Another similar special character that you may need to use is “\n” which prints a new line.
+<tt>\t</tt> is a special printing character that you can use with the <tt>cat()</tt> function that prints a tab character. Another similar special character that you may need to use is <tt>\n</tt> which prints a new line. 
 
-Another similar function is the “paste()” function, which also concatenates multiple values together. The differences between this and “cat()” are that the results of “paste()” can be saved to a different variable which requires a call to “print()” to see the results, and “paste()” can be used to concatenate individual elements of a vector by using the additional “collapse” argument:
+Another similar function is the <tt>paste()</tt> function, which also concatenates multiple values together. The differences between this and <tt>cat()</tt> are that the results of <tt>paste()</tt> can be saved to a different variable which requires a call to <tt>print()</tt> to see the results, and <tt>paste()</tt> can be used to concatenate individual elements of a vector by using the additional <tt>collapse</tt> argument:
 
 ``` {r echo = TRUE, eval = TRUE}
 print(paste("hello", "world", sep = "\t"))
@@ -420,25 +421,58 @@ print(paste("sample", 1:5, sep="_")) # Returns a vector of values
 print(paste("sample", 1:5, sep="_", collapse="\n")) # Prints values separated by new lines
 ```
 
-Do you notice the difference between “print()” and “cat()”? While “print()” prints the “\t” character as is, “cat()” prints the actual tab space. This is a process known as “interpolation”.
+Do you notice the difference between <tt>print()</tt> and <tt>cat()</tt>? While <tt>print()</tt> prints the <tt>\t</tt> character as is, <tt>cat()</tt> prints the actual tab space. This is a process known as "interpolation". In many programming languages, using double quotes in strings results in special characters being interpolated, whilst single quotes will print as is. However, in R the two can be used relatively interchangeably. 
 
-## 3 Installing Packages
+There are also other characters, such as $'$, $"$, $/$ and $\$, which may require "escaping" with a backslash to avoid R interpreting the character in a different context. For instance, if you have a string containing an apostrophe within a string defined using apostrophes, the string will be interpreted as terminating earlier, and the code will not do what you expect:
 
-The main R package contains a large number of commonly used functions. There are also additional functions available in other “packages” that you can get hold of from the Comprehensive R Archive Network, or CRAN, which you can access from the R homepage. To load in a package, making the package functions available to be used in your current R session, use the “library” command:
+``` {r echo = TRUE, eval = TRUE, error = TRUE}
+cat('It's very annoying when this happens...')
+```
+
+Here, the string submitted to <tt>cat()</tt> is actual "It" rather than the intended "It's very annoying when this happens...". The function will not know what to do about the remainder of the string, so an error will occur. However, by escaping the apostrophe, the string will be interpreted correctly:
+
+``` {r eval = TRUE, echo = TRUE}
+cat('It\'s easily fixed though!')
+```
+
+Another alternative is to use double apostrophes as the delimiter, which will avoid the single apostrophe being misinterpreted:
+
+``` {r eval = TRUE, echo = TRUE}
+cat("It's easily fixed though!")
+```
+
+One function that gives you slightly more control over the formatting of your data is the <tt>sprintf()</tt> function. This function allows you to specify things like the width in which to print each variable, which is useful for arranging output in a table format (note that you need to use <tt>cat()</tt> to actual print to the screen):
+
+``` {r eval = TRUE, echo = TRUE}
+cat(sprintf("%10s\t%5s\n", "Hello", "World"), 
+    sprintf("%10s\t%5s\n", "Helloooooo", "World"))
+```
+
+The <tt>sprintf()</tt> function takes as input a string telling R how you want your inputs to be formatted, followed by a list of the inputs. Within the formatting string, placeholders of the form <tt>%10s</tt> are replaced by the given inputs, with the first being replaced by the first argument in the list, and so on (so the number of additional arguments to <tt>sprintf</tt> must match the number of placeholders). The number in the placeholder defines the width to allocate for printing that argument (positive is right aligned, negative is left aligned), decimal numbers in the placeholder define precision of floating point numbers, and the letter defines the type of argument to print (e.g. $s$ for string, $i$ for integer, $f$ for fixed point decimal, $e$ for exponential decimal). Note that special characters are interpolated by <tt>cat()</tt> as before. Here are some examples:
+
+``` {r echo = TRUE, eval = TRUE}
+cat(sprintf("%20s\n", "Hello")) 
+cat(sprintf("%-20s\n", "Hello")) 
+cat(sprintf("%10i\n", 12345)) 
+cat(sprintf("%10f\n", 12.345)) 
+cat(sprintf("%10e\n", 12.345)) 
+```
+
+
+## 3: Installing Packages
+
+The main R package contains a large number of commonly used functions. There are also additional functions available in other "packages" that you can get hold of from the Comprehensive R Archive Network, or [CRAN](https://cran.r-project.org). To load in a package, first download and install the package from CRAN using the <tt>install.packages()</tt> function (if it is not already downloaded), and then use the "library" command to make the libraries available to your current R session:
 
 ``` {r echo = TRUE, eval = TRUE}
 ?xtable 
+install.packages("xtable")
 library("xtable") 
 ?xtable
 ```
 
-The function “xtable()” is not available in the R environment until you have loaded the package “gtools”. Only the most commonly used functions are made available in the R environment by default (for example the package “stats” is loaded by default, which contains all commonly used statistical fuctions). There are also a number of commonly used packages that are part of the R installation, but which are not automatically loaded when you start a new R session. There are also thousands of additional packages available, some written by users, which can perform most of the things that you would ever want to do. Chances are, if you want to do something it’s available from somewhere. Don’t re-invent the wheel if you can help it. To install a package, simply use the “install.packages()” function:
+The function <tt>xtable()</tt> is not available in the R environment until you have loaded the package. Only the most commonly used functions are made available in the R environment by default (for example the package “stats” is loaded by default, which contains all commonly used statistical fuctions). There are also a number of commonly used packages that are part of the R installation, but which are not automatically loaded when you start a new R session. There are also thousands of additional packages available, some written by users, which can perform most of the things that you would ever want to do. Chances are, if you want to do something it’s already available from somewhere. Don’t re-invent the wheel if you can help it.
 
-``` {r echo = TRUE, eval = TRUE}
-install.packages("car")
-```
-
-Since R is so useful for analysing biological data, the “bioconductor” project was set up to bring together packages used for the analysis of high-throughput data (it started with microarrays, but now there are packages available for analysis of sequencing data). Bioconductor packages can be downloaded from http://www.bioconductor.org/. However, there is also a simple way to install bioconductor packages directly from within R:
+Since R is so useful for analysing biological data, the <tt>bioconductor</tt> project was set up to bring together packages used for the analysis of high-throughput data (it started with microarrays, but now there are packages available for analysis of sequencing data). Bioconductor packages can be downloaded from [bioconductor.org](http://www.bioconductor.org). However, there is also a simple way to install bioconductor packages directly from within R:
 
 ``` {r echo = TRUE, eval = TRUE}
 source("http://bioconductor.org/biocLite.R") # Load the biocLite() script 
@@ -446,27 +480,26 @@ biocLite() # Installs the basic packages required to use bioconductor
 biocLite("DESeq") # Installs a specific bioconductor package
 ```
 
-## 4 Data Frames
+## 4: Data Frames
 
 Data frames are the most powerful data types in R. They look similar to matrices, but the data structure is actually more similar to a list of vectors (all of the same length). The simplest way to think of them is as being similar to spreadsheets in Excel.
 
 You can create data frames either in a similar way to how you create a list, or also by converting a matrix object:
 
 ``` {r echo = TRUE, eval = TRUE}
-my_df <- data.frame(val1 = c(1:3), val2 = c(4:6), val3 = c(7:9), val4 = c(10:12)) my_df
-my_df <- as.data.frame(matrix(1:12, nrow = 3, ncol = 4))
-my_df
+data.frame(val1 = c(1:3), val2 = c(4:6), val3 = c(7:9), val4 = c(10:12)) 
+as.data.frame(matrix(1:12, nrow = 3, ncol = 4))
 ```
 
-Notice how, in the second data frame, no data names are specified so R sets the defaults as “V1”, “V2”, “V3”, etc. Whilst data frames do have rownames, it is the column names that are the most important. As with lists, these can be changed by using the “names()” command:
+Notice how, in the second data frame, no column names are specified so R sets the defaults as <tt>V1</tt>, <tt>V2</tt>, <tt>V3</tt>, etc. Whilst data frames do have row names, it is the column names that are the most important. As with lists, these can be changed by using the <tt>names()</tt> command:
 
 ``` {r echo = TRUE, eval = TRUE}
-my_df <- as.data.frame(matrix(1:12, nrow = 3, ncol = 4)) 
+my_df        <- as.data.frame(matrix(1:12, nrow = 3, ncol = 4)) 
 names(my_df) <- c("val1", "val2", "val3", "val4")
 my_df
 ```
 
-You access the elements of a data frame either in the same way as for a matrix, or you can access the individual columns in the same way as for lists. You can also access the individual columns by using the special “$” operator which is specifically used for data frames:
+You access the elements of a data frame either using single square bracket notation in the same way as for a matrix, or you can access the individual columns using double square bracket notation in the same way as for lists. You can also access the individual columns by using the special <tt>$</tt> operator which is specifically used for data frames:
 
 ``` {r echo = TRUE, eval = TRUE}
 my_df <- as.data.frame(matrix(1:12, nrow = 3, ncol = 4)) 
@@ -488,27 +521,30 @@ The beauty of data frames is that the data frame columns can be dealt with as if
 my_df <- data.frame(val1 = c(1:3), val2 = c(4:6), val3 = c(7:9), val4 = c(10:12))
 attach(my_df)
 my_df
-my_df$val1 <- val1 + 1000 my_df
+val1 <- val1 + 1000 
+my_df
 detach(my_df)
 ```
 
-As a slight aside, I dislike using the attach/detach approach to accessing elements of a data frame, as it can make it difficult when reading through your code to tell which variable is being accessed. For instance, if you have a variable named "myname", and a data frame with a column named "myname", using "df$myname" makes it much clearer where you are accessing your data from. I prefer to be more explicit with my code. In fact, I personally tend to use double square brackets as I find these more explicit.
+As a slight aside, I dislike using the attach/detach approach to accessing elements of a data frame, as it can make it difficult when reading through your code to tell which variable is being accessed. For instance, if you have a variable named <tt>myname</tt>, and a data frame with a column <tt>myname</tt>, then using <tt>df$myname</tt> in your code makes it much clearer where you are accessing your data from than simply using <tt>myname</tt>. 
 
-Notice that to make changes to the data frame itself, we need to use the “$” accessor function (or double square brackets), otherwise a new variable “val1” will be created. Data frames should be set up in such a way that every row represents an independent observation, and the columns represent the independent variables that you may be interested in. For instance, if you have taken a measurement of say the weight of each sample in triplicate, you would not represent the data like this:
+Notice that to make changes to the data frame itself, we need to use the <tt>$</tt> accessor function (or double square brackets), otherwise a new variable <tt>val1</tt> will be created. Data frames should be set up in such a way that every row represents an independent observation, and the columns represent the independent variables that you may be interested in. For instance, if you have taken a measurement of say the weight of each sample in triplicate, you would not represent the data like this:
 
-SampleName Weight1 Weight2 Weight3
-Sample1 67.1 67.3 66.8
-Sample2 80.3 79.8 79.5
+SampleName | Weight1 | Weight2 | Weight3
+----------------------------------------
+Sample1    | 67.1    | 67.3    | 66.8
+Sample2    | 80.3    | 79.8    | 79.5
 
 But instead you would ensure that the two independent variables (weight and replicate number) were in their own columns:
 
-SampleName Replicate Weight 
-Sample1 1 67.1 
-Sample1 2 67.3
-Sample1 3 66.8
-Sample2 1 80.3
-Sample2 2 79.8 
-Sample2 3 79.5
+SampleName | Replicate | Weight 
+-------------------------------
+Sample1    | 1         | 67.1 
+Sample1    | 2         | 67.3
+Sample1    | 3         | 66.8
+Sample2    | 1         | 80.3
+Sample2    | 2         | 79.8 
+Sample2    | 3         | 79.5
 
 Now all of the weights are in a single column that can be analysed.
 
@@ -534,23 +570,41 @@ fake_signif_genes
 Another form of data that comes in very handy, particularly with data frames, is the “factor”. Factors are a way of dealing with categorical data, and simply encode the possible levels with values 0, 1, 2, etc. (which is useful in more complex modelling procedures):
 
 ``` {r echo = TRUE, eval = TRUE}
-my_vector <- c("apples", "pears", "apples", "oranges", "pears") my_vector
+my_vector <- c("apples", "pears", "apples", "oranges", "pears") 
+my_vector
 my_factor <- as.factor(my_vector)
 my_factor
 levels(my_factor)
 ```
 
-## 5 Reading and Writing Data
-Reading and writing data in R is quite simple, and is most easily done by using pure text files. Functions exist for reading other formats as well, but for now we will concentrate on text.
+Since data frames can hold data of different classes within its columns (a data frame is essentially a glorified list of vectors), it is very important to ensure that each column is assigned the correct class so that R functions that you use later do the correct thing with the data. For instance, R will automatically convert character entries to factors with all possible values as the factor levels. You can quickly see the class of all of your columns by using the <tt>str()</tt> function:
 
-Unless you give the complete path for a file, R will look in it’s current working directory for any files that you want to load in. By default, R will use your system’s home directory (usually /Users/[UserName]/), but you can set this by using the setwd() function. You can check that the correct working directory is set by using the getwd() function:
+``` {r eval = TRUE, echo = TRUE}
+str(gene_exp)
+```
+
+Whilst factors are incredibly useful in modelling and plotting, they may not necessarily be exactly what you want. For instance, in this case the column <tt>geneName</tt> has been converted into a factor, with levels <tt>gene1</tt>, ..., <tt>gene10</tt>. If we try and add in a new gene, <tt>gene11</tt>, this will not work as all entries of a factor must be one of the specified levels:
+
+``` {r eval = TRUE, echo = TRUE, error = TRUE}
+gene_exp_plus <- rbind(gene_exp, c("gene11", 1.789, 0.0034))
+gene_exp_plus
+```
+
+Instead we would be better off treating <tt>geneName</tt> as a character vector, since there is no reason to treat it as a categorical variable.
+
+
+## 5: Reading and Writing Data
+
+Reading and writing data in R is quite simple, and is most easily done by using pure text files. Functions exist for reading other formats as well (e.g. Excel tables), but for now we will concentrate on raw text. There are some very basic example files available from [here](files/).
+
+Unless you give the complete path for a file, R will look in it’s current working directory for any files that you want to load in. By default, R will use your system’s home directory, but you can set this by using the setwd() function. You can check that the correct working directory is set by using the getwd() function:
 
 ``` {r echo = TRUE, eval = TRUE}
-setwd("/Users/samrobson/Documents/Courses/R_and_bioinformatics_basics_course/examples") 
+setwd("files/") 
 getwd ()
 ```
 
-If you have a list of data in a file (e.g. a list of gene names separated by new lines), then the simplest method to use is “scan()”. You must tell “scan()” where to find the data file (either the full path, or a relative path from the current working directory), as well as the format that the data should be read in as (generally either “character” or “numeric”):
+If you have a list of data in a file (e.g. a list of gene names separated by new lines), then the simplest method to use is <tt>scan()</tt>. You must tell <tt>scan()</tt> where to find the data file (either the full path, or a relative path from the current working directory), as well as the format that the data should be read in as (generally either "character" or "numeric"):
 
 ``` {r echo = TRUE, eval = TRUE}
 my_file <- "gene_list.txt"
@@ -558,19 +612,30 @@ gene_list <- scan(my_file, what = "character", sep = "\n")
 gene_list
 ```
 
-For tables (for instance tab-delimited files saved from Excel), the easiest way is to use the “read.table()” function. This works by using “scan()” to read in each line from the table, then splitting the line by the specified delimiter. It is easier to read such files when there are no empty cells, so try to fill empty data with a “data missing” character, such as “NA” (the default). There are lots of additional arguments to the “read.table()” function. “header” is a boolean value that says whether or not the first row should be used to name the columns of the data frame, sep gives the delimiter between column entries (e.g. “\t” for tab-delimited files, or “,” for comma-separated files). By default, “read.table()” converts character columns into factors, which can be avoided by setting the “stringsAsFactors” argument to FALSE:
+For tables (for instance tab-delimited files saved from Excel), the easiest way is to use the <tt>read.table()</tt> function. This works by using <tt>scan()</tt> to read in each line from the table, then splitting the line by the specified delimiter. It is easier (or at least you are less prone to mistakes) to read such files when there are no empty cells, so try to fill empty data with a missing data character, such as <tt>NA</tt> (the default):
 
 ``` {r echo = TRUE, eval = TRUE}
-my_file <- "../files/sample_annotation.txt"
-sample_ann <- read.table(my_file, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
-sample_ann
-sample_ann <- read.table(my_file, header = FALSE, sep = "\t",
-sample_ann
+str(read.table("sample_annotation.txt", header = TRUE, sep = "\t"))
 ```
 
-## 6 Control Sequences
-stringsAsFactors = FALSE, skip = 3, nrow = 2)
+There are lots of additional arguments to the <tt>read.table()</tt> function; <tt>header</tt> is a boolean value that says whether or not the first row should be used to name the columns of the data frame, <tt>sep</tt> gives the delimiter between column entries (e.g. <tt>\t</tt> for tab-delimited files, or <tt>,</tt> for comma-separated files), <tt>skip</tt> tells R to skip the first $n$ rows of the input, and <tt>nrow</tt> tells R to only load the first $n$ rows that it sees: 
+
+``` {r echo = TRUE, eval = TRUE}
+str(read.table("sample_annotation.txt", header = TRUE, sep = "\t", nrow = 2))
+str(read.table("sample_annotation.txt", header = FALSE, sep = "\t"))
+```
+
+Notice that when the header is not used, the numeric column <tt>Replicate</tt> is now interpreted in the same way as the character columns, because now the first entry is non-numeric. By default, <tt>read.table()</tt> converts character columns into factors, which can be avoided by setting the <tt>stringsAsFactors</tt> argument to <tt>FALSE</tt>:
+
+``` {r echo = TRUE, eval = TRUE}
+str(read.table("sample_annotation.txt", header = TRUE, sep = "\t", stringsAsFactors = FALSE))
+```
+
+
+## 6: Control Sequences
+
 One of the most useful things to be able to do with computers is to repeat the same command multiple times without having to do it by hand each time. For this, control sequences can be used to give you close control over the progress of your program.
+
 6.1 IF ELSE
 The first control sequence to look at is the “if else” command, which acts as a switch to run one of a selection of possible commands given a switch that you specify. For instance, you may want to do something different depending on whether a value is odd or even:
 my_val <- 3
