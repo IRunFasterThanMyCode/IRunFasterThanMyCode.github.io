@@ -82,36 +82,3 @@ Simple arithmetic can be performed using the standard arithmetic operators (`+`,
 ```
 
     ## [1] 7
-
-Personally I think that you can NEVER have too many parentheses -- they ensure that your equations are doing what they should, and they can help improve the readability of things making it easier to see what a calculation is trying to achieve.
-
-Another operator that you may not have seen before is the "modulo" operator (`%%`), which gives you the remainder left after dividing by the number:
-
-``` r
-6%%2 # 6 is divisible by 2 exactly three times
-```
-
-    ## [1] 0
-
-``` r
-6%%4 # 6 is divisible by 4 one time with a remainder of 2
-```
-
-    ## [1] 2
-
-You can also use other variables in these assignments:
-
-``` r
-x <- 1
-y <- x
-y
-```
-
-    ## [1] 1
-
-``` r
-z <- x + y 
-z
-```
-
-    ## [1] 2
