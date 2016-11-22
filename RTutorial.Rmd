@@ -16,7 +16,10 @@ This tutorial is a basic introduction to R that was originally written for biolo
 
 You will notice that I have added comments to some of the code using the `#` comment character. Everything to the right of this character is ignored by R. This can be used to add comments to your code, for instance to explain what a particular code chunk does. You can NEVER have too many comments!
 
-## 1: Installing R
+## Table of Contents
+1. [Installing R](#1installR)
+
+## 1: Installing R<a name="installR" />
 
 First of all, you will need to download and install R. The R website can be found at [r-project.org](http://www.r-project.org). R is updated quite regularly -- there is an updated release roughly every 6 months, with various developmental versions released between the official versions. The functions in R are actively maintained to ensure that they run as they should, and new functionality is added all of the time.
 
