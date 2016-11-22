@@ -3,7 +3,7 @@ layout: page
 comments: true
 title: "R Tutorial"
 tags: R, tutorial 
-permalink: /RTutorial/
+permalink: /tutorial/
 output:
   md_document:
     variant: markdown_github
