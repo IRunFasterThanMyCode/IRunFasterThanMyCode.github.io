@@ -2371,7 +2371,7 @@ abline(v = 0)
 abline(a = 0, b = 1, lty = 2)
 ```
 
-![](RTutorial_files/figure-markdown_github/unnamed-chunk-102-1.png)
+![_config.yml]({{ site.baseurl }}/figures/unnamed-chunk-102-1.png)
 
 This figure shows that the effect on the gene expression is actually quite different for the two drugs. We can also see this by looking at the correlation between the two experiments:
 

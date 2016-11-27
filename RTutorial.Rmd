@@ -1333,7 +1333,7 @@ cat("Downregulated in Experiment 1 and Experiment 2:", paste(common_down, collap
 
 So we can see that only one gene is similarly affected by both drugs ("gene8"). Now let’s plot a figure to see how the fold change differs between the two drugs:
 
-``` {r}
+``` {r foldchange, fig.path = 'figures/'}
 fold_change_data <- merge(expt1[, c("GeneName", "FoldChange")], 
                           expt2[, c("GeneName", "FoldChange")], 
                           by = "GeneName")
