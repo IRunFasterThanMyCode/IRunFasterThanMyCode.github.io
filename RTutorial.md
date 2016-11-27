@@ -27,12 +27,11 @@ Table of Contents
 5.  [Reading and Writing Data](#5readwrite)
 6.  [Control Sequences](#6control)
 7.  [Writing Functions in R](#7functions)
-8.  [Simple Statistics](#8stats)
-9.  [Plotting in R](#9plotting)
+8.  [Some Simple Statistics](#8stats)
+9.  [Plotting with R](#9plotting)
 10. [Example Analysis](#10example)
 
-1: Installing R<a name="1installR" />
--------------------------------------
+<a name="1installR" /> \#\# 1: Installing R
 
 First of all, you will need to download and install R. The R website can be found at [r-project.org](http://www.r-project.org). R is updated quite regularly -- there is an updated release roughly every 6 months, with various developmental versions released between the official versions. The functions in R are actively maintained to ensure that they run as they should, and new functionality is added all of the time.
 
@@ -40,10 +39,9 @@ The current version is 3.3.2. To download it, go to the Comprehensive R Archive 
 
 It is also worth taking a look at the Integrated Development Environment [RStudio](https://www.rstudio.com), which is a great open-source interface for R.
 
-2: Basics of R<a name="2Rbasics" />
------------------------------------
+<a name="2Rbasics" /> \#\# 2: Basics of R
 
-### 2.1: Introduction<a name="2intro" />
+### 2.1: Introduction
 
 Open the R environment. This is a command line version allowing you to see the results of the commands that you enter as you run them.
 
@@ -328,7 +326,7 @@ my_vector[6]
 
     ## [1] NA
 
-As you can see, a value *N**A* (Not Applicable) is returned if you try to take an element that does not exist. The subset can be as long as you like, as long as it's not longer than the full set:
+As you can see, a value `NA` (Not Applicable) is returned if you try to take an element that does not exist. The subset can be as long as you like, as long as it's not longer than the full set:
 
 ``` r
 my_vector <- c(10,20,30,40,50)
@@ -401,7 +399,7 @@ rep(c(1,2,3), each = 5) # Returns five 1s, then five 2s, then five 3s
 
     ##  [1] 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3
 
-One of the most powerful features of R is the fact that arithmetic can be conducted on entire vectors rather than having to loop through all values in the vector. Vectorisation of calculations in this way can give huge improvements in performance. For instance, if you sum two vectors (of equal size), the result will be a vector where the *i*<sup>*t*</sup>*h* entry is the sum of the *i*<sup>*t*</sup>*h* entries from the input vectors:
+One of the most powerful features of R is the fact that arithmetic can be conducted on entire vectors rather than having to loop through all values in the vector. Vectorisation of calculations in this way can give huge improvements in performance. For instance, if you sum two vectors (of equal size), the result will be a vector where the `i^th^` entry is the sum of the `i^th^` entries from the input vectors:
 
 ``` r
 x <- c(2,3,2,4,5) 
@@ -678,7 +676,7 @@ sum(my_vector)
 
     ## [1] 15
 
-In this example, the `sum()` function takes only one variable (in this case a numeric vector). Sometimes functions take more than one variable (also known as "arguments"). These are named values that must be specified for the function to run. For example, the `cor()` function returns the correlation between two vectors. This requires several variables to be supplied -- two vectors, *x* and *y*, of equal length -- and you can also supply a number of additional arguments to control how the function works, including the `method` argument, which lets you specify which method to use to calculate the correlation:
+In this example, the `sum()` function takes only one variable (in this case a numeric vector). Sometimes functions take more than one variable (also known as "arguments"). These are named values that must be specified for the function to run. For example, the `cor()` function returns the correlation between two vectors. This requires several variables to be supplied -- two vectors, `x` and `y`, of equal length -- and you can also supply a number of additional arguments to control how the function works, including the `method` argument, which lets you specify which method to use to calculate the correlation:
 
 ``` r
 sample1 <- c(0.9, 1.2, 8.9, -0.3, 6.4)
@@ -694,7 +692,7 @@ cor(sample1, sample2 , method = "spearman")
 
     ## [1] 1
 
-Note that we gave a name to the third argument ("method"), but not the first two. If you do not name arguments, they will be taken and assigned to the arguments in the order in which they are input. The first two arguments required by the function are *x* and *y* -- the two vectors to compare. So there is no problem with not naming these (although you could if you wanted to say *x* = *s**a**m**p**l**e*1). Any arguments not submitted will use their default value. For instance, the Pearson correlation is the default for `method`, so you could get this by simply typing:
+Note that we gave a name to the third argument ("method"), but not the first two. If you do not name arguments, they will be taken and assigned to the arguments in the order in which they are input. The first two arguments required by the function are `x` and `y` -- the two vectors to compare. So there is no problem with not naming these (although you could, if you wanted to, say `x=sample1, y=sample2`). Any arguments not submitted will use their default value. For instance, the Pearson correlation is the default for `method`, so you could get this by simply typing:
 
 ``` r
 pearson_cor <- cor(sample1 , sample2)
@@ -811,7 +809,7 @@ print(paste("sample", 1:5, sep="_", collapse="\n")) # Prints values separated by
 
 Do you notice the difference between `print()` and `cat()`? While `print()` prints the `\t` character as is, `cat()` prints the actual tab space. This is a process known as "interpolation". In many programming languages, using double quotes in strings results in special characters being interpolated, whilst single quotes will print as is. However, in R the two can be used relatively interchangeably.
 
-There are also other characters, such as ′, $"$, / and $$, which may require "escaping" with a backslash to avoid R interpreting the character in a different context. For instance, if you have a string containing an apostrophe within a string defined using apostrophes, the string will be interpreted as terminating earlier, and the code will not do what you expect:
+There are also other characters, such as `'`, `"`, `/` and `\`, which may require "escaping" with a backslash to avoid R interpreting the character in a different context. For instance, if you have a string containing an apostrophe within a string defined using apostrophes, the string will be interpreted as terminating earlier, and the code will not do what you expect:
 
 ``` r
 cat('It's very annoying when this happens...')
@@ -847,7 +845,7 @@ cat(sprintf("%10s\t%5s\n", "Hello", "World"),
     ##      Hello   World
     ##  Helloooooo  World
 
-The `sprintf()` function takes as input a string telling R how you want your inputs to be formatted, followed by a list of the inputs. Within the formatting string, placeholders of the form `%10s` are replaced by the given inputs, with the first being replaced by the first argument in the list, and so on (so the number of additional arguments to `sprintf` must match the number of placeholders). The number in the placeholder defines the width to allocate for printing that argument (positive is right aligned, negative is left aligned), decimal numbers in the placeholder define precision of floating point numbers, and the letter defines the type of argument to print (e.g. *s* for string, *i* for integer, *f* for fixed point decimal, *e* for exponential decimal). Note that special characters are interpolated by `cat()` as before. Here are some examples:
+The `sprintf()` function takes as input a string telling R how you want your inputs to be formatted, followed by a list of the inputs. Within the formatting string, placeholders of the form `%10s` are replaced by the given inputs, with the first being replaced by the first argument in the list, and so on (so the number of additional arguments to `sprintf` must match the number of placeholders). The number in the placeholder defines the width to allocate for printing that argument (positive is right aligned, negative is left aligned), decimal numbers in the placeholder define precision of floating point numbers, and the letter defines the type of argument to print (e.g. `s` for string, `i` for integer, `f` for fixed point decimal, `e` for exponential decimal). Note that special characters are interpolated by `cat()` as before. Here are some examples:
 
 ``` r
 cat(sprintf("%20s\n", "Hello")) 
@@ -879,8 +877,7 @@ cat(sprintf("%10e\n", 12.345))
 
     ## 1.234500e+01
 
-3: Installing Packages<a name="3install" />
--------------------------------------------
+<a name="3install" /> \#\# 3: Installing Packages
 
 The main R package contains a large number of commonly used functions. There are also additional functions available in other "packages" that you can get hold of from the Comprehensive R Archive Network, or [CRAN](https://cran.r-project.org). To load in a package, first download and install the package from CRAN using the `install.packages()` function (if it is not already downloaded), and then use the "library" command to make the libraries available to your current R session:
 
@@ -921,7 +918,7 @@ biocLite() # Installs the basic packages required to use bioconductor
     ## Using Bioconductor 3.4 (BiocInstaller 1.24.0), R 3.3.2 (2016-10-31).
 
     ## Old packages: 'colorspace', 'curl', 'knitr', 'mgcv', 'Rcpp', 'rmarkdown',
-    ##   'survival', 'yaml'
+    ##   'RSQLite', 'survival', 'yaml'
 
 ``` r
 biocLite("DESeq") # Installs a specific bioconductor package
@@ -935,13 +932,12 @@ biocLite("DESeq") # Installs a specific bioconductor package
 
     ## 
     ## The downloaded binary packages are in
-    ##  /var/folders/ny/kqm7900d70g_8kk7_sc86sc80000gn/T//Rtmptc6IOH/downloaded_packages
+    ##  /var/folders/ny/kqm7900d70g_8kk7_sc86sc80000gn/T//Rtmp2aWnPf/downloaded_packages
 
     ## Old packages: 'colorspace', 'curl', 'knitr', 'mgcv', 'Rcpp', 'rmarkdown',
-    ##   'survival', 'yaml'
+    ##   'RSQLite', 'survival', 'yaml'
 
-4: Data Frames<a name="4df" />
-------------------------------
+<a name="4df" /> \#\# 4: Data Frames
 
 Data frames are the most powerful data types in R. They look similar to matrices, but the data structure is actually more similar to a list of vectors (all of the same length). The simplest way to think of them is as being similar to spreadsheets in Excel.
 
@@ -1061,17 +1057,21 @@ As a slight aside, I dislike using the attach/detach approach to accessing eleme
 
 Notice that to make changes to the data frame itself, we need to use the `$` accessor function (or double square brackets), otherwise a new variable `val1` will be created. Data frames should be set up in such a way that every row represents an independent observation, and the columns represent the independent variables that you may be interested in. For instance, if you have taken a measurement of say the weight of each sample in triplicate, you would not represent the data like this:
 
-SampleName | Weight1 | Weight2 | Weight3
-----------------------------------------
-
-Sample1 | 67.1 | 67.3 | 66.8 Sample2 | 80.3 | 79.8 | 79.5
+| SampleName | Weight1 | Weight2 | Weight3 |
+|------------|---------|---------|---------|
+| Sample1    | 67.1    | 67.3    | 66.8    |
+| Sample2    | 80.3    | 79.8    | 79.5    |
 
 But instead you would ensure that the two independent variables (weight and replicate number) were in their own columns:
 
-SampleName | Replicate | Weight
--------------------------------
-
-Sample1 | 1 | 67.1 Sample1 | 2 | 67.3 Sample1 | 3 | 66.8 Sample2 | 1 | 80.3 Sample2 | 2 | 79.8 Sample2 | 3 | 79.5
+| SampleName | Replicate | Weight |
+|------------|-----------|--------|
+| Sample1    | 1         | 67.1   |
+| Sample1    | 2         | 67.3   |
+| Sample1    | 3         | 66.8   |
+| Sample2    | 1         | 80.3   |
+| Sample2    | 2         | 79.8   |
+| Sample2    | 3         | 79.5   |
 
 Now all of the weights are in a single column that can be analysed.
 
@@ -1085,10 +1085,12 @@ signif_genes <- subset(gene_exp, foldChange > 2 & pVal <= 0.05)
 signif_genes
 ```
 
-    ##    geneName foldChange         pVal
-    ## 10   gene10   2.187849 -0.002352106
+    ##   geneName foldChange        pVal
+    ## 4    gene4   2.885117  0.02286229
+    ## 5    gene5   2.698370 -0.02421579
+    ## 9    gene9   2.545508  0.01059933
 
-Notice here that we use a single $&$ rather than the double $&&$ that we used earlier. This is because we are doing a vector-based logical test (that is performing the test on each element of the vector to get a vector of logical values at the end). It is very easy to forget this and accidentally use the $&&$, which will not give you what you want:
+Notice here that we use a single `&` rather than the double `&&` that we used earlier. This is because we are doing a vector-based logical test (that is performing the test on each element of the vector to get a vector of logical values at the end). It is very easy to forget this and accidentally use the `&&`, which will not give you what you want:
 
 ``` r
 fake_signif_genes <- subset(gene_exp, foldChange > 2 && pVal <= 0.05) 
@@ -1129,8 +1131,8 @@ str(gene_exp)
 
     ## 'data.frame':    10 obs. of  3 variables:
     ##  $ geneName  : Factor w/ 10 levels "gene1","gene10",..: 1 3 4 5 6 7 8 9 10 2
-    ##  $ foldChange: num  1.61 2.27 1.5 2.26 3.64 ...
-    ##  $ pVal      : num  0.0577 0.0883 0.068 0.0876 0.0897 ...
+    ##  $ foldChange: num  1.91 3.46 2.68 2.89 2.7 ...
+    ##  $ pVal      : num  0.0105 0.114 0.0507 0.0229 -0.0242 ...
 
 Whilst factors are incredibly useful in modelling and plotting, they may not necessarily be exactly what you want. For instance, in this case the column `geneName` has been converted into a factor, with levels `gene1`, ..., `gene10`. If we try and add in a new gene, `gene11`, this will not work as all entries of a factor must be one of the specified levels:
 
@@ -1145,25 +1147,24 @@ gene_exp_plus <- rbind(gene_exp, c("gene11", 1.789, 0.0034))
 gene_exp_plus
 ```
 
-    ##    geneName        foldChange                 pVal
-    ## 1     gene1  1.60652342047382   0.0576957074363574
-    ## 2     gene2  2.27082761710652   0.0882506456911917
-    ## 3     gene3  1.49897630775169   0.0679578754129787
-    ## 4     gene4  2.26193269417999   0.0876189254492788
-    ## 5     gene5  3.63663694174649   0.0897461402624675
-    ## 6     gene6  1.17643404624823  0.00835289693473927
-    ## 7     gene7 0.456312357235944   0.0889752166725937
-    ## 8     gene8  1.50796408875982   0.0827798295303716
-    ## 9     gene9  2.23379697021891    0.085356431182201
-    ## 10   gene10  2.18784917662137 -0.00235210599846088
-    ## 11     <NA>             1.789               0.0034
+    ##    geneName       foldChange                pVal
+    ## 1     gene1  1.9084920012264  0.0104817479293969
+    ## 2     gene2 3.45926725965167   0.113992759010418
+    ## 3     gene3 2.67987578669919  0.0507132222492937
+    ## 4     gene4 2.88511704212794  0.0228622862213863
+    ## 5     gene5  2.6983702748422 -0.0242157940777913
+    ## 6     gene6 3.75429118887218   0.106826072314715
+    ## 7     gene7 2.57603750305856  0.0985167548629213
+    ## 8     gene8 1.59414775870634  0.0247293121264779
+    ## 9     gene9 2.54550849055251  0.0105993286946215
+    ## 10   gene10 2.10837939902177  0.0566289950210242
+    ## 11     <NA>            1.789              0.0034
 
 Instead we would be better off treating `geneName` as a character vector, since we are unlikely to treat it as a categorical variable in later model fitting analyses.
 
-5: Reading and Writing Data<a name="5readwrite" />
---------------------------------------------------
+<a name="5readwrite" /> \#\# 5: Reading and Writing Data
 
-Reading and writing data in R is quite simple, and is most easily done by using pure text files. Functions exist for reading other formats as well (e.g. Excel tables), but for now we will concentrate on raw text. There are some very basic example files available from [here](files/).
+Reading and writing data in R is quite simple, and is most easily done by using pure text files. Functions exist for reading other formats as well (e.g. Excel tables), but for now we will concentrate on raw text. There are some very basic example files available from [here]({{ site.baseurl }}/files/).
 
 Unless you give the complete path for a file, R will look in it’s current working directory for any files that you want to load in. By default, R will use your system’s home directory, but you can set this by using the setwd() function. You can check that the correct working directory is set by using the getwd() function:
 
@@ -1201,7 +1202,7 @@ str(read.table("files/sample_annotation.txt", header = TRUE, sep = "\t"))
     ##  $ Replicate : int  1 2 3 1 2 3
     ##  $ CellType  : Factor w/ 1 level "HeLa": 1 1 1 1 1 1
 
-There are lots of additional arguments to the `read.table()` function; `header` is a boolean value that says whether or not the first row should be used to name the columns of the data frame, `sep` gives the delimiter between column entries (e.g. `\t` for tab-delimited files, or `,` for comma-separated files), `skip` tells R to skip the first *n* rows of the input, and `nrow` tells R to only load the first *n* rows that it sees:
+There are lots of additional arguments to the `read.table()` function; `header` is a boolean value that says whether or not the first row should be used to name the columns of the data frame, `sep` gives the delimiter between column entries (e.g. `\t` for tab-delimited files, or `,` for comma-separated files), `skip` tells R to skip the first `n` rows of the input, and `nrow` tells R to only load the first `n` rows that it sees:
 
 ``` r
 str(read.table("files/sample_annotation.txt", header = TRUE, sep = "\t", nrow = 2))
@@ -1235,8 +1236,7 @@ str(read.table("files/sample_annotation.txt", header = TRUE, sep = "\t", strings
     ##  $ Replicate : int  1 2 3 1 2 3
     ##  $ CellType  : chr  "HeLa" "HeLa" "HeLa" "HeLa" ...
 
-6: Control Sequences<a name="6control" />
------------------------------------------
+<a name="6control" /> \#\# 6: Control Sequences
 
 One of the most useful things to be able to do with computers is to repeat the same command multiple times without having to do it by hand each time. For this, control sequences can be used to give you close control over the progress of your program.
 
@@ -1420,8 +1420,7 @@ cat("Finished loop\n")
 
     ## Finished loop
 
-7: Writing Functions in R<a name="7functions" />
-------------------------------------------------
+<a name="7functions" /> \#\# 7: Writing Functions in R
 
 There are many functions available in R, and chances are if you want to do something somebody has already written the function to do it. It is best to not re-invent the wheel if possible (or at least it is more efficient -- sometimes it is good to reinvent the wheel to understand how it works), but very often you will want to create your own functions to save replicating code.
 
@@ -1656,8 +1655,7 @@ tapply(my_dat$Expression, INDEX = my_dat$Treatment, FUN = mean)
     ## Control Treated 
     ##      13      33
 
-8: Some Simple Statistics<a name="8stats" />
---------------------------------------------
+<a name="8stats" /> \#\# 8: Some Simple Statistics
 
 R is mainly designed for easy computation of statistics and there are many in-built functions and additional libraries that allow you to carry out most tasks. Most simple statistics can be easily calculated using in-built functions. The following example creates two vectors of 100 random values sampled from a normal distribution with mean 0 and standard deviation 1, then calculates various basic summary statistics:
 
@@ -1666,50 +1664,50 @@ x <- sort(rnorm(100, mean = 0, sd = 1))
 min(x)   
 ```
 
-    ## [1] -2.924904
+    ## [1] -2.843517
 
 ``` r
 max(x)   
 ```
 
-    ## [1] 1.844258
+    ## [1] 3.432718
 
 ``` r
 mean(x)  
 ```
 
-    ## [1] -0.04139925
+    ## [1] -0.0725583
 
 ``` r
 median(x)
 ```
 
-    ## [1] -0.03204637
+    ## [1] -0.04415252
 
-The minimum and maximum values are the smallest and largest values respectively. The mean is what most people would think of when you asked for the average, and is calculated by summing the values and dividing by the total number of values. The median is another way of looking at the average, and is essentially the middle value (50<sup>*t*</sup>*h* percentile). Other percentiles can be calculated, which can give you an idea of where the majority of your data lie:
+The minimum and maximum values are the smallest and largest values respectively. The mean is what most people would think of when you asked for the average, and is calculated by summing the values and dividing by the total number of values. The median is another way of looking at the average, and is essentially the middle value (`50^th^` percentile). Other percentiles can be calculated, which can give you an idea of where the majority of your data lie:
 
 ``` r
 quantile(x, probs = 0.25) 
 ```
 
     ##        25% 
-    ## -0.4753485
+    ## -0.7056343
 
 ``` r
 quantile(x, probs = 0.75) 
 ```
 
     ##       75% 
-    ## 0.4666757
+    ## 0.5872544
 
 ``` r
 quantile(x, probs = seq(0, 1, 0.1))
 ```
 
     ##          0%         10%         20%         30%         40%         50% 
-    ## -2.92490393 -1.00438371 -0.52640713 -0.39666860 -0.24702285 -0.03204637 
+    ## -2.84351736 -1.57371176 -0.90235207 -0.54339397 -0.23399728 -0.04415252 
     ##         60%         70%         80%         90%        100% 
-    ##  0.16275835  0.35228294  0.57279575  1.00518797  1.84425768
+    ##  0.14792465  0.42279152  0.78553691  1.28658345  3.43271778
 
 The `summary()` function will calculate many of these basic statistics for you:
 
@@ -1718,7 +1716,7 @@ summary(x)
 ```
 
     ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-    ## -2.92500 -0.47530 -0.03205 -0.04140  0.46670  1.84400
+    ## -2.84400 -0.70560 -0.04415 -0.07256  0.58730  3.43300
 
 The variance is the average of the squared distances from the mean, and is a measure of how spread out the data are from the average. The standard deviation is simply the square root of this value *v**a**r*(*x*)=*s**d*(*x*)<sup>2</sup>:
 
@@ -1726,13 +1724,13 @@ The variance is the average of the squared distances from the mean, and is a mea
 sd(x)
 ```
 
-    ## [1] 0.8421096
+    ## [1] 1.096424
 
 ``` r
 var(x)
 ```
 
-    ## [1] 0.7091485
+    ## [1] 1.202145
 
 ``` r
 all.equal(sd(x)^2, var(x))
@@ -1744,7 +1742,7 @@ all.equal(sd(x)^2, var(x))
 sum((x-mean(x))^2)/(length(x)-1)
 ```
 
-    ## [1] 0.7091485
+    ## [1] 1.202145
 
 The covariance is a measure of how much two sets of data vary together:
 
@@ -1753,13 +1751,13 @@ y <- sort(rnorm(100, mean = 0, sd = 1))
 var(y)
 ```
 
-    ## [1] 1.217467
+    ## [1] 1.09237
 
 ``` r
 cov(x, y)
 ```
 
-    ## [1] 0.9126731
+    ## [1] 1.133057
 
 The covariance is related to the correlation between two data sets, which is a number between -1 and 1 indicating the level of dependance between the two variables. A value of 1 indicates perfect correlation, so that as one value increases so does the other. A value of -1 indicates perfect anti-correlation, so that as one value increases the other decreases. A value of 0 indicates that the two values change independently of one another:
 
@@ -1767,13 +1765,13 @@ The covariance is related to the correlation between two data sets, which is a n
 cor(x, y)
 ```
 
-    ## [1] 0.9822409
+    ## [1] 0.9887541
 
 ``` r
 cov(x, y)/(sd(x) * sd(y)) 
 ```
 
-    ## [1] 0.9822409
+    ## [1] 0.9887541
 
 This value is known as the Pearson correlation. An alternative method for calculating the correlation between two sets of values is to use the Spearman correlation, which is essentially the same as the Pearson correlation but is calculated on the ranks of the data rather than the values themselves. In this way, each value increases by only one unit at a time, meaning that the correlation score is more robust to the presence of outliers:
 
@@ -1783,7 +1781,7 @@ cor(x, y, method = "spearman")
 
     ## [1] 1
 
-So these values are pretty highly dependent on one another -- not surprising considering that they are both drawn randomly from the same distribution. We can calculate the line of best fit between the two vectors by using linear regression, which searches for the best straight line model *y* = *a* + *b**x* that minimises the squared distances between the line and the data points:
+So these values are pretty highly dependent on one another -- not surprising considering that they are both drawn randomly from the same distribution. We can calculate the line of best fit between the two vectors by using linear regression, which searches for the best straight line model *y* = *a* + *b**x* that minimises the squared distances between the line (estimated values) and the observed data points:
 
 ``` r
 my_lin_mod <- lm(y ~ x)
@@ -1796,20 +1794,20 @@ summary(my_lin_mod)
     ## 
     ## Residuals:
     ##      Min       1Q   Median       3Q      Max 
-    ## -0.47536 -0.11141  0.05507  0.11842  1.02229 
+    ## -1.10510 -0.05373  0.01581  0.08619  0.21379 
     ## 
     ## Coefficients:
     ##             Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)  0.03361    0.02083   1.613     0.11    
-    ## x            1.28700    0.02483  51.825   <2e-16 ***
+    ## (Intercept) -0.07463    0.01574   -4.74 7.25e-06 ***
+    ## x            0.94253    0.01440   65.45  < 2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
-    ## Residual standard error: 0.2081 on 98 degrees of freedom
-    ## Multiple R-squared:  0.9648, Adjusted R-squared:  0.9644 
-    ## F-statistic:  2686 on 1 and 98 DF,  p-value: < 2.2e-16
+    ## Residual standard error: 0.1571 on 98 degrees of freedom
+    ## Multiple R-squared:  0.9776, Adjusted R-squared:  0.9774 
+    ## F-statistic:  4284 on 1 and 98 DF,  p-value: < 2.2e-16
 
-Explaining this output is beyond the scope of this short tutorial, but the coefficient estimates give us the values for `a` (`0.0336129`) and `b` (`1.2869986`) in the linear model. The p-value tells us how significant these estimates are. In statistical terms, we are testing the null hypothesis that the coefficient is actually equal to zero (i.e. there is not an association between `x` and `y`). The p-value gives the probability of detecting a coefficient at least as large as the one that we calculated in our model given that the null hypothesis is actually true. If this probability is low enough, we can safely reject the null hypothesis and say that this variable is statistically significant. Often a value of 0.05 (5%) is used as the cutoff for rejection of the null hypothesis.
+Explaining this output is beyond the scope of this short tutorial, but the coefficient estimates give us the values for `a` (`-0.0746284`) and `b` (`0.9425293`) in the linear model. The p-value tells us how significant these estimates are. In statistical terms, we are testing the null hypothesis that the coefficient is actually equal to zero (i.e. there is not an association between `x` and `y`). The p-value gives the probability of detecting a coefficient at least as large as the one that we calculated in our model given that the null hypothesis is actually true. If this probability is low enough, we can safely reject the null hypothesis and say that this variable is statistically significant. Often a value of 0.05 (5%) is used as the cutoff for rejection of the null hypothesis.
 
 Hypothesis testing is a large part of statistics. The t-test is a commonly used test for comparing the means of two sets of data. In simple terms we are looking to see if they are significantly different (e.g. does the expression of a particular gene change significantly following treatment with a drug). In statistical terms, we are testing to see if the change that we see in the means is greater than we would expect by chance alone.
 
@@ -1821,13 +1819,13 @@ t.test(x, y)
     ##  Welch Two Sample t-test
     ## 
     ## data:  x and y
-    ## t = -0.15656, df = 185.11, p-value = 0.8758
+    ## t = 0.46514, df = 197.55, p-value = 0.6423
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  -0.2955697  0.2521070
+    ##  -0.2282602  0.3691771
     ## sample estimates:
-    ##   mean of x   mean of y 
-    ## -0.04139925 -0.01966786
+    ##  mean of x  mean of y 
+    ## -0.0725583 -0.1430167
 
 Since both `x` and `y` are drawn from the same distribution, the test shows there is no evidence that there is a difference between the mean. Let's try again with a different data set, drawn from a different distribution:
 
@@ -1840,13 +1838,13 @@ t.test(x, z)
     ##  Welch Two Sample t-test
     ## 
     ## data:  x and z
-    ## t = -77.95, df = 192.74, p-value < 2.2e-16
+    ## t = -70.735, df = 192.02, p-value < 2.2e-16
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  -10.416917  -9.902771
+    ##  -10.394327  -9.830379
     ## sample estimates:
-    ##   mean of x   mean of y 
-    ## -0.04139925 10.11844467
+    ##  mean of x  mean of y 
+    ## -0.0725583 10.0397945
 
 This time, the p-value is much less than 0.05, so we can make the claim that the mean of `z` is significantly different from that of `x`. By default, the `t.test()` function is 2-sided, meaning that it does not distinguish between whether or not the difference in the means is an increase or a decrease in `z`. We can specify the `alternative` parameter to define the alternative hypothesis that we want to test:
 
@@ -1858,13 +1856,13 @@ t.test(x, z, alternative = "less")    ## Tests if mean(x) < mean(z)
     ##  Welch Two Sample t-test
     ## 
     ## data:  x and z
-    ## t = -77.95, df = 192.74, p-value < 2.2e-16
+    ## t = -70.735, df = 192.02, p-value < 2.2e-16
     ## alternative hypothesis: true difference in means is less than 0
     ## 95 percent confidence interval:
-    ##       -Inf -9.944421
+    ##       -Inf -9.876064
     ## sample estimates:
-    ##   mean of x   mean of y 
-    ## -0.04139925 10.11844467
+    ##  mean of x  mean of y 
+    ## -0.0725583 10.0397945
 
 ``` r
 t.test(x, z, alternative = "greater") ## Tests if mean(x) > mean(z)
@@ -1874,20 +1872,19 @@ t.test(x, z, alternative = "greater") ## Tests if mean(x) > mean(z)
     ##  Welch Two Sample t-test
     ## 
     ## data:  x and z
-    ## t = -77.95, df = 192.74, p-value = 1
+    ## t = -70.735, df = 192.02, p-value = 1
     ## alternative hypothesis: true difference in means is greater than 0
     ## 95 percent confidence interval:
-    ##  -10.37527       Inf
+    ##  -10.34864       Inf
     ## sample estimates:
-    ##   mean of x   mean of y 
-    ## -0.04139925 10.11844467
+    ##  mean of x  mean of y 
+    ## -0.0725583 10.0397945
 
 This tells us that the difference in the means between `x` and `z` is less than 0, or that the mean of `z` is greater than that of `x` (as we expect).
 
-9: Plotting With R<a name="9plotting" />
-----------------------------------------
+<a name="9plotting" /> \#\# 9: Plotting With R
 
-One of the most useful functions of R is the ability to plot publication-quality figures simply and easily. The vast number of tools available to users for plotting figures is beyond the scope of this tutorial, but I will mention a few of the most commonly used plotting functions to allow you to have a quick look at your data.
+One of the most useful functions of R is the ability to plot publication-quality figures simply and easily. The vast number of tools available to users for plotting figures is beyond the scope of this tutorial, but I will mention a few of the most commonly used plotting functions to allow you to have a quick look at your data. These functions are all part of the `base` plotting package, but I also recommend looking into the `[ggplot2()](http://ggplot2.org)` package for an incredibly intuative appraoch to plotting data.
 
 ### 9.1: Scatterplots
 
@@ -1906,7 +1903,7 @@ plot(x, y,
      )
 ```
 
-![](figures/scatterplot1-1.png)
+![_config.yml]({{ site.baseurl }}/figures/scatterplot1-1.png)
 
 There are lots of additional plotting arguments that can be set in the `plot()` command. These are just a few. These arguments will typically work for any plotting function that you may want to use.
 
@@ -1922,7 +1919,7 @@ my_cols[x < 0 & y >  0] <- "blue"
 plot(x, y, col = my_cols, pch = 19)
 ```
 
-![](figures/scatterplot2-1.png)
+![_config.yml]({{ site.baseurl }}/figures/scatterplot2-1.png)
 
 Since this plot is useful for observing the level of correlation between two data sets, it may be useful to add a couple of lines in to the plot to help us determine if there is a trend indicating that x is well correlated with y. First of all we will add lines in through the origin, and then we will add in a dotted line along the x = y line (since, if the two datasets were exactly correlated, the points would lie on this line). To do this, we use the `abline()` function. This plots a straight line in one of three ways. We can either specify a horizontal line by specifying the `h` argument, or we can specify a vertical line by using the `v` argument, or we can specify a straight line in the format *y* = *a* + *b**x* (where `a` is the intercept term and `b` is the gradient term):
 
@@ -1933,7 +1930,7 @@ abline(v = 0)
 abline(a = 0, b = 1, lty = 2) ## lty gives the line type - in this case dotted
 ```
 
-![](figures/scatterplot3-1.png)
+![_config.yml]({{ site.baseurl }}/figures/scatterplot3-1.png)
 
 Notice that `abline()` does not create a new plot, but instead adds to the plot that we already have. This is because it does not call the `plot.new()` function, which would otherwise create a new plotting region.
 
@@ -1945,7 +1942,7 @@ my_lin_model <- lm(y ~ x)
 abline(my_lin_model, lty = 2, col = "red")
 ```
 
-![](figures/scatterplot4-1.png)
+![_config.yml]({{ site.baseurl }}/figures/scatterplot4-1.png)
 
 If you want to explicitly pull out `a` and `b`, use the `coef()` function to get the coefficients:
 
@@ -1954,14 +1951,14 @@ coef(my_lin_model)[1] ## Get the intercept from the coefficients of the model
 ```
 
     ## (Intercept) 
-    ##  0.03361291
+    ## -0.07462842
 
 ``` r
 coef(my_lin_model)[2] ## Get the gradient from the coefficients of the model
 ```
 
-    ##        x 
-    ## 1.286999
+    ##         x 
+    ## 0.9425293
 
 ### 9.2: Histograms
 
@@ -1974,7 +1971,7 @@ hist(x) ## Shows a nice bell shape curve about mean 0
 hist(x, breaks = 200) ## More fine-grained
 ```
 
-![](figures/histogram-1.png)
+![_config.yml]({{ site.baseurl }}/figures/histogram-1.png)
 
 ### 9.3: Quantile-Quantile Plots
 
@@ -1989,7 +1986,7 @@ qqplot(x1, x2)
 abline(a = 0, b = 1, lty = 2)
 ```
 
-![](figures/QQplot1-1.png)
+![_config.yml]({{ site.baseurl }}/figures/QQplot1-1.png)
 
 And here is a QQ plot for two data sets drawn from different normal distributions:
 
@@ -2000,7 +1997,7 @@ qqplot(x1, x2)
 abline(a = 0, b = 1, lty = 2)
 ```
 
-![](figures/QQplot2-1.png)
+![_config.yml]({{ site.baseurl }}/figures/QQplot2-1.png)
 
 ### 9.4: Line Plots
 
@@ -2014,19 +2011,19 @@ y = c(4,2,5,4,10,6,6,5,6,9)
 plot(x = x, y = y, type = 'l')
 ```
 
-![](figures/lineplot1-1.png) But if we order the data from left to right then it will be a lot more useful:
+![_config.yml]({{ site.baseurl }}/figures/lineplot1-1.png) But if we order the data from left to right then it will be a lot more useful:
 
 ``` r
 plot(x = x[order(x)], y = y[order(x)], type = 'l') 
 ```
 
-![](figures/lineplot2-1.png) You can also plot both points and lines by setting the `type` argument to `both` (or `b`):
+![_config.yml]({{ site.baseurl }}/figures/lineplot2-1.png) You can also plot both points and lines by setting the `type` argument to `both` (or `b`):
 
 ``` r
 plot(x = x[order(x)], y = y[order(x)], type = 'b')
 ```
 
-![](figures/lineplot3-1.png)
+![_config.yml]({{ site.baseurl }}/figures/lineplot3-1.png)
 
 ### 9.5: Density Plots
 
@@ -2063,7 +2060,7 @@ lines(x2dens , col = "blue")
 legend("topleft", legend = c("Mean = 5", "Mean = 10"), col = c("red", "blue"), lty = 1)
 ```
 
-![](figures/density1-1.png)
+![_config.yml]({{ site.baseurl }}/figures/density1-1.png)
 
 ### 9.6: Boxplots
 
@@ -2073,7 +2070,7 @@ Another way to compare the distribution of two (or more) data sets is by using a
 boxplot(x1, x2, names = c("Mean = 5", "Mean = 10"), ylab = "Value")
 ```
 
-![](figures/boxplot1-1.png)
+![_config.yml]({{ site.baseurl }}/figures/boxplot1-1.png)
 
 `boxplot()` can also take the data in the form of a data frame, which is useful for instance if you want to compare the distribution of expression values over all genes for a number of different samples. This will automatically label the boxes with the column names from the data frame:
 
@@ -2086,7 +2083,7 @@ my_data <- data.frame(Sample1 = rnorm(100),
 boxplot(my_data)
 ```
 
-![](figures/boxplot2-1.png)
+![_config.yml]({{ site.baseurl }}/figures/boxplot2-1.png)
 
 ### 9.7: Bar Plots and Pie Charts
 
@@ -2100,7 +2097,7 @@ my_peak_nums <- c("exon"       = 1400,
 pie(my_peak_nums)
 ```
 
-![](figures/pie1-1.png)
+![_config.yml]({{ site.baseurl }}/figures/pie1-1.png)
 
 This figure shows that the majority of the peaks fall into exons. However, pie graphs are typically discouraged by statisticians, because your eyes can often misjudge estimates of the area taken up by each feature. A better way of looking at data such as this would be in the form of a barplot:
 
@@ -2110,7 +2107,7 @@ barplot(my_peak_nums,
         main = "Peaks in Gene Features")
 ```
 
-![](figures/barplot1-1.png)
+![_config.yml]({{ site.baseurl }}/figures/barplot1-1.png)
 
 Now let’s suppose that we had data showing the number of peaks in different genomic features for multiple samples. We could plot multiple pie charts:
 
@@ -2126,7 +2123,7 @@ pie(my_peak_nums[[3]], main = "Sample2", labels = my_peak_nums[[1]])
 pie(my_peak_nums[[4]], main = "Sample3", labels = my_peak_nums[[1]])
 ```
 
-![](figures/pie2-1.png)
+![_config.yml]({{ site.baseurl }}/figures/pie2-1.png)
 
 ``` r
 par(mfrow = c(1,1)) ## Reset the plotting region
@@ -2151,7 +2148,7 @@ barplot(my_peak_percent ,
         legend.text = my_peak_nums[["GeneFeature"]])
 ```
 
-![](figures/barplot2-1.png) Notice that the default way that `barplot()` works is to plot the bars in a single stack for each sample. This is fine for comparing the exons, but trying to compare the other classes is much harder. A better way to plot these data would be to plot the bars side by side for each sample:
+![_config.yml]({{ site.baseurl }}/figures/barplot2-1.png) Notice that the default way that `barplot()` works is to plot the bars in a single stack for each sample. This is fine for comparing the exons, but trying to compare the other classes is much harder. A better way to plot these data would be to plot the bars side by side for each sample:
 
 ``` r
 barplot(my_peak_percent ,
@@ -2161,7 +2158,7 @@ barplot(my_peak_percent ,
         beside = TRUE)
 ```
 
-![](figures/barplot3-1.png)
+![_config.yml]({{ site.baseurl }}/figures/barplot3-1.png)
 
 ### 9.8: Graphical Control
 
@@ -2174,7 +2171,7 @@ par(tcl = -0.2)         ## Change the size of the axis ticks
 plot(x = rnorm(100), y = rnorm(100))
 ```
 
-![](figures/barplot4-1.png)
+![_config.yml]({{ site.baseurl }}/figures/barplot4-1.png)
 
 ### 9.9: Subplots
 
@@ -2187,7 +2184,7 @@ for (i in 1:6) {
 }
 ```
 
-![](figures/subplot1-1.png) However, if you want more control over your plotting, you can use the `layout()` function which allows you to specify the size and layout of the subplots. This function takes a matrix specifying where in the grid of subplots each plot should be drawn to. So the first call to `plot()` will put its figure in the grid regions labelled `1`, the scond call will put its figure anywhere that there is a `2`, etc. Anywhere that you do not want a figure should have a `0`. The heights and widths arguments allow you to specify the size of each grid region. You can check what the resulting figure layout will look like by using `layout.show(n)`, where `n` is the number of subplots in your figure. With a bit of work, you can get some very good layouts:
+![_config.yml]({{ site.baseurl }}/figures/subplot1-1.png) However, if you want more control over your plotting, you can use the `layout()` function which allows you to specify the size and layout of the subplots. This function takes a matrix specifying where in the grid of subplots each plot should be drawn to. So the first call to `plot()` will put its figure in the grid regions labelled `1`, the scond call will put its figure anywhere that there is a `2`, etc. Anywhere that you do not want a figure should have a `0`. The heights and widths arguments allow you to specify the size of each grid region. You can check what the resulting figure layout will look like by using `layout.show(n)`, where `n` is the number of subplots in your figure. With a bit of work, you can get some very good layouts:
 
 ``` r
 my_layout <- matrix(c(1,1,1,1,2,2,3,4,2,2,3,4,0,0,3,4,0,0,5,5), nrow = 5, ncol = 4, byrow = TRUE)
@@ -2206,7 +2203,7 @@ my_layout
 layout.show(5) ## Can you see how this matrix leads to this layout? 
 ```
 
-![](figures/subplot2-1.png)
+![_config.yml]({{ site.baseurl }}/figures/subplot2-1.png)
 
 ### 9.10: Saving Figures
 
@@ -2221,8 +2218,7 @@ dev.off()
     ## quartz_off_screen 
     ##                 2
 
-10: Example Analysis<a name="10example" />
-------------------------------------------
+<a name="10example" /> \#\# 10: Example Analysis
 
 ### 10.1: Introduction
 
@@ -2235,7 +2231,10 @@ This is just a simple example analysis to give you an idea of the sort of things
 
 For this, we will need four files. These files are in a tab-delimited text format. They are tables of values where each row is separated by a new line, and each column is separated by a tab character (`\t`). These files can be created by and read into Excel for ease of use. To avoid errors when reading in files from text, it is good practice to ensure that there are no missing cells in your data. Instead try to get into the habit of using some "missing"" character (e.g. `NA`).
 
-[files/experiment1\_control.txt](files/experiment1_control.txt) -- Expression levels for control in experiment 1 [files/experiment1\_drug.txt](files/experiment1_drug.txt) -- Expression levels for drug A in experiment 1 [files/experiment2\_control.txt](files/experiment2_control.txt) -- Expression levels for control in experiment 2 [files/experiment2\_drug.txt](files/experiment2_drug.txt) -- Expression levels for drug A in experiment 2
+[experiment1\_control.txt]({{ site.baseurl }}/files/experiment1_control.txt) -- Expression levels for control in experiment 1 
+[experiment1\_drug.txt]({{ site.baseurl }}/files/experiment1_drug.txt) -- Expression levels for drug A in experiment 1 
+[experiment2\_control.txt]({{ site.baseurl }}/files/experiment2_control.txt) -- Expression levels for control in experiment 2 
+[experiment2\_drug.txt]({{ site.baseurl }}/files/experiment2_drug.txt) -- Expression levels for drug A in experiment 2
 
 ### 10.2: Load Data
 
