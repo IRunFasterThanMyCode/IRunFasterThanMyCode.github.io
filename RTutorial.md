@@ -31,7 +31,8 @@ Table of Contents
 9.  [Plotting with R](#9plotting)
 10. [Example Analysis](#10example)
 
-<a name="1installR" /> \#\# 1: Installing R
+1: Installing R<a name="1installR" />
+-------------------------------------
 
 First of all, you will need to download and install R. The R website can be found at [r-project.org](http://www.r-project.org). R is updated quite regularly -- there is an updated release roughly every 6 months, with various developmental versions released between the official versions. The functions in R are actively maintained to ensure that they run as they should, and new functionality is added all of the time.
 
@@ -39,7 +40,8 @@ The current version is 3.3.2. To download it, go to the Comprehensive R Archive 
 
 It is also worth taking a look at the Integrated Development Environment [RStudio](https://www.rstudio.com), which is a great open-source interface for R.
 
-<a name="2Rbasics" /> \#\# 2: Basics of R
+2: Basics of R<a name="2Rbasics" />
+-----------------------------------
 
 ### 2.1: Introduction
 
@@ -877,7 +879,8 @@ cat(sprintf("%10e\n", 12.345))
 
     ## 1.234500e+01
 
-<a name="3install" /> \#\# 3: Installing Packages
+3: Installing Packages<a name="3install" />
+-------------------------------------------
 
 The main R package contains a large number of commonly used functions. There are also additional functions available in other "packages" that you can get hold of from the Comprehensive R Archive Network, or [CRAN](https://cran.r-project.org). To load in a package, first download and install the package from CRAN using the `install.packages()` function (if it is not already downloaded), and then use the "library" command to make the libraries available to your current R session:
 
@@ -905,39 +908,12 @@ Since R is so useful for analysing biological data, the `bioconductor` project w
 
 ``` r
 source("http://bioconductor.org/biocLite.R") # Load the biocLite() script 
-```
-
-    ## Bioconductor version 3.4 (BiocInstaller 1.24.0), ?biocLite for help
-
-``` r
 biocLite() # Installs the basic packages required to use bioconductor 
-```
-
-    ## BioC_mirror: https://bioconductor.org
-
-    ## Using Bioconductor 3.4 (BiocInstaller 1.24.0), R 3.3.2 (2016-10-31).
-
-    ## Old packages: 'colorspace', 'curl', 'knitr', 'mgcv', 'Rcpp', 'rmarkdown',
-    ##   'RSQLite', 'survival', 'yaml'
-
-``` r
 biocLite("DESeq") # Installs a specific bioconductor package
 ```
 
-    ## BioC_mirror: https://bioconductor.org
-
-    ## Using Bioconductor 3.4 (BiocInstaller 1.24.0), R 3.3.2 (2016-10-31).
-
-    ## Installing package(s) 'DESeq'
-
-    ## 
-    ## The downloaded binary packages are in
-    ##  /var/folders/ny/kqm7900d70g_8kk7_sc86sc80000gn/T//Rtmp2aWnPf/downloaded_packages
-
-    ## Old packages: 'colorspace', 'curl', 'knitr', 'mgcv', 'Rcpp', 'rmarkdown',
-    ##   'RSQLite', 'survival', 'yaml'
-
-<a name="4df" /> \#\# 4: Data Frames
+4: Data Frames<a name="4df" />
+------------------------------
 
 Data frames are the most powerful data types in R. They look similar to matrices, but the data structure is actually more similar to a list of vectors (all of the same length). The simplest way to think of them is as being similar to spreadsheets in Excel.
 
@@ -1085,10 +1061,9 @@ signif_genes <- subset(gene_exp, foldChange > 2 & pVal <= 0.05)
 signif_genes
 ```
 
-    ##   geneName foldChange        pVal
-    ## 4    gene4   2.885117  0.02286229
-    ## 5    gene5   2.698370 -0.02421579
-    ## 9    gene9   2.545508  0.01059933
+    ##   geneName foldChange       pVal
+    ## 1    gene1   4.014522 0.01385464
+    ## 8    gene8   2.067389 0.02324378
 
 Notice here that we use a single `&` rather than the double `&&` that we used earlier. This is because we are doing a vector-based logical test (that is performing the test on each element of the vector to get a vector of logical values at the end). It is very easy to forget this and accidentally use the `&&`, which will not give you what you want:
 
@@ -1097,8 +1072,17 @@ fake_signif_genes <- subset(gene_exp, foldChange > 2 && pVal <= 0.05)
 fake_signif_genes
 ```
 
-    ## [1] geneName   foldChange pVal      
-    ## <0 rows> (or 0-length row.names)
+    ##    geneName foldChange       pVal
+    ## 1     gene1  4.0145223 0.01385464
+    ## 2     gene2  3.2573192 0.07825419
+    ## 3     gene3  1.0326244 0.10816641
+    ## 4     gene4  1.8731322 0.03817267
+    ## 5     gene5 -0.5858596 0.06758530
+    ## 6     gene6  3.2370707 0.11807092
+    ## 7     gene7  2.5558724 0.08503014
+    ## 8     gene8  2.0673890 0.02324378
+    ## 9     gene9  2.8390934 0.08079412
+    ## 10   gene10  1.8047248 0.04711685
 
 Another form of data that comes in very handy, particularly with data frames, is the "factor". Factors are a way of dealing with categorical data, and simply encode the possible levels with numberic dummy values 0, 1, 2, etc. (which are used in modelling procedures such as ANOVA):
 
@@ -1131,8 +1115,8 @@ str(gene_exp)
 
     ## 'data.frame':    10 obs. of  3 variables:
     ##  $ geneName  : Factor w/ 10 levels "gene1","gene10",..: 1 3 4 5 6 7 8 9 10 2
-    ##  $ foldChange: num  1.91 3.46 2.68 2.89 2.7 ...
-    ##  $ pVal      : num  0.0105 0.114 0.0507 0.0229 -0.0242 ...
+    ##  $ foldChange: num  4.015 3.257 1.033 1.873 -0.586 ...
+    ##  $ pVal      : num  0.0139 0.0783 0.1082 0.0382 0.0676 ...
 
 Whilst factors are incredibly useful in modelling and plotting, they may not necessarily be exactly what you want. For instance, in this case the column `geneName` has been converted into a factor, with levels `gene1`, ..., `gene10`. If we try and add in a new gene, `gene11`, this will not work as all entries of a factor must be one of the specified levels:
 
@@ -1147,24 +1131,25 @@ gene_exp_plus <- rbind(gene_exp, c("gene11", 1.789, 0.0034))
 gene_exp_plus
 ```
 
-    ##    geneName       foldChange                pVal
-    ## 1     gene1  1.9084920012264  0.0104817479293969
-    ## 2     gene2 3.45926725965167   0.113992759010418
-    ## 3     gene3 2.67987578669919  0.0507132222492937
-    ## 4     gene4 2.88511704212794  0.0228622862213863
-    ## 5     gene5  2.6983702748422 -0.0242157940777913
-    ## 6     gene6 3.75429118887218   0.106826072314715
-    ## 7     gene7 2.57603750305856  0.0985167548629213
-    ## 8     gene8 1.59414775870634  0.0247293121264779
-    ## 9     gene9 2.54550849055251  0.0105993286946215
-    ## 10   gene10 2.10837939902177  0.0566289950210242
-    ## 11     <NA>            1.789              0.0034
+    ##    geneName         foldChange               pVal
+    ## 1     gene1   4.01452229417071 0.0138546351427647
+    ## 2     gene2   3.25731921812416 0.0782541878677822
+    ## 3     gene3   1.03262443715129  0.108166405914071
+    ## 4     gene4   1.87313217840124 0.0381726662599022
+    ## 5     gene5 -0.585859595053554 0.0675852992207052
+    ## 6     gene6   3.23707067124166  0.118070916224096
+    ## 7     gene7    2.5558724255767 0.0850301431604498
+    ## 8     gene8   2.06738897817082 0.0232437768075035
+    ## 9     gene9   2.83909336112931 0.0807941218410645
+    ## 10   gene10   1.80472477947747 0.0471168501527434
+    ## 11     <NA>              1.789             0.0034
 
 Instead we would be better off treating `geneName` as a character vector, since we are unlikely to treat it as a categorical variable in later model fitting analyses.
 
-<a name="5readwrite" /> \#\# 5: Reading and Writing Data
+5: Reading and Writing Data<a name="5readwrite" />
+--------------------------------------------------
 
-Reading and writing data in R is quite simple, and is most easily done by using pure text files. Functions exist for reading other formats as well (e.g. Excel tables), but for now we will concentrate on raw text. There are some very basic example files available from [here]({{ site.baseurl }}/files/).
+Reading and writing data in R is quite simple, and is most easily done by using pure text files. Functions exist for reading other formats as well (e.g. Excel tables), but for now we will concentrate on raw text. There are some very basic example files available from [here](files/).
 
 Unless you give the complete path for a file, R will look in it’s current working directory for any files that you want to load in. By default, R will use your system’s home directory, but you can set this by using the setwd() function. You can check that the correct working directory is set by using the getwd() function:
 
@@ -1236,7 +1221,8 @@ str(read.table("files/sample_annotation.txt", header = TRUE, sep = "\t", strings
     ##  $ Replicate : int  1 2 3 1 2 3
     ##  $ CellType  : chr  "HeLa" "HeLa" "HeLa" "HeLa" ...
 
-<a name="6control" /> \#\# 6: Control Sequences
+6: Control Sequences<a name="6control" />
+-----------------------------------------
 
 One of the most useful things to be able to do with computers is to repeat the same command multiple times without having to do it by hand each time. For this, control sequences can be used to give you close control over the progress of your program.
 
@@ -1655,7 +1641,8 @@ tapply(my_dat$Expression, INDEX = my_dat$Treatment, FUN = mean)
     ## Control Treated 
     ##      13      33
 
-<a name="8stats" /> \#\# 8: Some Simple Statistics
+8: Some Simple Statistics<a name="8stats" />
+--------------------------------------------
 
 R is mainly designed for easy computation of statistics and there are many in-built functions and additional libraries that allow you to carry out most tasks. Most simple statistics can be easily calculated using in-built functions. The following example creates two vectors of 100 random values sampled from a normal distribution with mean 0 and standard deviation 1, then calculates various basic summary statistics:
 
@@ -1664,25 +1651,25 @@ x <- sort(rnorm(100, mean = 0, sd = 1))
 min(x)   
 ```
 
-    ## [1] -2.843517
+    ## [1] -2.311342
 
 ``` r
 max(x)   
 ```
 
-    ## [1] 3.432718
+    ## [1] 1.962756
 
 ``` r
 mean(x)  
 ```
 
-    ## [1] -0.0725583
+    ## [1] -0.09415277
 
 ``` r
 median(x)
 ```
 
-    ## [1] -0.04415252
+    ## [1] -0.08615255
 
 The minimum and maximum values are the smallest and largest values respectively. The mean is what most people would think of when you asked for the average, and is calculated by summing the values and dividing by the total number of values. The median is another way of looking at the average, and is essentially the middle value (`50^th^` percentile). Other percentiles can be calculated, which can give you an idea of where the majority of your data lie:
 
@@ -1691,23 +1678,23 @@ quantile(x, probs = 0.25)
 ```
 
     ##        25% 
-    ## -0.7056343
+    ## -0.7104224
 
 ``` r
 quantile(x, probs = 0.75) 
 ```
 
     ##       75% 
-    ## 0.5872544
+    ## 0.6206428
 
 ``` r
 quantile(x, probs = seq(0, 1, 0.1))
 ```
 
     ##          0%         10%         20%         30%         40%         50% 
-    ## -2.84351736 -1.57371176 -0.90235207 -0.54339397 -0.23399728 -0.04415252 
+    ## -2.31134217 -1.33765078 -0.82409856 -0.63119049 -0.44045901 -0.08615255 
     ##         60%         70%         80%         90%        100% 
-    ##  0.14792465  0.42279152  0.78553691  1.28658345  3.43271778
+    ##  0.16389265  0.41351407  0.69241529  1.05705839  1.96275621
 
 The `summary()` function will calculate many of these basic statistics for you:
 
@@ -1716,7 +1703,7 @@ summary(x)
 ```
 
     ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-    ## -2.84400 -0.70560 -0.04415 -0.07256  0.58730  3.43300
+    ## -2.31100 -0.71040 -0.08615 -0.09415  0.62060  1.96300
 
 The variance is the average of the squared distances from the mean, and is a measure of how spread out the data are from the average. The standard deviation is simply the square root of this value *v**a**r*(*x*)=*s**d*(*x*)<sup>2</sup>:
 
@@ -1724,13 +1711,13 @@ The variance is the average of the squared distances from the mean, and is a mea
 sd(x)
 ```
 
-    ## [1] 1.096424
+    ## [1] 0.9438292
 
 ``` r
 var(x)
 ```
 
-    ## [1] 1.202145
+    ## [1] 0.8908136
 
 ``` r
 all.equal(sd(x)^2, var(x))
@@ -1742,7 +1729,7 @@ all.equal(sd(x)^2, var(x))
 sum((x-mean(x))^2)/(length(x)-1)
 ```
 
-    ## [1] 1.202145
+    ## [1] 0.8908136
 
 The covariance is a measure of how much two sets of data vary together:
 
@@ -1751,13 +1738,13 @@ y <- sort(rnorm(100, mean = 0, sd = 1))
 var(y)
 ```
 
-    ## [1] 1.09237
+    ## [1] 0.9097077
 
 ``` r
 cov(x, y)
 ```
 
-    ## [1] 1.133057
+    ## [1] 0.8958599
 
 The covariance is related to the correlation between two data sets, which is a number between -1 and 1 indicating the level of dependance between the two variables. A value of 1 indicates perfect correlation, so that as one value increases so does the other. A value of -1 indicates perfect anti-correlation, so that as one value increases the other decreases. A value of 0 indicates that the two values change independently of one another:
 
@@ -1765,13 +1752,13 @@ The covariance is related to the correlation between two data sets, which is a n
 cor(x, y)
 ```
 
-    ## [1] 0.9887541
+    ## [1] 0.9951665
 
 ``` r
 cov(x, y)/(sd(x) * sd(y)) 
 ```
 
-    ## [1] 0.9887541
+    ## [1] 0.9951665
 
 This value is known as the Pearson correlation. An alternative method for calculating the correlation between two sets of values is to use the Spearman correlation, which is essentially the same as the Pearson correlation but is calculated on the ranks of the data rather than the values themselves. In this way, each value increases by only one unit at a time, meaning that the correlation score is more robust to the presence of outliers:
 
@@ -1793,21 +1780,21 @@ summary(my_lin_mod)
     ## lm(formula = y ~ x)
     ## 
     ## Residuals:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -1.10510 -0.05373  0.01581  0.08619  0.21379 
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.282332 -0.059513  0.000799  0.064779  0.184447 
     ## 
     ## Coefficients:
     ##             Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept) -0.07463    0.01574   -4.74 7.25e-06 ***
-    ## x            0.94253    0.01440   65.45  < 2e-16 ***
+    ## (Intercept) 0.066811   0.009461   7.062  2.4e-10 ***
+    ## x           1.005665   0.010025 100.320  < 2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
-    ## Residual standard error: 0.1571 on 98 degrees of freedom
-    ## Multiple R-squared:  0.9776, Adjusted R-squared:  0.9774 
-    ## F-statistic:  4284 on 1 and 98 DF,  p-value: < 2.2e-16
+    ## Residual standard error: 0.09414 on 98 degrees of freedom
+    ## Multiple R-squared:  0.9904, Adjusted R-squared:  0.9903 
+    ## F-statistic: 1.006e+04 on 1 and 98 DF,  p-value: < 2.2e-16
 
-Explaining this output is beyond the scope of this short tutorial, but the coefficient estimates give us the values for `a` (`-0.0746284`) and `b` (`0.9425293`) in the linear model. The p-value tells us how significant these estimates are. In statistical terms, we are testing the null hypothesis that the coefficient is actually equal to zero (i.e. there is not an association between `x` and `y`). The p-value gives the probability of detecting a coefficient at least as large as the one that we calculated in our model given that the null hypothesis is actually true. If this probability is low enough, we can safely reject the null hypothesis and say that this variable is statistically significant. Often a value of 0.05 (5%) is used as the cutoff for rejection of the null hypothesis.
+Explaining this output is beyond the scope of this short tutorial, but the coefficient estimates give us the values for `a` (`0.0668115`) and `b` (`1.0056649`) in the linear model. The p-value tells us how significant these estimates are. In statistical terms, we are testing the null hypothesis that the coefficient is actually equal to zero (i.e. there is not an association between `x` and `y`). The p-value gives the probability of detecting a coefficient at least as large as the one that we calculated in our model given that the null hypothesis is actually true. If this probability is low enough, we can safely reject the null hypothesis and say that this variable is statistically significant. Often a value of 0.05 (5%) is used as the cutoff for rejection of the null hypothesis.
 
 Hypothesis testing is a large part of statistics. The t-test is a commonly used test for comparing the means of two sets of data. In simple terms we are looking to see if they are significantly different (e.g. does the expression of a particular gene change significantly following treatment with a drug). In statistical terms, we are testing to see if the change that we see in the means is greater than we would expect by chance alone.
 
@@ -1819,13 +1806,13 @@ t.test(x, y)
     ##  Welch Two Sample t-test
     ## 
     ## data:  x and y
-    ## t = 0.46514, df = 197.55, p-value = 0.6423
+    ## t = -0.49394, df = 197.98, p-value = 0.6219
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  -0.2282602  0.3691771
+    ##  -0.3308905  0.1983343
     ## sample estimates:
-    ##  mean of x  mean of y 
-    ## -0.0725583 -0.1430167
+    ##   mean of x   mean of y 
+    ## -0.09415277 -0.02787464
 
 Since both `x` and `y` are drawn from the same distribution, the test shows there is no evidence that there is a difference between the mean. Let's try again with a different data set, drawn from a different distribution:
 
@@ -1838,13 +1825,13 @@ t.test(x, z)
     ##  Welch Two Sample t-test
     ## 
     ## data:  x and z
-    ## t = -70.735, df = 192.02, p-value < 2.2e-16
+    ## t = -67.762, df = 190.76, p-value < 2.2e-16
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  -10.394327  -9.830379
+    ##  -10.373265  -9.786436
     ## sample estimates:
-    ##  mean of x  mean of y 
-    ## -0.0725583 10.0397945
+    ##   mean of x   mean of y 
+    ## -0.09415277  9.98569777
 
 This time, the p-value is much less than 0.05, so we can make the claim that the mean of `z` is significantly different from that of `x`. By default, the `t.test()` function is 2-sided, meaning that it does not distinguish between whether or not the difference in the means is an increase or a decrease in `z`. We can specify the `alternative` parameter to define the alternative hypothesis that we want to test:
 
@@ -1856,13 +1843,13 @@ t.test(x, z, alternative = "less")    ## Tests if mean(x) < mean(z)
     ##  Welch Two Sample t-test
     ## 
     ## data:  x and z
-    ## t = -70.735, df = 192.02, p-value < 2.2e-16
+    ## t = -67.762, df = 190.76, p-value < 2.2e-16
     ## alternative hypothesis: true difference in means is less than 0
     ## 95 percent confidence interval:
-    ##       -Inf -9.876064
+    ##       -Inf -9.833977
     ## sample estimates:
-    ##  mean of x  mean of y 
-    ## -0.0725583 10.0397945
+    ##   mean of x   mean of y 
+    ## -0.09415277  9.98569777
 
 ``` r
 t.test(x, z, alternative = "greater") ## Tests if mean(x) > mean(z)
@@ -1872,17 +1859,18 @@ t.test(x, z, alternative = "greater") ## Tests if mean(x) > mean(z)
     ##  Welch Two Sample t-test
     ## 
     ## data:  x and z
-    ## t = -70.735, df = 192.02, p-value = 1
+    ## t = -67.762, df = 190.76, p-value = 1
     ## alternative hypothesis: true difference in means is greater than 0
     ## 95 percent confidence interval:
-    ##  -10.34864       Inf
+    ##  -10.32572       Inf
     ## sample estimates:
-    ##  mean of x  mean of y 
-    ## -0.0725583 10.0397945
+    ##   mean of x   mean of y 
+    ## -0.09415277  9.98569777
 
 This tells us that the difference in the means between `x` and `z` is less than 0, or that the mean of `z` is greater than that of `x` (as we expect).
 
-<a name="9plotting" /> \#\# 9: Plotting With R
+9: Plotting With R<a name="9plotting" />
+----------------------------------------
 
 One of the most useful functions of R is the ability to plot publication-quality figures simply and easily. The vast number of tools available to users for plotting figures is beyond the scope of this tutorial, but I will mention a few of the most commonly used plotting functions to allow you to have a quick look at your data. These functions are all part of the `base` plotting package, but I also recommend looking into the `[ggplot2()](http://ggplot2.org)` package for an incredibly intuative appraoch to plotting data.
 
@@ -1951,14 +1939,14 @@ coef(my_lin_model)[1] ## Get the intercept from the coefficients of the model
 ```
 
     ## (Intercept) 
-    ## -0.07462842
+    ##   0.0668115
 
 ``` r
 coef(my_lin_model)[2] ## Get the gradient from the coefficients of the model
 ```
 
-    ##         x 
-    ## 0.9425293
+    ##        x 
+    ## 1.005665
 
 ### 9.2: Histograms
 
@@ -2218,7 +2206,8 @@ dev.off()
     ## quartz_off_screen 
     ##                 2
 
-<a name="10example" /> \#\# 10: Example Analysis
+10: Example Analysis<a name="10example" />
+------------------------------------------
 
 ### 10.1: Introduction
 
@@ -2231,10 +2220,7 @@ This is just a simple example analysis to give you an idea of the sort of things
 
 For this, we will need four files. These files are in a tab-delimited text format. They are tables of values where each row is separated by a new line, and each column is separated by a tab character (`\t`). These files can be created by and read into Excel for ease of use. To avoid errors when reading in files from text, it is good practice to ensure that there are no missing cells in your data. Instead try to get into the habit of using some "missing"" character (e.g. `NA`).
 
-[experiment1\_control.txt]({{ site.baseurl }}/files/experiment1_control.txt) -- Expression levels for control in experiment 1 
-[experiment1\_drug.txt]({{ site.baseurl }}/files/experiment1_drug.txt) -- Expression levels for drug A in experiment 1 
-[experiment2\_control.txt]({{ site.baseurl }}/files/experiment2_control.txt) -- Expression levels for control in experiment 2 
-[experiment2\_drug.txt]({{ site.baseurl }}/files/experiment2_drug.txt) -- Expression levels for drug A in experiment 2
+[files/experiment1\_control.txt](files/experiment1_control.txt) -- Expression levels for control in experiment 1 [files/experiment1\_drug.txt](files/experiment1_drug.txt) -- Expression levels for drug A in experiment 1 [files/experiment2\_control.txt](files/experiment2_control.txt) -- Expression levels for control in experiment 2 [files/experiment2\_drug.txt](files/experiment2_drug.txt) -- Expression levels for drug A in experiment 2
 
 ### 10.2: Load Data
 
@@ -2335,10 +2321,11 @@ So we now have the genes that change when each of the drugs is used. But now we 
 ``` r
 common_up   <- intersect(expt1_up, expt2_up) 
 common_down <- intersect(expt1_down, expt2_down)
-cat("Upregulated in Experiment 1 and Experiment 2:", paste(common_down, collapse = "\n"), sep = "\n")
+cat("Upregulated in Experiment 1 and Experiment 2:", paste(common_up, collapse = "\n"), sep = "\n")
 ```
 
     ## Upregulated in Experiment 1 and Experiment 2:
+    ## gene8
 
 ``` r
 cat("Downregulated in Experiment 1 and Experiment 2:", paste(common_down, collapse = "\n"), sep = "\n")
@@ -2371,7 +2358,7 @@ abline(v = 0)
 abline(a = 0, b = 1, lty = 2)
 ```
 
-![_config.yml]({{ site.baseurl }}/figures/unnamed-chunk-102-1.png)
+![_config.yml]({{ site.baseurl }}/figures/foldchange-1.png)
 
 This figure shows that the effect on the gene expression is actually quite different for the two drugs. We can also see this by looking at the correlation between the two experiments:
 
