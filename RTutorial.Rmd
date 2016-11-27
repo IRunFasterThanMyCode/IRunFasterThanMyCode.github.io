@@ -24,11 +24,12 @@ You will notice that I have added comments to some of the code using the `#` com
 5. [Reading and Writing Data](#5readwrite)
 6. [Control Sequences](#6control)
 7. [Writing Functions in R](#7functions)
-8. [Simple Statistics](#8stats)
-9. [Plotting in R](#9plotting)
+8. [Some Simple Statistics](#8stats)
+9. [Plotting with R](#9plotting)
 10. [Example Analysis](#10example)
 
-## 1: Installing R<a name="1installR" />
+<a name="1installR" />
+## 1: Installing R
 
 First of all, you will need to download and install R. The R website can be found at [r-project.org](http://www.r-project.org). R is updated quite regularly -- there is an updated release roughly every 6 months, with various developmental versions released between the official versions. The functions in R are actively maintained to ensure that they run as they should, and new functionality is added all of the time.
 
@@ -36,9 +37,10 @@ The current version is 3.3.2. To download it, go to the Comprehensive R Archive 
 
 It is also worth taking a look at the Integrated Development Environment [RStudio](https://www.rstudio.com), which is a great open-source interface for R.
 
-## 2: Basics of R<a name="2Rbasics" />
+<a name="2Rbasics" />
+## 2: Basics of R
 
-### 2.1: Introduction<a name="2intro" />
+### 2.1: Introduction
 
 Open the R environment. This is a command line version allowing you to see the results of the commands that you enter as you run them.
 
@@ -178,7 +180,7 @@ my_vector[5]
 my_vector[6]
 ```
 
-As you can see, a value $NA$ (Not Applicable) is returned if you try to take an element that does not exist. The subset can be as long as you like, as long as it's not longer than the full set:
+As you can see, a value `NA` (Not Applicable) is returned if you try to take an element that does not exist. The subset can be as long as you like, as long as it's not longer than the full set:
 
 ``` {r}
 my_vector <- c(10,20,30,40,50)
@@ -215,7 +217,7 @@ rep(10, times = 5)      # Returns vector containing five copies of the number 10
 rep(c(1,2,3), each = 5) # Returns five 1s, then five 2s, then five 3s
 ```
 
-One of the most powerful features of R is the fact that arithmetic can be conducted on entire vectors rather than having to loop through all values in the vector. Vectorisation of calculations in this way can give huge improvements in performance. For instance, if you sum two vectors (of equal size), the result will be a vector where the $i^th$ entry is the sum of the $i^th$ entries from the input vectors:
+One of the most powerful features of R is the fact that arithmetic can be conducted on entire vectors rather than having to loop through all values in the vector. Vectorisation of calculations in this way can give huge improvements in performance. For instance, if you sum two vectors (of equal size), the result will be a vector where the `i^th^` entry is the sum of the `i^th^` entries from the input vectors:
 
 ``` {r}
 x <- c(2,3,2,4,5) 
@@ -365,7 +367,7 @@ my_vector <- 1:5
 sum(my_vector) 
 ```
 
-In this example, the `sum()` function takes only one variable (in this case a numeric vector). Sometimes functions take more than one variable (also known as "arguments"). These are named values that must be specified for the function to run. For example, the `cor()` function returns the correlation between two vectors. This requires several variables to be supplied -- two vectors, $x$ and $y$, of equal length -- and you can also supply a number of additional arguments to control how the function works, including the `method` argument, which lets you specify which method to use to calculate the correlation:
+In this example, the `sum()` function takes only one variable (in this case a numeric vector). Sometimes functions take more than one variable (also known as "arguments"). These are named values that must be specified for the function to run. For example, the `cor()` function returns the correlation between two vectors. This requires several variables to be supplied -- two vectors, `x` and `y`, of equal length -- and you can also supply a number of additional arguments to control how the function works, including the `method` argument, which lets you specify which method to use to calculate the correlation:
 
 ``` {r}
 sample1 <- c(0.9, 1.2, 8.9, -0.3, 6.4)
@@ -374,7 +376,7 @@ cor(sample1, sample2 , method = "pearson")
 cor(sample1, sample2 , method = "spearman")
 ```
 
-Note that we gave a name to the third argument ("method"), but not the first two. If you do not name arguments, they will be taken and assigned to the arguments in the order in which they are input. The first two arguments required by the function are $x$ and $y$ -- the two vectors to compare. So there is no problem with not naming these (although you could if you wanted to say $x=sample1$). Any arguments not submitted will use their default value. For instance, the Pearson correlation is the default for `method`, so you could get this by simply typing:
+Note that we gave a name to the third argument ("method"), but not the first two. If you do not name arguments, they will be taken and assigned to the arguments in the order in which they are input. The first two arguments required by the function are `x` and `y` -- the two vectors to compare. So there is no problem with not naming these (although you could, if you wanted to, say `x=sample1, y=sample2`). Any arguments not submitted will use their default value. For instance, the Pearson correlation is the default for `method`, so you could get this by simply typing:
 
 ``` {r}
 pearson_cor <- cor(sample1 , sample2)
@@ -437,7 +439,7 @@ print(paste("sample", 1:5, sep="_", collapse="\n")) # Prints values separated by
 
 Do you notice the difference between `print()` and `cat()`? While `print()` prints the `\t` character as is, `cat()` prints the actual tab space. This is a process known as "interpolation". In many programming languages, using double quotes in strings results in special characters being interpolated, whilst single quotes will print as is. However, in R the two can be used relatively interchangeably. 
 
-There are also other characters, such as $'$, $"$, $/$ and $\$, which may require "escaping" with a backslash to avoid R interpreting the character in a different context. For instance, if you have a string containing an apostrophe within a string defined using apostrophes, the string will be interpreted as terminating earlier, and the code will not do what you expect:
+There are also other characters, such as `'`, `"`, `/` and `\`, which may require "escaping" with a backslash to avoid R interpreting the character in a different context. For instance, if you have a string containing an apostrophe within a string defined using apostrophes, the string will be interpreted as terminating earlier, and the code will not do what you expect:
 
 ``` {r error = TRUE}
 cat('It's very annoying when this happens...')
@@ -462,7 +464,7 @@ cat(sprintf("%10s\t%5s\n", "Hello", "World"),
     sprintf("%10s\t%5s\n", "Helloooooo", "World"))
 ```
 
-The `sprintf()` function takes as input a string telling R how you want your inputs to be formatted, followed by a list of the inputs. Within the formatting string, placeholders of the form `%10s` are replaced by the given inputs, with the first being replaced by the first argument in the list, and so on (so the number of additional arguments to `sprintf` must match the number of placeholders). The number in the placeholder defines the width to allocate for printing that argument (positive is right aligned, negative is left aligned), decimal numbers in the placeholder define precision of floating point numbers, and the letter defines the type of argument to print (e.g. $s$ for string, $i$ for integer, $f$ for fixed point decimal, $e$ for exponential decimal). Note that special characters are interpolated by `cat()` as before. Here are some examples:
+The `sprintf()` function takes as input a string telling R how you want your inputs to be formatted, followed by a list of the inputs. Within the formatting string, placeholders of the form `%10s` are replaced by the given inputs, with the first being replaced by the first argument in the list, and so on (so the number of additional arguments to `sprintf` must match the number of placeholders). The number in the placeholder defines the width to allocate for printing that argument (positive is right aligned, negative is left aligned), decimal numbers in the placeholder define precision of floating point numbers, and the letter defines the type of argument to print (e.g. `s` for string, `i` for integer, `f` for fixed point decimal, `e` for exponential decimal). Note that special characters are interpolated by `cat()` as before. Here are some examples:
 
 ``` {r}
 cat(sprintf("%20s\n", "Hello")) 
@@ -472,7 +474,8 @@ cat(sprintf("%10f\n", 12.345))
 cat(sprintf("%10e\n", 12.345)) 
 ```
 
-## 3: Installing Packages<a name="3install" />
+<a name="3install" />
+## 3: Installing Packages
 
 The main R package contains a large number of commonly used functions. There are also additional functions available in other "packages" that you can get hold of from the Comprehensive R Archive Network, or [CRAN](https://cran.r-project.org). To load in a package, first download and install the package from CRAN using the `install.packages()` function (if it is not already downloaded), and then use the "library" command to make the libraries available to your current R session:
 
@@ -493,7 +496,8 @@ biocLite() # Installs the basic packages required to use bioconductor
 biocLite("DESeq") # Installs a specific bioconductor package
 ```
 
-## 4: Data Frames<a name="4df" />
+<a name="4df" />
+## 4: Data Frames
 
 Data frames are the most powerful data types in R. They look similar to matrices, but the data structure is actually more similar to a list of vectors (all of the same length). The simplest way to think of them is as being similar to spreadsheets in Excel.
 
@@ -544,14 +548,14 @@ As a slight aside, I dislike using the attach/detach approach to accessing eleme
 Notice that to make changes to the data frame itself, we need to use the `$` accessor function (or double square brackets), otherwise a new variable `val1` will be created. Data frames should be set up in such a way that every row represents an independent observation, and the columns represent the independent variables that you may be interested in. For instance, if you have taken a measurement of say the weight of each sample in triplicate, you would not represent the data like this:
 
 SampleName | Weight1 | Weight2 | Weight3
-----------------------------------------
+-----------|---------|---------|--------
 Sample1    | 67.1    | 67.3    | 66.8
 Sample2    | 80.3    | 79.8    | 79.5
 
 But instead you would ensure that the two independent variables (weight and replicate number) were in their own columns:
 
 SampleName | Replicate | Weight 
--------------------------------
+-----------|-----------|-------
 Sample1    | 1         | 67.1 
 Sample1    | 2         | 67.3
 Sample1    | 3         | 66.8
@@ -571,7 +575,7 @@ signif_genes <- subset(gene_exp, foldChange > 2 & pVal <= 0.05)
 signif_genes
 ```
 
-Notice here that we use a single $&$ rather than the double $&&$ that we used earlier. This is because we are doing a vector-based logical test (that is performing the test on each element of the vector to get a vector of logical values at the end). It is very easy to forget this and accidentally use the $&&$, which will not give you what you want:
+Notice here that we use a single `&` rather than the double `&&` that we used earlier. This is because we are doing a vector-based logical test (that is performing the test on each element of the vector to get a vector of logical values at the end). It is very easy to forget this and accidentally use the `&&`, which will not give you what you want:
 
 ``` {r}
 fake_signif_genes <- subset(gene_exp, foldChange > 2 && pVal <= 0.05) 
@@ -603,8 +607,8 @@ gene_exp_plus
 
 Instead we would be better off treating `geneName` as a character vector, since we are unlikely to treat it as a categorical variable in later model fitting analyses.
 
-
-## 5: Reading and Writing Data<a name="5readwrite" />
+<a name="5readwrite" />
+## 5: Reading and Writing Data
 
 Reading and writing data in R is quite simple, and is most easily done by using pure text files. Functions exist for reading other formats as well (e.g. Excel tables), but for now we will concentrate on raw text. There are some very basic example files available from [here](files/).
 
@@ -629,7 +633,7 @@ For tables (for instance tab-delimited files saved from Excel), the easiest way 
 str(read.table("files/sample_annotation.txt", header = TRUE, sep = "\t"))
 ```
 
-There are lots of additional arguments to the `read.table()` function; `header` is a boolean value that says whether or not the first row should be used to name the columns of the data frame, `sep` gives the delimiter between column entries (e.g. `\t` for tab-delimited files, or `,` for comma-separated files), `skip` tells R to skip the first $n$ rows of the input, and `nrow` tells R to only load the first $n$ rows that it sees: 
+There are lots of additional arguments to the `read.table()` function; `header` is a boolean value that says whether or not the first row should be used to name the columns of the data frame, `sep` gives the delimiter between column entries (e.g. `\t` for tab-delimited files, or `,` for comma-separated files), `skip` tells R to skip the first `n` rows of the input, and `nrow` tells R to only load the first `n` rows that it sees: 
 
 ``` {r}
 str(read.table("files/sample_annotation.txt", header = TRUE, sep = "\t", nrow = 2))
@@ -642,8 +646,8 @@ Notice that when the header is not used, the numeric column `Replicate` is now i
 str(read.table("files/sample_annotation.txt", header = TRUE, sep = "\t", stringsAsFactors = FALSE))
 ```
 
-
-## 6: Control Sequences<a name="6control" />
+<a name="6control" />
+## 6: Control Sequences
 
 One of the most useful things to be able to do with computers is to repeat the same command multiple times without having to do it by hand each time. For this, control sequences can be used to give you close control over the progress of your program.
 
@@ -756,7 +760,8 @@ for (i in 1:10) {
 cat("Finished loop\n")
 ```
 
-## 7: Writing Functions in R<a name="7functions" />
+<a name="7functions" />
+## 7: Writing Functions in R
 
 There are many functions available in R, and chances are if you want to do something somebody has already written the function to do it. It is best to not re-invent the wheel if possible (or at least it is more efficient -- sometimes it is good to reinvent the wheel to understand how it works), but very often you will want to create your own functions to save replicating code. 
 
@@ -877,7 +882,8 @@ my_dat <- data.frame(Treatment = c("Control", "Control", "Control",
 tapply(my_dat$Expression, INDEX = my_dat$Treatment, FUN = mean)
 ```
 
-## 8: Some Simple Statistics<a name="8stats" />
+<a name="8stats" />
+## 8: Some Simple Statistics
 
 R is mainly designed for easy computation of statistics and there are many in-built functions and additional libraries that allow you to carry out most tasks. Most simple statistics can be easily calculated using in-built functions. The following example creates two vectors of 100 random values sampled from a normal distribution with mean 0 and standard deviation 1, then calculates various basic summary statistics:
 
@@ -889,7 +895,7 @@ mean(x)
 median(x)
 ```
 
-The minimum and maximum values are the smallest and largest values respectively. The mean is what most people would think of when you asked for the average, and is calculated by summing the values and dividing by the total number of values. The median is another way of looking at the average, and is essentially the middle value ($50^th$ percentile). Other percentiles can be calculated, which can give you an idea of where the majority of your data lie:
+The minimum and maximum values are the smallest and largest values respectively. The mean is what most people would think of when you asked for the average, and is calculated by summing the values and dividing by the total number of values. The median is another way of looking at the average, and is essentially the middle value (`50^th^` percentile). Other percentiles can be calculated, which can give you an idea of where the majority of your data lie:
 
 ``` {r}
 quantile(x, probs = 0.25) 
@@ -932,7 +938,7 @@ This value is known as the Pearson correlation. An alternative method for calcul
 cor(x, y, method = "spearman")
 ```
 
-So these values are pretty highly dependent on one another -- not surprising considering that they are both drawn randomly from the same distribution. We can calculate the line of best fit between the two vectors by using linear regression, which searches for the best straight line model $y = a + bx$ that minimises the squared distances between the line and the data points:
+So these values are pretty highly dependent on one another -- not surprising considering that they are both drawn randomly from the same distribution. We can calculate the line of best fit between the two vectors by using linear regression, which searches for the best straight line model $y = a + bx$ that minimises the squared distances between the line (estimated values) and the observed data points:
 
 ``` {r}
 my_lin_mod <- lm(y ~ x)
@@ -960,10 +966,8 @@ t.test(x, z, alternative = "greater") ## Tests if mean(x) > mean(z)
 ```
 This tells us that the difference in the means between `x` and `z` is less than 0, or that the mean of `z` is greater than that of `x` (as we expect).
 
-
-
-
-## 9: Plotting With R<a name="9plotting" />
+<a name="9plotting" />
+## 9: Plotting With R
 
 One of the most useful functions of R is the ability to plot publication-quality figures simply and easily. The vast number of tools available to users for plotting figures is beyond the scope of this tutorial, but I will mention a few of the most commonly used plotting functions to allow you to have a quick look at your data.
 
@@ -971,7 +975,7 @@ One of the most useful functions of R is the ability to plot publication-quality
 
 Scatterplots are probably the simplest plot that we can look at. Here we take two sets of values and plot one against the other to see how they correlate. This means that the two data sets are paired, such that the first element of each data set represents one event, the second represents another, and so on. For instance, for every student in a class, we may have scores from tests taken at the start and at the end of the year, and we want to compare them against one another to see how they compare. Here is how to plot a simple scatterplot:
 
-``` {r scatterplot1, fig.path = 'figures/'}
+``` {r scatterplot1, fig.path = '{{ site.baseurl }}/figures/'}
 plot(x, y, 
      pch = 19,                  ## Plot each point as a filled circle
      col = "red",               ## Colour each point red
@@ -990,7 +994,7 @@ There are lots of additional plotting arguments that can be set in the `plot()` 
 
 Here we have coloured all of our points a single colour by using the `col = "red"` argument. However, we can assign colours to each point separately by supplying a vector of colours that is the same length as `x` and `y`. This means that we can set colours based on the data themselves:
 
-``` {r scatterplot2, fig.path = 'figures/'}
+``` {r scatterplot2, fig.path = '{{ site.baseurl }}/figures/'}
 my_cols <- rep("black", length(x)) 
 my_cols[x > 1 & y >  1] <- "red"
 my_cols[x > 1 & y < -1] <- "green" 
@@ -1000,7 +1004,7 @@ plot(x, y, col = my_cols, pch = 19)
 
 Since this plot is useful for observing the level of correlation between two data sets, it may be useful to add a couple of lines in to the plot to help us determine if there is a trend indicating that x is well correlated with y. First of all we will add lines in through the origin, and then we will add in a dotted line along the x = y line (since, if the two datasets were exactly correlated, the points would lie on this line). To do this, we use the `abline()` function. This plots a straight line in one of three ways. We can either specify a horizontal line by specifying the `h` argument, or we can specify a vertical line by using the `v` argument, or we can specify a straight line in the format $y = a + bx$ (where `a` is the intercept term and `b` is the gradient term):
 
-``` {r scatterplot3, fig.path = 'figures/'}
+``` {r scatterplot3, fig.path = '{{ site.baseurl }}/figures/'}
 plot(x, y, ylim = c(-3,3), xlim = c(-3,3))
 abline(h = 0)
 abline(v = 0)
@@ -1011,7 +1015,7 @@ Notice that `abline()` does not create a new plot, but instead adds to the plot 
 
 We may be particularly interested in how the line of best fit looks as compared to the $x = y$ line, as this will show us if there is a general trend in the data or not. To do this we can use a linear model to predict `a` and `b` from the data:
 
-``` {r scatterplot4, fig.path = 'figures/'}
+``` {r scatterplot4, fig.path = '{{ site.baseurl }}/figures/'}
 plot(x, y, ylim = c(-3,3), xlim = c(-3,3))
 my_lin_model <- lm(y ~ x) 
 abline(my_lin_model, lty = 2, col = "red")
@@ -1028,7 +1032,7 @@ coef(my_lin_model)[2] ## Get the gradient from the coefficients of the model
 
 Now let’s look at the distribution of the data. A histogram is useful for this. Here we count up the number of values that fall into discrete bins. The size of the bins (or the number of bins) can be specified by using the `breaks` argument:
 
-``` {r histogram, fig.path = 'figures/'}
+``` {r histogram, fig.path = '{{ site.baseurl }}/figures/'}
 x <- rnorm (1000)
 par(mfrow=c(1,2))
 hist(x) ## Shows a nice bell shape curve about mean 0 
@@ -1041,7 +1045,7 @@ Quantile-quantile plots are a particular type of scatterplot that are used to se
 
 Here is a QQ plot for two data sets drawn from the same normal distribution:
 
-``` {r QQplot1, fig.path = 'figures/'}
+``` {r QQplot1, fig.path = '{{ site.baseurl }}/figures/'}
 x1 <- rnorm(100, mean = 0, sd = 1) 
 x2 <- rnorm(1000, mean = 0, sd = 1) 
 qqplot(x1, x2)
@@ -1050,7 +1054,7 @@ abline(a = 0, b = 1, lty = 2)
 
 And here is a QQ plot for two data sets drawn from different normal distributions:
 
-``` {r QQplot2, fig.path = 'figures/'}
+``` {r QQplot2, fig.path = '{{ site.baseurl }}/figures/'}
 x1 <- rnorm(100, mean = 0, sd = 1) 
 x2 <- rnorm(1000, mean = 1, sd = 3) 
 qqplot(x1, x2)
@@ -1063,19 +1067,19 @@ Scatterplots are useful for generating correlation plots for pairs of data. Anot
 
 One thing to be careful of with data such as this is that you must make sure that the data are ordered from left to right (or right to left) on the x axis so that connecting the points makes sense on the continuum. For instance, the following plot is not terribly useful:
 
-``` {r lineplot1, fig.path = 'figures/'}
+``` {r lineplot1, fig.path = '{{ site.baseurl }}/figures/'}
 x = c(2,4,5,3,1,7,9,8,6,10)
 y = c(4,2,5,4,10,6,6,5,6,9)
 plot(x = x, y = y, type = 'l')
 ```
 But if we order the data from left to right then it will be a lot more useful:
 
-``` {r lineplot2, fig.path = 'figures/'}
+``` {r lineplot2, fig.path = '{{ site.baseurl }}/figures/'}
 plot(x = x[order(x)], y = y[order(x)], type = 'l') 
 ```
 You can also plot both points and lines by setting the `type` argument to `both` (or `b`): 
 
-``` {r lineplot3, fig.path = 'figures/'}
+``` {r lineplot3, fig.path = '{{ site.baseurl }}/figures/'}
 plot(x = x[order(x)], y = y[order(x)], type = 'b')
 ```
 
@@ -1083,7 +1087,7 @@ plot(x = x[order(x)], y = y[order(x)], type = 'b')
 
 We can use a line plot like this to plot the density of the data, which gives us a similar plot to the histogram. The benefit of this type of plot over a histogram is that you can overlay the distribution of multiple data sets. The `density()` function is a kernal density estimator function that basically calculates the density of the data within each bin such that the total area under the resulting curve is 1. This makes these plots useful for comparing data sets of different sizes as they are essentially normalised. We can add a legend to this plot to make it clear which line represents which sample. Again, this does not call `plot.new()` so will appear on top of the current plot:
 
-``` {r density1, fig.path = 'figures/'}
+``` {r density1, fig.path = '{{ site.baseurl }}/figures/'}
 ## Create 2 random normal distributions about 5 and 10 respectively
 x1 <- rnorm(100, mean = 5, sd = 1) 
 x2 <- rnorm(1000, mean = 10, sd = 1)
@@ -1113,13 +1117,13 @@ legend("topleft", legend = c("Mean = 5", "Mean = 10"), col = c("red", "blue"), l
 
 Another way to compare the distribution of two (or more) data sets is by using a boxplot. A boxplot shows the overal distribution by plotting a box bounded by the first and third quartiles, with the median highlighted. This shows where the majority of the data lie. Additional values are plotted as whiskers coming out from the main box:
 
-``` {r boxplot1, fig.path = 'figures/'}
+``` {r boxplot1, fig.path = '{{ site.baseurl }}/figures/'}
 boxplot(x1, x2, names = c("Mean = 5", "Mean = 10"), ylab = "Value")
 ```
 
 `boxplot()` can also take the data in the form of a data frame, which is useful for instance if you want to compare the distribution of expression values over all genes for a number of different samples. This will automatically label the boxes with the column names from the data frame:
 
-``` {r boxplot2, fig.path = 'figures/'}
+``` {r boxplot2, fig.path = '{{ site.baseurl }}/figures/'}
 my_data <- data.frame(Sample1 = rnorm(100), 
                       Sample2 = rnorm(100), 
                       Sample3 = rnorm(100), 
@@ -1132,7 +1136,7 @@ boxplot(my_data)
 
 Now let’s say that we have a data set that shows the number of called peaks from a ChIPseq data set that fall into distinct genomic features (exons, introns, promoters and intergenic regions). One way to look at how the peaks fall would be to look at a pie graph:
 
-``` {r pie1, fig.path = 'figures/'}
+``` {r pie1, fig.path = '{{ site.baseurl }}/figures/'}
 my_peak_nums <- c("exon"       = 1400, 
                   "intron"     = 900, 
                   "promoter"   = 200, 
@@ -1142,7 +1146,7 @@ pie(my_peak_nums)
 
 This figure shows that the majority of the peaks fall into exons. However, pie graphs are typically discouraged by statisticians, because your eyes can often misjudge estimates of the area taken up by each feature. A better way of looking at data such as this would be in the form of a barplot:
 
-``` {r barplot1, fig.path = 'figures/'}
+``` {r barplot1, fig.path = '{{ site.baseurl }}/figures/'}
 barplot(my_peak_nums, 
         ylab = "Number of Peaks in Feature", 
         main = "Peaks in Gene Features")
@@ -1150,7 +1154,7 @@ barplot(my_peak_nums,
 
 Now let’s suppose that we had data showing the number of peaks in different genomic features for multiple samples. We could plot multiple pie charts:
 
-``` {r pie2, fig.path = 'figures/'}
+``` {r pie2, fig.path = '{{ site.baseurl }}/figures/'}
 my_peak_nums <- data.frame(GeneFeature = c("exon", "intron", "promoter", "intergenic"),
                            Sample1 = c( 1400, 900, 200, 150 ),
                            Sample2 = c( 2400, 1000, 230,250 ),
@@ -1165,7 +1169,7 @@ par(mfrow = c(1,1)) ## Reset the plotting region
 
 However comparing across multiple pie charts is very difficult. Instead, a single barplot will work better. Note that here the number of peaks is different for each sample, so it makes more sense to convert the data into a format whereby the bar height represents the percentage of peaks within a particular feature:
 
-``` {r barplot2, fig.path = 'figures/'}
+``` {r barplot2, fig.path = '{{ site.baseurl }}/figures/'}
 ## Convert to percentages so that the samples are comparable
 my_peak_percent <- my_peak_nums[, 2:4] 
 for (i in 1:3) {
@@ -1183,7 +1187,7 @@ barplot(my_peak_percent ,
 ```
 Notice that the default way that `barplot()` works is to plot the bars in a single stack for each sample. This is fine for comparing the exons, but trying to compare the other classes is much harder. A better way to plot these data would be to plot the bars side by side for each sample:
 
-``` {r barplot3, fig.path = 'figures/'}
+``` {r barplot3, fig.path = '{{ site.baseurl }}/figures/'}
 barplot(my_peak_percent ,
         ylab = "Percentage of Peaks in Feature", 
         main = "Peaks in Gene Features", 
@@ -1195,7 +1199,7 @@ barplot(my_peak_percent ,
 
 That covers the majority of the basic plotting functions that you may want to use. You can change the standard plotting arguments by using the par() command:
 
-``` {r barplot4, fig.path = 'figures/'}
+``` {r barplot4, fig.path = '{{ site.baseurl }}/figures/'}
 par(mar = c(5,10,0,3))  ## Sets the figure margins (in 'number of lines') - b,l,t,r
 par(las = 1)            ## Changes axis labels to always be horizontal
 par(tcl = -0.2)         ## Change the size of the axis ticks
@@ -1206,7 +1210,7 @@ plot(x = rnorm(100), y = rnorm(100))
 
 By default, the graphics device will plot a single figure only. There are several ways to create subfigures within this region. The first is to set the `mfrow` argument in `par()`. This will split the graphics region into equally sized subplots:
 
-``` {r subplot1, fig.path = 'figures/'}
+``` {r subplot1, fig.path = '{{ site.baseurl }}/figures/'}
 par(mfrow = c(3, 2)) ## Creates a figure region with 3 rows and 2 columns 
 for (i in 1:6) {
   plot(x = rnorm(100), y = rnorm(100)) 
@@ -1214,7 +1218,7 @@ for (i in 1:6) {
 ```
 However, if you want more control over your plotting, you can use the `layout()` function which allows you to specify the size and layout of the subplots. This function takes a matrix specifying where in the grid of subplots each plot should be drawn to. So the first call to `plot()` will put its figure in the grid regions labelled `1`, the scond call will put its figure anywhere that there is a `2`, etc. Anywhere that you do not want a figure should have a `0`. The heights and widths arguments allow you to specify the size of each grid region. You can check what the resulting figure layout will look like by using `layout.show(n)`, where `n` is the number of subplots in your figure. With a bit of work, you can get some very good layouts:
 
-``` {r subplot2, fig.path = 'figures/'}
+``` {r subplot2, fig.path = '{{ site.baseurl }}/figures/'}
 my_layout <- matrix(c(1,1,1,1,2,2,3,4,2,2,3,4,0,0,3,4,0,0,5,5), nrow = 5, ncol = 4, byrow = TRUE)
 layout(my_layout, widths = c(10,10,2,2), heights = c(1,5,5,5,2)) 
 my_layout
@@ -1225,13 +1229,14 @@ layout.show(5) ## Can you see how this matrix leads to this layout?
 
 By default, figures are generated in a seperate window from R. However, you can save the figure to an external file by using one of the functions `png()`, `pdf()`, `jpeg()`, etc. These functions open a new "device", which R can use to plot to. After the figure has been plotted, the device must be turned off again using the `dev.off()` function. There are many arguments that can be used for these functions. In general, these define the dimensions and resolution of the resulting figure. It can be difficult to get these right, so play around to see how they affect things:
 
-``` {r save, fig.path = 'figures/'}
-png("figures/test_figure.png", height = 10, width = 10, unit = "in", res = 300)
+``` {r save, fig.path = '{{ site.baseurl }}/figures/'}
+png("{{ site.baseurl }}/figures/test_figure.png", height = 10, width = 10, unit = "in", res = 300)
 plot(1:10, 1:10, type = "l", main = "My Test Figure", xlab = "x axis", ylab = "y axis") 
 dev.off()
 ```
 
-## 10: Example Analysis<a name="10example" />
+<a name="10example" />
+## 10: Example Analysis
 
 ### 10.1: Introduction
 
