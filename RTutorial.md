@@ -1406,7 +1406,8 @@ cat("Finished loop\n")
 
     ## Finished loop
 
-<a name="7functions" /> \#\# 7: Writing Functions in R
+7: Writing Functions in R<a name="7functions" />
+------------------------------------------------
 
 There are many functions available in R, and chances are if you want to do something somebody has already written the function to do it. It is best to not re-invent the wheel if possible (or at least it is more efficient -- sometimes it is good to reinvent the wheel to understand how it works), but very often you will want to create your own functions to save replicating code.
 
