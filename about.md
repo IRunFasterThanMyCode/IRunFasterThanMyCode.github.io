@@ -24,7 +24,7 @@ If you are at all interested in running, I also have a less *statsy*, more *runs
 
 I am also a regular contributor for [ULTRA](https://www.ultraevolution.com) magazine.
 
-If you are interested in my current bioinformatcs work, information on the work of the Kouzarides Lab can be found [here](http://www2.gurdon.cam.ac.uk/~kouzarideslab/).
+If you are interested in my current bioinformatics work, information on the work of the Kouzarides Lab can be found [here](http://www2.gurdon.cam.ac.uk/~kouzarideslab/).
 
 ### Contact me
 
