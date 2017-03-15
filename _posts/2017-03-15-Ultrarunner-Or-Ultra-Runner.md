@@ -99,7 +99,7 @@ pie(um_count, col = c("grey90","grey70","grey50"))
 
 ![plot of chunk 2017-03-15_ultramarathon_tweet_pie](/figures/2017-03-15_ultramarathon_tweet_pie-1.png)
  
-Let's look at this code. After loading the ```twitteR``` package and specifying the number of Tweets to load, we access the Twitter API using ```searchTwitter``` and load in the 5 &times; 10<sup>5</sup> most recent Tweets with the terms "ultra", "running", or "ultrarunning" in them (there will be many fewer than this, but I want to capture every Tweet possible). This produces a list of 960 objects of class ```status```, which is a specially defined reference class as a container for Twitter statuses. Next we strip out all of the retweets to leave 584 Tweets, then pull out the text from the list objects (```sapply()``` applies the accessor function ```getText()``` to all elements of the list). Since I am only interested in three specific terms, I use regular expressions to look only at Tweets containing one of these terms (giving 316 Tweets), and then count how many Tweets contain each of the three specific terms. Finally I generate a pie chart of the results (yes, yes, I know - I hate pie charts as well). 
+Let's look at this code. After loading the ```twitteR``` package and specifying the number of Tweets to load, we access the Twitter API using ```searchTwitter``` and load in the 500000 most recent Tweets with the terms "ultra", "running", or "ultrarunning" in them (there will be many fewer than this, but I want to capture every Tweet possible). This produces a list of 960 objects of class ```status```, which is a specially defined reference class as a container for Twitter statuses. Next we strip out all of the retweets to leave 584 Tweets, then pull out the text from the list objects (```sapply()``` applies the accessor function ```getText()``` to all elements of the list). Since I am only interested in three specific terms, I use regular expressions to look only at Tweets containing one of these terms (giving 316 Tweets), and then count how many Tweets contain each of the three specific terms. Finally I generate a pie chart of the results (yes, yes, I know - I hate pie charts as well). 
  
 A couple of things here. First of all, there are a lot of retweets. Of the 960 Tweets originally analysed, only 584 remain after removing the retweets. This means that 39.17% of these Tweets were retweets. Man, we ultrarunners aren't very original are we? Unfortunately this therefore drastically reduces the number of Tweets that I am analysing. Secondly, because of the way the pattern matching is done we end up with a lot of Tweets with "ultra" or "running" in them that don't match any of the three specific terms that I am looking at here. Also, this counting may be double counting some Tweets if both versions are used in a single Tweet. But I can't be bothered taking such stupidity into account right now! ;)
  
@@ -120,12 +120,13 @@ ur_count <- NULL
 for (t in c("ultrarunning", "ultra-running", "ultra running")) {
   ur_count[[t]] <- length(grep(t, ur_tweets_text, ignore.case = TRUE))
 }
+par(mar = c(0,0,0,0))
 pie(ur_count, col = c("grey90","grey70","grey50"))
 {% endhighlight %}
 
 ![plot of chunk 2017-03-15_ultrarunning_tweet_pie](/figures/2017-03-15_ultrarunning_tweet_pie-1.png)
  
-There are a lot more Tweets relating to ultra "running" compared to ultra "marathon", with 11977 Tweets in the starting data set. However, again we lose a lot of Tweets through retweets leaving us with only 2198 Tweets to play with. After trimming out Tweets that don't follow the format that I am looking at here, we are left with only 179 -- even less than in the last analysis. 
+There are a lot more Tweets relating to ultra "running" compared to ultra "marathon", with 11953 Tweets in the starting data set. However, again we lose a lot of Tweets through retweets leaving us with only 2127 Tweets to play with. After trimming out Tweets that don't follow the format that I am looking at here, we are left with only 178 -- even less than in the last analysis. 
  
 In this case, it is less clear cut, and whilst the single word term "ultrarunning" is used most often, the two word "ultra running" is not far behind. Damn, I wanted a clearly defined outcome, but I guess I will let you off whichever one you choose to use. But god help anybody who chooses to hyphenate either term...
  
@@ -146,6 +147,7 @@ cloud_dat <- tm_map(cloud_dat, PlainTextDocument)                    ## Make pla
 cloud_dat <- tm_map(cloud_dat, content_transformer(tolower))         ## Convert to lower case
 cloud_dat <- tm_map(cloud_dat, removePunctuation)                    ## Remove punctuation
 cloud_dat <- tm_map(cloud_dat, removeWords, stopwords("english"))    ## Remove common English words
+par(mar = c(0,0,0,0))
 wordcloud(cloud_dat, max.words = 1000, min.freq = 5, random.order = FALSE, colors = brewer.pal(9, "RdBu"))
 {% endhighlight %}
 

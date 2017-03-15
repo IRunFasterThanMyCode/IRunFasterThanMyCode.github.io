@@ -11,6 +11,7 @@ tags: R
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, error = FALSE, eval = TRUE, results = "hide", fig.height = 10, fig.width = 10)
+options(scipen = 999)
 ```
 
 ## Welcome!
@@ -114,6 +115,7 @@ ur_count <- NULL
 for (t in c("ultrarunning", "ultra-running", "ultra running")) {
   ur_count[[t]] <- length(grep(t, ur_tweets_text, ignore.case = TRUE))
 }
+par(mar = c(0,0,0,0))
 pie(ur_count, col = c("grey90","grey70","grey50"))
 ```
 
@@ -137,6 +139,7 @@ cloud_dat <- tm_map(cloud_dat, PlainTextDocument)                    ## Make pla
 cloud_dat <- tm_map(cloud_dat, content_transformer(tolower))         ## Convert to lower case
 cloud_dat <- tm_map(cloud_dat, removePunctuation)                    ## Remove punctuation
 cloud_dat <- tm_map(cloud_dat, removeWords, stopwords("english"))    ## Remove common English words
+par(mar = c(0,0,0,0))
 wordcloud(cloud_dat, max.words = 1000, min.freq = 5, random.order = FALSE, colors = brewer.pal(9, "RdBu"))
 ```
 
