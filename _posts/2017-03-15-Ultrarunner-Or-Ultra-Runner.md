@@ -86,6 +86,19 @@ So now we are all set up and we can take a look at how to access the API. The wo
 library("twitteR")
 numtweets      <- 500000
 um_tweets_all  <- searchTwitter("ultramarathon|ultra marathon", n = numtweets)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Warning in doRppAPICall("search/tweets", n, params = params,
+## retryOnRateLimit = retryOnRateLimit, : 500000 tweets were requested but the
+## API can only return 961
+{% endhighlight %}
+
+
+
+{% highlight r %}
 um_tweets_trim <- strip_retweets(um_tweets_all, strip_manual=TRUE, strip_mt=TRUE)
 um_tweets_text <- sapply(um_tweets_trim, function (x) x$getText())
 um_tweets_text <- um_tweets_text[grep("ultramarathon|ultra marathon|ultra-marathon", um_tweets_text, ignore.case = TRUE)]
@@ -99,9 +112,9 @@ pie(um_count, col = c("grey90","grey70","grey50"))
 
 ![plot of chunk 2017-03-15_ultramarathon_tweet_pie](/figures/2017-03-15_ultramarathon_tweet_pie-1.png)
  
-Let's look at this code. After loading the ```twitteR``` package and specifying the number of Tweets to load, we access the Twitter API using ```searchTwitter``` and load in the 500000 most recent Tweets with the terms "ultra", "running", or "ultrarunning" in them (there will be many fewer than this, but I want to capture every Tweet possible). This produces a list of 960 objects of class ```status```, which is a specially defined reference class as a container for Twitter statuses. Next we strip out all of the retweets to leave 584 Tweets, then pull out the text from the list objects (```sapply()``` applies the accessor function ```getText()``` to all elements of the list). Since I am only interested in three specific terms, I use regular expressions to look only at Tweets containing one of these terms (giving 316 Tweets), and then count how many Tweets contain each of the three specific terms. Finally I generate a pie chart of the results (yes, yes, I know - I hate pie charts as well). 
+Let's look at this code. After loading the ```twitteR``` package and specifying the number of Tweets to load, we access the Twitter API using ```searchTwitter``` and load in the 500000 most recent Tweets with the terms "ultra", "running", or "ultrarunning" in them (there will be many fewer than this, but I want to capture every Tweet possible). This produces a list of 961 objects of class ```status```, which is a specially defined reference class as a container for Twitter statuses. Next we strip out all of the retweets to leave 585 Tweets, then pull out the text from the list objects (```sapply()``` applies the accessor function ```getText()``` to all elements of the list). Since I am only interested in three specific terms, I use regular expressions to look only at Tweets containing one of these terms (giving 316 Tweets), and then count how many Tweets contain each of the three specific terms. Finally I generate a pie chart of the results (yes, yes, I know - I hate pie charts as well). 
  
-A couple of things here. First of all, there are a lot of retweets. Of the 960 Tweets originally analysed, only 584 remain after removing the retweets. This means that 39.17% of these Tweets were retweets. Man, we ultrarunners aren't very original are we? Unfortunately this therefore drastically reduces the number of Tweets that I am analysing. Secondly, because of the way the pattern matching is done we end up with a lot of Tweets with "ultra" or "running" in them that don't match any of the three specific terms that I am looking at here. Also, this counting may be double counting some Tweets if both versions are used in a single Tweet. But I can't be bothered taking such stupidity into account right now! ;)
+A couple of things here. First of all, there are a lot of retweets. Of the 961 Tweets originally analysed, only 585 remain after removing the retweets. This means that 39.13% of these Tweets were retweets. Man, we ultrarunners aren't very original are we? Unfortunately this therefore drastically reduces the number of Tweets that I am analysing. Secondly, because of the way the pattern matching is done we end up with a lot of Tweets with "ultra" or "running" in them that don't match any of the three specific terms that I am looking at here. Also, this counting may be double counting some Tweets if both versions are used in a single Tweet. But I can't be bothered taking such stupidity into account right now! ;)
  
 So with these caveats in place, it seems pretty clear that the correct term is most definitely "Ultra Marathon". So there you go.
  
@@ -113,6 +126,19 @@ Okay cool. So we know how to define the event. How about the act of running an u
 
 {% highlight r %}
 ur_tweets_all  <- searchTwitter("ultrarunning|ultra running",  n = numtweets)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Warning in doRppAPICall("search/tweets", n, params = params,
+## retryOnRateLimit = retryOnRateLimit, : 500000 tweets were requested but the
+## API can only return 11984
+{% endhighlight %}
+
+
+
+{% highlight r %}
 ur_tweets_trim <- strip_retweets(ur_tweets_all, strip_manual=TRUE, strip_mt=TRUE)
 ur_tweets_text <- sapply(ur_tweets_trim, function (x) x$getText())
 ur_tweets_text <- ur_tweets_text[grep("ultrarunning|ultra running|ultra-running", ur_tweets_text, ignore.case = TRUE)]
@@ -126,7 +152,7 @@ pie(ur_count, col = c("grey90","grey70","grey50"))
 
 ![plot of chunk 2017-03-15_ultrarunning_tweet_pie](/figures/2017-03-15_ultrarunning_tweet_pie-1.png)
  
-There are a lot more Tweets relating to ultra "running" compared to ultra "marathon", with 11953 Tweets in the starting data set. However, again we lose a lot of Tweets through retweets leaving us with only 2127 Tweets to play with. After trimming out Tweets that don't follow the format that I am looking at here, we are left with only 178 -- even less than in the last analysis. 
+There are a lot more Tweets relating to ultra "running" compared to ultra "marathon", with 11984 Tweets in the starting data set. However, again we lose a lot of Tweets through retweets leaving us with only 2112 Tweets to play with. After trimming out Tweets that don't follow the format that I am looking at here, we are left with only 179 -- even less than in the last analysis. 
  
 In this case, it is less clear cut, and whilst the single word term "ultrarunning" is used most often, the two word "ultra running" is not far behind. Damn, I wanted a clearly defined outcome, but I guess I will let you off whichever one you choose to use. But god help anybody who chooses to hyphenate either term...
  
