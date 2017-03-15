@@ -10,7 +10,7 @@ tags: R
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, error = FALSE, eval = TRUE, results = "hide", fig.height = 8, fig.width = 8)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, error = FALSE, eval = TRUE, results = "hide", fig.height = 16, fig.width = 16)
 ```
 
 ## Welcome!

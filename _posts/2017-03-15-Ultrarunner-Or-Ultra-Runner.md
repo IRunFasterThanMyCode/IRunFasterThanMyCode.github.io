@@ -88,19 +88,6 @@ So now we are all set up and we can take a look at how to access the API. The wo
 library("twitteR")
 numtweets      <- 1000000
 um_tweets_all  <- searchTwitter("ultramarathon|ultra marathon",  n = numtweets)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Warning in doRppAPICall("search/tweets", n, params = params,
-## retryOnRateLimit = retryOnRateLimit, : 1000000 tweets were requested but
-## the API can only return 1052
-{% endhighlight %}
-
-
-
-{% highlight r %}
 um_tweets_trim <- strip_retweets(um_tweets_all, strip_manual=TRUE, strip_mt=TRUE)
 um_tweets_text <- sapply(um_tweets_trim, function (x) x$getText())
 um_tweets_text <- um_tweets_text[grep("ultramarathon|ultra marathon|ultra-marathon", um_tweets_text, ignore.case = TRUE)]
@@ -127,19 +114,6 @@ Okay cool. So we know how to define the event. How about the act of running an u
 
 {% highlight r %}
 ur_tweets_all  <- searchTwitter("ultrarunning|ultra running",  n = numtweets)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Warning in doRppAPICall("search/tweets", n, params = params,
-## retryOnRateLimit = retryOnRateLimit, : 1000000 tweets were requested but
-## the API can only return 11746
-{% endhighlight %}
-
-
-
-{% highlight r %}
 ur_tweets_trim <- strip_retweets(ur_tweets_all, strip_manual=TRUE, strip_mt=TRUE)
 ur_tweets_text <- sapply(ur_tweets_trim, function (x) x$getText())
 ur_tweets_text <- ur_tweets_text[grep("ultrarunning|ultra running|ultra-running", ur_tweets_text, ignore.case = TRUE)]
