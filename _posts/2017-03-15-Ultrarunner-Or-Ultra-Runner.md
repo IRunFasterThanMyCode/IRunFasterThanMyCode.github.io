@@ -33,7 +33,7 @@ Anyway, one thing that I have never seen definitively answered is what the corre
  
 Twitter uses [OAuth](https://apps.twitter.com) as a way to control programmatic access to its information without requiring passwords. Essentially, Twitter grants you an access token which is used to grant you access to the client information via a web service without actually giving you direct access to the client machine. It's pretty easy to set up. Once you have a Twitter account set up, go to <https://apps.twitter.com> and click on the "Create New App" button. This will bring up the following page:
  
-![Create a new app in Twitter](2017-03-15-Twitter_create_app.png)
+![Create a new app in Twitter](/images/2017-03-15-Twitter_create_app.png)
  
 I filled this in with details of this blog, and created a new app. Note that to avoid errors further down the line, you need to set the "Callback URL" field to ```http://127.0.0.1:1410``` which will return to your localhost on port 1410 following authentication. Press "Create your Twitter application" to create your app. This will take you to a page with information about your new app, including a tab at the top of the page called "Keys and Access Tokens". The "API Key" and "API Secret" can then be used to access the API.
  
@@ -86,19 +86,6 @@ So now we are all set up and we can take a look at how to access the API. The wo
 library("twitteR")
 numtweets      <- 500000
 um_tweets_all  <- searchTwitter("ultramarathon|ultra marathon", n = numtweets)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Warning in doRppAPICall("search/tweets", n, params = params,
-## retryOnRateLimit = retryOnRateLimit, : 500000 tweets were requested but the
-## API can only return 960
-{% endhighlight %}
-
-
-
-{% highlight r %}
 um_tweets_trim <- strip_retweets(um_tweets_all, strip_manual=TRUE, strip_mt=TRUE)
 um_tweets_text <- sapply(um_tweets_trim, function (x) x$getText())
 um_tweets_text <- um_tweets_text[grep("ultramarathon|ultra marathon|ultra-marathon", um_tweets_text, ignore.case = TRUE)]
@@ -126,19 +113,6 @@ Okay cool. So we know how to define the event. How about the act of running an u
 
 {% highlight r %}
 ur_tweets_all  <- searchTwitter("ultrarunning|ultra running",  n = numtweets)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Warning in doRppAPICall("search/tweets", n, params = params,
-## retryOnRateLimit = retryOnRateLimit, : 500000 tweets were requested but the
-## API can only return 11977
-{% endhighlight %}
-
-
-
-{% highlight r %}
 ur_tweets_trim <- strip_retweets(ur_tweets_all, strip_manual=TRUE, strip_mt=TRUE)
 ur_tweets_text <- sapply(ur_tweets_trim, function (x) x$getText())
 ur_tweets_text <- ur_tweets_text[grep("ultrarunning|ultra running|ultra-running", ur_tweets_text, ignore.case = TRUE)]

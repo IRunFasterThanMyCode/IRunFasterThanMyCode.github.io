@@ -35,7 +35,7 @@ Anyway, one thing that I have never seen definitively answered is what the corre
 
 Twitter uses [OAuth](https://apps.twitter.com) as a way to control programmatic access to its information without requiring passwords. Essentially, Twitter grants you an access token which is used to grant you access to the client information via a web service without actually giving you direct access to the client machine. It's pretty easy to set up. Once you have a Twitter account set up, go to <https://apps.twitter.com> and click on the "Create New App" button. This will bring up the following page:
 
-![Create a new app in Twitter](2017-03-15-Twitter_create_app.png)
+![Create a new app in Twitter](/images/2017-03-15-Twitter_create_app.png)
 
 I filled this in with details of this blog, and created a new app. Note that to avoid errors further down the line, you need to set the "Callback URL" field to ```http://127.0.0.1:1410``` which will return to your localhost on port 1410 following authentication. Press "Create your Twitter application" to create your app. This will take you to a page with information about your new app, including a tab at the top of the page called "Keys and Access Tokens". The "API Key" and "API Secret" can then be used to access the API.
 
