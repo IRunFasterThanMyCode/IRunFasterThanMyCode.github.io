@@ -4,10 +4,7 @@ comments: true
 title: "R Tutorial"
 tags: R, tutorial 
 permalink: /RTutorial/
-output:
-  md_document:
-    variant: markdown_github
-    preserve_yaml: true
+output: pdf_document
 ---
 
 # How To Use R

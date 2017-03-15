@@ -13,7 +13,7 @@
 #' @param recursive should rmd files in subdirectories be processed.
 #' @return nothing.
 #' @author Jason Bryer <jason@bryer.org> edited by Andy South
-rmd2md <- function( path_site = getwd(),
+rmd2md <- function( path_site = "~/Dropbox/Blog/IRunFasterThanMyCode/", #getwd(),
                     dir_rmd = "_Rmd",
                     dir_md = "_posts",                              
                     #dir_images = "figures",
