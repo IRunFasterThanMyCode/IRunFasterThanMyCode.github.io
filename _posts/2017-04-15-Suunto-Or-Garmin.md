@@ -1,12 +1,13 @@
 ---
-layout: post
-comments: true
 title: "Suunto Or Garmin? The Age Old Question."
-author: Sam Robson
-published: true
+author: "Sam Robson"
+draft: no
+layout: post
+published: yes
 status: publish
-draft: false
-tags: R, Facebook, ultrarunning, ultra, running, ultramarathon, marathon, Suunto, Garmin, dplyr, tidyr, ggplot2
+tags: R, Facebook, ultrarunning, ultra, running, ultramarathon, marathon, Suunto,
+  Garmin, dplyr, tidyr, ggplot2
+comments: yes
 ---
  
 
