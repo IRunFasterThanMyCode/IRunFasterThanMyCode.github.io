@@ -4,7 +4,7 @@ comments: true
 title: "R Tutorial"
 tags: R, tutorial 
 permalink: /RTutorial/
-output: pdf_document
+output: html_document
 ---
 
 # How To Use R
@@ -519,7 +519,7 @@ You access the elements of a data frame either using single square bracket notat
 my_df <- as.data.frame(matrix(1:12, nrow = 3, ncol = 4)) 
 names(my_df) <- c("val1", "val2", "val3", "val4")
 my_df
-sub_df <- my_df[2:5, 1:2]
+sub_df <- my_df[1:2, 3:4]
 sub_df
 val1 <- my_df[[1]]
 val1
@@ -535,8 +535,7 @@ The beauty of data frames is that the data frame columns can be dealt with as if
 my_df <- data.frame(val1 = c(1:3), val2 = c(4:6), val3 = c(7:9), val4 = c(10:12))
 attach(my_df)
 my_df
-val1 <- val1 + 1000 
-my_df
+val1 + 1000 
 detach(my_df)
 ```
 
@@ -544,21 +543,21 @@ As a slight aside, I dislike using the attach/detach approach to accessing eleme
 
 Notice that to make changes to the data frame itself, we need to use the `$` accessor function (or double square brackets), otherwise a new variable `val1` will be created. Data frames should be set up in such a way that every row represents an independent observation, and the columns represent the independent variables that you may be interested in. For instance, if you have taken a measurement of say the weight of each sample in triplicate, you would not represent the data like this:
 
-SampleName | Weight1 | Weight2 | Weight3
------------|---------|---------|--------
-Sample1    | 67.1    | 67.3    | 66.8
-Sample2    | 80.3    | 79.8    | 79.5
+| SampleName | Weight1 | Weight2 | Weight3 |
+|------------|---------|---------|---------|
+| Sample1    | 67.1    | 67.3    | 66.8    |
+| Sample2    | 80.3    | 79.8    | 79.5    |
 
 But instead you would ensure that the two independent variables (weight and replicate number) were in their own columns:
 
-SampleName | Replicate | Weight 
------------|-----------|-------
-Sample1    | 1         | 67.1 
-Sample1    | 2         | 67.3
-Sample1    | 3         | 66.8
-Sample2    | 1         | 80.3
-Sample2    | 2         | 79.8 
-Sample2    | 3         | 79.5
+| SampleName | Replicate | Weight | 
+|------------|-----------|--------|
+| Sample1    | 1         | 67.1   |
+| Sample1    | 2         | 67.3   |
+| Sample1    | 3         | 66.8   |
+| Sample2    | 1         | 80.3   |
+| Sample2    | 2         | 79.8   |
+| Sample2    | 3         | 79.5   |
 
 Now all of the weights are in a single column that can be analysed.
 
@@ -652,7 +651,7 @@ One of the most useful things to be able to do with computers is to repeat the s
 
 The first control sequence to look at is the "if else" command, which acts as a switch to run one of a selection of possible commands given a switch that you specify. For instance, you may want to do something different depending on whether a value is odd or even:
 
-``` {r}
+``` {r results = "hold"}
 my_val <- 3
 if (my_val%%2 == 0) { # If it is even (exactly divisible by 2)
   cat ("Value is even\n")
@@ -663,7 +662,7 @@ if (my_val%%2 == 0) { # If it is even (exactly divisible by 2)
 
 Here, the expression in the parentheses following "if" is evaluated, and if it evaluates to TRUE then the block of code contained within the following curly braces is evaluated. Otherwise, the block of code following the "else" statement is evaluated. You can add additional tests by using the "else if" statement:
 
-``` {r eval = FALSE}
+``` {r eval = FALSE, results = "hold"}
 my_val <- 27
 if (my_val%%2 == 0) {
   cat("Value is divisible by 2\n")
@@ -684,7 +683,7 @@ Each switch is followed by a block of code surrounded by curly braces, and the c
 
 Another control structure is the "for loop", which will conduct the code in the block multiple times for a variety of values that you specify at the start. For instance, here is a simple countdown script:
 
-``` {r}
+``` {r results = "hold"}
 for (i in 10:1) {
   cat(i, "...\n", sep = "") 
   if (i == 1) {
@@ -697,7 +696,7 @@ So the index `i` is taken from the set of numbers (10, 9, ..., 1), starting at t
 
 As a small aside, this is slightly inefficient. Evaluation of the `if` statement is conducted every single time the loop is traversed (10 times in this example). It will only ever be true at the end of the loop, so we could always take this out of the loop and evaluate the final printout after the loop is finished and save ourselves 10 calculations. Whilst the difference here is negligible, thinking of things like this may save you time in the future:
 
-``` {r}
+``` {r results = "hold"}
 for (i in 10:1) {
   cat(i, "...\n", sep = "")
 } 
@@ -708,7 +707,7 @@ cat("Blastoff!\n")
 
 The final main control structure is the "while loop". This is similar to the "for loop", and will continue to evaluate the code chunk as long as the specified expression evaluates to TRUE:
 
-``` {r}
+``` {r results = "hold"}
 i <- 10
 while (i > 0) {
   cat(i, "...\n", sep = "") 
@@ -723,7 +722,7 @@ However, if you did not know how many iterations were required before finding wh
 
 **HOWEVER**: Be aware that it is possible to get caught up in an "infinite loop". This happens if the conditional statement never evaluates to FALSE. If this happens, press either ESCAPE or press the `CONROL` key and the letter `c` (`CTRL+c`) to quit out of the current function (`CMD+c`) for Mac). For instance, if we forget to decrement the index, `i` will always be 10 and will therefore never be less than 0. This loop will therefore run forever:
 
-``` {r eval = FALSE}
+``` {r eval = FALSE, results = "hold"}
 i <- 10
 while (i > 0) {
   cat(i, "...\n", sep = "") 
@@ -735,7 +734,7 @@ cat("Blastoff!\n")
 
 You can leave control loops early by using flow control constructs. `next` skips out of the current loop and moves onto the next in the sequence:
 
-``` {r}
+``` {r results = "hold"}
 for (i in 1:10) { 
   if (i == 5) {
     next 
@@ -747,7 +746,7 @@ cat("Finished loop\n")
 
 `break` will leave the loop entirely, and will return to the function after the last curly brace in the code chunk:
 
-``` {r}
+``` {r results = "hold"}
 for (i in 1:10) { 
   if (i == 5) {
     break 
@@ -1245,10 +1244,10 @@ This is just a simple example analysis to give you an idea of the sort of things
 
 For this, we will need four files. These files are in a tab-delimited text format. They are tables of values where each row is separated by a new line, and each column is separated by a tab character (`\t`). These files can be created by and read into Excel for ease of use. To avoid errors when reading in files from text, it is good practice to ensure that there are no missing cells in your data. Instead try to get into the habit of using some "missing"" character (e.g. `NA`).
 
-[files/experiment1_control.txt](files/experiment1_control.txt) -- Expression levels for control in experiment 1 
-[files/experiment1_drug.txt](files/experiment1_drug.txt) -- Expression levels for drug A in experiment 1 
-[files/experiment2_control.txt](files/experiment2_control.txt) -- Expression levels for control in experiment 2
-[files/experiment2_drug.txt](files/experiment2_drug.txt) -- Expression levels for drug A in experiment 2 
+[/files/experiment1_control.txt](files/experiment1_control.txt) -- Expression levels for control in experiment 1 
+[/files/experiment1_drug.txt](files/experiment1_drug.txt) -- Expression levels for drug A in experiment 1 
+[/files/experiment2_control.txt](files/experiment2_control.txt) -- Expression levels for control in experiment 2
+[/files/experiment2_drug.txt](files/experiment2_drug.txt) -- Expression levels for drug A in experiment 2 
 
 ### 10.2: Load Data
 

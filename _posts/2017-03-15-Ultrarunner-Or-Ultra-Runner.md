@@ -6,7 +6,7 @@ author: Sam Robson
 published: true
 status: publish
 draft: false
-tags: R 
+tags: R, Twitter, Data Science, Ultra, Marathon, Running
 ---
  
 

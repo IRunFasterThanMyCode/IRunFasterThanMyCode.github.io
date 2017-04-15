@@ -3,10 +3,10 @@ layout: post
 comments: true
 title: "Ultramarathon, Ultra Marathon or Ultra-Marathon?"
 author: Sam Robson
-published: false
-status: process
+published: true
+status: publish
 draft: false
-tags: R 
+tags: R, Twitter, Data Science, Ultra, Marathon, Running
 ---
 
 ```{r setup, include=FALSE}
