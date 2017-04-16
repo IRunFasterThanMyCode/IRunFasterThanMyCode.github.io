@@ -353,6 +353,26 @@ ggplot(sent_dat, aes(x = Sentiment, col = Watch, fill = Watch)) +
 
 So a value of zero on this distribution plot suggests a neutral sentiment to the post, a positive number suggests a positive sentiment, and a negative number suggests a negative sentiment. While the majority of the posts seem to be fairly neutral in both cases, it certainly seems that the majority of the Garmin posts are positive whilst the Suunto posts are more neutral with many positive *and* negative posts. 
 
+We can actually put a number on this, for whether or not there is truly a statistically significant difference between the distribution of sentiment scores for the two watches. To do this, we will us a statistical test that checks how likely it is that we would see a difference of the magnitude seen here given that there is no difference between what people actually think of the watch. This is the so-called "null-hypothesis", and essentially says that there is no difference, and any differences that we do see are purely random errors. We can test this hypothesis using one of a number of different tests, with the aim to see whether there is evidence that we can reject this null hypothesis, thus suggesting that there is indeed a true difference between the distributions. So we never really "prove" that there is a difference, but instead show that there is suitable evidence to disprove the null hypothesis. 
+
+To do this some test statistic is calculated and is tested to see if it is significantly different than what you would expect to see by chance. Typically this is assessed using a "p-value", which is one of the most misunderstood measurements in statistics. This value represents the probability that you would see a test statistic *at least as high* as that measured purely by chance, even if both sets of data were drawn from the same distribution. So both the Garmin and Suunto scores are a tiny subset of all possible opinions of people in the world, the population distribution. Our two sample populations are either drawn from an overall population where there is no difference, or from two distinct populations for people who have a view one way or the other.
+
+It is pretty clear from the above figure that these values are not normally distributed (a so-called "bell-curve" distribution), so we cannot use a simple t-test which basically tests the difference in the means between two distributions (after taking the variance into account). Instead we would be better off using a non-parametric test which does not require the data to be parameterised into some fixed probability density function. The [Kolmogorov Smirnov test](https://en.wikipedia.org/wiki/Kolmogorov–Smirnov_test) is one method that can be used, and works by looking at how the cummulative distribution functions of two distinct samples differ:
+
+``` {r}
+ks.test(subset(sent_dat, Watch == "Suunto")[["Sentiment"]], subset(sent_dat, Watch == "Garmin")[["Sentiment"]])
+```
+
+Here we run a two-sided test, which simply means that we have no *a priori* reason to suspect one distribution to be greater than the other. We could do a one-sided test where the alternative hypothesis that we are testing is "A is greater than B", rather than the two-sided test where we are testing the alternative hypothesis that "A is not equal to B". $D$ is the maximum distance between the empirical distribution functions, and $p$ is the p-value. Typically, a threshold used to reject the null hypothesis is for $p$ to be less than 0.05 (5 %), although it is fairly arbitrary. But in this case, we would conclude that there is not sufficient evidence to reject the null hypothesis.
+
+As an alternative, we can instead use the [Wilcoxon rank sum test](https://en.wikipedia.org/wiki/Mann–Whitney_U_test) (also called the Mann-Whitney *U* test). The idea is to rank all of the data, sum up the ranks from one of the samples, and use this to calculate the test statistic $U$ (which takes into account the sample sizes). So if the distributions are pretty similar, the sum of the ranks will be similar for sample 1 and sample 2. If there is a big difference, one sample will have more higher ranked values than the other, resulting in a higher value for $U$. Let's take a look at this:
+
+``` {r}
+wilcox.test(subset(sent_dat, Watch == "Suunto")[["Sentiment"]], subset(sent_dat, Watch == "Garmin")[["Sentiment"]])
+```
+
+Note that the test statistic here is actually $W$, but in this case $W$ and $U$ are equivalent. So this test would result in us rejecting the null hypothesis with the same threshold as above. So which one is correct? Well, this is a great example of why you should never trust statistics. Both of these are perfectly reasonable tests to perform in this case but give different results. Many people would simply choose the one that gives the lowest p-value, but this is pretty naughty. At the end of the day, a p-value higher than 0.05 does not mean that there is *not* a true difference between the distributions, just that the current data does not provide enough evidence to reject the null hypothesis. 
+
 So my conclusion from this is that I made the wrong decision, and will from now on look upon my useless Suunto watch with hatred and resentment. I can only hope that this post will save anyone else from making such an awful mistake.
 
 
