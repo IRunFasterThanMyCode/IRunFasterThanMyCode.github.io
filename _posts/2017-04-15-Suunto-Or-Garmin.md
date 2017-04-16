@@ -227,7 +227,7 @@ ggplot(top_contributors,
   scale_fill_gradient(low="blue", high="red") +
   labs(x = "", y = "Number of Posts") +
   theme(axis.title  = element_text(size = 18),
-        axis.text.x = element_text(size = 20, angle = 45, hjust = 1),
+        axis.text.x = element_text(size = 12, angle = 45, hjust = 1),
         axis.text.y = element_text(size = 14),
         legend.position = "none")
 {% endhighlight %}
