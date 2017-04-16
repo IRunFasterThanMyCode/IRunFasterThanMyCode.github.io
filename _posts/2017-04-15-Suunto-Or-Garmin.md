@@ -1,13 +1,12 @@
 ---
-title: "Suunto Or Garmin? The Age Old Question."
-author: "Sam Robson"
-draft: no
 layout: post
-published: yes
+comments: true
+title: "Suunto Or Garmin? The Age Old Question."
+author: Sam Robson
+published: true
 status: publish
-tags: R, Facebook, ultrarunning, ultra, running, ultramarathon, marathon, Suunto,
-  Garmin, dplyr, tidyr, ggplot2
-comments: yes
+draft: false
+tags: R, Facebook, ultrarunning, ultra, running, ultramarathon, marathon, Suunto, Garmin, dplyr, tidyr, ggplot2
 ---
  
 
@@ -88,21 +87,21 @@ The ```data.frame``` is somewhat of the workhorse of R, and looks to the user li
  
 As an example, suppose that you were measuring something (blood glucose levels, weight, lung capacity, VO2 max, etc.) at three times of the day for 2 individuals. Your natural inclination may be to design your table in this way:
  
-| Sample  | Measurement 1 | Measurement 2 | Measurement 3 |
-|----------------|-----------------------|-----------------------|-----------------------|
-| Sample1 | 0.3 | 0.4 | 0.3 |
-| Sample2 | 0.6 | 0.6 | 0.7 |
+| Sample                | Measurement 1 | Measurement 2 | Measurement 3 |
+|-----------------------|---------------|---------------|---------------|
+| Sample1               | 0.3           | 0.4           | 0.3           |
+| Sample2               | 0.6           | 0.6           | 0.7           |
  
 But actually the optimum way to represent this is to treat each measurement as a different row in your data table, and use a descriptive categorical variable to represent the repeated measurements:
  
-| Sample | Measurement | Replicate |
-|-----------------------|-----------------------|-----------------------|
-| Sample1 | 0.3 | 1 |
-| Sample1 | 0.4 | 2 |
-| Sample1 | 0.3 | 3 |
-| Sample2 | 0.6 | 1 |
-| Sample2 | 0.6 | 2 |
-| Sample2 | 0.7 | 3 |
+| Sample                | Measurement | Replicate |
+|-----------------------|-------------|-----------|
+| Sample1               | 0.3         | 1         |
+| Sample1               | 0.4         | 2         |
+| Sample1               | 0.3         | 3         |
+| Sample2               | 0.6         | 1         |
+| Sample2               | 0.6         | 2         |
+| Sample2               | 0.7         | 3         |
  
 You can then add additional information relating to each individual measurement, which can be factored into your model down the line. 
  
@@ -310,39 +309,39 @@ So looking at the popular posts above got me thinking about how best to actually
  
 
 {% highlight r %}
-URC %>% arrange(desc(likes_count)) %>% top_n(5, likes_count) %>% select(from_name, message)
+as.matrix(URC %>% arrange(desc(likes_count)) %>% top_n(5, likes_count) %>% select(from_name, message))
 {% endhighlight %}
 
-         from_name
-1     Mandy Norris
-2       Tom Garrod
-3     Huw Williams
-4 Rupert Bonington
-5       Tom Garrod
-                                                                                                                                                                                                                                                                           message
-1 Thinking how far I've come and getting a bit emotional. .3 year ago i was a size 20/22 and couldnt run to end of the street. Yesterday i ran 30 mile as a training run and wasn't even aching afterwards.  Now nearly 45 and a size 10 and never felt better. I love my life!!!!
-2                                                                                                     I saw this picture couple years ago and I found it very inspiring so I thought I'd share it. \nBen is a 12-year-old childhood cancer survivor who loves to run with his dad.
-3                                                                                                                                                                   Not sure if swear words are accepted. \xed\xa0\xbd\xed\xb8\x82\xed\xa0\xbd\xed\xb8\x82\xed\xa0\xbd\xed\xb8\x82
-4                                                                                                                                                                                 "What you doing up here?" said the sheep.\n\nGrisedale Pike last night, not a soul to be seen...
-5                                                                                                                                                                                                                                                         \xed\xa0\xbd\xed\xb8\x80
+     from_name         
+[1,] "Mandy Norris"    
+[2,] "Tom Garrod"      
+[3,] "Huw Williams"    
+[4,] "Rupert Bonington"
+[5,] "Tom Garrod"      
+     message                                                                                                                                                                                                                                                                           
+[1,] "Thinking how far I've come and getting a bit emotional. .3 year ago i was a size 20/22 and couldnt run to end of the street. Yesterday i ran 30 mile as a training run and wasn't even aching afterwards.  Now nearly 45 and a size 10 and never felt better. I love my life!!!!"
+[2,] "I saw this picture couple years ago and I found it very inspiring so I thought I'd share it. \nBen is a 12-year-old childhood cancer survivor who loves to run with his dad."                                                                                                    
+[3,] "Not sure if swear words are accepted. \xed\xa0\xbd\xed\xb8\x82\xed\xa0\xbd\xed\xb8\x82\xed\xa0\xbd\xed\xb8\x82"                                                                                                                                                                                       
+[4,] "\"What you doing up here?\" said the sheep.\n\nGrisedale Pike last night, not a soul to be seen..."                                                                                                                                                                              
+[5,] "\xed\xa0\xbd\xed\xb8\x80"                                                                                                                                                                                                                                                               
 
 
 {% highlight r %}
-URC %>% arrange(desc(comments_count)) %>% top_n(5, comments_count) %>% select(from_name, message)
+as.matrix(URC %>% arrange(desc(comments_count)) %>% top_n(5, comments_count) %>% select(from_name, message))
 {% endhighlight %}
 
-       from_name
-1   Gary Kiernan
-2 Kevin O'Rourke
-3    James Adams
-4  Neil Turnbull
-5 Gareth Bradley
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       message
-1                                                                                                                                                                                                                                                                                                                                                           For me claiming something you haven't earned is not only immoral it's fraudulent. And it's a huge insult to all who've attempted the feat before you and legitimately fallen short. \n What do you guys think?\n\n
-2                                                                                                                                                                            Anyone else do race to the stones and found it a rip off? I was not impressed with most things. \n\nSome were good such as medics and lots of water but who wants fudge bars and cadburies at aid stations. \n\nSeemed like a money making race to me, especially considering all the sponsorship they had. \n\nI've got lots of other rants about it but let's hear anyone else's thoughts first
-3 New Game.\n\nI am trying to convince some new ultra runners that you do not need to spend a load of money on kit to put one foot in front of the other a few more times. This is difficult given that half the posts in forums seems to be asking for recommendations or giving recommendations as to how one might waste money on kit.\n\nSo out of interest, what was the value of the kit you wore in your last ultra? Including nutrition. Obviously you will have to guess if you had them as a gift or can’t remember. Surely someone is going to have less than £100?
-4                                                                                                      I had a small sabre rattling session last night with someone on this group. Nothing major by any stretch of the imagination - we just have opposing views on DNF. But it got me curios to what the opinions of others are on this subject. Is failing to finish something that you would risk your life to avoid? Is it something to fear? Is it something that will eventually happen to us all? Is it something that we can learn from? Etc,etc. Your thoughts please
-5                                                                                                                                                                                                                                                                                                                                                       i cannot wait to watch the EPSN footage - amazing stuff. It is a shame Robert has his doubters though.\n\nEdit: was described as "trolling", which was an over the top description (agree with the comments there)\n\n
+     from_name       
+[1,] "Gary Kiernan"  
+[2,] "Kevin O'Rourke"
+[3,] "James Adams"   
+[4,] "Neil Turnbull" 
+[5,] "Gareth Bradley"
+     message                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+[1,] "For me claiming something you haven't earned is not only immoral it's fraudulent. And it's a huge insult to all who've attempted the feat before you and legitimately fallen short. \n What do you guys think?\n\n"                                                                                                                                                                                                                                                                                                                                                          
+[2,] "Anyone else do race to the stones and found it a rip off? I was not impressed with most things. \n\nSome were good such as medics and lots of water but who wants fudge bars and cadburies at aid stations. \n\nSeemed like a money making race to me, especially considering all the sponsorship they had. \n\nI've got lots of other rants about it but let's hear anyone else's thoughts first"                                                                                                                                                                           
+[3,] "New Game.\n\nI am trying to convince some new ultra runners that you do not need to spend a load of money on kit to put one foot in front of the other a few more times. This is difficult given that half the posts in forums seems to be asking for recommendations or giving recommendations as to how one might waste money on kit.\n\nSo out of interest, what was the value of the kit you wore in your last ultra? Including nutrition. Obviously you will have to guess if you had them as a gift or can’t remember. Surely someone is going to have less than £100?"
+[4,] "I had a small sabre rattling session last night with someone on this group. Nothing major by any stretch of the imagination - we just have opposing views on DNF. But it got me curios to what the opinions of others are on this subject. Is failing to finish something that you would risk your life to avoid? Is it something to fear? Is it something that will eventually happen to us all? Is it something that we can learn from? Etc,etc. Your thoughts please"                                                                                                     
+[5,] "i cannot wait to watch the EPSN footage - amazing stuff. It is a shame Robert has his doubters though.\n\nEdit: was described as \"trolling\", which was an over the top description (agree with the comments there)\n\n"                                                                                                                                                                                                                                                                                                                                                    
  
 It seems to me that the posts with more likes tend to be posts with a much more positive message than those with most comments. The top liked posts are those from people who have overcome some form of adversity (such as the top liked post with 1,369 likes from Mandy Norris who had awesomely run 30 miles after losing half her body weight), whilst the top commented posts tend to be more controversial posts (such as the top commented post with 287 comments about Mark Vaz's fraudulent JOGLE "World Record"). 
  
@@ -385,7 +384,7 @@ ultraposts_month <- apply.monthly(ultraposts_xts, FUN = sum)
 plot(ultraposts_month, ylab = "Number of Ultra Posts", main = "")
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-9](/figures/unnamed-chunk-9-1.png)
+![plot of chunk 2017-04-15-ultra_usage](/figures/2017-04-15-ultra_usage-1.png)
  
 Over the last year or so, the number of people in the group has risen dramatically, and yet it certainly seems that fewer people are actually discussing ultras these days. I guess read into that what you will -- perhaps the feed is indeed dominated by Suunto vs Garmin questions? 
  
