@@ -91,7 +91,7 @@ As an example, suppose that you were measuring something (blood glucose levels, 
 
 
 | Sample                | Measurement 1    | Measurement 2    | Measurement 3    |
-|-----------------------|------------------|------------------|------------------|
+|:---------------------:|:----------------:|:----------------:|:----------------:|
 | Sample1               | 0.3              | 0.4              | 0.3              |
 | Sample2               | 0.6              | 0.6              | 0.7              |
 
@@ -99,7 +99,7 @@ But actually the optimum way to represent this is to treat each measurement as a
 
 
 | Sample                  | Measurement      | Replicate        |
-|-------------------------|------------------|------------------|
+|:-----------------------:|:----------------:|:----------------:|
 | Sample1                 | 0.3              | 1                |
 | Sample1                 | 0.4              | 2                |
 | Sample1                 | 0.3              | 3                |
