@@ -89,12 +89,14 @@ The ```data.frame``` is somewhat of the workhorse of R, and looks to the user li
 
 As an example, suppose that you were measuring something (blood glucose levels, weight, lung capacity, VO2 max, etc.) at three times of the day for 2 individuals. Your natural inclination may be to design your table in this way:
 
+
 | Sample                | Measurement 1    | Measurement 2    | Measurement 3    |
 |-----------------------|------------------|------------------|------------------|
 | Sample1               | 0.3              | 0.4              | 0.3              |
 | Sample2               | 0.6              | 0.6              | 0.7              |
 
 But actually the optimum way to represent this is to treat each measurement as a different row in your data table, and use a descriptive categorical variable to represent the repeated measurements:
+
 
 | Sample                  | Measurement      | Replicate        |
 |-------------------------|------------------|------------------|
@@ -255,8 +257,8 @@ So from this it is clear that if you want people to like your post, you should p
 So looking at the popular posts above got me thinking about how best to actually define a "popular" post. Is it a post with a lot of likes, or a post that everybody is commenting on? Let's take a look at the top 5 posts based on each criteria:
 
 ``` {r results = "asis"}
-unlist(URC %>% arrange(desc(likes_count)) %>% top_n(5, likes_count) %>% select(message))
-unlist(URC %>% arrange(desc(comments_count)) %>% top_n(5, comments_count) %>% select(message))
+print.AsIs(URC %>% arrange(desc(likes_count)) %>% top_n(5, likes_count) %>% select(message))
+print.AsIs(URC %>% arrange(desc(comments_count)) %>% top_n(5, comments_count) %>% select(message))
 ```
 
 It seems to me that the posts with more likes tend to be posts with a much more positive message than those with most comments. The top liked posts are those from people who have overcome some form of adversity (such as the top liked post with 1,369 likes from Mandy Norris who had awesomely run 30 miles after losing half her body weight), whilst the top commented posts tend to be more controversial posts (such as the top commented post with 287 comments about Mark Vaz's fraudulent JOGLE "World Record"). 
