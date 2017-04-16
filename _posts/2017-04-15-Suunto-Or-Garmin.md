@@ -88,14 +88,14 @@ The ```data.frame``` is somewhat of the workhorse of R, and looks to the user li
 As an example, suppose that you were measuring something (blood glucose levels, weight, lung capacity, VO2 max, etc.) at three times of the day for 2 individuals. Your natural inclination may be to design your table in this way:
  
 | Sample                | Measurement 1    | Measurement 2    | Measurement 3    |
-| --------------------- | ---------------- | ---------------- | ---------------- |
+|-----------------------|------------------|------------------|------------------|
 | Sample1               | 0.3              | 0.4              | 0.3              |
 | Sample2               | 0.6              | 0.6              | 0.7              |
  
 But actually the optimum way to represent this is to treat each measurement as a different row in your data table, and use a descriptive categorical variable to represent the repeated measurements:
  
 | Sample                  | Measurement      | Replicate        |
-| ----------------------- | ---------------- | ---------------- |
+|-------------------------|------------------|------------------|
 | Sample1                 | 0.3              | 1                |
 | Sample1                 | 0.4              | 2                |
 | Sample1                 | 0.3              | 3                |
