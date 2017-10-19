@@ -21,11 +21,3 @@ I currently work as a lab bioinformatician in the Kouzarides Lab at the Gurdon I
 ### More Information
 
 If you are at all interested in running, I also have a less *statsy*, more *runsy* blog at [constantforwardmotion.blogspot.co.uk](http://constantforwardmotion.blogspot.co.uk). My running career has been variously described as "crazy", "ludicrous" and "ill advised" (mostly by my wife), but I have some fun out there running in some of the more ridiculous races around the world.
-
-I am also a regular contributor for [ULTRA](https://www.ultraevolution.com) magazine.
-
-If you are interested in my current bioinformatics work, information on the work of the Kouzarides Lab can be found [here](http://www2.gurdon.cam.ac.uk/~kouzarideslab/).
-
-### Contact me
-
-If you would like to contact me, please email me at [scb.robson@gmail.com](mailto:scb.robson@gmail.com).
