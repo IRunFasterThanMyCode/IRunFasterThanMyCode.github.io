@@ -6,7 +6,7 @@ permalink: /about/
 
 ## Introduction
 
-I am a stats geek currently working as a number cruncher at the University of Cambridge, focusing my head for numbers towards understanding the genetic basis of cancer as a bioinformatician in the lab of Professor Tony Kouzarides at the Gurdon Institute. I spend a lot of my time trying to figure out how to describe exactly what it is that a *bioinformatician* actually does.
+I am a stats geek currently working as a number cruncher at the University of Portsmouth, where I am in the process of setting up a Bioinformatics Group. I spend a lot of my time trying to figure out how to describe exactly what it is that a *bioinformatician* actually does.
 
 I also like to run a lot, and spend far too much of my spare time examining running data. I set up this blog to keep track of some of the analyses that I have looked at in the past, and also to play with various new analysis techniques that seem like they may be useful to me in the future. Hopefully this may be of use to someone down the line 
 
@@ -16,7 +16,10 @@ After completing a BSc in Mathematics at the University of Warwick, I joined the
 
 Following this, I began my first postdoctoral position at the Sanger Insitute in Cambridge, working with Dr. Matthew Hurles as a key analyst for the Wellcome Trust Case-Control Consortium copy-number variation genome-wide association study. Our aim was to compare the genetic variation between healthy DNA samples and those of people with one of 8 common diseases (including diabetes and breast cancer) to understand the role of copy number variation (e.g. deletions or duplications of sections of DNA) in disease.
 
-I currently work as a lab bioinformatician in the Kouzarides Lab at the Gurdon Institute at the University of Cambridge. In particular, my expertise lie in the managing, processing and analysis of high-throughput sequencing data, with the aim of understanding the role of histone and RNA modifications in cancer. We use a variety of sequencing techniques in our analyses (ChIP seq, RNA seq, ChIRP seq, Bisulfite seq, CLIP seq, etc) and work at the cutting edge of the field. 
+I the worked as a lab bioinformatician in the Kouzarides Lab at the Gurdon Institute at the University of Cambridge. In particular, my expertise lay in the managing, processing and analysis of high-throughput sequencing data, with the aim of understanding the role of histone and RNA modifications in cancer. We used a variety of sequencing techniques in our analyses (ChIP seq, RNA seq, ChIRP seq, Bisulfite seq, CLIP seq, etc) and worked at the cutting edge of the field. 
+
+In May 2017 I took up a new post at the [University of Portsmouth](http://www.port.ac.uk) as a Senior Research Fellow, where I am head of the Bioinformatics Group. I collaborate with researchers from across the University and external institutions, as well as maintaining own research projects.
+
 
 ### More Information
 

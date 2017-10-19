@@ -35,11 +35,11 @@ Unfortunately it did not work out that way. The LetsRun board was already lighti
  
 Unfortunately, within the first few weeks, questions surrounding Mimi's attempts had surfaced, largely as a result of failures in the tracker. There are contradicting reports about what happened in this time, and I don't pretend to understand all of them. Mimi's crew claim that the issues were due to lack of coverage, whilst RaceDrone's founder Richard Weremuik claims that the trackers were intentionally turned off. If Richard's claims are correct, it raises a lot of serious concerns. 
  
-In addition, there have been several other events that have received a lot of criticism, including against the reaction of Mimi's fans to questions of her integrity ("trolls", "haterz gonna hate", etc.), and an incident whereby a stalker presumed (by Mimi's crew) to be a poster on the LetsRun forum being arrested, despite no record of an arrest being found and no poster admitting to it (which they likely would). Since then, the [whole run has been torn apart](http://www.letsrun.com/forum/flat_read.php?thread=8390477), and in particular she is now accused of faking the only source of data that is consistently available for review - [her Strava data](https://www.strava.com/athletes/13566252). 
+In addition, there have been several other events that have received a lot of criticism, including against the reaction of Mimi's fans to questions of her integrity ("trolls", "haterz gonna hate", etc.), and an incident whereby a stalker presumed (by Mimi's crew) to be a poster on the LetsRun forum was arrested, despite no record of an arrest being found and no poster admitting to it (which they likely would). Since then, the [whole run has been torn apart](http://www.letsrun.com/forum/flat_read.php?thread=8390477), and in particular she is now accused of faking the only source of data that is consistently available for review - [her Strava data](https://www.strava.com/athletes/13566252). 
  
  
 # Get to the point
-There are definitely things to do with this whole affair that I cannot comment on, such as the Race Drone incident and the arrest report. I also agree with many of the detractors that Sandy’s set up seems to be a far more open approach, and seems to be a good gold standard to use in the future. You will get no arguments from me that mistakes were made and things should have been differently. But I genuinely believe that Mimi went out to the USA in the belief that what she had planned was foolproof and would cover all bases and supply the necessary evidence to convince anybody that might choose to look into it. Any mistakes were a result of the fact that Mimi has limited knowledge of technology - by her own omission she is a Luddite. Having said that, it is clear that the focus is on satisfying primarily the requirements of Guinness, which most runners in my experience consider to be very weak. 
+There are definitely things to do with this whole affair that I cannot comment on, such as the Race Drone incident and the arrest report. I also agree with many of the detractors that Sandy’s set up seems to be a far more open approach, and seems to be a good gold standard to use in the future. You will get no arguments from me that mistakes were made and perhaps things should have been done differently. But I genuinely believe that Mimi went out to the USA in the belief that what she had planned was foolproof and would cover all bases and supply the necessary evidence to convince anybody that might choose to look into it. Any mistakes were a result of the fact that Mimi has limited knowledge of technology - by her own omission she is a Luddite. Having said that, it is clear that the focus was on satisfying primarily the requirements of Guinness, which most runners in my experience consider to be very weak. 
  
 However, what does concern me is the insinuation of fabricating her data, so I want to tackle some of these allegations to see if I can help defend her reputation. If I do find evidence of fabrication, so be it. But the idea that "data can be faked therefore we cannot believe any of it" is absurd. All data can be faked. Of course they can. But if we followed this impetus to discount all data out of hand, then scientific research would very quickly stall. What we have here is a peer review process - of course the burden of proof is on Mimi to provide evidence of her claims, but she has done that with daily Strava uploads (already a big improvement over Rob Young). If you subsequently suspect the data are forged, the onus is on you to show evidence of that. 
  
@@ -769,13 +769,15 @@ I genuinely hope that this is useful to some of you in addressing some of the co
  
  
 # Summary
-* Mimi’s cadence blips are likely just that – blips
-* You don’t see them for Sandra because Sandra uses 10s capture while Mimi uses 1s capture, so they likely get averaged out
-* Mimi is running with a high cadence but the average seems to fit with previous evidence of her running gait
-* Mimi is often running in 185-195 range, but so do I (granted I am not running across a continent on a day by day basis, but I am also nowhere near elite)
-* Mimi's cadence is about 10 spm quicker than Sandra's for both walking and running
-* Sandra's data has longer periods of several minutes between data points - possibly her watch is set to pause automatically below a certain speed?
+* There are aspects of the spoofed data that make it stand out when compared to Mimi’s and Sandra’s (and my own) data
+* I just do not think that it would be possible to create a forged data set that stands up to intense scrutiny - this is fairly basic scrutiny and it stands out
+* Mimi is using 1s capture mode on constant capture for her runs, with the very occasional 3 or 4 sec delay
+* Sandra is using 10s capture and has longer pauses in data retrieval of several minutes at a time (auto-pause?)
+* Mimi's data sets are therefore an order of magnitude denser than Sandra's
+* Mimi’s cadence blips of 200+ spm are likely just random c*ck ups in data capture - they disappear if you smooth out to a 10s capture rate (I was trying to contact her crew to ask her to set a second watch to 10s capture for one of her runs to confirm this, but unfortunately it was too late)
+* You probably don’t see them for Sandra because they get averaged out
+* Mimi is running with a high cadence but the average seems to fit with previous evidence (albeit very limited and definitely open to scrutiny) of her running gait (evidence from the film crew videos in the future will also help if/when released)
+* Mimi is often running in 185-195 range, but then so do I - granted I am not running across a continent on a day by day basis, but I am also nowhere near elite
+* Mimi’s cadence is about 10 spm quicker than Sandra’s for both walking and running
 * Mimi seems to have a fairly even split of walking and running, whilst Sandra seems to consistently run but at a slower overall pace
-* There are aspects of the spoofed data that make it stand out when compared to Mimi's and Sandra’s (and my own) data
- 
  
