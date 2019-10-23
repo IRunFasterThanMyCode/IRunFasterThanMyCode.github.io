@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories | IRunFasterThanMyCode</title>
+    <link>/categories/</link>
+      <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <description>Categories</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Sat, 05 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Categories</title>
+      <link>/categories/</link>
+    </image>
+    
+    <item>
+      <title>Blog</title>
+      <link>/categories/blog/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/categories/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Science</title>
+      <link>/categories/data-science/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/categories/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>/categories/machine-learning/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/categories/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/categories/r/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Heritage</title>
+      <link>/categories/heritage/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>/categories/heritage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Running</title>
+      <link>/categories/running/</link>
+      <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>/categories/running/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bioinformatics</title>
+      <link>/categories/bioinformatics/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>/categories/bioinformatics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>How To</title>
+      <link>/categories/how-to/</link>
+      <pubDate>Wed, 23 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/categories/how-to/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorials</title>
+      <link>/categories/tutorials/</link>
+      <pubDate>Wed, 23 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/categories/tutorials/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

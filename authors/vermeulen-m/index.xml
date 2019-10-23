@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vermeulen M | IRunFasterThanMyCode</title>
+    <link>/authors/vermeulen-m/</link>
+      <atom:link href="/authors/vermeulen-m/index.xml" rel="self" type="application/rss+xml" />
+    <description>Vermeulen M</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Fri, 29 Oct 2010 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Vermeulen M</title>
+      <link>/authors/vermeulen-m/</link>
+    </image>
+    
+    <item>
+      <title>Nucleosome-interacting proteins regulated by DNA and histone methylation</title>
+      <link>/publication/2010_nucleosome-interacting_proteins_regulated_by_dna_and_histone_methylation/</link>
+      <pubDate>Fri, 29 Oct 2010 00:00:00 +0000</pubDate>
+      <guid>/publication/2010_nucleosome-interacting_proteins_regulated_by_dna_and_histone_methylation/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

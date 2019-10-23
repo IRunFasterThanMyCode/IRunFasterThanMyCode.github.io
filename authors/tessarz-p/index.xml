@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tessarz P | IRunFasterThanMyCode</title>
+    <link>/authors/tessarz-p/</link>
+      <atom:link href="/authors/tessarz-p/index.xml" rel="self" type="application/rss+xml" />
+    <description>Tessarz P</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Thu, 23 Jan 2014 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Tessarz P</title>
+      <link>/authors/tessarz-p/</link>
+    </image>
+    
+    <item>
+      <title>Glutamine methylation in histone H2A is an RNA-polymerase-I-dedicated modification</title>
+      <link>/publication/2014_glutamine_methylation_in_histone_h2a_is_an_rna-polymerase-i-dedicated_modification/</link>
+      <pubDate>Thu, 23 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>/publication/2014_glutamine_methylation_in_histone_h2a_is_an_rna-polymerase-i-dedicated_modification/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

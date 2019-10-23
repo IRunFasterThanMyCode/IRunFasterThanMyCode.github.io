@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bannister AJ | IRunFasterThanMyCode</title>
+    <link>/authors/bannister-aj/</link>
+      <atom:link href="/authors/bannister-aj/index.xml" rel="self" type="application/rss+xml" />
+    <description>Bannister AJ</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Thu, 25 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Bannister AJ</title>
+      <link>/authors/bannister-aj/</link>
+    </image>
+    
+    <item>
+      <title>METTL1 Promotes let-7 MicroRNA Processing via m7G Methylation</title>
+      <link>/publication/2019_mettl1_promotes_let-7_microrna_processing_via_m7g_methylation/</link>
+      <pubDate>Thu, 25 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>/publication/2019_mettl1_promotes_let-7_microrna_processing_via_m7g_methylation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SRPK1 maintains acute myeloid leukemia through effects on isoform usage of epigenetic regulators including BRD4</title>
+      <link>/publication/2018_srpk1_maintains_acute_myeloid_leukemia_through_effects_on_isoform_usage_of_epigenetic_regulators_including_brd4/</link>
+      <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>/publication/2018_srpk1_maintains_acute_myeloid_leukemia_through_effects_on_isoform_usage_of_epigenetic_regulators_including_brd4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Promoter-bound METTL3 maintains myeloid leukaemia by m6A-dependent translation control</title>
+      <link>/publication/2017_promoter-bound_mettl3_maintains_myeloid_leukaemia_by_m6a-dependent_translation_control/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/2017_promoter-bound_mettl3_maintains_myeloid_leukaemia_by_m6a-dependent_translation_control/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Chemical Probe for the ATAD2 Bromodomain</title>
+      <link>/publication/2016_a-chemical-probe-for-the-atad2-bromodomain/</link>
+      <pubDate>Mon, 12 Sep 2016 00:00:00 +0000</pubDate>
+      <guid>/publication/2016_a-chemical-probe-for-the-atad2-bromodomain/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

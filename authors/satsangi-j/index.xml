@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Satsangi J | IRunFasterThanMyCode</title>
+    <link>/authors/satsangi-j/</link>
+      <atom:link href="/authors/satsangi-j/index.xml" rel="self" type="application/rss+xml" />
+    <description>Satsangi J</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Thu, 01 Apr 2010 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Satsangi J</title>
+      <link>/authors/satsangi-j/</link>
+    </image>
+    
+    <item>
+      <title>Genome-wide association study of CNVs in 16,000 cases of eight common diseases and 3,000 shared controls</title>
+      <link>/publication/2010_genome-wide_association_study_of_cnvs_in_16000_cases_of_eight_common_diseases_and_3000_shared_controls/</link>
+      <pubDate>Thu, 01 Apr 2010 00:00:00 +0000</pubDate>
+      <guid>/publication/2010_genome-wide_association_study_of_cnvs_in_16000_cases_of_eight_common_diseases_and_3000_shared_controls/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

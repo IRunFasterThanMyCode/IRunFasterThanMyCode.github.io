@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.5.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Sam Robson">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Use of multiple machine learning techniques to explore a database of Pokémon, including creation of a recommendation machine and development of prediction alogorithms for determining Legendary Pokémon">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2019-07-15_gotta_catch_em_all_pokemon/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.1884ccbe79662c38d99b291260b58a24.css">
+
+  
+
+  
+
+
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/2019-07-15_gotta_catch_em_all_pokemon/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="IRunFasterThanMyCode">
+  <meta property="og:url" content="/post/2019-07-15_gotta_catch_em_all_pokemon/">
+  <meta property="og:title" content="Building a Pokémon Recomendation Machine | IRunFasterThanMyCode">
+  <meta property="og:description" content="Use of multiple machine learning techniques to explore a database of Pokémon, including creation of a recommendation machine and development of prediction alogorithms for determining Legendary Pokémon"><meta property="og:image" content="/post/2019-07-15_gotta_catch_em_all_pokemon/featured.png">
+  <meta property="twitter:image" content="/post/2019-07-15_gotta_catch_em_all_pokemon/featured.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-07-15T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2019-07-15T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/2019-07-15_gotta_catch_em_all_pokemon/"
+  },
+  "headline": "Building a Pokémon Recomendation Machine",
+  
+  "image": [
+    "/post/2019-07-15_gotta_catch_em_all_pokemon/featured.png"
+  ],
+  
+  "datePublished": "2019-07-15T00:00:00Z",
+  "dateModified": "2019-07-15T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Sam Robson"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "IRunFasterThanMyCode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/irunfasterthanmycode.jpg"
+    }
+  },
+  "description": "Use of multiple machine learning techniques to explore a database of Pokémon, including creation of a recommendation machine and development of prediction alogorithms for determining Legendary Pokémon"
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Building a Pokémon Recomendation Machine | IRunFasterThanMyCode</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/"><img src="/img/irunfasterthanmycode.jpg" alt="IRunFasterThanMyCode"></a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#resources"><span>Resources</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/CV/SamRobson_CV_Academic/SamRobson_CV_Academic.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+<div class="article-container pt-3">
+  <h1>Building a Pokémon Recomendation Machine</h1>
+
+  
+
+  
+
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jul 15, 2019
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    59 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2019-07-15_gotta_catch_em_all_pokemon/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/blog/">Blog</a>, <a href="/categories/data-science/">Data Science</a>, <a href="/categories/machine-learning/">Machine Learning</a>, <a href="/categories/r/">R</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/2019-07-15_gotta_catch_em_all_pokemon/&amp;text=Building%20a%20Pok%c3%a9mon%20Recomendation%20Machine" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/2019-07-15_gotta_catch_em_all_pokemon/&amp;t=Building%20a%20Pok%c3%a9mon%20Recomendation%20Machine" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Building%20a%20Pok%c3%a9mon%20Recomendation%20Machine&amp;body=/post/2019-07-15_gotta_catch_em_all_pokemon/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/2019-07-15_gotta_catch_em_all_pokemon/&amp;title=Building%20a%20Pok%c3%a9mon%20Recomendation%20Machine" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Building%20a%20Pok%c3%a9mon%20Recomendation%20Machine%20/post/2019-07-15_gotta_catch_em_all_pokemon/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/2019-07-15_gotta_catch_em_all_pokemon/&amp;title=Building%20a%20Pok%c3%a9mon%20Recomendation%20Machine" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 265px;">
+  <div style="position: relative">
+    <img src="/post/2019-07-15_gotta_catch_em_all_pokemon/featured_hu986e6862c746394e11107b94dc70f8c0_121659_720x0_resize_lanczos_2.png" alt="" class="featured-image">
+    <span class="article-header-caption"><a href="https://upload.wikimedia.org/wikipedia" target="_blank">https://upload.wikimedia.org/wikipedia</a></span>
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#download-data"><span class="toc-section-number">2</span> Download data</a></li>
+<li><a href="#data-cleaning"><span class="toc-section-number">3</span> Data Cleaning</a><ul>
+<li><a href="#missing-data"><span class="toc-section-number">3.1</span> Missing Data</a></li>
+<li><a href="#numeric-range"><span class="toc-section-number">3.2</span> Numeric Range</a></li>
+<li><a href="#change-variable-class"><span class="toc-section-number">3.3</span> Change Variable Class</a></li>
+</ul></li>
+<li><a href="#exploratory-analyses"><span class="toc-section-number">4</span> Exploratory Analyses</a><ul>
+<li><a href="#attack"><span class="toc-section-number">4.1</span> Attack</a></li>
+<li><a href="#defence"><span class="toc-section-number">4.2</span> Defence</a></li>
+<li><a href="#other"><span class="toc-section-number">4.3</span> Other</a></li>
+<li><a href="#ensuring-we-use-accurate-data-classes-throughout"><span class="toc-section-number">4.4</span> Ensuring we use accurate data classes throughout</a></li>
+</ul></li>
+<li><a href="#normalization"><span class="toc-section-number">5</span> Normalization</a><ul>
+<li><a href="#min-max-normalization"><span class="toc-section-number">5.1</span> Min-Max Normalization</a></li>
+<li><a href="#z-score-normalization"><span class="toc-section-number">5.2</span> Z-Score Normalization</a></li>
+<li><a href="#choosing-a-normalization-method"><span class="toc-section-number">5.3</span> Choosing a Normalization Method</a></li>
+</ul></li>
+<li><a href="#looking-for-patterns"><span class="toc-section-number">6</span> Looking for Patterns</a><ul>
+<li><a href="#correlation-of-variables"><span class="toc-section-number">6.1</span> Correlation of Variables</a></li>
+<li><a href="#height-vs-weight"><span class="toc-section-number">6.2</span> Height vs Weight</a></li>
+<li><a href="#correlation-between-pokemon"><span class="toc-section-number">6.3</span> Correlation between Pokémon</a></li>
+<li><a href="#principal-component-analysis"><span class="toc-section-number">6.4</span> Principal Component Analysis</a></li>
+<li><a href="#correlation-based-recommendation"><span class="toc-section-number">6.5</span> Correlation-Based Recommendation</a></li>
+</ul></li>
+<li><a href="#predicting-legendary-pokemon"><span class="toc-section-number">7</span> Predicting Legendary Pokémon</a><ul>
+<li><a href="#support-vector-machine"><span class="toc-section-number">7.1</span> Support-Vector Machine</a></li>
+<li><a href="#k-nearest-neighbour"><span class="toc-section-number">7.2</span> k-Nearest Neighbour</a></li>
+<li><a href="#logistic-regression"><span class="toc-section-number">7.3</span> Logistic Regression</a></li>
+<li><a href="#random-forest"><span class="toc-section-number">7.4</span> Random Forest</a></li>
+</ul></li>
+<li><a href="#conclusion"><span class="toc-section-number">8</span> Conclusion</a></li>
+<li><a href="#session-info"><span class="toc-section-number">9</span> Session Info</a></li>
+</ul>
+</div>
+
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>When I saw the <a href="https://www.kaggle.com/rounakbanik/pokemon">Complete Pokémon Dataset on Kaggle</a>, I just had to download it and have a look! When I was younger, I was a big fan of Pokémon and used to play it regularly and watch the TV show (to this day I can recite much of the original <a href="https://www.youtube.com/watch?v=xMk8wuw7nek">Pokémon Rap</a>). More recently, my daughter has become a fan, and watches the show incessently (although it beats watching Peppa Pig…). So I am going to have a look over these data and see what they can show us about these pocket monsters.</p>
+<p>This is a fairly comprehensive analysis of the data, and will include introductions to a number of different data science techniques. I may further develop these into posts of their own in the future, so will only skim over most of them here. I hope that this post shows a fairly complete example of the types of analyses that it is possible to do with data such as these for prediction and recommendation.</p>
+</div>
+<div id="download-data" class="section level1">
+<h1><span class="header-section-number">2</span> Download data</h1>
+<p>The data about each of the Pokémon can be downloaded directly from Kaggle <a href="https://www.kaggle.com/rounakbanik/pokemon/download">here</a>, and I have also downloaded some images for each of the Pokémon (at least for Generations 1 to 6) from Kaggle <a href="https://www.kaggle.com/kvpratama/pokemon-images-dataset/download">here</a>.</p>
+<p>The main data are in the form of a compressed comma separated values (CSV) file. After unzipping the file, we are left with a plain text file where every row is a separate entry, and the various columns of the data set are separated by commas. So let’s load the data in using the <code>read.csv</code> function, which will generate a <code>data.frame</code> object, and take a look at it:</p>
+<pre class="r"><code>pokedat &lt;- read.csv(&quot;pokemon.csv&quot;)
+rownames(pokedat) &lt;- pokedat[[&quot;name&quot;]]
+dim(pokedat)</code></pre>
+<pre><code>## [1] 801  41</code></pre>
+<p>So we have information for 41 variables for 801 unique Pokémon. Each Pokémon has a unique number assigned to it in the so called “Pokédex”, which is common between this data set and the list of Pokémon images. This makes it easy to link the two. Back in my day, there were only 151 Pokémon to keep track of, but many years later they have added more and more with each “Generation”. Pokémon Generation 8 is the most recent and has only recently been released, so we can see which generations are present in this data set by using the <code>table</code> function, which will show us the number of entries with each value:</p>
+<pre class="r"><code>table(pokedat[[&quot;generation&quot;]])</code></pre>
+<pre><code>## 
+##   1   2   3   4   5   6   7 
+## 151 100 135 107 156  72  80</code></pre>
+<p>So we can see the 151 Generation 1 Pokémon, but also additional Pokémon from up to Generation 7. We can get a fairly broad overview of the data set by using the <code>str</code> function to gain an overview of what is contained within each of the columns of this <code>data.frame</code>:</p>
+<pre class="r"><code>str(pokedat)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    801 obs. of  41 variables:
+##  $ abilities        : Factor w/ 482 levels &quot;[&#39;Adaptability&#39;, &#39;Download&#39;, &#39;Analytic&#39;]&quot;,..: 244 244 244 22 22 22 453 453 453 348 ...
+##  $ against_bug      : num  1 1 1 0.5 0.5 0.25 1 1 1 1 ...
+##  $ against_dark     : num  1 1 1 1 1 1 1 1 1 1 ...
+##  $ against_dragon   : num  1 1 1 1 1 1 1 1 1 1 ...
+##  $ against_electric : num  0.5 0.5 0.5 1 1 2 2 2 2 1 ...
+##  $ against_fairy    : num  0.5 0.5 0.5 0.5 0.5 0.5 1 1 1 1 ...
+##  $ against_fight    : num  0.5 0.5 0.5 1 1 0.5 1 1 1 0.5 ...
+##  $ against_fire     : num  2 2 2 0.5 0.5 0.5 0.5 0.5 0.5 2 ...
+##  $ against_flying   : num  2 2 2 1 1 1 1 1 1 2 ...
+##  $ against_ghost    : num  1 1 1 1 1 1 1 1 1 1 ...
+##  $ against_grass    : num  0.25 0.25 0.25 0.5 0.5 0.25 2 2 2 0.5 ...
+##  $ against_ground   : num  1 1 1 2 2 0 1 1 1 0.5 ...
+##  $ against_ice      : num  2 2 2 0.5 0.5 1 0.5 0.5 0.5 1 ...
+##  $ against_normal   : num  1 1 1 1 1 1 1 1 1 1 ...
+##  $ against_poison   : num  1 1 1 1 1 1 1 1 1 1 ...
+##  $ against_psychic  : num  2 2 2 1 1 1 1 1 1 1 ...
+##  $ against_rock     : num  1 1 1 2 2 4 1 1 1 2 ...
+##  $ against_steel    : num  1 1 1 0.5 0.5 0.5 0.5 0.5 0.5 1 ...
+##  $ against_water    : num  0.5 0.5 0.5 2 2 2 0.5 0.5 0.5 1 ...
+##  $ attack           : int  49 62 100 52 64 104 48 63 103 30 ...
+##  $ base_egg_steps   : int  5120 5120 5120 5120 5120 5120 5120 5120 5120 3840 ...
+##  $ base_happiness   : int  70 70 70 70 70 70 70 70 70 70 ...
+##  $ base_total       : int  318 405 625 309 405 634 314 405 630 195 ...
+##  $ capture_rate     : Factor w/ 34 levels &quot;100&quot;,&quot;120&quot;,&quot;125&quot;,..: 26 26 26 26 26 26 26 26 26 21 ...
+##  $ classfication    : Factor w/ 588 levels &quot;Abundance Pokémon&quot;,..: 449 449 449 299 187 187 531 546 457 585 ...
+##  $ defense          : int  49 63 123 43 58 78 65 80 120 35 ...
+##  $ experience_growth: int  1059860 1059860 1059860 1059860 1059860 1059860 1059860 1059860 1059860 1000000 ...
+##  $ height_m         : num  0.7 1 2 0.6 1.1 1.7 0.5 1 1.6 0.3 ...
+##  $ hp               : int  45 60 80 39 58 78 44 59 79 45 ...
+##  $ japanese_name    : Factor w/ 801 levels &quot;Abagouraアバゴーラ&quot;,..: 200 201 199 288 417 416 794 334 336 80 ...
+##  $ name             : Factor w/ 801 levels &quot;Abomasnow&quot;,&quot;Abra&quot;,..: 73 321 745 95 96 93 656 764 56 88 ...
+##  $ percentage_male  : num  88.1 88.1 88.1 88.1 88.1 88.1 88.1 88.1 88.1 50 ...
+##  $ pokedex_number   : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ sp_attack        : int  65 80 122 60 80 159 50 65 135 20 ...
+##  $ sp_defense       : int  65 80 120 50 65 115 64 80 115 20 ...
+##  $ speed            : int  45 60 80 65 80 100 43 58 78 45 ...
+##  $ type1            : Factor w/ 18 levels &quot;bug&quot;,&quot;dark&quot;,&quot;dragon&quot;,..: 10 10 10 7 7 7 18 18 18 1 ...
+##  $ type2            : Factor w/ 19 levels &quot;&quot;,&quot;bug&quot;,&quot;dark&quot;,..: 15 15 15 1 1 9 1 1 1 1 ...
+##  $ weight_kg        : num  6.9 13 100 8.5 19 90.5 9 22.5 85.5 2.9 ...
+##  $ generation       : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ is_legendary     : int  0 0 0 0 0 0 0 0 0 0 ...</code></pre>
+<p>So we gave a lot of different information contained in this data set, with the vast majority being represented by numerical values. As well as the name by which we likely know them, we have the original Japanese name, as well as their fighting statistics such as <code>hp</code> (Health Points), <code>speed</code>, <code>attack</code> and <code>defense</code>. We also get their specific abilities, which are given in a listed format within square brackets (e.g. three abilities – <code>['Adaptability', 'Download', 'Analytic']</code> – for <code>Abomasnow</code>). There are also various other things that we will explore now in the following sections. So let’s explore these data to see how they look, and to check for any inconsistencies that need to be corrected.</p>
+</div>
+<div id="data-cleaning" class="section level1">
+<h1><span class="header-section-number">3</span> Data Cleaning</h1>
+<p>The first step in any data analysis is to check the consistency of the data to ensure that there are no missing values (and if there are, decide the best thing to do with them), to make sure that the data are consistent and fit within expected bounds, and to generally make sure that these data make sense. These are data that somebody else has generated, so it is best not to assume that they are perfect. If there are any issues, this will propogate to our downstream analyses.</p>
+<div id="missing-data" class="section level2">
+<h2><span class="header-section-number">3.1</span> Missing Data</h2>
+<p>First of all, let’s take a look to see which of the entries for each of the columns is missing (i.e. is coded as <code>NA</code>):</p>
+<pre class="r"><code>has_na &lt;- apply(pokedat, MAR = 2, FUN = function(x) which(is.na(x))) 
+has_na[sapply(has_na, length) &gt; 0]</code></pre>
+<pre><code>## $height_m
+##   Rattata  Raticate    Raichu Sandshrew Sandslash    Vulpix Ninetales 
+##        19        20        26        27        28        37        38 
+##   Diglett   Dugtrio    Meowth   Persian   Geodude  Graveler     Golem 
+##        50        51        52        53        74        75        76 
+##    Grimer       Muk Exeggutor   Marowak     Hoopa  Lycanroc 
+##        88        89       103       105       720       745 
+## 
+## $percentage_male
+##  Magnemite   Magneton    Voltorb  Electrode     Staryu    Starmie 
+##         81         82        100        101        120        121 
+##      Ditto    Porygon   Articuno     Zapdos    Moltres     Mewtwo 
+##        132        137        144        145        146        150 
+##        Mew      Unown   Porygon2     Raikou      Entei    Suicune 
+##        151        201        233        243        244        245 
+##      Lugia      Ho-Oh     Celebi   Shedinja   Lunatone    Solrock 
+##        249        250        251        292        337        338 
+##     Baltoy    Claydol     Beldum     Metang  Metagross   Regirock 
+##        343        344        374        375        376        377 
+##     Regice  Registeel     Kyogre    Groudon   Rayquaza    Jirachi 
+##        378        379        382        383        384        385 
+##     Deoxys    Bronzor   Bronzong  Magnezone  Porygon-Z      Rotom 
+##        386        436        437        462        474        479 
+##       Uxie    Mesprit      Azelf     Dialga     Palkia  Regigigas 
+##        480        481        482        483        484        486 
+##   Giratina     Phione    Manaphy    Darkrai    Shaymin     Arceus 
+##        487        489        490        491        492        493 
+##    Victini      Klink      Klang  Klinklang  Cryogonal     Golett 
+##        494        599        600        601        615        622 
+##     Golurk   Cobalion  Terrakion   Virizion   Reshiram     Zekrom 
+##        623        638        639        640        643        644 
+##     Kyurem     Keldeo   Meloetta   Genesect    Carbink    Xerneas 
+##        646        647        648        649        703        716 
+##    Yveltal    Zygarde    Diancie      Hoopa  Volcanion Type: Null 
+##        717        718        719        720        721        772 
+##   Silvally     Minior   Dhelmise  Tapu Koko  Tapu Lele  Tapu Bulu 
+##        773        774        781        785        786        787 
+##  Tapu Fini     Cosmog    Cosmoem   Solgaleo     Lunala   Nihilego 
+##        788        789        790        791        792        793 
+##   Buzzwole  Pheromosa  Xurkitree Celesteela    Kartana   Guzzlord 
+##        794        795        796        797        798        799 
+##   Necrozma   Magearna 
+##        800        801 
+## 
+## $weight_kg
+##   Rattata  Raticate    Raichu Sandshrew Sandslash    Vulpix Ninetales 
+##        19        20        26        27        28        37        38 
+##   Diglett   Dugtrio    Meowth   Persian   Geodude  Graveler     Golem 
+##        50        51        52        53        74        75        76 
+##    Grimer       Muk Exeggutor   Marowak     Hoopa  Lycanroc 
+##        88        89       103       105       720       745</code></pre>
+<p>In general, this seems to be a fairly complete data set, with only three of the variables showing any NA data. We can see that there are 20 Pokémon with no height nor weight data:</p>
+<pre class="r"><code>subset(pokedat, is.na(height_m) | is.na(weight_kg))[, c(&quot;name&quot;, &quot;height_m&quot;, &quot;weight_kg&quot;)]</code></pre>
+<pre><code>##                name height_m weight_kg
+## Rattata     Rattata       NA        NA
+## Raticate   Raticate       NA        NA
+## Raichu       Raichu       NA        NA
+## Sandshrew Sandshrew       NA        NA
+## Sandslash Sandslash       NA        NA
+## Vulpix       Vulpix       NA        NA
+## Ninetales Ninetales       NA        NA
+## Diglett     Diglett       NA        NA
+## Dugtrio     Dugtrio       NA        NA
+## Meowth       Meowth       NA        NA
+## Persian     Persian       NA        NA
+## Geodude     Geodude       NA        NA
+## Graveler   Graveler       NA        NA
+## Golem         Golem       NA        NA
+## Grimer       Grimer       NA        NA
+## Muk             Muk       NA        NA
+## Exeggutor Exeggutor       NA        NA
+## Marowak     Marowak       NA        NA
+## Hoopa         Hoopa       NA        NA
+## Lycanroc   Lycanroc       NA        NA</code></pre>
+<p>Many of these are Pokémon that I know from Generation 1, and in fact seem to be sets of evolutions. For instance, Rattata evolves into Raticate:</p>
+<p><img src="pokemon/19.png" alt="Rattata" />
+<img src="pokemon/20.png" alt="Raticate" /></p>
+<p>Sandshrew evolves into Sandslash:</p>
+<p><img src="pokemon/27.png" alt="Sandshrew" />
+<img src="pokemon/28.png" alt="Sandslash" /></p>
+<p>And Vulpix evolves into Ninetales:</p>
+<p><img src="pokemon/37.png" alt="Vulpix" />
+<img src="pokemon/38.png" alt="Ninetales" /></p>
+<p>There are also a couple of other none-Generation 1 Pokémon, including Lycanroc which is one of my daughter’s favourited from Pokémon Sun and Moon:</p>
+<div class="figure">
+<img src="pokemon/lycanroc.png" alt="Lycanroc" />
+<p class="caption">Lycanroc</p>
+</div>
+<p>However, there is no obvious reason why values are missing. There are methods that can be used to account for missing data. One possible approach is to <em>impute</em> the data – that is, we use the rest of the data to give us a rough idea of what we should see for these missing values. An example of this is to simply use the mean of the non-missing values for the missing variable. However, in this case, we can actually find these missing values by visiting an online <a href="https://pokemondb.net/pokedex">Pokedex</a>, so let’s correct these, ensuring that we match the units for weight (kg) and height (m):</p>
+<pre class="r"><code>missing_height &lt;- list(Rattata   = c(height_m = 0.3, weight_kg =   3.5), 
+                       Raticate  = c(height_m = 0.7, weight_kg =  18.5),
+                       Raichu    = c(height_m = 0.8, weight_kg =  30.0),
+                       Sandshrew = c(height_m = 0.6, weight_kg =  12.0),
+                       Sandslash = c(height_m = 1.0, weight_kg =  29.5),
+                       Vulpix    = c(height_m = 0.6, weight_kg =   9.9),
+                       Ninetales = c(height_m = 1.1, weight_kg =  19.9),
+                       Diglett   = c(height_m = 0.2, weight_kg =   0.8),
+                       Dugtrio   = c(height_m = 0.7, weight_kg =  33.3),
+                       Meowth    = c(height_m = 0.4, weight_kg =   4.2),
+                       Persian   = c(height_m = 1.0, weight_kg =  32.0),
+                       Geodude   = c(height_m = 0.4, weight_kg =  20.0),
+                       Graveler  = c(height_m = 0.3, weight_kg = 105.0),
+                       Golem     = c(height_m = 1.4, weight_kg = 300.0),
+                       Grimer    = c(height_m = 0.9, weight_kg =  30.0),
+                       Muk       = c(height_m = 1.2, weight_kg =  30.0),
+                       Exeggutor = c(height_m = 2.0, weight_kg = 120.0),
+                       Marowak   = c(height_m = 1.0, weight_kg =  45.0),
+                       Hoopa     = c(height_m = 0.5, weight_kg =   9.0),
+                       Lycanroc  = c(height_m = 0.8, weight_kg =  25.0))
+missing_height &lt;- t(rbind.data.frame(missing_height))
+pokedat[match(rownames(missing_height), pokedat[[&quot;name&quot;]]), c(&quot;height_m&quot;, &quot;weight_kg&quot;)] &lt;- missing_height</code></pre>
+<p>There are also 98 Pokémon with a missing <code>percentage_male</code> value. This value gives the proportion of the Pokémon out in the world that you might come across in the game that are male as a percentage. These seem to be spread throughout the entire list of Pokémon across all Generations, with no clear reason as to why they have missing values:</p>
+<pre class="r"><code>head(subset(pokedat, is.na(percentage_male)))</code></pre>
+<pre><code>##                                            abilities against_bug
+## Magnemite      [&#39;Magnet Pull&#39;, &#39;Sturdy&#39;, &#39;Analytic&#39;]         0.5
+## Magneton       [&#39;Magnet Pull&#39;, &#39;Sturdy&#39;, &#39;Analytic&#39;]         0.5
+## Voltorb        [&#39;Soundproof&#39;, &#39;Static&#39;, &#39;Aftermath&#39;]         1.0
+## Electrode      [&#39;Soundproof&#39;, &#39;Static&#39;, &#39;Aftermath&#39;]         1.0
+## Staryu    [&#39;Illuminate&#39;, &#39;Natural Cure&#39;, &#39;Analytic&#39;]         1.0
+## Starmie   [&#39;Illuminate&#39;, &#39;Natural Cure&#39;, &#39;Analytic&#39;]         2.0
+##           against_dark against_dragon against_electric against_fairy
+## Magnemite            1            0.5              0.5           0.5
+## Magneton             1            0.5              0.5           0.5
+## Voltorb              1            1.0              0.5           1.0
+## Electrode            1            1.0              0.5           1.0
+## Staryu               1            1.0              2.0           1.0
+## Starmie              2            1.0              2.0           1.0
+##           against_fight against_fire against_flying against_ghost
+## Magnemite           2.0          2.0           0.25             1
+## Magneton            2.0          2.0           0.25             1
+## Voltorb             1.0          1.0           0.50             1
+## Electrode           1.0          1.0           0.50             1
+## Staryu              1.0          0.5           1.00             1
+## Starmie             0.5          0.5           1.00             2
+##           against_grass against_ground against_ice against_normal
+## Magnemite           0.5              4         0.5            0.5
+## Magneton            0.5              4         0.5            0.5
+## Voltorb             1.0              2         1.0            1.0
+## Electrode           1.0              2         1.0            1.0
+## Staryu              2.0              1         0.5            1.0
+## Starmie             2.0              1         0.5            1.0
+##           against_poison against_psychic against_rock against_steel
+## Magnemite              0             0.5          0.5          0.25
+## Magneton               0             0.5          0.5          0.25
+## Voltorb                1             1.0          1.0          0.50
+## Electrode              1             1.0          1.0          0.50
+## Staryu                 1             1.0          1.0          0.50
+## Starmie                1             0.5          1.0          0.50
+##           against_water attack base_egg_steps base_happiness base_total
+## Magnemite           1.0     35           5120             70        325
+## Magneton            1.0     60           5120             70        465
+## Voltorb             1.0     30           5120             70        330
+## Electrode           1.0     50           5120             70        490
+## Staryu              0.5     45           5120             70        340
+## Starmie             0.5     75           5120             70        520
+##           capture_rate      classfication defense experience_growth
+## Magnemite          190     Magnet Pokémon      70           1000000
+## Magneton            60     Magnet Pokémon      95           1000000
+## Voltorb            190       Ball Pokémon      50           1000000
+## Electrode           60       Ball Pokémon      70           1000000
+## Staryu             225  Starshape Pokémon      55           1250000
+## Starmie             60 Mysterious Pokémon      85           1250000
+##           height_m hp        japanese_name      name percentage_male
+## Magnemite      0.3 25           Coilコイル Magnemite              NA
+## Magneton       1.0 50   Rarecoilレアコイル  Magneton              NA
+## Voltorb        0.5 40 Biriridamaビリリダマ   Voltorb              NA
+## Electrode      1.2 60   Marumineマルマイン Electrode              NA
+## Staryu         0.8 30  Hitodemanヒトデマン    Staryu              NA
+## Starmie        1.1 60    Starmieスターミー   Starmie              NA
+##           pokedex_number sp_attack sp_defense speed    type1   type2
+## Magnemite             81        95         55    45 electric   steel
+## Magneton              82       120         70    70 electric   steel
+## Voltorb              100        55         55   100 electric        
+## Electrode            101        80         80   150 electric        
+## Staryu               120        70         55    85    water        
+## Starmie              121       100         85   115    water psychic
+##           weight_kg generation is_legendary
+## Magnemite       6.0          1            0
+## Magneton       60.0          1            0
+## Voltorb        10.4          1            0
+## Electrode      66.6          1            0
+## Staryu         34.5          1            0
+## Starmie        80.0          1            0</code></pre>
+<p>However, by looking at a few of these in the Pokedex, it would appear that these are generally genderless Pokémon, which would explain the missing values. A sensible value to use in these cases would therefore be 0.5, representing an equal spit of male and female:</p>
+<pre class="r"><code>pokedat[is.na(pokedat[[&quot;percentage_male&quot;]]), &quot;percentage_male&quot;] &lt;- 0.5</code></pre>
+<p>It is also worth noting that there are also missing values for the type2 Pokémon. These were not picked up as NA values, because they are encoded as a blank entry &quot;“. We can convert this to a more descriptive factor such as”none&quot;:</p>
+<pre class="r"><code>levels(pokedat[[&quot;type2&quot;]])[levels(pokedat[[&quot;type2&quot;]]) == &quot;none&quot;] &lt;- &quot;none&quot;</code></pre>
+</div>
+<div id="numeric-range" class="section level2">
+<h2><span class="header-section-number">3.2</span> Numeric Range</h2>
+<p>The vast majority of these variables are numeric in nature, so it is worth checking the range of these values to ensure that they are within typical ranges that we might expect. For instance, we would not expect negative values, zero values, or values greater than some sensible limit for things like height, weight, etc. So let’s take an overall look at these data ranges by using the <code>summary()</code> function:</p>
+<pre class="r"><code>summary(pokedat)</code></pre>
+<pre><code>##                                      abilities    against_bug    
+##  [&#39;Levitate&#39;]                             : 29   Min.   :0.2500  
+##  [&#39;Beast Boost&#39;]                          :  7   1st Qu.:0.5000  
+##  [&#39;Shed Skin&#39;]                            :  5   Median :1.0000  
+##  [&#39;Clear Body&#39;, &#39;Light Metal&#39;]            :  4   Mean   :0.9963  
+##  [&#39;Justified&#39;]                            :  4   3rd Qu.:1.0000  
+##  [&#39;Keen Eye&#39;, &#39;Tangled Feet&#39;, &#39;Big Pecks&#39;]:  4   Max.   :4.0000  
+##  (Other)                                  :748                   
+##   against_dark   against_dragon   against_electric against_fairy  
+##  Min.   :0.250   Min.   :0.0000   Min.   :0.000    Min.   :0.250  
+##  1st Qu.:1.000   1st Qu.:1.0000   1st Qu.:0.500    1st Qu.:1.000  
+##  Median :1.000   Median :1.0000   Median :1.000    Median :1.000  
+##  Mean   :1.057   Mean   :0.9688   Mean   :1.074    Mean   :1.069  
+##  3rd Qu.:1.000   3rd Qu.:1.0000   3rd Qu.:1.000    3rd Qu.:1.000  
+##  Max.   :4.000   Max.   :2.0000   Max.   :4.000    Max.   :4.000  
+##                                                                   
+##  against_fight    against_fire   against_flying  against_ghost  
+##  Min.   :0.000   Min.   :0.250   Min.   :0.250   Min.   :0.000  
+##  1st Qu.:0.500   1st Qu.:0.500   1st Qu.:1.000   1st Qu.:1.000  
+##  Median :1.000   Median :1.000   Median :1.000   Median :1.000  
+##  Mean   :1.066   Mean   :1.135   Mean   :1.193   Mean   :0.985  
+##  3rd Qu.:1.000   3rd Qu.:2.000   3rd Qu.:1.000   3rd Qu.:1.000  
+##  Max.   :4.000   Max.   :4.000   Max.   :4.000   Max.   :4.000  
+##                                                                 
+##  against_grass   against_ground   against_ice    against_normal 
+##  Min.   :0.250   Min.   :0.000   Min.   :0.250   Min.   :0.000  
+##  1st Qu.:0.500   1st Qu.:1.000   1st Qu.:0.500   1st Qu.:1.000  
+##  Median :1.000   Median :1.000   Median :1.000   Median :1.000  
+##  Mean   :1.034   Mean   :1.098   Mean   :1.208   Mean   :0.887  
+##  3rd Qu.:1.000   3rd Qu.:1.000   3rd Qu.:2.000   3rd Qu.:1.000  
+##  Max.   :4.000   Max.   :4.000   Max.   :4.000   Max.   :1.000  
+##                                                                 
+##  against_poison   against_psychic  against_rock  against_steel   
+##  Min.   :0.0000   Min.   :0.000   Min.   :0.25   Min.   :0.2500  
+##  1st Qu.:0.5000   1st Qu.:1.000   1st Qu.:1.00   1st Qu.:0.5000  
+##  Median :1.0000   Median :1.000   Median :1.00   Median :1.0000  
+##  Mean   :0.9753   Mean   :1.005   Mean   :1.25   Mean   :0.9835  
+##  3rd Qu.:1.0000   3rd Qu.:1.000   3rd Qu.:2.00   3rd Qu.:1.0000  
+##  Max.   :4.0000   Max.   :4.000   Max.   :4.00   Max.   :4.0000  
+##                                                                  
+##  against_water       attack       base_egg_steps  base_happiness  
+##  Min.   :0.250   Min.   :  5.00   Min.   : 1280   Min.   :  0.00  
+##  1st Qu.:0.500   1st Qu.: 55.00   1st Qu.: 5120   1st Qu.: 70.00  
+##  Median :1.000   Median : 75.00   Median : 5120   Median : 70.00  
+##  Mean   :1.058   Mean   : 77.86   Mean   : 7191   Mean   : 65.36  
+##  3rd Qu.:1.000   3rd Qu.:100.00   3rd Qu.: 6400   3rd Qu.: 70.00  
+##  Max.   :4.000   Max.   :185.00   Max.   :30720   Max.   :140.00  
+##                                                                   
+##    base_total     capture_rate          classfication    defense      
+##  Min.   :180.0   45     :250   Dragon Pokémon  :  8   Min.   :  5.00  
+##  1st Qu.:320.0   190    : 75   Mouse Pokémon   :  6   1st Qu.: 50.00  
+##  Median :435.0   255    : 69   Mushroom Pokémon:  6   Median : 70.00  
+##  Mean   :428.4   75     : 61   Balloon Pokémon :  5   Mean   : 73.01  
+##  3rd Qu.:505.0   3      : 58   Fairy Pokémon   :  5   3rd Qu.: 90.00  
+##  Max.   :780.0   120    : 55   Flame Pokémon   :  5   Max.   :230.00  
+##                  (Other):233   (Other)         :766                   
+##  experience_growth    height_m            hp        
+##  Min.   : 600000   Min.   : 0.100   Min.   :  1.00  
+##  1st Qu.:1000000   1st Qu.: 0.600   1st Qu.: 50.00  
+##  Median :1000000   Median : 1.000   Median : 65.00  
+##  Mean   :1054996   Mean   : 1.155   Mean   : 68.96  
+##  3rd Qu.:1059860   3rd Qu.: 1.500   3rd Qu.: 80.00  
+##  Max.   :1640000   Max.   :14.500   Max.   :255.00  
+##                                                     
+##              japanese_name         name     percentage_male 
+##  Abagouraアバゴーラ :  1   Abomasnow :  1   Min.   :  0.00  
+##  Absolアブソル      :  1   Abra      :  1   1st Qu.: 50.00  
+##  Abulyアブリー      :  1   Absol     :  1   Median : 50.00  
+##  Aburibbonアブリボン:  1   Accelgor  :  1   Mean   : 48.47  
+##  Achamoアチャモ     :  1   Aegislash :  1   3rd Qu.: 50.00  
+##  Agehuntアゲハント  :  1   Aerodactyl:  1   Max.   :100.00  
+##  (Other)            :795   (Other)   :795                   
+##  pokedex_number   sp_attack        sp_defense         speed       
+##  Min.   :  1    Min.   : 10.00   Min.   : 20.00   Min.   :  5.00  
+##  1st Qu.:201    1st Qu.: 45.00   1st Qu.: 50.00   1st Qu.: 45.00  
+##  Median :401    Median : 65.00   Median : 66.00   Median : 65.00  
+##  Mean   :401    Mean   : 71.31   Mean   : 70.91   Mean   : 66.33  
+##  3rd Qu.:601    3rd Qu.: 91.00   3rd Qu.: 90.00   3rd Qu.: 85.00  
+##  Max.   :801    Max.   :194.00   Max.   :230.00   Max.   :180.00  
+##                                                                   
+##      type1         type2       weight_kg        generation  
+##  water  :114          :384   Min.   :  0.10   Min.   :1.00  
+##  normal :105   flying : 95   1st Qu.:  9.00   1st Qu.:2.00  
+##  grass  : 78   ground : 34   Median : 27.30   Median :4.00  
+##  bug    : 72   poison : 34   Mean   : 60.94   Mean   :3.69  
+##  psychic: 53   fairy  : 29   3rd Qu.: 63.00   3rd Qu.:5.00  
+##  fire   : 52   psychic: 29   Max.   :999.90   Max.   :7.00  
+##  (Other):327   (Other):196                                  
+##   is_legendary    
+##  Min.   :0.00000  
+##  1st Qu.:0.00000  
+##  Median :0.00000  
+##  Mean   :0.08739  
+##  3rd Qu.:0.00000  
+##  Max.   :1.00000  
+## </code></pre>
+<p>We can learn a few things from this. For instance, if we look at the character type variables, “Levitate” is the most common ability (although note that this is only counting the cases where there is only a single ability – more on this later), “Dragon Pokémon” are the most common classfication [sic] (although the majority of the Pokémon are given a unique classification, which seems to go against the idea of classification), and “water” and “normal” type Pokémon are very common, and many Pokémon have flying as their secondary type. If we look at the numeric type variables, we can see that the <code>against_</code> values appear to be numeric values between 0 and 4 in multiples of 0.25 (they represent the Pokémon’s strength against particular Pokémon types during battle), attack, defense and speed vary between 5 and 185, 230 and 180 respectively (so there is quite a big range depending on which Pokémon you have in a fight), there is at least one Pokémon that starts with a base happiness score of 0 (in fact there are 36, which is quite sad!), the percentage of males varies between 0 and 100 with 98 missing values (as expected). But overall there do not appear to be any strange outliers in these data. There are some pretty big Pokémon, but we will explore this in a little more detail later.</p>
+</div>
+<div id="change-variable-class" class="section level2">
+<h2><span class="header-section-number">3.3</span> Change Variable Class</h2>
+<p>The m ajority of these data have been classified correctly by the <code>read.data()</code> function as either numeric or characters (which are factorised automaticallyfor use in model and potting functions later). However, there are some changes that we may wish to make. Firstly, the <code>generation</code> and <code>is_legendary</code> variables should not be considered numeric, even though they are represented by numbers. For instance, a Pokémon could not come from Generation 2.345. So let’s make these changes from numeric to factorised character variables. Note that there is a natural order to the <code>generation</code> values, so I will ensure that these are factorised as ordinal, just in case this comes into play later:</p>
+<pre class="r"><code>pokedat[[&quot;generation&quot;]] &lt;- factor(as.character(pokedat[[&quot;generation&quot;]]), order = TRUE)
+pokedat[[&quot;is_legendary&quot;]] &lt;- factor(as.character(pokedat[[&quot;is_legendary&quot;]]))</code></pre>
+<p>These variabbles have been classified as factors even though they are represented by numeric values. The values representing the factor levels can actually be anything we choose, so it may be useful to change these to something more descriptive. For instance, it may be worth adding the word “Generation” to the <code>generation</code> variable, whilst the <code>is_legendary</code> variable may be more useful as a binary TRUE/FALSE value. It doesn’t matter what we put, since for later analyses dummy numeric variables will be used for calculations:</p>
+<pre class="r"><code>levels(pokedat[[&quot;generation&quot;]]) &lt;- paste(&quot;Generation&quot;, levels(pokedat[[&quot;generation&quot;]]))
+levels(pokedat[[&quot;is_legendary&quot;]]) &lt;- c(FALSE, TRUE)</code></pre>
+<p>The defaults for the other factors seem to be suitable, so I will leave thse as they are.</p>
+<p>In comparison, the <code>capture_rate</code> value is being classed as a factor, even though it should be a number. Why is this?</p>
+<pre class="r"><code>levels(pokedat[[&quot;capture_rate&quot;]])</code></pre>
+<pre><code>##  [1] &quot;100&quot;                      &quot;120&quot;                     
+##  [3] &quot;125&quot;                      &quot;127&quot;                     
+##  [5] &quot;130&quot;                      &quot;140&quot;                     
+##  [7] &quot;145&quot;                      &quot;15&quot;                      
+##  [9] &quot;150&quot;                      &quot;155&quot;                     
+## [11] &quot;160&quot;                      &quot;170&quot;                     
+## [13] &quot;180&quot;                      &quot;190&quot;                     
+## [15] &quot;200&quot;                      &quot;205&quot;                     
+## [17] &quot;220&quot;                      &quot;225&quot;                     
+## [19] &quot;235&quot;                      &quot;25&quot;                      
+## [21] &quot;255&quot;                      &quot;3&quot;                       
+## [23] &quot;30&quot;                       &quot;30 (Meteorite)255 (Core)&quot;
+## [25] &quot;35&quot;                       &quot;45&quot;                      
+## [27] &quot;50&quot;                       &quot;55&quot;                      
+## [29] &quot;60&quot;                       &quot;65&quot;                      
+## [31] &quot;70&quot;                       &quot;75&quot;                      
+## [33] &quot;80&quot;                       &quot;90&quot;</code></pre>
+<p>Aha. So there is a non-numeric value in there – <code>30 (Meteorite)255 (Core)</code>. Let’s see which Pokémon this applies to:</p>
+<pre class="r"><code>as.character(subset(pokedat, capture_rate == &quot;30 (Meteorite)255 (Core)&quot;)[[&quot;name&quot;]])</code></pre>
+<pre><code>## [1] &quot;Minior&quot;</code></pre>
+<p>This is a “Meteor” type Pokémon that appears to have a different capture rate under different conditions. Baased on the online <a href="https://pokemondb.net/pokedex">Pokedex</a>, the canonical value to use here is 30 for its Meteorite form, so let’s use this and convert it into a numeric value. One thing to bear in mind here is that factors can be a little funny. When I convert to a number, it will convert the level values to a number, not necessarily the values themselves. So in this case, it will not give me the values but instead will give me the order of the values. For instance. look at the output of the following example:</p>
+<pre class="r"><code>t &lt;- factor(c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;20&quot;))
+data.frame(factor = t, level = levels(t), number = as.numeric(t))</code></pre>
+<pre><code>##   factor level number
+## 1      1     1      1
+## 2      2     2      2
+## 3      3    20      4
+## 4     20     3      3</code></pre>
+<p>So the levels are based on a character sort rather than a numeric sort, which puts “20” ahead of “4”. Then, to add to this further, the factor “20” is actually the 3<sup>rd</sup> factor so gets the value 3, whilst the factor “3” is the 4<sup>th</sup> level, and so gets a value 4. So the output is definitely not what we would expect when converting this to a number. To avoid this, we need to convert to a character value before we do anything else:</p>
+<pre class="r"><code>pokedat[[&quot;capture_rate&quot;]] &lt;- as.character(pokedat[[&quot;capture_rate&quot;]])
+pokedat[pokedat[[&quot;name&quot;]] == &quot;Minior&quot;, &quot;capture_rate&quot;] = &quot;30&quot;
+pokedat[[&quot;capture_rate&quot;]] &lt;- as.numeric(pokedat[[&quot;capture_rate&quot;]])</code></pre>
+<p>This should now be a pretty clean data set ready for analysis.</p>
+</div>
+</div>
+<div id="exploratory-analyses" class="section level1">
+<h1><span class="header-section-number">4</span> Exploratory Analyses</h1>
+<p>There are a lot of data here, and I could spend ages exploring every facet, but I just really wanrt to get a tester for these data here. First of all, let’s take a look at the distribution of some of the main statistics to see how they look across the dataset. For the majority of these plots, I will be using the <code>ggplot2</code> library which offers a very nice way to produce publication-quality figures using a standardised lexicon, along with the <code>dplyr</code> package which provides a simple way to rearrange data into suitable formats for producing plots. These are part of the <a href="https://www.tidyverse.org">Tidyverse</a> suite of packages from Hadley Wickham, and form a very useful suite of packages with a common grammar that can be used together to make Data Science more efficient and to produce beautiful plots easily. Handy <em>cheat sheets</em> can be found for <a href="https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">dplyr</a> and <a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">ggplot2</a>:</p>
+<pre class="r"><code>library(&quot;ggplot2&quot;)
+library(&quot;dplyr&quot;)
+library(&quot;ggrepel&quot;)
+library(&quot;RColorBrewer&quot;)</code></pre>
+<div id="attack" class="section level2">
+<h2><span class="header-section-number">4.1</span> Attack</h2>
+<p>First of all, let’s take a look at the attack strength of all Pokémon split by their main type:</p>
+<pre class="r"><code>pokedat %&gt;% mutate(&#39;MainType&#39; = type1) %&gt;%
+ggplot(aes(x = attack, fill = MainType)) + 
+  geom_density(alpha = 0.2) + 
+  xlab(&quot;Attack Strength&quot;) + ylab(&quot;Density&quot;) +
+  theme_bw() + 
+  theme(axis.title   = element_text(size = 24, face = &quot;bold&quot;),
+        axis.text    = element_text(size = 18),
+        legend.title = element_text(size = 24, face = &quot;bold&quot;),
+        legend.text  = element_text(size = 20))</code></pre>
+<p><img src="/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/attack_dist-1.png" width="3000" /></p>
+<p>In general, there is a wide range of attack strengths and they are largely distributed with a roughly normal distribution around the mean attack strength of 77.86 that we saw earlier. However, we do see that there are some differences in the different Pokémon types available. However, this probably isn’t the easiest way to see differences between the groups. Instead, let’s use a boxplot. Here, we can see the overall distribution, with the 25<sup>th</sup> percentile, the median (50<sup>th</sup> percentile), and the 75<sup>th</sup> percentile making up the range of the box, and outliers (I believe those with values in the bottom 2.5<sup>th</sup> percentile or upper 97.5<sup>th</sup> percentile) highlighted as points on the plot. I have added notches to the boxplots, which show the confidence interval represeneted by:</p>
+<p><span class="math display">\[median \pm \frac{1.58*IQR}{\sqrt{n}}\]</span>
+Where IQR is the interquartile range. Essentially, if the notch values do not overlap between two boxes, it suggests that there may be a statistically significant difference between them:</p>
+<pre class="r"><code>pokedat %&gt;% mutate(&#39;MainType&#39; = type1) %&gt;%
+ggplot(aes(y = attack, x = MainType, fill = MainType)) + 
+  geom_boxplot(notch = TRUE) + 
+  xlab(&quot;Attack Strength&quot;) + ylab(&quot;Density&quot;) +
+  theme_bw() + 
+  theme(axis.title   = element_text(size = 24, face = &quot;bold&quot;),
+        axis.text.x  = element_text(size = 18, angle = 90, hjust = 1),
+    axis.text.y  = element_text(size = 18),
+        legend.title = element_text(size = 24, face = &quot;bold&quot;),
+        legend.text  = element_text(size = 20))</code></pre>
+<p><img src="/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/attack_box-1.png" width="3000" /></p>
+<p>From this plot, we can see that ‘dragon’, ‘fighting’, ‘ground’, ‘rock’ and ‘steel’ type Pokémon have higher attack strength, whilst ‘fairy’ and ‘psychic’ type seem to have slightly lower attack strength. This would make sense based on the names, and we can test this a little more formally by using an ANOVA (analysis of variance) analysis to look for significant effects of the Pokémon type on the attack strength. This can be done quite simply by using linear models:</p>
+<pre class="r"><code>attack_vs_type1 &lt;- lm(attack ~ type1, data = pokedat)
+summary(attack_vs_type1)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = attack ~ type1, data = pokedat)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -70.16 -22.31  -3.50  19.26 114.88 
+## 
+## Coefficients:
+##               Estimate Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)    70.1250     3.6263  19.338 &lt; 0.0000000000000002 ***
+## type1dark      17.6681     6.7675   2.611             0.009208 ** 
+## type1dragon    36.2824     6.9439   5.225          0.000000223 ***
+## type1electric   0.6955     6.1178   0.114             0.909515    
+## type1fairy     -8.0139     8.1087  -0.988             0.323308    
+## type1fighting  29.0536     6.8531   4.239          0.000025078 ***
+## type1fire      11.3750     5.5998   2.031             0.042561 *  
+## type1flying    -3.4583    18.1316  -0.191             0.848783    
+## type1ghost      2.6157     6.9439   0.377             0.706501    
+## type1grass      3.6442     5.0288   0.725             0.468871    
+## type1ground    24.6875     6.5375   3.776             0.000171 ***
+## type1ice        3.1793     7.3700   0.431             0.666301    
+## type1normal     5.0369     4.7082   1.070             0.285036    
+## type1poison     2.5313     6.5375   0.387             0.698719    
+## type1psychic   -4.5590     5.5691  -0.819             0.413253    
+## type1rock      20.5417     5.8473   3.513             0.000468 ***
+## type1steel     22.9583     7.2527   3.166             0.001608 ** 
+## type1water      3.1820     4.6320   0.687             0.492311    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 30.77 on 783 degrees of freedom
+## Multiple R-squared:  0.1039, Adjusted R-squared:  0.08448 
+## F-statistic: 5.343 on 17 and 783 DF,  p-value: 0.00000000002374</code></pre>
+<p>It is not a great model by any means, as the R-squared values suggest that Pokémon type alone explains only a small proportion of the variance in the data. From the summary of the model, we can see that the fit model has an intercept of 70.1 (which is close to the overall mean of 77.86), with an offset specific to each of the different types. As we saw from the boxplot, ‘dragon’, ‘fighting’, ‘ground’, ‘rock’ and ‘steel’ all have significant increases in attack (as can be seen by the resulting p-value), but also ‘dark’ and ‘fire’ type which I missed from looking at the boxplot. We see also that ‘fairy’ and ‘psychic’ type Pokémon show a decrease in attack strength, however this difference is not significant. So if you want a strong Pokémon, then these types are your best shot:</p>
+<ul>
+<li>dark</li>
+<li>dragon</li>
+<li>fighting</li>
+<li>fire</li>
+<li>ground</li>
+<li>rock</li>
+<li>steel</li>
+</ul>
+<p>It is also worth mentioning that there are a few outliers here, which represent ridiculously powerful Pokémon. In general, these are those with a strength greater than 150, but there are also two fairy Pokémon with higher strength than is typically seen within the ‘fairy’ type Pokémon. Let’s use the <a href="https://en.wikipedia.org/wiki/Cook%27s_distance">Cook’s Distance</a> to identify the outliers from the above model. The idea here is to test the influence of each Pokémon by comparing the least-squares regression with and without the sample included. A higher value indicates a possible outlier. So let’s have a look at the outliers, which we are going to class as those with a Cook’s Distance greater than 4 times the mean of the Cook’s Distance over the entire data set (note that this is a commonly used threshold, but is entirely arbitrary):</p>
+<pre class="r"><code>library(&quot;ggrepel&quot;)
+library(&quot;RColorBrewer&quot;)
+cookdist &lt;- cooks.distance(attack_vs_type1)
+cookdist_lim &lt;- 4*mean(cookdist, na.rm=T)#0.012
+data.frame(Pokenum   = pokedat[[&quot;pokedex_number&quot;]], 
+           Pokename  = pokedat[[&quot;name&quot;]], 
+           CooksDist = cookdist,
+           Pokelab   = ifelse(cookdist &gt; cookdist_lim, as.character(pokedat[[&quot;name&quot;]]), &quot;&quot;),
+           Outlier   = ifelse(cookdist &gt; cookdist_lim, TRUE, FALSE),
+           PokeCol   = ifelse(cookdist &gt; cookdist_lim, as.character(pokedat[[&quot;type1&quot;]]), &quot;&quot;)) %&gt;%
+  ggplot(aes(x = Pokenum, y = CooksDist, color = PokeCol, shape = Outlier, size = Outlier, label = Pokelab)) +
+  geom_point() + 
+  scale_shape_manual(values = c(16, 8)) +
+  scale_size_manual(values = c(2, 5)) +
+  scale_color_manual(values = c(&quot;black&quot;, colorRampPalette(brewer.pal(9, &quot;Set1&quot;))(length(table(pokedat[[&quot;type1&quot;]]))))) +
+  geom_text_repel(nudge_x = 0.2, size = 8) +
+  geom_hline(yintercept = cookdist_lim, linetype = &quot;dashed&quot;, color = &quot;red&quot;) +
+  xlab(&quot;Pokedex Number&quot;) + ylab(&quot;Cook&#39;s Distance&quot;) +
+  theme_bw() +
+  theme(#legend.position = &quot;name&quot;,
+        axis.title      = element_text(size = 24, face = &quot;bold&quot;),
+        axis.text       = element_text(size = 18),
+        legend.title    = element_text(size = 24, face = &quot;bold&quot;),
+        legend.text     = element_text(size = 20),
+        )</code></pre>
+<p><img src="/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/strength_cooks-1.png" width="3000" /></p>
+<p>The flying Pokémon Tornadus and Noibat are the biggest outliers. However, interestingly whilst Tornadus has a particularly high attack strength of 100 for a flying type Pokémon, Noibat has a low attack strength of 30. So both are outliers compared to the flyiong type Pokémon as a whole, with a mean of 66.6666667 ± 35.1188458. It is worth mentioning that Tornadus is a Legendary Pokémon which probably explains why it has a higher attack strength.</p>
+<div class="figure">
+<img src="pokemon/641-incarnate.png" alt="Tornadus" />
+<p class="caption">Tornadus</p>
+</div>
+<p>Whilst these two do not show up on the barplots, it is likely that these are responsible for the strange distribution of the notched boxplot. I suspect this odd shape is a result of the calculation of the confidence interval for the notches exceeding the 25<sup>th</sup> and 75<sup>th</sup> percentiles due to a wide range of values, but I do enjoy the fact that it looks like it is itself flying!</p>
+<p>The two outlying fairy type Pokémon are Xerneas and Togepi, another favourite of my daughter’s:</p>
+<div class="figure">
+<img src="pokemon/175.png" alt="Togepi" />
+<p class="caption">Togepi</p>
+</div>
+</div>
+<div id="defence" class="section level2">
+<h2><span class="header-section-number">4.2</span> Defence</h2>
+<p>Let’s repeat this to look at the defence values across the different Pokémon types:</p>
+<pre class="r"><code>pokedat %&gt;% mutate(&#39;MainType&#39; = type1) %&gt;%
+ggplot(aes(x = defense, fill = MainType)) + 
+  geom_density(alpha = 0.2) + 
+  xlab(&quot;Defence Strength&quot;) + ylab(&quot;Density&quot;) +
+  theme_bw() + 
+  theme(axis.title   = element_text(size = 24, face = &quot;bold&quot;),
+        axis.text    = element_text(size = 18),
+        legend.title = element_text(size = 24, face = &quot;bold&quot;),
+        legend.text  = element_text(size = 20))</code></pre>
+<p><img src="/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/defence_dist-1.png" width="3000" /></p>
+<p>There seems to be a bit more of a distinction between the different types as compared to the attack distribution, so let’s also look at the boxplots:</p>
+<pre class="r"><code>pokedat %&gt;% mutate(&#39;MainType&#39; = type1) %&gt;%
+ggplot(aes(y = defense, x = MainType, fill = MainType)) + 
+  geom_boxplot(notch = TRUE) + 
+  xlab(&quot;Defence Strength&quot;) + ylab(&quot;Density&quot;) +
+  theme_bw() + 
+  theme(axis.title   = element_text(size = 24, face = &quot;bold&quot;),
+        axis.text.x  = element_text(size = 18, angle = 90, hjust = 1),
+    axis.text.y  = element_text(size = 18),
+        legend.title = element_text(size = 24, face = &quot;bold&quot;),
+        legend.text  = element_text(size = 20))</code></pre>
+<p><img src="/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/defence_box-1.png" width="3000" /></p>
+<p>We see more outliers here as compared to the attack strength and a very clear increase in defence for steel and rock type Pokémon (unsurprisingly), as well as dragon type. There are no clear types with lower defence, similar again to what we saw in the attack strength distribution plots. Let’s once again look at this using linear models:</p>
+<pre class="r"><code>defence_vs_type1 &lt;- lm(defense ~ type1, data = pokedat)
+summary(defence_vs_type1)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = defense ~ type1, data = pokedat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -70.208 -20.847  -3.031  16.518 159.153 
+## 
+## Coefficients:
+##                Estimate Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)    70.84722    3.37247  21.008 &lt; 0.0000000000000002 ***
+## type1dark      -0.32998    6.29376  -0.052               0.9582    
+## type1dragon    15.41204    6.45779   2.387               0.0172 *  
+## type1electric  -9.02671    5.68954  -1.587               0.1130    
+## type1fairy     -2.68056    7.54108  -0.355               0.7223    
+## type1fighting  -4.45437    6.37337  -0.699               0.4848    
+## type1fire      -3.05876    5.20784  -0.587               0.5571    
+## type1flying    -5.84722   16.86236  -0.347               0.7289    
+## type1ghost      8.67130    6.45779   1.343               0.1797    
+## type1grass      0.02457    4.67678   0.005               0.9958    
+## type1ground    13.05903    6.07981   2.148               0.0320 *  
+## type1ice        1.06582    6.85403   0.156               0.8765    
+## type1normal   -11.15198    4.37865  -2.547               0.0111 *  
+## type1poison    -0.81597    6.07981  -0.134               0.8933    
+## type1psychic   -1.58307    5.17923  -0.306               0.7599    
+## type1rock      25.41944    5.43795   4.674    0.000003469793310 ***
+## type1steel     49.36111    6.74494   7.318    0.000000000000623 ***
+## type1water      2.63523    4.30777   0.612               0.5409    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 28.62 on 783 degrees of freedom
+## Multiple R-squared:  0.1534, Adjusted R-squared:  0.135 
+## F-statistic: 8.347 on 17 and 783 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<p>As expected, we see very clear significant increase in defence strength for rock and steel type Pokémon, with a slight increase seen also for dragon and ground type Pokémon. There is also a slight reduction for normal type Pokémon. Flying Pokémon again show an odd distribution, so I expect again to see outliers for this class. Let’s look at the outliers now, again using the COok’s Distance:</p>
+<pre class="r"><code>cookdist &lt;- cooks.distance(defence_vs_type1)
+cookdist_lim &lt;- 4*mean(cookdist, na.rm=T)#0.012
+data.frame(Pokenum   = pokedat[[&quot;pokedex_number&quot;]], 
+           Pokename  = pokedat[[&quot;name&quot;]], 
+           CooksDist = cookdist,
+           Pokelab   = ifelse(cookdist &gt; cookdist_lim, as.character(pokedat[[&quot;name&quot;]]), &quot;&quot;),
+           Outlier   = ifelse(cookdist &gt; cookdist_lim, TRUE, FALSE),
+           PokeCol   = ifelse(cookdist &gt; cookdist_lim, as.character(pokedat[[&quot;type1&quot;]]), &quot;&quot;)) %&gt;%
+  ggplot(aes(x = Pokenum, y = CooksDist, color = PokeCol, shape = Outlier, size = Outlier, label = Pokelab)) +
+  geom_point() + 
+  scale_shape_manual(values = c(16, 8)) +
+  scale_size_manual(values = c(2, 5)) +
+  scale_color_manual(values = c(&quot;black&quot;, colorRampPalette(brewer.pal(9, &quot;Set1&quot;))(length(table(pokedat[[&quot;type1&quot;]]))))) +
+  geom_text_repel(nudge_x = 0.2, size = 8) +
+  geom_hline(yintercept = cookdist_lim, linetype = &quot;dashed&quot;, color = &quot;red&quot;) +
+  xlab(&quot;Pokedex Number&quot;) + ylab(&quot;Cook&#39;s Distance&quot;) +
+  theme_bw() +
+  theme(axis.title      = element_text(size = 24, face = &quot;bold&quot;),
+        axis.text       = element_text(size = 18),
+        legend.title    = element_text(size = 24, face = &quot;bold&quot;),
+        legend.text     = element_text(size = 20),
+        )</code></pre>
+<p><img src="/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/defence_cooks-1.png" width="3000" /></p>
+<p>As expected, Noibat and Tornadus are outliers here, and are joined by Noivern (which is an evolution of Noibat). As it turns out, these are the only 3 Pokémon in the flying type, which explains why they show up as outliers and why the boxplot has such a strange distribution. Other outliers include ice-type Pokémon Avalugg (defence 184), steel-type Pokémon Steelix and Aggron (both with defence 230), and bug-type Pokémon Shuckle (defence 230) which doubles up as a rock type Pokémon:</p>
+<div class="figure">
+<img src="pokemon/213.png" alt="Shuckle" />
+<p class="caption">Shuckle</p>
+</div>
+<p>As seen with Shuckle, we should bear in mind that we have only focussed on the primary Pokémon type here, and have not considered the <code>type2</code> values. So it is possible that we are missing the full picture when looking only at the first class for some of these Pokémon.</p>
+</div>
+<div id="other" class="section level2">
+<h2><span class="header-section-number">4.3</span> Other</h2>
+<p>We could do this for all of the different values, and there are many different ways that we may want to examine these data. We can look at eaxch variable in the data set and examine them for odd distributions, we can look for outliers (as we have done above), we can start to examine relationships between variables, and we can look for correlation between different values (which we will do further below). Indeed a considerable amount of time <em>should</em> be spent exploring data in this way to ensure it is of good quality – the old saying “garbage in, garbage out” is very true. But to be honest there are more interesting things that I want to do with these data, so let’s crack on…</p>
+</div>
+<div id="ensuring-we-use-accurate-data-classes-throughout" class="section level2">
+<h2><span class="header-section-number">4.4</span> Ensuring we use accurate data classes throughout</h2>
+<p>It is important to ensure that we are using the data in the correct way for our analyses. First of all let’s take a look at the abilities that each Pokémon has. As it stands, the <code>abilities</code> variable is not terribly useful, as it fails to link Pokémon who may share abilities but not exactly. We could spend some time decoding the abilities, and create a “dictionary” of different abilities for each Pokémon, but perhaps a better measure may be to simply look at the <em>number</em> of abilities that each Pokémon has:</p>
+<pre class="r"><code>abilities &lt;- strsplit(as.character(pokedat[[&quot;abilities&quot;]]), &quot;, &quot;)
+abilities &lt;- sapply(abilities, FUN = function(x) gsub(&quot;\\[|\\&#39;|\\]&quot;, &quot;&quot;, x))
+names(abilities) &lt;- rownames(pokedat)
+pokedat[[&quot;number_abilities&quot;]] &lt;- sapply(abilities, FUN = length)
+table(pokedat[[&quot;number_abilities&quot;]])</code></pre>
+<pre><code>## 
+##   1   2   3   4   6 
+## 109 245 427   7  13</code></pre>
+<p>So the majority of Pokémon have only 1, 2 or 3 abilities, with only a small number of Pokémon have more than 3 abilities, and around half having exactly 3.</p>
+<p>I want to now look only at the variables that might theoretically be descriptive of the Pokémon in some kind of model. So we can remove the individual abilties (although the <em>number</em> of abiltities will likely be of interest), the names and Pokedex number, and the classification which seems to be fairly ambiguous. We also need to ensure that we use the dummy variables for the variables encoded as factors.</p>
+</div>
+</div>
+<div id="normalization" class="section level1">
+<h1><span class="header-section-number">5</span> Normalization</h1>
+<p>Prior to doing this, I want to look at a few different ways to normalize all of the variables to ensure that they all have values that are comparable. Some algorithms are more sensitive to normalization than others, and it becomes quite obvious why this may be something to consider here when you consider that whilst the stats value <code>attack</code> lies between 5 and 185, the <code>experience_growth</code> value ranges between 600,000 and 1,640,000. That’s a &gt;10,000-fold increase. This variable will completely dominate the calculations for certain machine-learning algorithms like K-Nearest Neighbours (KNN) and Support Vector Machines (SVM) where the distance between data points is important. SO let’s look at how we might want to normalize these data prior to analysis.</p>
+<div id="min-max-normalization" class="section level2">
+<h2><span class="header-section-number">5.1</span> Min-Max Normalization</h2>
+<p>There are a few different ways to do this. One way is to <em>standardize</em> the data, so that we bring them all into a common scale of <span class="math inline">\([0,1]\)</span>, but we maintain the distribution for each specific variable. So if one variable has a very skewed distriburtion, this will be maintained. A simple way to do this is to use the <em>min-max scaling</em> approach, where you subtract the lowest value (so that the minimum value is always zero) and then divide by the range of the data so that the data are spread in the range <span class="math inline">\([0,1]\)</span>:</p>
+<p><span class="math display">\[x&#39; = \frac{x - x_{min}}{x_{max} - x_{min}}\]</span></p>
+<p>Let’s compare the standardized and non-standardized attack values:</p>
+<pre class="r"><code>attack_std &lt;- (pokedat[[&quot;attack&quot;]] - min(pokedat[[&quot;attack&quot;]]))/(max(pokedat[[&quot;attack&quot;]]) - min(pokedat[[&quot;attack&quot;]]))
+data.frame(Raw          = pokedat[[&quot;attack&quot;]],
+           Standardized = attack_std) %&gt;%
+  tidyr::gather(&quot;class&quot;, &quot;attack&quot;, Raw, Standardized) %&gt;%
+  mutate(class = factor(class, levels = c(&quot;Raw&quot;, &quot;Standardized&quot;))) %&gt;%
+  ggplot(aes(x = attack, fill = class)) +
+  geom_density(alpha = 0.2) +
+  facet_wrap(. ~ class, scales = &quot;free&quot;) + 
+  xlab(&quot;Attack Strength&quot;) + ylab(&quot;Density&quot;) +
+  theme_bw() + 
+  theme(legend.position = &quot;none&quot;,
+    axis.title      = element_text(size = 24, face = &quot;bold&quot;),
+    axis.text       = element_text(size = 18),
+    legend.title    = element_text(size = 24, face = &quot;bold&quot;),
+    legend.text     = element_text(size = 20),
+    strip.text      = element_text(size = 24, face = &quot;bold&quot;)
+  )</code></pre>
+<p><img src="/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/standardize_attack-1.png" width="3000" /></p>
+<p>So as you can see here, the distribution of the attack scores remains the same, but the scales over which the distribution is spread are different.</p>
+</div>
+<div id="z-score-normalization" class="section level2">
+<h2><span class="header-section-number">5.2</span> Z-Score Normalization</h2>
+<p>However, sometimes it is preferable to instead that every feature has a standard distribution that can be easily described to make them more comparable. In this case, you can <em>normalize</em> the data so that the distribution of all features is shifted towards that of a <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal (Gaussian) distribution</a>. This is a typical “bell-shaped” curve, which can be exclusively described by the mean and the standard deviation. An example where I use this approach regularly is in gene-expression analysis, where we normalize the data such that the levels of expression of each gene is represented by a normal distribution, so that we can test for samples where the expression is significantly outside of the confines of this distribution. We can then look at all of the genes that seem to show significantly different expression than we would expect using hypothesis testing approaches, and look for common functions of these genes through the use of network analysis, gene ontology analysis and other downstream analyses.</p>
+<p>A simple normalization approach is the z-score normalization, which will transform the data so that the distribution has a mean of 0 and a standard deviation of 1. The transformation is as follows:</p>
+<p><span class="math display">\[x&#39; = \frac{x - \mu}{\sigma}\]</span></p>
+<p>So we simply subtract the mean <span class="math inline">\(\mu\)</span> (to center the data), and divide by the standard deviation <span class="math inline">\(\sigma\)</span>. Let’s again visualise this by comparing the raw and normalized data:</p>
+<pre class="r"><code>attack_norm &lt;- (pokedat[[&quot;attack&quot;]] - mean(pokedat[[&quot;attack&quot;]]))/sd(pokedat[[&quot;attack&quot;]])
+data.frame(Raw          = pokedat[[&quot;attack&quot;]],
+           Normalized   = attack_norm) %&gt;%
+  tidyr::gather(&quot;class&quot;, &quot;attack&quot;, Raw, Normalized) %&gt;%
+  mutate(class = factor(class, levels = c(&quot;Raw&quot;, &quot;Normalized&quot;))) %&gt;%
+  ggplot(aes(x = attack, fill = class)) +
+  geom_density(alpha = 0.2) +
+  facet_wrap(. ~ class, scales = &quot;free&quot;) + 
+  xlab(&quot;Attack Strength&quot;) + ylab(&quot;Density&quot;) +
+  theme_bw() + 
+  theme(legend.position = &quot;none&quot;,
+    axis.title      = element_text(size = 24, face = &quot;bold&quot;),
+    axis.text       = element_text(size = 18),
+    legend.title    = element_text(size = 24, face = &quot;bold&quot;),
+    legend.text     = element_text(size = 20),
+    strip.text      = element_text(size = 24, face = &quot;bold&quot;)
+  )</code></pre>
+<p><img src="/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/normalize_attack-1.png" width="3000" /></p>
+<p>So the normalized data now has a mean of 0, with the majority of values lying between -2 and 2. Note that since this is a fairly simple normalization technique, the distribution itself is not really changed, but there are other methods such as quantile normalization which can reshape the data to a Gaussian curve, or indeed any other dstribution as required.</p>
+</div>
+<div id="choosing-a-normalization-method" class="section level2">
+<h2><span class="header-section-number">5.3</span> Choosing a Normalization Method</h2>
+<p>The choice of which method to use will largely depend on what you are trying to do. The min-max scaling method is a common method used in machine learning, but does not handle outliers very well – a sample with an extreme value in the raw data will still have an extreme value in the scaled data, resulting in bunching up of the remaining data since it is all bounded within the range <span class="math inline">\([0,1]\)</span>. The Z-score normalization is better at dealing with outliers as they will appear far away from the mean value of 0, but the range of data is no longer bounded meaning that different variables will now have different ranges. Other normalization processes may make your data more homogenous, but at the cost of potentially losing aspects of the data that may be useful.</p>
+<p>Many machine learning algorithms use some kind of <em>distance</em> measure, in order to look for similarity between different items. This can be a simple Euclidean distance, which is a k-dimensional measure of “as the crow flies”. If the scales are very different between your variables, then this will cause a significant issue.</p>
+<p>For the following analyses, I will use Z-score normalization, since I know that there are a few extreme outliers in these data.</p>
+</div>
+</div>
+<div id="looking-for-patterns" class="section level1">
+<h1><span class="header-section-number">6</span> Looking for Patterns</h1>
+<div id="correlation-of-variables" class="section level2">
+<h2><span class="header-section-number">6.1</span> Correlation of Variables</h2>
+<p>One thing that it is worth doing before heading down a route of data modelling is to look at the correlation structure between the variables in the data set. If there are highly correlated variables (for instance one might imagine height and weight to be highly correlated), then both will offer the same information to the model – adding both will give no additional predictive power than adding only one. There is then a danger of over-fitting the data, which can happen if you create a model so complicated that, whilst it may fit the training data very well, it is so complex as to no longer be applicable to external data sets making it essentially useful. An extreme example is if we create a model where we have one variable for each sample, that is equal to 1 for that specific sample, and 0 for every other sample. This would fit the data perfectly, but would be of absolutely no use for any other data. In addition, we can risk biasing the data by including multiple variables that essentially encode the same information.</p>
+<p>So we can calculate a pairwise correlation matrix, which will give us a measure of similarity between each pair of variables by comparing the two vectors of values for the 801 Pokémon. There are multiple measures of correlation that can be used. The standard is the <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">Pearson Correlation</a>, which is a measure of the linearity of the relationship between two values. A value of 1 represents an entirely linear monotonic relationship (as one value increases, so does the other, but with every unit increase in one variable matching a unit increase in the other in a linear way), a value of 0 represents no linearity between the values (no clear relationship between the two), and a value of -1 represents an inverse monotonic linear relationship (anti-correlated).</p>
+<p>For this analysis, I will be using the <a href="https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient">Spearman Correlation</a> coefficient. Instead of using the values themselves, this method first ranks the data, and then looks at the correlation. The idea here is that the unit difference between each successive value is kept constant, meaning that outliers do not have a big impact. This is therefore independent of the distribution of the data, and is therefore a non-parametric method. Since we identified some outliers with some of these variables, this method will remove the effect that these might have.</p>
+<p>We can represent these values by using a heatmap, which is a way of representing 3-dimensional data. The value of the correlation, rather than being represented on an axis as a value, will be represented by a colour. Values of the SPearman correlation closer to 1 will appear more red, whilst those closer to -1 will appear more blue. Those closer to 0 will appear white.</p>
+<p>In addition, I will apply a hierarchical clustering method to ensure that the variables most similar to one another are located close to one another on the figure. Pairwise distances are calculated by looking at the <a href="https://en.wikipedia.org/wiki/Euclidean_distance">Euclidean distance</a>, and similar variables are clustered together, allowing us to pick out by eye those most similar to one another.</p>
+<p>As mentioned earlier, we first want to ensure that we are looking at numerical values, or at least numerical representations of factors.</p>
+<pre class="r"><code>pokedat_vals &lt;- pokedat[, !names(pokedat) %in% c(&quot;abilities&quot;, &quot;classfication&quot;, &quot;japanese_name&quot;, &quot;name&quot;, &quot;pokedex_number&quot;)]
+pokedat_vals[[&quot;type1&quot;]]        &lt;- as.numeric(pokedat_vals[[&quot;type1&quot;]])
+pokedat_vals[[&quot;type2&quot;]]        &lt;- as.numeric(pokedat_vals[[&quot;type2&quot;]])
+pokedat_vals[[&quot;generation&quot;]]   &lt;- as.numeric(pokedat_vals[[&quot;generation&quot;]])
+pokedat_vals[[&quot;is_legendary&quot;]] &lt;- as.numeric(pokedat_vals[[&quot;is_legendary&quot;]])</code></pre>
+<p>This will give us a purely numeric data set for use in numeric calculations. Finally we will normalize the data using Z-score normalization:</p>
+<pre class="r"><code>pokedat_norm &lt;- scale(pokedat_vals, center = TRUE, scale = TRUE)</code></pre>
+<p>Finally let’s take a look at the correlation plot:</p>
+<pre class="r"><code>library(&quot;pheatmap&quot;)
+pokecor_var &lt;- cor(pokedat_norm, method = &quot;spearman&quot;)        
+colors  &lt;- colorRampPalette(c(&#39;dark blue&#39;,&#39;white&#39;,&#39;dark red&#39;))(255)#colorRampPalette( rev(brewer.pal(9, &quot;Blues&quot;)) )(255)
+pheatmap(pokecor_var, 
+         clustering_method = &quot;complete&quot;,
+         show_colnames = FALSE,
+         show_rownames = TRUE,
+         col=colors, 
+         fontsize_row = 24)  </code></pre>
+<p><img src="/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/correlation_var-1.png" width="3000" /></p>
+<p>We can see a few clear cases of correlated variables here, especially between a few of the values giving attack strength against certain Pokémon types. For instance, attack against ghost- and dark-type Pokémon are very similar (which makes sense), as are attacks against electric- and rock-type Pokémon (makes less sense). The clearest aspect of the figure is a block of high positive correlations between a number of variables associated with the Pokémon’s vital statistics. So the most similar variables are those like speed, defence strength, attack strength, height, weight, health points, experience growth, etc. This makes a lot of sense, with bigger Pokémon having better attack and defence, more health points, etc. We also see that these variables are very highly anti-correlated with the capture-rate, which again makes sense – the better Pokémon are harder to catch. However, none of these correlations seem significantly high to require the remobval of any variables prior to analysis.</p>
+</div>
+<div id="height-vs-weight" class="section level2">
+<h2><span class="header-section-number">6.2</span> Height vs Weight</h2>
+<p>Let’s take a look at the height vs the weight. We can also include a few additional variables to see how the Pokémon strength and defence affect the relationship. I am going to scale both the x-and y-axes by using a <span class="math inline">\(log_{10}\)</span> transformation to avoid much larger Pokémon drowing out the smaller ones:</p>
+<pre class="r"><code>ggplot(aes(x = height_m, y = weight_kg, color = attack, size = defense), data = pokedat) +
+  geom_point(alpha = 0.2) +
+  scale_color_gradient2(name = &quot;Attack&quot;, midpoint = mean(pokedat[[&quot;attack&quot;]]), low = &quot;blue&quot;, mid = &quot;white&quot;, high = &quot;red&quot;) +
+  scale_size_continuous(name = &quot;Defence&quot;, range = c(1, 10)) +
+  xlab(&quot;Height (m)&quot;) + ylab(&quot;Weight (Kg)&quot;) +
+  scale_x_log10() +
+  scale_y_log10() +
+  #theme_bw() + 
+  theme(axis.title      = element_text(size = 24, face = &quot;bold&quot;),
+        axis.text       = element_text(size = 18),
+        legend.title    = element_text(size = 24, face = &quot;bold&quot;),
+        legend.text     = element_text(size = 20),
+        strip.text      = element_text(size = 24, face = &quot;bold&quot;)
+  )</code></pre>
+<p><img src="/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/height_vs_weight-1.png" width="3000" /></p>
+<p>So there is a clear relationship, and in general taller Pokémon (such as Walor, the largest of the Pokémon) also weigh more as we might expect:</p>
+<div class="figure">
+<img src="pokemon/321.png" alt="Walord, the largest Pokemon" />
+<p class="caption">Walord, the largest Pokemon</p>
+</div>
+<p>We also see that in general the attack strength of the larger Pokémon is higher than the smaller ones, although there are definitely some outliers, such as Cosmeom, a legendary Pokémon only 10 cm tall that weighs nearly 1,000 kg!</p>
+<div class="figure">
+<img src="pokemon/cosmoem.png" alt="Cosmoem, the smallest Pokemon" />
+<p class="caption">Cosmoem, the smallest Pokemon</p>
+</div>
+</div>
+<div id="correlation-between-pokemon" class="section level2">
+<h2><span class="header-section-number">6.3</span> Correlation between Pokémon</h2>
+<pre class="r"><code>pokecor_sample &lt;- cor(t(pokedat_norm), method = &quot;spearman&quot;)        
+colors  &lt;- colorRampPalette(c(&#39;dark blue&#39;,&#39;white&#39;,&#39;dark red&#39;))(255)
+pheatmap(pokecor_sample, 
+         clustering_method = &quot;complete&quot;,
+         show_colnames = FALSE,
+         show_rownames = FALSE,
+         annotation = pokedat[, c(&quot;generation&quot;, &quot;type1&quot;, &quot;type2&quot;, &quot;is_legendary&quot;)],
+         col=colors)  </code></pre>
+<p><img src="/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/correlation_pokemon-1.png" width="3000" /></p>
+<p>So here we see the correlation structure between the 801 Pokémon, and it very clearly shows similarities between groups of Pokémon. The red boxes that we see down the diagonal represent highly similar groups, and at the top I have annotated the factor variables generation, type1, type2 and is_legendary. Almost all of the legendary Pokémon cluster together, suggesting that these are all similar to one another across these variables. Similarly there are a number of Pokémon types that clearly cluster together, such as rock type and dark type Pokémon. Interestingly the Generation number seems to be unrelated to Pokémon similarity.</p>
+</div>
+<div id="principal-component-analysis" class="section level2">
+<h2><span class="header-section-number">6.4</span> Principal Component Analysis</h2>
+<p>A good way to explore data such as these to look for underlying trends in the data is to use a dimensional-reduction algorithm to reduce these high-dimensional data down into asmaller number of easy to digest chunks. Principal component analysis (PCA) is one such approach, and can be used to look for the largest sources of variation within a high dimensional data set. For a data set with n variables, we can think of these data existing in an n-dimensional space. PCA is a mathematical trick that rotates these axes in n-dimensional space so that the x-axis of the rotation explains the largest possible amount of variation in the data, the y-axis then explains the next largest possible amount of variation, the z-axis the next largest amount, etc. In many cases, a very large amount of the total variation in the original n-dimensional data set can be captured by only a small number of so-called principal components. This can be used to look for underlying trends in the data. So let’s have a look at how this looks:</p>
+<pre class="r"><code>pc &lt;- prcomp(pokedat_vals, scale. = TRUE)
+pc_plot &lt;- as.data.frame(pc[[&quot;x&quot;]])
+pc_plot &lt;- cbind(pc_plot, pokedat[rownames(pc_plot), c(&quot;generation&quot;, &quot;type1&quot;, &quot;type2&quot;, &quot;is_legendary&quot;)])
+explained_variance &lt;- 100*((pc[[&quot;sdev&quot;]])^2 / sum(pc[[&quot;sdev&quot;]]^2))
+screeplot(pc, type = &quot;line&quot;, main = &quot;Principal Component Loadings&quot;)</code></pre>
+<p><img src="/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/PCA-1.png" width="3000" /></p>
+<p>In this plot, we see that PC1 and PC2 explain a lot of variance compared to the other PCs, but the drop off is not complete at this point. In a lot of data sets, the first few PCs explain the vast majority of the variance, and so this plot drops off considerably to a flat line by PC3 or PC4. Let’s take a look at how discriminatory these PCs are to these data:</p>
+<pre class="r"><code>ggplot(aes(x = PC1, y = PC2, shape = is_legendary, color = type1), data = pc_plot) +
+  geom_point(size = 5, alpha = 0.7) +
+  xlab(sprintf(&quot;PC%d (%.2f%%)&quot;, 1, explained_variance[1])) +
+  ylab(sprintf(&quot;PC%d (%.2f%%)&quot;, 2, explained_variance[2])) +
+  theme(axis.title   = element_text(size = 14, face = &quot;bold&quot;),
+        axis.text    = element_text(size = 12),
+        legend.title = element_text(size = 18, face = &quot;bold&quot;),
+        legend.text  = element_text(size = 14))</code></pre>
+<p><img src="/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/PCA_PC1_vs_PC2-1.png" width="3000" /></p>
+<p>We can see that this PCA approach clearly discriminates the legendary Pokémon (triangles) from the other Pokémon (circles) in PC1, which is the new axis that explains the most variance in the data (although note that this is still only 17.2%, so not a huge amount really). There is some separation seen between the different Pokémon groups, which seems to represent the second most significant source of variation, accounting for another 10.4%. Let’s look at PC3 as well to see if this is able to discriminate the samples further:</p>
+<pre class="r"><code>ggplot(aes(x = PC2, y = PC3, shape = is_legendary, color = type1), data = pc_plot) +
+  geom_point(size = 5, alpha = 0.7) +
+  xlab(sprintf(&quot;PC%d (%.2f%%)&quot;, 2, explained_variance[2])) +
+  ylab(sprintf(&quot;PC%d (%.2f%%)&quot;, 3, explained_variance[3])) +
+  theme(axis.title   = element_text(size = 14, face = &quot;bold&quot;),
+        axis.text    = element_text(size = 12),
+        legend.title = element_text(size = 18, face = &quot;bold&quot;),
+        legend.text  = element_text(size = 14))</code></pre>
+<p><img src="/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/PCA_PC2_vs_PC3-1.png" width="3000" /></p>
+<p>By looking at the 2<sup>nd</sup> and 3<sup>rd</sup> PCs, we do see a slight separation between the Pokémon types, but it is not strong.</p>
+</div>
+<div id="correlation-based-recommendation" class="section level2">
+<h2><span class="header-section-number">6.5</span> Correlation-Based Recommendation</h2>
+<p>As a little aside, I want to see whether it is possible to recommend similar Pokémon to any Pokémon that you might suggest. For instance, my daughter’s absolute favourite is Eevee (a cuddly fox-like Pokémon):</p>
+<div class="figure">
+<img src="pokemon/133.png" alt="Eeevee" />
+<p class="caption">Eeevee</p>
+</div>
+<p>So let’s see whether there are any other Pokémon that are similar to Eevee, based on a simple correlation match. To do this, I will calculate the Spearman correlation coefficient between Eevee and every other Pokémon, and see which the most similar are:</p>
+<pre class="r"><code>eevee &lt;- as.numeric(pokedat_vals[&quot;Eevee&quot;, ])
+eevee_cor &lt;- apply(pokedat_vals, MAR = 1, FUN = function (x) cor(x, eevee, method = &quot;spearman&quot;))
+head(sort(eevee_cor, decreasing = TRUE), 10)</code></pre>
+<pre><code>##     Eevee     Aipom   Sentret Teddiursa    Patrat Zigzagoon   Rattata 
+## 1.0000000 0.9781018 0.9728923 0.9695460 0.9693680 0.9690263 0.9689643 
+##    Meowth  Raticate    Bidoof 
+## 0.9687552 0.9676089 0.9669312</code></pre>
+<p>So here are a few of the most similar Pokémon:</p>
+<div class="figure">
+<img src="pokemon/190.png" alt="Aipom" />
+<p class="caption">Aipom</p>
+</div>
+<div class="figure">
+<img src="pokemon/161.png" alt="Sentret" />
+<p class="caption">Sentret</p>
+</div>
+<div class="figure">
+<img src="pokemon/216.png" alt="Teddiursa" />
+<p class="caption">Teddiursa</p>
+</div>
+<div class="figure">
+<img src="pokemon/504.png" alt="Patrat" />
+<p class="caption">Patrat</p>
+</div>
+<p>Well they all look kind of cuddly like Eevee, except for the really creepy evil beaver Patrat at the end!</p>
+<p>However, what would be even more efficient (maybe not in this case, but in the case of a much higher-dimensional data set like a gene-expression data set of 30,000 genes) is to use the reduced dataset after using PCA. The first 10 PCs explained around two thirds of the variance on the data, so by using these 10 values rather than the 37 values originally, we reduce the computations with a relatively small loss of data. Let’s see what the outputs are in this case:</p>
+<pre class="r"><code>pc_df_sub &lt;- as.data.frame(pc[[&quot;x&quot;]])[, 1:10]
+eevee &lt;- as.numeric(pc_df_sub[&quot;Eevee&quot;, ])
+eevee_cor_pca &lt;- apply(pc_df_sub, MAR = 1, FUN = function (x) cor(x, eevee, method = &quot;spearman&quot;))
+head(sort(eevee_cor_pca, decreasing = TRUE), 10)</code></pre>
+<pre><code>##     Eevee    Spinda  Delcatty   Watchog     Aipom    Furret  Smeargle 
+## 1.0000000 0.9636364 0.9515152 0.9515152 0.9393939 0.9272727 0.9030303 
+##   Herdier Vanillish    Meowth 
+## 0.9030303 0.9030303 0.8909091</code></pre>
+<div class="figure">
+<img src="pokemon/327.png" alt="Spinda" />
+<p class="caption">Spinda</p>
+</div>
+<div class="figure">
+<img src="pokemon/301.png" alt="Delcatty" />
+<p class="caption">Delcatty</p>
+</div>
+<div class="figure">
+<img src="pokemon/505.png" alt="Watchog" />
+<p class="caption">Watchog</p>
+</div>
+<div class="figure">
+<img src="pokemon/162.png" alt="Furret" />
+<p class="caption">Furret</p>
+</div>
+<p>Similarly cute, but with another creepy one! After checking with the experiment subject (my daughter), it seems that the best hits are definitely Watchog and Furret, so this seems to cope well at picking out similarly cuddly looking Pokémon.</p>
+<p>Obviously here we are simply looking for Pokémon with similar characteristics. This is not as in-depth as a collaboritive filtering method where we have some subjective ranking of items to help us to determine the <em>best</em> Pokémon to match somebody’s needs. However, by using the reduced PCA data set we are able to find very close matches using only a reduced subset of the data.</p>
+</div>
+</div>
+<div id="predicting-legendary-pokemon" class="section level1">
+<h1><span class="header-section-number">7</span> Predicting Legendary Pokémon</h1>
+<p>Based on our previous analyses, we see that there is a clear discrimination between normal and Legendary Pokémon. These are incredibly rare, and very powerful Pokémon in the game. So is it possible to identify a Legendary Pokémon based on the variables available from this database? And if so, which variables are the most important?</p>
+<p>To do predictive modelling, we need to first split our data up into a training data set to use to train the model, and then a validation data set to use to confirm the accuracy of the predictions that this model makes. There are more robust ways to do this, such as <a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)">cross-validation</a> and <a href="https://en.wikipedia.org/wiki/Bootstrapping_(statistics)">bootstrapping</a>, which allow you to assess the accuracy of the model. Cross validation can be applied simply by using the <code>caret</code> package in R.</p>
+<p>We will also split the data randomly into two data sets – one containing 80% of the Pokémon for training the model, and one containing 20% of the Pokémon for validation purposes. For the following model fitting approaches, we do not need to have the categorical data converted into numbers as we did for the correlation analysis, as the factors will be treated correctly automatically We do however still need to ignore the non-informative variables. In addition, I am going to remove the “against_” columns to avoid overfitting of the data. So let’s generate our two data sets:</p>
+<pre class="r"><code>library(&quot;caret&quot;)
+set.seed(0)
+split_index &lt;- createDataPartition(y = pokedat[[&quot;is_legendary&quot;]], p = 0.8, list = FALSE)
+rm_index       &lt;- which(names(pokedat) %in% c(&quot;abilities&quot;, &quot;classfication&quot;, &quot;japanese_name&quot;, &quot;name&quot;, &quot;pokedex_number&quot;))
+rm_index       &lt;- c(grep(&quot;against&quot;, names(pokedat)), rm_index)
+training_dat   &lt;- pokedat[split_index,  -rm_index]
+validation_dat &lt;- pokedat[-split_index, -rm_index]</code></pre>
+<p>So let’s try a few different common methods used for classification purposes.</p>
+<div id="support-vector-machine" class="section level2">
+<h2><span class="header-section-number">7.1</span> Support-Vector Machine</h2>
+<p>We can then train our SVM model, incorporating a preprocessing step to center and scale the data, and performing 10-fold repeated cross validation which we repeat 3 times:</p>
+<pre class="r"><code>set.seed(0)
+trctrl    &lt;- trainControl(method = &quot;repeatedcv&quot;, number = 10, repeats = 3)
+model_svm &lt;- train(is_legendary ~., 
+                   data = training_dat, 
+                   method = &quot;svmLinear&quot;,
+                   trControl = trctrl,
+                   preProcess = c(&quot;center&quot;, &quot;scale&quot;),
+                   tuneLength = 10)
+model_svm</code></pre>
+<pre><code>## Support Vector Machines with Linear Kernel 
+## 
+## 641 samples
+##  18 predictor
+##   2 classes: &#39;FALSE&#39;, &#39;TRUE&#39; 
+## 
+## Pre-processing: centered (56), scaled (56) 
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 577, 576, 576, 577, 577, 578, ... 
+## Resampling results:
+## 
+##   Accuracy   Kappa    
+##   0.9802138  0.8782632
+## 
+## Tuning parameter &#39;C&#39; was held constant at a value of 1</code></pre>
+<p>So this model is able to predict whether the Pokémon is Legendary based on these 18 predictor variables with 98.02% accuracy (correct predictions). The Kappa value is normalised to account for the fact that we could get pretty good accuracy if we just called everything not Legendary due to the imbalance in the classes.</p>
+<p>This accuracy is based on resampling of the training data. How does it cope with the validation data? Let’s take a look at the confusion matrix for the predicted outcomes compared to the true values:</p>
+<pre class="r"><code>predict_legendary &lt;- predict(model_svm, newdata = validation_dat)
+svm_confmat &lt;- confusionMatrix(predict_legendary, validation_dat[[&quot;is_legendary&quot;]])
+svm_confmat</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction FALSE TRUE
+##      FALSE   144    1
+##      TRUE      2   13
+##                                           
+##                Accuracy : 0.9812          
+##                  95% CI : (0.9462, 0.9961)
+##     No Information Rate : 0.9125          
+##     P-Value [Acc &gt; NIR] : 0.000314        
+##                                           
+##                   Kappa : 0.8863          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 1.000000        
+##                                           
+##             Sensitivity : 0.9863          
+##             Specificity : 0.9286          
+##          Pos Pred Value : 0.9931          
+##          Neg Pred Value : 0.8667          
+##              Prevalence : 0.9125          
+##          Detection Rate : 0.9000          
+##    Detection Prevalence : 0.9062          
+##       Balanced Accuracy : 0.9574          
+##                                           
+##        &#39;Positive&#39; Class : FALSE           
+## </code></pre>
+<p>SO according to these multiple statistics, of the 14 Legendary Pokémon in the validation data, we correctly identified 13 of them, but missed 1. 2 were identified incorrectly. Our ultimate accuracy is 98.12%, which seems to be pretty good. However, it is possible to further tune this model, by adjusting the tuning parameter <code>C</code>, by tweaking the parameters included in the model, and moving from a linear SVM model. However, all told, this is a pretty good result.</p>
+</div>
+<div id="k-nearest-neighbour" class="section level2">
+<h2><span class="header-section-number">7.2</span> k-Nearest Neighbour</h2>
+<p>Another classification method is the k-Nearest Neighbour (kNN) algorithm. The idea here is that a record is kept of all of the data in the training data, and a new sample is compared to find the k samples “closest” to it. The classification is then calculated based on some average of the classifications of these nearest neighbours. The method of determining the “nearest” neighbour can be one of a number of different methods, including Euclidean distance as described earlier.</p>
+<p>Also, the value of k is very important. Using the <code>caret</code> package in R, we are able to test using multiple different values of k to find the value that optimises the model accuracy. So let’s train our model, again performing 10-fold repeated cross validation which we repeat 3 times:</p>
+<pre class="r"><code>set.seed(0)
+trctrl    &lt;- trainControl(method = &quot;repeatedcv&quot;, number = 10, repeats = 3)
+model_knn &lt;- train(is_legendary ~., 
+                   data = training_dat, 
+                   method = &quot;knn&quot;,
+                   trControl = trctrl,
+                   preProcess = c(&quot;center&quot;, &quot;scale&quot;),
+                   tuneLength = 10)
+model_knn</code></pre>
+<pre><code>## k-Nearest Neighbors 
+## 
+## 641 samples
+##  18 predictor
+##   2 classes: &#39;FALSE&#39;, &#39;TRUE&#39; 
+## 
+## Pre-processing: centered (56), scaled (56) 
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 577, 576, 576, 577, 577, 578, ... 
+## Resampling results across tuning parameters:
+## 
+##   k   Accuracy   Kappa    
+##    5  0.9470304  0.5515501
+##    7  0.9444345  0.5158836
+##    9  0.9428470  0.4854601
+##   11  0.9376461  0.4246775
+##   13  0.9350660  0.3903400
+##   15  0.9355788  0.3898290
+##   17  0.9376542  0.4161790
+##   19  0.9376784  0.4063420
+##   21  0.9355786  0.3765296
+##   23  0.9381750  0.4070014
+## 
+## Accuracy was used to select the optimal model using the largest value.
+## The final value used for the model was k = 5.</code></pre>
+<p>We can see that the accuracy is optimised by using k = 5 nearest neighbours, which gives an accuracy of 94.7% – below that of the SVM accuracy. Now let’s test it on the validation data set:</p>
+<pre class="r"><code>predict_legendary &lt;- predict(model_knn, newdata = validation_dat)
+knn_confmat &lt;- confusionMatrix(predict_legendary, validation_dat[[&quot;is_legendary&quot;]])
+knn_confmat</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction FALSE TRUE
+##      FALSE   145    4
+##      TRUE      1   10
+##                                           
+##                Accuracy : 0.9688          
+##                  95% CI : (0.9286, 0.9898)
+##     No Information Rate : 0.9125          
+##     P-Value [Acc &gt; NIR] : 0.004163        
+##                                           
+##                   Kappa : 0.7833          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 0.371093        
+##                                           
+##             Sensitivity : 0.9932          
+##             Specificity : 0.7143          
+##          Pos Pred Value : 0.9732          
+##          Neg Pred Value : 0.9091          
+##              Prevalence : 0.9125          
+##          Detection Rate : 0.9062          
+##    Detection Prevalence : 0.9313          
+##       Balanced Accuracy : 0.8537          
+##                                           
+##        &#39;Positive&#39; Class : FALSE           
+## </code></pre>
+<p>So we can already see that the results of this model are less positive than the SVM model.</p>
+</div>
+<div id="logistic-regression" class="section level2">
+<h2><span class="header-section-number">7.3</span> Logistic Regression</h2>
+<p>For classification problems with only two groups, linear regression is often a good first option. This is a generalised linear model, where we require a transformation of the response variable to ensure that it fits a continuous scale. In this case, the response variable is the probability of being in the Legendary class, so we need to map this to the simple yes/no outcome of the input training data. The logit function is often used, which is a transformation between a probability <code>p</code> and a real number:</p>
+<p><span class="math display">\[logit(p) = log(\frac{p}{1-p})\]</span></p>
+<p>So let’s fit a logistic regression model containing all of our data, again using 3 repeats of 10-fold cross validation, and see what we get back:</p>
+<pre class="r"><code>set.seed(0)
+trctrl    &lt;- trainControl(method = &quot;repeatedcv&quot;, number = 10, repeats = 3)
+model_logreg &lt;- train(is_legendary ~., 
+                      data = training_dat, 
+                      method = &quot;glm&quot;,
+                      family = &quot;binomial&quot;,
+                      trControl = trctrl,
+                      preProcess = c(&quot;center&quot;, &quot;scale&quot;),
+                      tuneLength = 10)
+model_logreg</code></pre>
+<pre><code>## Generalized Linear Model 
+## 
+## 641 samples
+##  18 predictor
+##   2 classes: &#39;FALSE&#39;, &#39;TRUE&#39; 
+## 
+## Pre-processing: centered (56), scaled (56) 
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 577, 576, 576, 577, 577, 578, ... 
+## Resampling results:
+## 
+##   Accuracy   Kappa   
+##   0.9667197  0.802881</code></pre>
+<p>So we actually get a better accuracy from the cross-validation than for SVM or kNN at 96.67% accuracy. So let’s test it on the validation data set:</p>
+<pre class="r"><code>predict_legendary &lt;- predict(model_logreg, newdata = validation_dat)
+logreg_confmat &lt;- confusionMatrix(predict_legendary, validation_dat[[&quot;is_legendary&quot;]])
+logreg_confmat</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction FALSE TRUE
+##      FALSE   141    1
+##      TRUE      5   13
+##                                           
+##                Accuracy : 0.9625          
+##                  95% CI : (0.9202, 0.9861)
+##     No Information Rate : 0.9125          
+##     P-Value [Acc &gt; NIR] : 0.01131         
+##                                           
+##                   Kappa : 0.792           
+##                                           
+##  Mcnemar&#39;s Test P-Value : 0.22067         
+##                                           
+##             Sensitivity : 0.9658          
+##             Specificity : 0.9286          
+##          Pos Pred Value : 0.9930          
+##          Neg Pred Value : 0.7222          
+##              Prevalence : 0.9125          
+##          Detection Rate : 0.8812          
+##    Detection Prevalence : 0.8875          
+##       Balanced Accuracy : 0.9472          
+##                                           
+##        &#39;Positive&#39; Class : FALSE           
+## </code></pre>
+<p>The accuracy of this model on the validation data set is 96.25%.</p>
+</div>
+<div id="random-forest" class="section level2">
+<h2><span class="header-section-number">7.4</span> Random Forest</h2>
+<p>As a final model, we will look at using a random forest classifier. A random forest is essentially created by creating a number of decision trees and averaging over them all. I will use the same cross-validation scheme as previously, and will allow <code>caret</code> to identify the optimum parameters:</p>
+<pre class="r"><code>set.seed(0)
+trctrl    &lt;- trainControl(method = &quot;repeatedcv&quot;, number = 10, repeats = 3)
+model_rf &lt;- train(is_legendary ~., 
+                  data = training_dat, 
+                  method = &quot;rf&quot;,
+                  trControl = trctrl,
+                  preProcess = c(&quot;center&quot;, &quot;scale&quot;),
+                  tuneLength = 10)
+model_rf</code></pre>
+<pre><code>## Random Forest 
+## 
+## 641 samples
+##  18 predictor
+##   2 classes: &#39;FALSE&#39;, &#39;TRUE&#39; 
+## 
+## Pre-processing: centered (56), scaled (56) 
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 577, 576, 576, 577, 577, 578, ... 
+## Resampling results across tuning parameters:
+## 
+##   mtry  Accuracy   Kappa    
+##    2    0.9911611  0.9396362
+##    8    0.9984292  0.9905178
+##   14    0.9984292  0.9905178
+##   20    0.9984292  0.9905178
+##   26    0.9984292  0.9905178
+##   32    0.9984292  0.9905178
+##   38    0.9984292  0.9905178
+##   44    0.9984292  0.9905178
+##   50    0.9984292  0.9905178
+##   56    0.9984292  0.9905178
+## 
+## Accuracy was used to select the optimal model using the largest value.
+## The final value used for the model was mtry = 8.</code></pre>
+<p>This approach identified an accuracy of 99.84% (with a normalised kappa value of 99.05%) with an <code>mtry</code> value of 8. This is incredibly good, and is the best outcome so far. However, it is worth noting that this approach is significantly slower than the others. Let’s check against our validation data set:</p>
+<pre class="r"><code>predict_legendary &lt;- predict(model_rf, newdata = validation_dat)
+confusionMatrix(predict_legendary, validation_dat[[&quot;is_legendary&quot;]])</code></pre>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction FALSE TRUE
+##      FALSE   145    1
+##      TRUE      1   13
+##                                           
+##                Accuracy : 0.9875          
+##                  95% CI : (0.9556, 0.9985)
+##     No Information Rate : 0.9125          
+##     P-Value [Acc &gt; NIR] : 0.00005782      
+##                                           
+##                   Kappa : 0.9217          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 1               
+##                                           
+##             Sensitivity : 0.9932          
+##             Specificity : 0.9286          
+##          Pos Pred Value : 0.9932          
+##          Neg Pred Value : 0.9286          
+##              Prevalence : 0.9125          
+##          Detection Rate : 0.9062          
+##    Detection Prevalence : 0.9125          
+##       Balanced Accuracy : 0.9609          
+##                                           
+##        &#39;Positive&#39; Class : FALSE           
+## </code></pre>
+<p>So whilst the training accuracy is nearly 100%, here we see slightly lower accuracy on the test data set. It is still pretty good going, but could still be improved.</p>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1><span class="header-section-number">8</span> Conclusion</h1>
+<p>We have managed to explore these data in a number of different ways and have identified some interesting themes and patterns. However, there is a lot of additional work that can be done. Correlation-based recommendation seems to work to identify similar Pokémon, at least in the small number of cases that I looked at. My wife showed me <a href="https://www.amazon.co.uk/Pokemon-Trainer/dp/B07GYQC8C7">this</a> toy that can guess any Pokémon that you think of, which probably uses a similar approach. I’m in the wrong business…</p>
+<p>In particular, whilst it was interesting to play with some of the most commonly used machine learning methods, I have spent no real time tuning the model parameters. The variables themselves used in the data set could be tweaked to identify those variables most associated with the response variable. Given that these are incredibly rare and powerful Pokémon, we will inevitably find that the fighting based variables like attack and defence are highly discriminative, but also those such as the capture rate and experience growth associated. In addition, we have looked only at additive models here and have not considered interaction terms. We can also spend time fine-tuning the parameters of the models themselves to improve the accuracy further.</p>
+<p>However, despite this, we got some very good results from the default model parameters for several commonly used methods. kNN, SVM, logistic regression and random forests gave very similar results, but with SVM and random forest giving the best predictive outcomes.</p>
+<p>Ultimately, the key to developing any machine learning algorithm is to trial multiple different approaches and tune the parameters for the specific data in question. Also, a machine learning algorithm is only as good as the data that it is trained on, so feeding in more good quality cleaned data will help the model to learn. Ultimately, machine learning is aimed at developing a model that is able to predict something from new data, so it needs to be as generalised as possible.</p>
+<p>So hopefully when I come across a new Pokémon not currently found in my Pokedex, I can easily check whether it is Legendary by asking it a few questions about its vital statistics. Very useful.</p>
+<p>Gotta catch ’em all!</p>
+</div>
+<div id="session-info" class="section level1">
+<h1><span class="header-section-number">9</span> Session Info</h1>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 3.6.1 (2019-07-05)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Sierra 10.12.6
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] caret_6.0-84       lattice_0.20-38    pheatmap_1.0.12   
+## [4] RColorBrewer_1.1-2 ggrepel_0.8.1      dplyr_0.8.3       
+## [7] ggplot2_3.2.0     
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_1.0.2          lubridate_1.7.4     tidyr_1.0.0        
+##  [4] class_7.3-15        assertthat_0.2.1    zeallot_0.1.0      
+##  [7] digest_0.6.20       ipred_0.9-9         foreach_1.4.7      
+## [10] R6_2.4.0            plyr_1.8.4          backports_1.1.4    
+## [13] stats4_3.6.1        evaluate_0.14       e1071_1.7-2        
+## [16] blogdown_0.16       pillar_1.4.2        rlang_0.4.0        
+## [19] lazyeval_0.2.2      data.table_1.12.2   kernlab_0.9-27     
+## [22] rpart_4.1-15        Matrix_1.2-17       rmarkdown_1.14     
+## [25] labeling_0.3        splines_3.6.1       gower_0.2.1        
+## [28] stringr_1.4.0       munsell_0.5.0       compiler_3.6.1     
+## [31] xfun_0.8            pkgconfig_2.0.2     htmltools_0.3.6    
+## [34] nnet_7.3-12         tidyselect_0.2.5    tibble_2.1.3       
+## [37] prodlim_2018.04.18  bookdown_0.12       codetools_0.2-16   
+## [40] randomForest_4.6-14 crayon_1.3.4        withr_2.1.2        
+## [43] MASS_7.3-51.4       recipes_0.1.7       ModelMetrics_1.2.2 
+## [46] grid_3.6.1          nlme_3.1-140        gtable_0.3.0       
+## [49] lifecycle_0.1.0     magrittr_1.5        scales_1.0.0       
+## [52] stringi_1.4.3       reshape2_1.4.3      timeDate_3043.102  
+## [55] ellipsis_0.2.0.1    generics_0.0.2      vctrs_0.2.0        
+## [58] lava_1.6.6          iterators_1.0.12    tools_3.6.1        
+## [61] glue_1.3.1          purrr_0.3.3         survival_2.44-1.1  
+## [64] yaml_2.2.0          colorspace_1.4-1    knitr_1.23</code></pre>
+</div>
+
+    </div>
+
+    
+
+
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/tags/data-science/">Data Science</a>
+  
+  <a class="badge badge-light" href="/tags/machine-learning/">Machine Learning</a>
+  
+  <a class="badge badge-light" href="/tags/knn/">KNN</a>
+  
+  <a class="badge badge-light" href="/tags/svm/">SVM</a>
+  
+  <a class="badge badge-light" href="/tags/random-forest/">Random Forest</a>
+  
+  <a class="badge badge-light" href="/tags/logistic-regression/">Logistic Regression</a>
+  
+  <a class="badge badge-light" href="/tags/pca/">PCA</a>
+  
+  <a class="badge badge-light" href="/tags/recommendation/">Recommendation</a>
+  
+  <a class="badge badge-light" href="/tags/normalization/">Normalization</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card">
+    
+      
+      <img class="portrait mr-3" src="/authors/samrobson/avatar_huef261ec2a0b29c1127d55274a0b630a9_2690596_250x250_fill_q90_lanczos_center.jpeg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">Sam Robson</a></h5>
+      <h6 class="card-subtitle">Lead Bioinformatician at the Centre for Enzyme Innovation</h6>
+      <p class="card-text">Lead Bioinformatician at the Centre for Enzyme Innovation</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:samuel.robson@port.ac.uk" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/samrobson/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=90hzm3gAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/irunfasterthanmycode" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/2018-10-19-assessing-mimi-andersons-world_record-run-part-i/">Strava Data Mining: Assessing Mimi Anderson&#39;s World Record Run Across the USA</a></li>
+          
+          <li><a href="/post/2018-04-18-suunto-or-garmin/">Suunto Or Garmin? The Age Old Question.</a></li>
+          
+          <li><a href="/post/2018-04-15-ultrarunner-or-ultra-runner/">Ultramarathon, Ultra Marathon or Ultra-Marathon?</a></li>
+          
+          <li><a href="/project/2019-06-18_center_for_enzyme_innovation/">Center for Enzyme Innovation</a></li>
+          
+          <li><a href="/post/2018-04-24-how-predictable-are-ultrarunners/">How Predictable Are Ultra Runners?</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  let disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "https-irunfasterthanmycode-github-io" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  
+</section>
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    <script id="dsq-count-scr" src="https://https-irunfasterthanmycode-github-io.disqus.com/count.js" async></script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.d6bd04fdad2ad213aa8111c5a3b72fc5.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2017 Sam Robson &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

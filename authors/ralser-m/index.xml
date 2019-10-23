@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ralser M | IRunFasterThanMyCode</title>
+    <link>/authors/ralser-m/</link>
+      <atom:link href="/authors/ralser-m/index.xml" rel="self" type="application/rss+xml" />
+    <description>Ralser M</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Fri, 18 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Ralser M</title>
+      <link>/authors/ralser-m/</link>
+    </image>
+    
+    <item>
+      <title>A lncRNA fine tunes the dynamics of a cell state transition involving Lin28, let-7 and de novo DNA methylation</title>
+      <link>/publication/2017_a_lncrna_fine_tunes_the_dynamics_of_a_cell_state_transition_involving_lin28_let-7_and_de_novo_dna_methylation/</link>
+      <pubDate>Fri, 18 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/2017_a_lncrna_fine_tunes_the_dynamics_of_a_cell_state_transition_involving_lin28_let-7_and_de_novo_dna_methylation/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

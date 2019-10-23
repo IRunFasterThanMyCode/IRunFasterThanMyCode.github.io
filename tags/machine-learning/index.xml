@@ -1,0 +1,1894 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>machine learning | IRunFasterThanMyCode</title>
+    <link>/tags/machine-learning/</link>
+      <atom:link href="/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <description>machine learning</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Sat, 05 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>machine learning</title>
+      <link>/tags/machine-learning/</link>
+    </image>
+    
+    <item>
+      <title>Deep Learning using TensorFlow Through the Keras API in RStudio</title>
+      <link>/post/2019-10-05_deep_learning_with_keras_in_rstudio/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/post/2019-10-05_deep_learning_with_keras_in_rstudio/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1&lt;/span&gt; Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tensorflow&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;2&lt;/span&gt; TensorFlow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#keras&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3&lt;/span&gt; Keras&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#mnist-database&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;4&lt;/span&gt; MNIST Database&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-transformation&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5&lt;/span&gt; Data Transformation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#sequential-models&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6&lt;/span&gt; Sequential Models&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#dense-layer&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7&lt;/span&gt; Dense Layer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#activation-layer&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;8&lt;/span&gt; Activation Layer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#dropout-layer&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;9&lt;/span&gt; Dropout Layer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#define-initial-model&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;10&lt;/span&gt; Define Initial Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#compile-model&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;11&lt;/span&gt; Compile Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#training-the-model&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;12&lt;/span&gt; Training the Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#results&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;13&lt;/span&gt; Results&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusions&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;14&lt;/span&gt; Conclusions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#session-info&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;15&lt;/span&gt; Session Info&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;1&lt;/span&gt; Introduction&lt;/h1&gt;
+&lt;p&gt;Machine learning and artificial intelligence is a hot topic in the tech world, but the expression “machine learning” can describe anything from fitting a straight line through some data, to a machine able to think, learn and react to the world in highly sophisticated ways (e.g. self-driving cars if you want to be positive about AI, or SkyNet from Terminator if you want to be a naysayer). Whilst common machine learning techniques like support vector machines and k-Nearest Neighbour algorithms can be used to solve a huge number of problems, deep learning algorithms like neural networks are required to create these highly sophisticated models.&lt;/p&gt;
+&lt;p&gt;In this blog, I will explore the use of some commonly used tools for generating neural networks within the R programming language.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tensorflow&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;2&lt;/span&gt; TensorFlow&lt;/h1&gt;
+&lt;p&gt;TensorFlow is one of the most powerful tools for deep learning, and in particular is widely used for training neural networks to classify various aspects of images. It is a freely distributed open-source library in python (but mainly written in C++) originally created by Google, but has become the cornerstone of many deep learning models currently out there&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;Tensor&lt;/em&gt; is a multi-dimensional array, and the TensorFlow libraries represent a highly efficient pipeline for the myriad linear algebra calculations required to generate new tensors through the layers of the network.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;keras&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;3&lt;/span&gt; Keras&lt;/h1&gt;
+&lt;p&gt;The &lt;a href=&#34;https://keras.io&#34;&gt;Keras API&lt;/a&gt; is a high-level user-friendly neural network API (application programming interface) designed for accessing deep neural networks. One of the benefits is that it is able to run on GPUs as well as CPUs, which have been shown to work better for training neural networks since they are able more efficient at running the huge number of simple calculations required for model training (for example convolutions of image data).&lt;/p&gt;
+&lt;p&gt;Keras can be used an interface to TensorFlow for training deep multi-level networks for use in deep learning applications. Both are developed in python, but here I am going to use the RStudio interface to run a few simple deep learning models to trial the process ahead of a more in-depth application. R and python are somewhat at war in the data science community, with (in my opinion) R being better for more general data analysis and visualisation (for instance, whilst the python &lt;code&gt;seaborn&lt;/code&gt; package produces beautiful images, the &lt;code&gt;ggplot2&lt;/code&gt; package is far more elaborate). However, with the Keras and TensorFlow packages (and the generally higher memory impact of using R), python is typically far more suited for deep learning applications.&lt;/p&gt;
+&lt;p&gt;However, the ability to access the Keras API through RStudio, and the amazing power of using RStudio to develop workflows, will make this a perfect “one stop shop” for data science needs. Much of this work is developed from the &lt;a href=&#34;https://tensorflow.rstudio.com&#34;&gt;RStudio Keras and TensorFlow tutorials&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We first load the &lt;code&gt;reticulate&lt;/code&gt; package to pipe python commands through R:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;reticulate&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then install and load the &lt;code&gt;keras&lt;/code&gt; package. When we load it using the &lt;code&gt;install_keras()&lt;/code&gt; function, we can define different backend engines and choose to use GPUs rather than CPUs, but for this example I will simply use the default TensorFlow backend on my laptop CPU:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;rstudio/keras&amp;quot;)
+library(&amp;quot;keras&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mnist-database&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;4&lt;/span&gt; MNIST Database&lt;/h1&gt;
+&lt;p&gt;So let’s have a little play by looking at a standard machine learning approach, looking at the &lt;a href=&#34;https://en.wikipedia.org/wiki/MNIST_database&#34;&gt;MNIST&lt;/a&gt; dataset. This is the Modified National Institute of Standards and Technology database, and contains a large amount of images of handwritten digits that is used to train models for handwriting recognition. Ultimately, the same models can be used for a huge number of classification tasks.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mnist_dat &amp;lt;- dataset_mnist()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The dataset contains a training set of 60,000 images, and a test set of 10,000 images. Each image is pre-normalised such that each digit is a grayscale image that fits into a 28x28 pixel bounding box.Each image is also supplied with a label that tells us what the digit should really be. This dataset is commonly used as a kind of benchmark for new models, with people vying to build the model with the lowest error rate possible:&lt;/p&gt;
+&lt;p&gt;So let’s define our data sets. We will require two main data sets; a &lt;strong&gt;training&lt;/strong&gt; set where we show the model the images and tell it what it should recognise, and a &lt;strong&gt;test&lt;/strong&gt; dataset where we can predict the result and check against the ground level label. For each data set, we will create a dataset &lt;code&gt;x&lt;/code&gt; containing all of the images, and a dataset &lt;code&gt;y&lt;/code&gt; containing the labels:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;training_dat_x_raw &amp;lt;- mnist_dat[[&amp;quot;train&amp;quot;]][[&amp;quot;x&amp;quot;]]
+training_dat_y_raw &amp;lt;- mnist_dat[[&amp;quot;train&amp;quot;]][[&amp;quot;y&amp;quot;]]
+test_dat_x_raw     &amp;lt;- mnist_dat[[&amp;quot;test&amp;quot;]][[&amp;quot;x&amp;quot;]]
+test_dat_y_raw     &amp;lt;- mnist_dat[[&amp;quot;test&amp;quot;]][[&amp;quot;y&amp;quot;]]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Each of the images is essentially a 2D array, with 28 rows and 28 columns, with each cell representing the greyscale value of the pixel. So the &lt;code&gt;_dat_x&lt;/code&gt; data sets are 3D arrays. So accessing specific elements from these arrays in R is similar to accessing rows and columns using the &lt;code&gt;[x,y]&lt;/code&gt; style axis, but we need to specify a third element &lt;code&gt;z&lt;/code&gt; for the specific array that we want to access – &lt;code&gt;[z,x,y]&lt;/code&gt;. So lets take a look at an exampl of the input data:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mfcol = c(3,6))
+par(mar = c(0, 0, 3, 0), xaxs = &amp;#39;i&amp;#39;, yaxs = &amp;#39;i&amp;#39;)
+for (i in 1:18) { 
+  plot_dat &amp;lt;- training_dat_x_raw[i, , ]
+  plot_dat &amp;lt;- t(apply(plot_dat, MAR = 2, rev)) 
+  image(1:28, 1:28, plot_dat, 
+        col  = gray((0:255)/255), 
+        xaxt =&amp;#39;n&amp;#39;, 
+        main = training_dat_y_raw[i],
+        cex  = 4, axes = FALSE)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-10-05_Deep_Learning_with_Keras_in_RStudio/index_files/figure-html/MNIST_plot_entries-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-transformation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;5&lt;/span&gt; Data Transformation&lt;/h1&gt;
+&lt;p&gt;We can easily reduce this 3D data by essentially taking each 28x28 matrix and collapsing the 784 values down into a 1D vector. Then we can make one big 2D matrix containing all of the data. Ordinarily, this could be done by reassigning the dimensions of the array, but by using the &lt;code&gt;array_reshape()&lt;/code&gt; function, the data is adjusted to meet the requirements for Keras:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;training_dat_x &amp;lt;- array_reshape(training_dat_x_raw, c(nrow(training_dat_x_raw), 784))
+test_dat_x     &amp;lt;- array_reshape(test_dat_x_raw,     c(nrow(test_dat_x_raw), 784))
+dim(training_dat_x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 60000   784&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The values in these arrays are greyscale values, representing 256 integer values between 0 (black) and 255 (white). It will be useful for downstream analyses to rescale these values to real values in the range &lt;span class=&#34;math inline&#34;&gt;\([0,1]\)&lt;/span&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;training_dat_x &amp;lt;- training_dat_x/255
+test_dat_x     &amp;lt;- test_dat_x/255&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The R-specific way to deal with categorical data would be to encode the values in the &lt;code&gt;y&lt;/code&gt; datasets to a factor with 10 levels (“0”, “1”, “2”, etc). However, Keras requires the data to be in a slightly different format, so we use the &lt;code&gt;to_categorical()&lt;/code&gt; function instead. This will encode the value in a new matrix with 10 columns and &lt;code&gt;n&lt;/code&gt; rows, such that every row contains exactly one &lt;code&gt;1&lt;/code&gt; (representing the label) and nine &lt;code&gt;0s&lt;/code&gt;. This is known as an identity matrix. Keras uses a lot of linear algebra, and this encoding makes these calculations much simpler:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;training_dat_y &amp;lt;- to_categorical(training_dat_y_raw, 10)
+test_dat_y     &amp;lt;- to_categorical(test_dat_y_raw, 10)
+dim(training_dat_y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 60000    10&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sequential-models&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;6&lt;/span&gt; Sequential Models&lt;/h1&gt;
+&lt;p&gt;A standard deep learning neural network model can be thought of as a number of sequential layers, with each layer representing a different abstraction of the data. For instance, consider a model looking at facial recognition from image data. The first layer might represent edges of different aspects of the image. The next layer might be designed to pick out nose shape. The next might pick out hair. The next might determine the orientation of the face. etc. Then by adding more and more layers, we can develop models able to classify samples based on a wide range of different features.&lt;/p&gt;
+&lt;p&gt;Of course, there is a danger in statistics of &lt;em&gt;over-fitting&lt;/em&gt; data, which is when we create a model so specific for the training data that it becomes practically worthless. By definition, adding more variables into a model will always improve the fit, but at the cost of its applicability to other data sets. In models such as linear models, we look for parsimony – a model should be as complicated as it needs to be &lt;em&gt;and no more complicated&lt;/em&gt;. The old phrase is:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When you hear hooves, think horse not zebra&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;However, deep learning sequential models such as these are robust to these problems, since model training can back-propagate, allowing us to incorporate far more levels than would be possible with other machine learning techniques.&lt;/p&gt;
+&lt;p&gt;The general steps involved in using Keras for deep learning are to first build your model, compile it to configure the parameters that will be used to develop the “best” model, train it using your training data, then test it on an additional data set to see how it copes.&lt;/p&gt;
+&lt;p&gt;So let’s build a simple sequential neural network model object using &lt;code&gt;keras_model_sequential()&lt;/code&gt;, then add a series of additional layers that we hope will accurately identify our different categories. Adding sequential layers uses similar syntax to the tidyverse libraries such as &lt;code&gt;dplyr&lt;/code&gt;, by using the pipe operator &lt;code&gt;%&amp;gt;%&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model &amp;lt;- keras_model_sequential()
+model %&amp;gt;%
+  layer_dense(units = 28, input_shape = c(784)) %&amp;gt;%
+  layer_activation(activation = &amp;quot;relu&amp;quot;) %&amp;gt;%
+  layer_dropout(rate = 0.4)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dense-layer&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;7&lt;/span&gt; Dense Layer&lt;/h1&gt;
+&lt;p&gt;The first layer is a densely connected neural network layer, which takes a set of nD input tensors (in this case 1D input tensors), and generate a weights matrix by breaking the tensor into subsets and using this to learn the weights by doing some linear algebra (vector and matrix multiplication). The output from the &lt;code&gt;dense&lt;/code&gt; layer is then generated as follows:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[output = activation(dot(input, kernel) + bias)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;So the weights kernel is generated and multiplied (dot product) with the input. If requested, a bias is also calculated and added to account for any systematic bias identified in the data. An &lt;code&gt;activation&lt;/code&gt; function is then used to generate the final tensor to go on to the following layer (in this case we have specified this is a separate layer).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;activation-layer&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;8&lt;/span&gt; Activation Layer&lt;/h1&gt;
+&lt;p&gt;An activation function can often be necessary to ensure the back-propogation and gradient descent algorithms work. By default, no activation is used. However, this is a linear identity function, which is very limited. A common activation function is the &lt;a href=&#34;https://en.wikipedia.org/wiki/Rectifier_(neural_networks)&#34;&gt;Rectified Linear Unit&lt;/a&gt; (&lt;code&gt;ReLU&lt;/code&gt;), which is linear for positive values, but zero for negative values. This is usually a good starting point as it is very simple and fast. Another option is the &lt;code&gt;[softmax](https://en.wikipedia.org/wiki/Softmax_function)&lt;/code&gt; function, which transforms each input logit (the pre-activated values) by taking the exponential and normalizing by the sum of exponentials over all inputs so that the sum is exactly 1:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\sigma(y_i) = \frac{e^{y_i}}{\sum^{K}_{j=1}e^{y_j}}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;It is commonly used for multinomial logistic regression, where a different softmax function is applied for each class with a different probability incorporated, since it is able to transform input numbers into probabilities. The use of exponentials ensures that there are no negative values, no matter how negative the input logit. So the &lt;code&gt;softmax&lt;/code&gt; function outputs a probability distribution for potential outcomes in the range &lt;span class=&#34;math inline&#34;&gt;\([0,1]\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dropout-layer&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;9&lt;/span&gt; Dropout Layer&lt;/h1&gt;
+&lt;p&gt;Finally, we specify a dropout layer, which essentially drops a proportion of the nodes in the neural network to prevent over-fitting. In this case we have connections in the network between all of the tensor subsets generated. However, many of them are more useful in the model than others, so here we deactivate the 40% least useful nodes. Of course, this will reduce the training performance, but will prevent the issue of over-fitting making the model more generalised and applicable to other data sets. Model fitting is all about tweaking parameters and layers to get the most effective model, and this is one way in which we can improve the effectiveness of the model at predicting unseen data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;define-initial-model&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;10&lt;/span&gt; Define Initial Model&lt;/h1&gt;
+&lt;p&gt;So let’s generate a more thorough model of 4 dense layers, gradually filtering down to a final output of 10 probabilities using the &lt;code&gt;softmax&lt;/code&gt; activation function – the probabilities for the 10 digits:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;MNIST_model &amp;lt;- keras_model_sequential()
+MNIST_model %&amp;gt;%
+  layer_dense(units = 256, input_shape = c(784)) %&amp;gt;%
+  layer_activation(activation = &amp;quot;relu&amp;quot;) %&amp;gt;%
+  layer_dropout(rate = 0.4) %&amp;gt;%
+  layer_dense(units = 128) %&amp;gt;%
+  layer_activation(activation = &amp;quot;relu&amp;quot;) %&amp;gt;%
+  layer_dropout(rate = 0.3) %&amp;gt;%
+  layer_dense(units = 56) %&amp;gt;%
+  layer_activation(activation = &amp;quot;relu&amp;quot;) %&amp;gt;%
+  layer_dropout(rate = 0.2) %&amp;gt;%
+  layer_dense(units = 10) %&amp;gt;%
+  layer_activation(activation = &amp;quot;softmax&amp;quot;)
+summary(MNIST_model)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Model: &amp;quot;sequential_1&amp;quot;
+## ___________________________________________________________________________
+## Layer (type)                     Output Shape                  Param #     
+## ===========================================================================
+## dense_1 (Dense)                  (None, 256)                   200960      
+## ___________________________________________________________________________
+## activation_1 (Activation)        (None, 256)                   0           
+## ___________________________________________________________________________
+## dropout_1 (Dropout)              (None, 256)                   0           
+## ___________________________________________________________________________
+## dense_2 (Dense)                  (None, 128)                   32896       
+## ___________________________________________________________________________
+## activation_2 (Activation)        (None, 128)                   0           
+## ___________________________________________________________________________
+## dropout_2 (Dropout)              (None, 128)                   0           
+## ___________________________________________________________________________
+## dense_3 (Dense)                  (None, 56)                    7224        
+## ___________________________________________________________________________
+## activation_3 (Activation)        (None, 56)                    0           
+## ___________________________________________________________________________
+## dropout_3 (Dropout)              (None, 56)                    0           
+## ___________________________________________________________________________
+## dense_4 (Dense)                  (None, 10)                    570         
+## ___________________________________________________________________________
+## activation_4 (Activation)        (None, 10)                    0           
+## ===========================================================================
+## Total params: 241,650
+## Trainable params: 241,650
+## Non-trainable params: 0
+## ___________________________________________________________________________&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here we can see the change in shape of the tensors throughout the model, and the number of trainable parameters at each layer level. These are fully connected layers, so every neuron (values in the tensors) is connected to every other neuron. So the number of parameters (or connections) is given by multiplying the number of values in the input layer by the number in the previous layer plus one. So in total we have nearly a quarter of a million parameters to estimate here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;compile-model&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;11&lt;/span&gt; Compile Model&lt;/h1&gt;
+&lt;p&gt;So next we can compile this model to tell it which methods we want to use to estimate these parameters:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;MNIST_model %&amp;gt;% 
+  compile(
+    loss = &amp;quot;categorical_crossentropy&amp;quot;,
+    optimizer = optimizer_rmsprop(),
+    metrics = c(&amp;quot;accuracy&amp;quot;)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The loss function here is the method that will be used to optimise the parameters by comparing the predicted value with that of the actual value. Categorical crossentropy is commonly used in classification models when the output is a probability. It increases logarithmically as the predicted value diverges from the true value.&lt;/p&gt;
+&lt;p&gt;The optimizer is used to ensure that the algorithm converges in training. We are trying to minimise the loss function, so &lt;a href=&#34;https://en.wikipedia.org/wiki/Gradient_descent&#34;&gt;Gradient Descent&lt;/a&gt; can be used to optimse by iteratively recalculating the weights and bias until the minima is found. There is a danger of getting stuck at a local minima value, so sometimes it may be necessary to tune the parameters to avoid this. In this case, we are using RMSProp optimizer, which is similar to Gradient Descent but attempts to avoid this by adding oscillations to the descent.&lt;/p&gt;
+&lt;p&gt;Finally, we can specify which metrics we wish to output inorder to evaluate the model during training. Here we look at the accuracy to determine how often our model gives the correct prediction in the trained data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;training-the-model&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;12&lt;/span&gt; Training the Model&lt;/h1&gt;
+&lt;p&gt;So now let’s train our model with our training data to estimate the parameters:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;training_output &amp;lt;- MNIST_model %&amp;gt;% 
+  fit(
+    training_dat_x, training_dat_y,
+    batch_size = 128,
+    epochs = 30,
+    verbose = 1,
+    validation_split = 0.2
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here we are going to run the model using our reformated training data above. The &lt;code&gt;epoch&lt;/code&gt; argument determines the number of iterations used to optimize the model parameters. In each epoch, we will use &lt;code&gt;batch_size&lt;/code&gt; samples per epoch for the gradient update.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;validation_split&lt;/code&gt; argument is used for running cross-validation in order to evaluate the quality of the model. A portion of the training data is kept aside, and is used to validate the current model parameters and calculate the accuracy.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;13&lt;/span&gt; Results&lt;/h1&gt;
+&lt;p&gt;Let’s take a look at how the accuracy and the loss (caluclated as categorical cross-entropy) change as the model training progresses:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(training_output)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-10-05_Deep_Learning_with_Keras_in_RStudio/index_files/figure-html/MNIST_training_plot-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can see that the loss is high and the accuracy low at the start of the training, but they quickly improve within the first 10 epochs. After this, they begin to plateau, resulting in a loss of 0.06 and accuracy of 98.4%.&lt;/p&gt;
+&lt;p&gt;This is pretty good, so let’s see how it works with the test set:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;test_output &amp;lt;- MNIST_model %&amp;gt;% evaluate(test_dat_x, test_dat_y)
+test_output&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $loss
+## [1] 0.1076846
+## 
+## $acc
+## [1] 0.9826&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So 98.26% of the 10,000 test cases were predicted accurately. So this means that 174 were wrong. Let’s take a look at some of these:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;predicted &amp;lt;- MNIST_model %&amp;gt;% predict_classes(test_dat_x)
+which_wrong &amp;lt;- which(predicted != test_dat_y_raw)
+par(mfcol = c(3,6))
+par(mar = c(0, 0, 3, 0), xaxs = &amp;#39;i&amp;#39;, yaxs = &amp;#39;i&amp;#39;)
+for (i in which_wrong[1:18]) {
+  plot_dat &amp;lt;- test_dat_x_raw[i, , ]
+  plot_dat &amp;lt;- t(apply(plot_dat, MAR = 2, rev)) 
+  image(1:28, 1:28, plot_dat, 
+        col  = gray((0:255)/255), 
+        xaxt =&amp;#39;n&amp;#39;, 
+        main = paste(&amp;quot;Predict =&amp;quot;, predicted[i], &amp;quot;\nReal =&amp;quot;, test_dat_y_raw[i]),
+        cex  = 2, axes = FALSE)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-10-05_Deep_Learning_with_Keras_in_RStudio/index_files/figure-html/MNIST_wrong-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;So we can see why the algorithm struggled with some of these, such as predicting 6s as 0s, and numbers that are slanted or squished. However, this obviously shows a lack of generalisation in the model, which is not brilliant for dealing with hand written numbers.&lt;/p&gt;
+&lt;p&gt;Obviously this is a fairly basic example of a neural network model, and the sorts of models being used in technology like self-driving cars contain far more layers than this. Model tuning is essential to compare and contrast models to identify the optimum model.&lt;/p&gt;
+&lt;!-- # Model Comparison --&gt;
+&lt;!-- Models can be compared in various different ways, but one example is to use the TensorBoard, a visualisation tool from TensorFlow that shows dynamic graphs of the Keras training and test metrics. To compare multiple models, we can record the data, and then visualise it on TensorBoard.  --&gt;
+&lt;!-- So let&#39;s try to compare a 1-layer model with a 4-layer model. We use the ```callback_tensorboard()``` function to save the data to add to TensorBoard.  --&gt;
+&lt;!-- First let&#39;s run a 1-layer model: --&gt;
+&lt;!-- ``` {r model_comparison_1layer} --&gt;
+&lt;!-- model1 &lt;- keras_model_sequential() --&gt;
+&lt;!-- model1 %&gt;% --&gt;
+&lt;!--   layer_dense(units = 10) %&gt;% --&gt;
+&lt;!--   layer_activation(activation = &#34;softmax&#34;) %&gt;% --&gt;
+&lt;!--   compile( --&gt;
+&lt;!--     loss = &#34;categorical_crossentropy&#34;, --&gt;
+&lt;!--     optimizer = optimizer_rmsprop(), --&gt;
+&lt;!--     metrics = c(&#34;accuracy&#34;) --&gt;
+&lt;!--   ) %&gt;% --&gt;
+&lt;!--   fit( --&gt;
+&lt;!--     training_dat_x, training_dat_y, --&gt;
+&lt;!--     batch_size = 128, --&gt;
+&lt;!--     epochs = 30, --&gt;
+&lt;!--     verbose = 1, --&gt;
+&lt;!--     validation_split = 0.2, --&gt;
+&lt;!--     callbacks = callback_tensorboard(&#34;model1&#34;) --&gt;
+&lt;!--   ) --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- So we can see that this is much worse than our first model, with only an 82.5% accuracy. Let&#39;s now try a 10-layer model: --&gt;
+&lt;!-- ``` {r model_comparison_10layer} --&gt;
+&lt;!-- model10 &lt;- keras_model_sequential() --&gt;
+&lt;!-- model10 %&gt;% --&gt;
+&lt;!--   layer_dense(units = 500, input_shape = c(784)) %&gt;% --&gt;
+&lt;!--   layer_activation(activation = &#34;relu&#34;) %&gt;% --&gt;
+&lt;!--   layer_dropout(rate = 0.5) %&gt;% --&gt;
+&lt;!--   layer_dense(units = 450) %&gt;% --&gt;
+&lt;!--   layer_activation(activation = &#34;relu&#34;) %&gt;% --&gt;
+&lt;!--   layer_dropout(rate = 0.5) %&gt;% --&gt;
+&lt;!--   layer_dense(units = 400) %&gt;% --&gt;
+&lt;!--   layer_activation(activation = &#34;relu&#34;) %&gt;% --&gt;
+&lt;!--   layer_dropout(rate = 0.4) %&gt;% --&gt;
+&lt;!--   layer_dense(units = 350) %&gt;% --&gt;
+&lt;!--   layer_activation(activation = &#34;relu&#34;) %&gt;% --&gt;
+&lt;!--   layer_dropout(rate = 0.4) %&gt;% --&gt;
+&lt;!--   layer_dense(units = 300) %&gt;% --&gt;
+&lt;!--   layer_activation(activation = &#34;relu&#34;) %&gt;% --&gt;
+&lt;!--   layer_dropout(rate = 0.3) %&gt;% --&gt;
+&lt;!--   layer_dense(units = 250) %&gt;% --&gt;
+&lt;!--   layer_activation(activation = &#34;relu&#34;) %&gt;% --&gt;
+&lt;!--   layer_dropout(rate = 0.3) %&gt;% --&gt;
+&lt;!--   layer_dense(units = 200) %&gt;% --&gt;
+&lt;!--   layer_activation(activation = &#34;relu&#34;) %&gt;% --&gt;
+&lt;!--   layer_dropout(rate = 0.2) %&gt;% --&gt;
+&lt;!--   layer_dense(units = 150) %&gt;% --&gt;
+&lt;!--   layer_activation(activation = &#34;relu&#34;) %&gt;% --&gt;
+&lt;!--   layer_dropout(rate = 0.2) %&gt;% --&gt;
+&lt;!--   layer_dense(units = 100) %&gt;% --&gt;
+&lt;!--   layer_activation(activation = &#34;relu&#34;) %&gt;% --&gt;
+&lt;!--   layer_dropout(rate = 0.1) %&gt;% --&gt;
+&lt;!--   layer_dense(units = 10) %&gt;% --&gt;
+&lt;!--   layer_activation(activation = &#34;softmax&#34;) %&gt;% --&gt;
+&lt;!--   compile( --&gt;
+&lt;!--     loss = &#34;categorical_crossentropy&#34;, --&gt;
+&lt;!--     optimizer = optimizer_rmsprop(), --&gt;
+&lt;!--     metrics = c(&#34;accuracy&#34;) --&gt;
+&lt;!--   ) %&gt;% --&gt;
+&lt;!--   fit( --&gt;
+&lt;!--     training_dat_x, training_dat_y, --&gt;
+&lt;!--     batch_size = 128, --&gt;
+&lt;!--     epochs = 30, --&gt;
+&lt;!--     verbose = 1, --&gt;
+&lt;!--     validation_split = 0.2, --&gt;
+&lt;!--     callbacks = callback_tensorboard(&#34;model10&#34;) --&gt;
+&lt;!--   ) --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- So this model is better than the 1-layer model, but I have essentially added layers with fairly random parameters. The result is a model that is more complicated, but less accurate than the initial model that we generated. But we can compare these directly using Tensorboard: --&gt;
+&lt;!-- ``` {r tensorboard} --&gt;
+&lt;!-- tensorboard(c(&#34;model1&#34;, &#34;model10&#34;)) --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- This allows us to explore differences betwen multiple models, and can be used to interactively identify the optimal model for our needs. --&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusions&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;14&lt;/span&gt; Conclusions&lt;/h1&gt;
+&lt;p&gt;According to Wikipedia, one of the best results for the MNIST database used a hierarchical system of convolutional neural networks and managed to get an error rate of 0.23%. Here I have an error rate of 1.74%, so I clearly have a way to go! Often in classification algorithms, using standard machine learning algorithms will get you pretty far with pretty good error rates. However, to tune the models further to get error rates down to these sorts of levels, more complex models are required. Neural networks can be used to push the error rates down further. Getting the right answer 96% of the time is pretty good, but if you’re relying on that classification to tell whether there is a pedestrian stood in front of a self-driving car, it is incredibly important to ensure that this error rate is as close to 0 as possible.&lt;/p&gt;
+&lt;p&gt;However, this has been a very useful attempt at incorparting the powerful interface of Keras and the workflow of TensorFlow in R. Being able to incorporate powerful deep learning networks in R is incredobly useful, and will allow for incorporation with pre-existing pipelines already developed for bioinformatics analyses utilising the powerful pacakges available from &lt;a href=&#34;https://bioconductor.org&#34;&gt;Bioconductor&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Deep learning algorithms currently have a huge number of applications, from self-driving cars to facial recognition, and are being incorporated into technology in many industries. Development of deep learning algorithms and Big Data processing approaches will provide significant technological advancements. I am currently working on some potentially interesting applications, and hope to further my expertise in this area by working more with the R Keras API interface.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;session-info&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;15&lt;/span&gt; Session Info&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sessionInfo()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## R version 3.6.1 (2019-07-05)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Sierra 10.12.6
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] keras_2.2.5.0   reticulate_1.13
+## 
+## loaded via a namespace (and not attached):
+##  [1] tidyselect_0.2.5  xfun_0.8          remotes_2.1.0    
+##  [4] reshape2_1.4.3    purrr_0.3.3       lattice_0.20-38  
+##  [7] colorspace_1.4-1  generics_0.0.2    testthat_2.1.1   
+## [10] htmltools_0.3.6   usethis_1.5.1     yaml_2.2.0       
+## [13] base64enc_0.1-3   rlang_0.4.0       pkgbuild_1.0.3   
+## [16] pillar_1.4.2      glue_1.3.1        withr_2.1.2      
+## [19] sessioninfo_1.1.1 plyr_1.8.4        tensorflow_2.0.0 
+## [22] stringr_1.4.0     munsell_0.5.0     blogdown_0.16    
+## [25] gtable_0.3.0      devtools_2.1.0    codetools_0.2-16 
+## [28] memoise_1.1.0     evaluate_0.14     labeling_0.3     
+## [31] knitr_1.23        callr_3.3.0       ps_1.3.0         
+## [34] tfruns_1.4        curl_3.3          Rcpp_1.0.2       
+## [37] backports_1.1.4   scales_1.0.0      desc_1.2.0       
+## [40] pkgload_1.0.2     jsonlite_1.6      fs_1.3.1         
+## [43] ggplot2_3.2.0     digest_0.6.20     stringi_1.4.3    
+## [46] dplyr_0.8.3       bookdown_0.12     processx_3.4.1   
+## [49] grid_3.6.1        rprojroot_1.3-2   cli_1.1.0        
+## [52] tools_3.6.1       magrittr_1.5      tibble_2.1.3     
+## [55] lazyeval_0.2.2    pkgconfig_2.0.2   crayon_1.3.4     
+## [58] whisker_0.4       zeallot_0.1.0     Matrix_1.2-17    
+## [61] prettyunits_1.0.2 assertthat_0.2.1  rmarkdown_1.14   
+## [64] R6_2.4.0          compiler_3.6.1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Building a Pokémon Recomendation Machine</title>
+      <link>/post/2019-07-15_gotta_catch_em_all_pokemon/</link>
+      <pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>/post/2019-07-15_gotta_catch_em_all_pokemon/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1&lt;/span&gt; Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#download-data&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;2&lt;/span&gt; Download data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-cleaning&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3&lt;/span&gt; Data Cleaning&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#missing-data&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3.1&lt;/span&gt; Missing Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#numeric-range&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3.2&lt;/span&gt; Numeric Range&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#change-variable-class&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3.3&lt;/span&gt; Change Variable Class&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#exploratory-analyses&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;4&lt;/span&gt; Exploratory Analyses&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#attack&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;4.1&lt;/span&gt; Attack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#defence&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;4.2&lt;/span&gt; Defence&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#other&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;4.3&lt;/span&gt; Other&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ensuring-we-use-accurate-data-classes-throughout&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;4.4&lt;/span&gt; Ensuring we use accurate data classes throughout&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#normalization&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5&lt;/span&gt; Normalization&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#min-max-normalization&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5.1&lt;/span&gt; Min-Max Normalization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#z-score-normalization&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5.2&lt;/span&gt; Z-Score Normalization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#choosing-a-normalization-method&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5.3&lt;/span&gt; Choosing a Normalization Method&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#looking-for-patterns&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6&lt;/span&gt; Looking for Patterns&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#correlation-of-variables&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6.1&lt;/span&gt; Correlation of Variables&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#height-vs-weight&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6.2&lt;/span&gt; Height vs Weight&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#correlation-between-pokemon&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6.3&lt;/span&gt; Correlation between Pokémon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#principal-component-analysis&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6.4&lt;/span&gt; Principal Component Analysis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#correlation-based-recommendation&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6.5&lt;/span&gt; Correlation-Based Recommendation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#predicting-legendary-pokemon&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7&lt;/span&gt; Predicting Legendary Pokémon&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#support-vector-machine&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7.1&lt;/span&gt; Support-Vector Machine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#k-nearest-neighbour&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7.2&lt;/span&gt; k-Nearest Neighbour&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#logistic-regression&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7.3&lt;/span&gt; Logistic Regression&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#random-forest&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7.4&lt;/span&gt; Random Forest&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;8&lt;/span&gt; Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#session-info&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;9&lt;/span&gt; Session Info&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;1&lt;/span&gt; Introduction&lt;/h1&gt;
+&lt;p&gt;When I saw the &lt;a href=&#34;https://www.kaggle.com/rounakbanik/pokemon&#34;&gt;Complete Pokémon Dataset on Kaggle&lt;/a&gt;, I just had to download it and have a look! When I was younger, I was a big fan of Pokémon and used to play it regularly and watch the TV show (to this day I can recite much of the original &lt;a href=&#34;https://www.youtube.com/watch?v=xMk8wuw7nek&#34;&gt;Pokémon Rap&lt;/a&gt;). More recently, my daughter has become a fan, and watches the show incessently (although it beats watching Peppa Pig…). So I am going to have a look over these data and see what they can show us about these pocket monsters.&lt;/p&gt;
+&lt;p&gt;This is a fairly comprehensive analysis of the data, and will include introductions to a number of different data science techniques. I may further develop these into posts of their own in the future, so will only skim over most of them here. I hope that this post shows a fairly complete example of the types of analyses that it is possible to do with data such as these for prediction and recommendation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;download-data&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;2&lt;/span&gt; Download data&lt;/h1&gt;
+&lt;p&gt;The data about each of the Pokémon can be downloaded directly from Kaggle &lt;a href=&#34;https://www.kaggle.com/rounakbanik/pokemon/download&#34;&gt;here&lt;/a&gt;, and I have also downloaded some images for each of the Pokémon (at least for Generations 1 to 6) from Kaggle &lt;a href=&#34;https://www.kaggle.com/kvpratama/pokemon-images-dataset/download&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The main data are in the form of a compressed comma separated values (CSV) file. After unzipping the file, we are left with a plain text file where every row is a separate entry, and the various columns of the data set are separated by commas. So let’s load the data in using the &lt;code&gt;read.csv&lt;/code&gt; function, which will generate a &lt;code&gt;data.frame&lt;/code&gt; object, and take a look at it:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pokedat &amp;lt;- read.csv(&amp;quot;pokemon.csv&amp;quot;)
+rownames(pokedat) &amp;lt;- pokedat[[&amp;quot;name&amp;quot;]]
+dim(pokedat)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 801  41&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So we have information for 41 variables for 801 unique Pokémon. Each Pokémon has a unique number assigned to it in the so called “Pokédex”, which is common between this data set and the list of Pokémon images. This makes it easy to link the two. Back in my day, there were only 151 Pokémon to keep track of, but many years later they have added more and more with each “Generation”. Pokémon Generation 8 is the most recent and has only recently been released, so we can see which generations are present in this data set by using the &lt;code&gt;table&lt;/code&gt; function, which will show us the number of entries with each value:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table(pokedat[[&amp;quot;generation&amp;quot;]])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##   1   2   3   4   5   6   7 
+## 151 100 135 107 156  72  80&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So we can see the 151 Generation 1 Pokémon, but also additional Pokémon from up to Generation 7. We can get a fairly broad overview of the data set by using the &lt;code&gt;str&lt;/code&gt; function to gain an overview of what is contained within each of the columns of this &lt;code&gt;data.frame&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(pokedat)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;data.frame&amp;#39;:    801 obs. of  41 variables:
+##  $ abilities        : Factor w/ 482 levels &amp;quot;[&amp;#39;Adaptability&amp;#39;, &amp;#39;Download&amp;#39;, &amp;#39;Analytic&amp;#39;]&amp;quot;,..: 244 244 244 22 22 22 453 453 453 348 ...
+##  $ against_bug      : num  1 1 1 0.5 0.5 0.25 1 1 1 1 ...
+##  $ against_dark     : num  1 1 1 1 1 1 1 1 1 1 ...
+##  $ against_dragon   : num  1 1 1 1 1 1 1 1 1 1 ...
+##  $ against_electric : num  0.5 0.5 0.5 1 1 2 2 2 2 1 ...
+##  $ against_fairy    : num  0.5 0.5 0.5 0.5 0.5 0.5 1 1 1 1 ...
+##  $ against_fight    : num  0.5 0.5 0.5 1 1 0.5 1 1 1 0.5 ...
+##  $ against_fire     : num  2 2 2 0.5 0.5 0.5 0.5 0.5 0.5 2 ...
+##  $ against_flying   : num  2 2 2 1 1 1 1 1 1 2 ...
+##  $ against_ghost    : num  1 1 1 1 1 1 1 1 1 1 ...
+##  $ against_grass    : num  0.25 0.25 0.25 0.5 0.5 0.25 2 2 2 0.5 ...
+##  $ against_ground   : num  1 1 1 2 2 0 1 1 1 0.5 ...
+##  $ against_ice      : num  2 2 2 0.5 0.5 1 0.5 0.5 0.5 1 ...
+##  $ against_normal   : num  1 1 1 1 1 1 1 1 1 1 ...
+##  $ against_poison   : num  1 1 1 1 1 1 1 1 1 1 ...
+##  $ against_psychic  : num  2 2 2 1 1 1 1 1 1 1 ...
+##  $ against_rock     : num  1 1 1 2 2 4 1 1 1 2 ...
+##  $ against_steel    : num  1 1 1 0.5 0.5 0.5 0.5 0.5 0.5 1 ...
+##  $ against_water    : num  0.5 0.5 0.5 2 2 2 0.5 0.5 0.5 1 ...
+##  $ attack           : int  49 62 100 52 64 104 48 63 103 30 ...
+##  $ base_egg_steps   : int  5120 5120 5120 5120 5120 5120 5120 5120 5120 3840 ...
+##  $ base_happiness   : int  70 70 70 70 70 70 70 70 70 70 ...
+##  $ base_total       : int  318 405 625 309 405 634 314 405 630 195 ...
+##  $ capture_rate     : Factor w/ 34 levels &amp;quot;100&amp;quot;,&amp;quot;120&amp;quot;,&amp;quot;125&amp;quot;,..: 26 26 26 26 26 26 26 26 26 21 ...
+##  $ classfication    : Factor w/ 588 levels &amp;quot;Abundance Pokémon&amp;quot;,..: 449 449 449 299 187 187 531 546 457 585 ...
+##  $ defense          : int  49 63 123 43 58 78 65 80 120 35 ...
+##  $ experience_growth: int  1059860 1059860 1059860 1059860 1059860 1059860 1059860 1059860 1059860 1000000 ...
+##  $ height_m         : num  0.7 1 2 0.6 1.1 1.7 0.5 1 1.6 0.3 ...
+##  $ hp               : int  45 60 80 39 58 78 44 59 79 45 ...
+##  $ japanese_name    : Factor w/ 801 levels &amp;quot;Abagouraアバゴーラ&amp;quot;,..: 200 201 199 288 417 416 794 334 336 80 ...
+##  $ name             : Factor w/ 801 levels &amp;quot;Abomasnow&amp;quot;,&amp;quot;Abra&amp;quot;,..: 73 321 745 95 96 93 656 764 56 88 ...
+##  $ percentage_male  : num  88.1 88.1 88.1 88.1 88.1 88.1 88.1 88.1 88.1 50 ...
+##  $ pokedex_number   : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ sp_attack        : int  65 80 122 60 80 159 50 65 135 20 ...
+##  $ sp_defense       : int  65 80 120 50 65 115 64 80 115 20 ...
+##  $ speed            : int  45 60 80 65 80 100 43 58 78 45 ...
+##  $ type1            : Factor w/ 18 levels &amp;quot;bug&amp;quot;,&amp;quot;dark&amp;quot;,&amp;quot;dragon&amp;quot;,..: 10 10 10 7 7 7 18 18 18 1 ...
+##  $ type2            : Factor w/ 19 levels &amp;quot;&amp;quot;,&amp;quot;bug&amp;quot;,&amp;quot;dark&amp;quot;,..: 15 15 15 1 1 9 1 1 1 1 ...
+##  $ weight_kg        : num  6.9 13 100 8.5 19 90.5 9 22.5 85.5 2.9 ...
+##  $ generation       : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ is_legendary     : int  0 0 0 0 0 0 0 0 0 0 ...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So we gave a lot of different information contained in this data set, with the vast majority being represented by numerical values. As well as the name by which we likely know them, we have the original Japanese name, as well as their fighting statistics such as &lt;code&gt;hp&lt;/code&gt; (Health Points), &lt;code&gt;speed&lt;/code&gt;, &lt;code&gt;attack&lt;/code&gt; and &lt;code&gt;defense&lt;/code&gt;. We also get their specific abilities, which are given in a listed format within square brackets (e.g. three abilities – &lt;code&gt;[&#39;Adaptability&#39;, &#39;Download&#39;, &#39;Analytic&#39;]&lt;/code&gt; – for &lt;code&gt;Abomasnow&lt;/code&gt;). There are also various other things that we will explore now in the following sections. So let’s explore these data to see how they look, and to check for any inconsistencies that need to be corrected.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-cleaning&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;3&lt;/span&gt; Data Cleaning&lt;/h1&gt;
+&lt;p&gt;The first step in any data analysis is to check the consistency of the data to ensure that there are no missing values (and if there are, decide the best thing to do with them), to make sure that the data are consistent and fit within expected bounds, and to generally make sure that these data make sense. These are data that somebody else has generated, so it is best not to assume that they are perfect. If there are any issues, this will propogate to our downstream analyses.&lt;/p&gt;
+&lt;div id=&#34;missing-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;3.1&lt;/span&gt; Missing Data&lt;/h2&gt;
+&lt;p&gt;First of all, let’s take a look to see which of the entries for each of the columns is missing (i.e. is coded as &lt;code&gt;NA&lt;/code&gt;):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;has_na &amp;lt;- apply(pokedat, MAR = 2, FUN = function(x) which(is.na(x))) 
+has_na[sapply(has_na, length) &amp;gt; 0]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $height_m
+##   Rattata  Raticate    Raichu Sandshrew Sandslash    Vulpix Ninetales 
+##        19        20        26        27        28        37        38 
+##   Diglett   Dugtrio    Meowth   Persian   Geodude  Graveler     Golem 
+##        50        51        52        53        74        75        76 
+##    Grimer       Muk Exeggutor   Marowak     Hoopa  Lycanroc 
+##        88        89       103       105       720       745 
+## 
+## $percentage_male
+##  Magnemite   Magneton    Voltorb  Electrode     Staryu    Starmie 
+##         81         82        100        101        120        121 
+##      Ditto    Porygon   Articuno     Zapdos    Moltres     Mewtwo 
+##        132        137        144        145        146        150 
+##        Mew      Unown   Porygon2     Raikou      Entei    Suicune 
+##        151        201        233        243        244        245 
+##      Lugia      Ho-Oh     Celebi   Shedinja   Lunatone    Solrock 
+##        249        250        251        292        337        338 
+##     Baltoy    Claydol     Beldum     Metang  Metagross   Regirock 
+##        343        344        374        375        376        377 
+##     Regice  Registeel     Kyogre    Groudon   Rayquaza    Jirachi 
+##        378        379        382        383        384        385 
+##     Deoxys    Bronzor   Bronzong  Magnezone  Porygon-Z      Rotom 
+##        386        436        437        462        474        479 
+##       Uxie    Mesprit      Azelf     Dialga     Palkia  Regigigas 
+##        480        481        482        483        484        486 
+##   Giratina     Phione    Manaphy    Darkrai    Shaymin     Arceus 
+##        487        489        490        491        492        493 
+##    Victini      Klink      Klang  Klinklang  Cryogonal     Golett 
+##        494        599        600        601        615        622 
+##     Golurk   Cobalion  Terrakion   Virizion   Reshiram     Zekrom 
+##        623        638        639        640        643        644 
+##     Kyurem     Keldeo   Meloetta   Genesect    Carbink    Xerneas 
+##        646        647        648        649        703        716 
+##    Yveltal    Zygarde    Diancie      Hoopa  Volcanion Type: Null 
+##        717        718        719        720        721        772 
+##   Silvally     Minior   Dhelmise  Tapu Koko  Tapu Lele  Tapu Bulu 
+##        773        774        781        785        786        787 
+##  Tapu Fini     Cosmog    Cosmoem   Solgaleo     Lunala   Nihilego 
+##        788        789        790        791        792        793 
+##   Buzzwole  Pheromosa  Xurkitree Celesteela    Kartana   Guzzlord 
+##        794        795        796        797        798        799 
+##   Necrozma   Magearna 
+##        800        801 
+## 
+## $weight_kg
+##   Rattata  Raticate    Raichu Sandshrew Sandslash    Vulpix Ninetales 
+##        19        20        26        27        28        37        38 
+##   Diglett   Dugtrio    Meowth   Persian   Geodude  Graveler     Golem 
+##        50        51        52        53        74        75        76 
+##    Grimer       Muk Exeggutor   Marowak     Hoopa  Lycanroc 
+##        88        89       103       105       720       745&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In general, this seems to be a fairly complete data set, with only three of the variables showing any NA data. We can see that there are 20 Pokémon with no height nor weight data:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;subset(pokedat, is.na(height_m) | is.na(weight_kg))[, c(&amp;quot;name&amp;quot;, &amp;quot;height_m&amp;quot;, &amp;quot;weight_kg&amp;quot;)]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                name height_m weight_kg
+## Rattata     Rattata       NA        NA
+## Raticate   Raticate       NA        NA
+## Raichu       Raichu       NA        NA
+## Sandshrew Sandshrew       NA        NA
+## Sandslash Sandslash       NA        NA
+## Vulpix       Vulpix       NA        NA
+## Ninetales Ninetales       NA        NA
+## Diglett     Diglett       NA        NA
+## Dugtrio     Dugtrio       NA        NA
+## Meowth       Meowth       NA        NA
+## Persian     Persian       NA        NA
+## Geodude     Geodude       NA        NA
+## Graveler   Graveler       NA        NA
+## Golem         Golem       NA        NA
+## Grimer       Grimer       NA        NA
+## Muk             Muk       NA        NA
+## Exeggutor Exeggutor       NA        NA
+## Marowak     Marowak       NA        NA
+## Hoopa         Hoopa       NA        NA
+## Lycanroc   Lycanroc       NA        NA&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Many of these are Pokémon that I know from Generation 1, and in fact seem to be sets of evolutions. For instance, Rattata evolves into Raticate:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;pokemon/19.png&#34; alt=&#34;Rattata&#34; /&gt;
+&lt;img src=&#34;pokemon/20.png&#34; alt=&#34;Raticate&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Sandshrew evolves into Sandslash:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;pokemon/27.png&#34; alt=&#34;Sandshrew&#34; /&gt;
+&lt;img src=&#34;pokemon/28.png&#34; alt=&#34;Sandslash&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;And Vulpix evolves into Ninetales:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;pokemon/37.png&#34; alt=&#34;Vulpix&#34; /&gt;
+&lt;img src=&#34;pokemon/38.png&#34; alt=&#34;Ninetales&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;There are also a couple of other none-Generation 1 Pokémon, including Lycanroc which is one of my daughter’s favourited from Pokémon Sun and Moon:&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pokemon/lycanroc.png&#34; alt=&#34;Lycanroc&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Lycanroc&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;However, there is no obvious reason why values are missing. There are methods that can be used to account for missing data. One possible approach is to &lt;em&gt;impute&lt;/em&gt; the data – that is, we use the rest of the data to give us a rough idea of what we should see for these missing values. An example of this is to simply use the mean of the non-missing values for the missing variable. However, in this case, we can actually find these missing values by visiting an online &lt;a href=&#34;https://pokemondb.net/pokedex&#34;&gt;Pokedex&lt;/a&gt;, so let’s correct these, ensuring that we match the units for weight (kg) and height (m):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;missing_height &amp;lt;- list(Rattata   = c(height_m = 0.3, weight_kg =   3.5), 
+                       Raticate  = c(height_m = 0.7, weight_kg =  18.5),
+                       Raichu    = c(height_m = 0.8, weight_kg =  30.0),
+                       Sandshrew = c(height_m = 0.6, weight_kg =  12.0),
+                       Sandslash = c(height_m = 1.0, weight_kg =  29.5),
+                       Vulpix    = c(height_m = 0.6, weight_kg =   9.9),
+                       Ninetales = c(height_m = 1.1, weight_kg =  19.9),
+                       Diglett   = c(height_m = 0.2, weight_kg =   0.8),
+                       Dugtrio   = c(height_m = 0.7, weight_kg =  33.3),
+                       Meowth    = c(height_m = 0.4, weight_kg =   4.2),
+                       Persian   = c(height_m = 1.0, weight_kg =  32.0),
+                       Geodude   = c(height_m = 0.4, weight_kg =  20.0),
+                       Graveler  = c(height_m = 0.3, weight_kg = 105.0),
+                       Golem     = c(height_m = 1.4, weight_kg = 300.0),
+                       Grimer    = c(height_m = 0.9, weight_kg =  30.0),
+                       Muk       = c(height_m = 1.2, weight_kg =  30.0),
+                       Exeggutor = c(height_m = 2.0, weight_kg = 120.0),
+                       Marowak   = c(height_m = 1.0, weight_kg =  45.0),
+                       Hoopa     = c(height_m = 0.5, weight_kg =   9.0),
+                       Lycanroc  = c(height_m = 0.8, weight_kg =  25.0))
+missing_height &amp;lt;- t(rbind.data.frame(missing_height))
+pokedat[match(rownames(missing_height), pokedat[[&amp;quot;name&amp;quot;]]), c(&amp;quot;height_m&amp;quot;, &amp;quot;weight_kg&amp;quot;)] &amp;lt;- missing_height&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are also 98 Pokémon with a missing &lt;code&gt;percentage_male&lt;/code&gt; value. This value gives the proportion of the Pokémon out in the world that you might come across in the game that are male as a percentage. These seem to be spread throughout the entire list of Pokémon across all Generations, with no clear reason as to why they have missing values:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(subset(pokedat, is.na(percentage_male)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                                            abilities against_bug
+## Magnemite      [&amp;#39;Magnet Pull&amp;#39;, &amp;#39;Sturdy&amp;#39;, &amp;#39;Analytic&amp;#39;]         0.5
+## Magneton       [&amp;#39;Magnet Pull&amp;#39;, &amp;#39;Sturdy&amp;#39;, &amp;#39;Analytic&amp;#39;]         0.5
+## Voltorb        [&amp;#39;Soundproof&amp;#39;, &amp;#39;Static&amp;#39;, &amp;#39;Aftermath&amp;#39;]         1.0
+## Electrode      [&amp;#39;Soundproof&amp;#39;, &amp;#39;Static&amp;#39;, &amp;#39;Aftermath&amp;#39;]         1.0
+## Staryu    [&amp;#39;Illuminate&amp;#39;, &amp;#39;Natural Cure&amp;#39;, &amp;#39;Analytic&amp;#39;]         1.0
+## Starmie   [&amp;#39;Illuminate&amp;#39;, &amp;#39;Natural Cure&amp;#39;, &amp;#39;Analytic&amp;#39;]         2.0
+##           against_dark against_dragon against_electric against_fairy
+## Magnemite            1            0.5              0.5           0.5
+## Magneton             1            0.5              0.5           0.5
+## Voltorb              1            1.0              0.5           1.0
+## Electrode            1            1.0              0.5           1.0
+## Staryu               1            1.0              2.0           1.0
+## Starmie              2            1.0              2.0           1.0
+##           against_fight against_fire against_flying against_ghost
+## Magnemite           2.0          2.0           0.25             1
+## Magneton            2.0          2.0           0.25             1
+## Voltorb             1.0          1.0           0.50             1
+## Electrode           1.0          1.0           0.50             1
+## Staryu              1.0          0.5           1.00             1
+## Starmie             0.5          0.5           1.00             2
+##           against_grass against_ground against_ice against_normal
+## Magnemite           0.5              4         0.5            0.5
+## Magneton            0.5              4         0.5            0.5
+## Voltorb             1.0              2         1.0            1.0
+## Electrode           1.0              2         1.0            1.0
+## Staryu              2.0              1         0.5            1.0
+## Starmie             2.0              1         0.5            1.0
+##           against_poison against_psychic against_rock against_steel
+## Magnemite              0             0.5          0.5          0.25
+## Magneton               0             0.5          0.5          0.25
+## Voltorb                1             1.0          1.0          0.50
+## Electrode              1             1.0          1.0          0.50
+## Staryu                 1             1.0          1.0          0.50
+## Starmie                1             0.5          1.0          0.50
+##           against_water attack base_egg_steps base_happiness base_total
+## Magnemite           1.0     35           5120             70        325
+## Magneton            1.0     60           5120             70        465
+## Voltorb             1.0     30           5120             70        330
+## Electrode           1.0     50           5120             70        490
+## Staryu              0.5     45           5120             70        340
+## Starmie             0.5     75           5120             70        520
+##           capture_rate      classfication defense experience_growth
+## Magnemite          190     Magnet Pokémon      70           1000000
+## Magneton            60     Magnet Pokémon      95           1000000
+## Voltorb            190       Ball Pokémon      50           1000000
+## Electrode           60       Ball Pokémon      70           1000000
+## Staryu             225  Starshape Pokémon      55           1250000
+## Starmie             60 Mysterious Pokémon      85           1250000
+##           height_m hp        japanese_name      name percentage_male
+## Magnemite      0.3 25           Coilコイル Magnemite              NA
+## Magneton       1.0 50   Rarecoilレアコイル  Magneton              NA
+## Voltorb        0.5 40 Biriridamaビリリダマ   Voltorb              NA
+## Electrode      1.2 60   Marumineマルマイン Electrode              NA
+## Staryu         0.8 30  Hitodemanヒトデマン    Staryu              NA
+## Starmie        1.1 60    Starmieスターミー   Starmie              NA
+##           pokedex_number sp_attack sp_defense speed    type1   type2
+## Magnemite             81        95         55    45 electric   steel
+## Magneton              82       120         70    70 electric   steel
+## Voltorb              100        55         55   100 electric        
+## Electrode            101        80         80   150 electric        
+## Staryu               120        70         55    85    water        
+## Starmie              121       100         85   115    water psychic
+##           weight_kg generation is_legendary
+## Magnemite       6.0          1            0
+## Magneton       60.0          1            0
+## Voltorb        10.4          1            0
+## Electrode      66.6          1            0
+## Staryu         34.5          1            0
+## Starmie        80.0          1            0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, by looking at a few of these in the Pokedex, it would appear that these are generally genderless Pokémon, which would explain the missing values. A sensible value to use in these cases would therefore be 0.5, representing an equal spit of male and female:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pokedat[is.na(pokedat[[&amp;quot;percentage_male&amp;quot;]]), &amp;quot;percentage_male&amp;quot;] &amp;lt;- 0.5&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is also worth noting that there are also missing values for the type2 Pokémon. These were not picked up as NA values, because they are encoded as a blank entry &amp;quot;“. We can convert this to a more descriptive factor such as”none&amp;quot;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;levels(pokedat[[&amp;quot;type2&amp;quot;]])[levels(pokedat[[&amp;quot;type2&amp;quot;]]) == &amp;quot;none&amp;quot;] &amp;lt;- &amp;quot;none&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;numeric-range&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;3.2&lt;/span&gt; Numeric Range&lt;/h2&gt;
+&lt;p&gt;The vast majority of these variables are numeric in nature, so it is worth checking the range of these values to ensure that they are within typical ranges that we might expect. For instance, we would not expect negative values, zero values, or values greater than some sensible limit for things like height, weight, etc. So let’s take an overall look at these data ranges by using the &lt;code&gt;summary()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(pokedat)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                                      abilities    against_bug    
+##  [&amp;#39;Levitate&amp;#39;]                             : 29   Min.   :0.2500  
+##  [&amp;#39;Beast Boost&amp;#39;]                          :  7   1st Qu.:0.5000  
+##  [&amp;#39;Shed Skin&amp;#39;]                            :  5   Median :1.0000  
+##  [&amp;#39;Clear Body&amp;#39;, &amp;#39;Light Metal&amp;#39;]            :  4   Mean   :0.9963  
+##  [&amp;#39;Justified&amp;#39;]                            :  4   3rd Qu.:1.0000  
+##  [&amp;#39;Keen Eye&amp;#39;, &amp;#39;Tangled Feet&amp;#39;, &amp;#39;Big Pecks&amp;#39;]:  4   Max.   :4.0000  
+##  (Other)                                  :748                   
+##   against_dark   against_dragon   against_electric against_fairy  
+##  Min.   :0.250   Min.   :0.0000   Min.   :0.000    Min.   :0.250  
+##  1st Qu.:1.000   1st Qu.:1.0000   1st Qu.:0.500    1st Qu.:1.000  
+##  Median :1.000   Median :1.0000   Median :1.000    Median :1.000  
+##  Mean   :1.057   Mean   :0.9688   Mean   :1.074    Mean   :1.069  
+##  3rd Qu.:1.000   3rd Qu.:1.0000   3rd Qu.:1.000    3rd Qu.:1.000  
+##  Max.   :4.000   Max.   :2.0000   Max.   :4.000    Max.   :4.000  
+##                                                                   
+##  against_fight    against_fire   against_flying  against_ghost  
+##  Min.   :0.000   Min.   :0.250   Min.   :0.250   Min.   :0.000  
+##  1st Qu.:0.500   1st Qu.:0.500   1st Qu.:1.000   1st Qu.:1.000  
+##  Median :1.000   Median :1.000   Median :1.000   Median :1.000  
+##  Mean   :1.066   Mean   :1.135   Mean   :1.193   Mean   :0.985  
+##  3rd Qu.:1.000   3rd Qu.:2.000   3rd Qu.:1.000   3rd Qu.:1.000  
+##  Max.   :4.000   Max.   :4.000   Max.   :4.000   Max.   :4.000  
+##                                                                 
+##  against_grass   against_ground   against_ice    against_normal 
+##  Min.   :0.250   Min.   :0.000   Min.   :0.250   Min.   :0.000  
+##  1st Qu.:0.500   1st Qu.:1.000   1st Qu.:0.500   1st Qu.:1.000  
+##  Median :1.000   Median :1.000   Median :1.000   Median :1.000  
+##  Mean   :1.034   Mean   :1.098   Mean   :1.208   Mean   :0.887  
+##  3rd Qu.:1.000   3rd Qu.:1.000   3rd Qu.:2.000   3rd Qu.:1.000  
+##  Max.   :4.000   Max.   :4.000   Max.   :4.000   Max.   :1.000  
+##                                                                 
+##  against_poison   against_psychic  against_rock  against_steel   
+##  Min.   :0.0000   Min.   :0.000   Min.   :0.25   Min.   :0.2500  
+##  1st Qu.:0.5000   1st Qu.:1.000   1st Qu.:1.00   1st Qu.:0.5000  
+##  Median :1.0000   Median :1.000   Median :1.00   Median :1.0000  
+##  Mean   :0.9753   Mean   :1.005   Mean   :1.25   Mean   :0.9835  
+##  3rd Qu.:1.0000   3rd Qu.:1.000   3rd Qu.:2.00   3rd Qu.:1.0000  
+##  Max.   :4.0000   Max.   :4.000   Max.   :4.00   Max.   :4.0000  
+##                                                                  
+##  against_water       attack       base_egg_steps  base_happiness  
+##  Min.   :0.250   Min.   :  5.00   Min.   : 1280   Min.   :  0.00  
+##  1st Qu.:0.500   1st Qu.: 55.00   1st Qu.: 5120   1st Qu.: 70.00  
+##  Median :1.000   Median : 75.00   Median : 5120   Median : 70.00  
+##  Mean   :1.058   Mean   : 77.86   Mean   : 7191   Mean   : 65.36  
+##  3rd Qu.:1.000   3rd Qu.:100.00   3rd Qu.: 6400   3rd Qu.: 70.00  
+##  Max.   :4.000   Max.   :185.00   Max.   :30720   Max.   :140.00  
+##                                                                   
+##    base_total     capture_rate          classfication    defense      
+##  Min.   :180.0   45     :250   Dragon Pokémon  :  8   Min.   :  5.00  
+##  1st Qu.:320.0   190    : 75   Mouse Pokémon   :  6   1st Qu.: 50.00  
+##  Median :435.0   255    : 69   Mushroom Pokémon:  6   Median : 70.00  
+##  Mean   :428.4   75     : 61   Balloon Pokémon :  5   Mean   : 73.01  
+##  3rd Qu.:505.0   3      : 58   Fairy Pokémon   :  5   3rd Qu.: 90.00  
+##  Max.   :780.0   120    : 55   Flame Pokémon   :  5   Max.   :230.00  
+##                  (Other):233   (Other)         :766                   
+##  experience_growth    height_m            hp        
+##  Min.   : 600000   Min.   : 0.100   Min.   :  1.00  
+##  1st Qu.:1000000   1st Qu.: 0.600   1st Qu.: 50.00  
+##  Median :1000000   Median : 1.000   Median : 65.00  
+##  Mean   :1054996   Mean   : 1.155   Mean   : 68.96  
+##  3rd Qu.:1059860   3rd Qu.: 1.500   3rd Qu.: 80.00  
+##  Max.   :1640000   Max.   :14.500   Max.   :255.00  
+##                                                     
+##              japanese_name         name     percentage_male 
+##  Abagouraアバゴーラ :  1   Abomasnow :  1   Min.   :  0.00  
+##  Absolアブソル      :  1   Abra      :  1   1st Qu.: 50.00  
+##  Abulyアブリー      :  1   Absol     :  1   Median : 50.00  
+##  Aburibbonアブリボン:  1   Accelgor  :  1   Mean   : 48.47  
+##  Achamoアチャモ     :  1   Aegislash :  1   3rd Qu.: 50.00  
+##  Agehuntアゲハント  :  1   Aerodactyl:  1   Max.   :100.00  
+##  (Other)            :795   (Other)   :795                   
+##  pokedex_number   sp_attack        sp_defense         speed       
+##  Min.   :  1    Min.   : 10.00   Min.   : 20.00   Min.   :  5.00  
+##  1st Qu.:201    1st Qu.: 45.00   1st Qu.: 50.00   1st Qu.: 45.00  
+##  Median :401    Median : 65.00   Median : 66.00   Median : 65.00  
+##  Mean   :401    Mean   : 71.31   Mean   : 70.91   Mean   : 66.33  
+##  3rd Qu.:601    3rd Qu.: 91.00   3rd Qu.: 90.00   3rd Qu.: 85.00  
+##  Max.   :801    Max.   :194.00   Max.   :230.00   Max.   :180.00  
+##                                                                   
+##      type1         type2       weight_kg        generation  
+##  water  :114          :384   Min.   :  0.10   Min.   :1.00  
+##  normal :105   flying : 95   1st Qu.:  9.00   1st Qu.:2.00  
+##  grass  : 78   ground : 34   Median : 27.30   Median :4.00  
+##  bug    : 72   poison : 34   Mean   : 60.94   Mean   :3.69  
+##  psychic: 53   fairy  : 29   3rd Qu.: 63.00   3rd Qu.:5.00  
+##  fire   : 52   psychic: 29   Max.   :999.90   Max.   :7.00  
+##  (Other):327   (Other):196                                  
+##   is_legendary    
+##  Min.   :0.00000  
+##  1st Qu.:0.00000  
+##  Median :0.00000  
+##  Mean   :0.08739  
+##  3rd Qu.:0.00000  
+##  Max.   :1.00000  
+## &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can learn a few things from this. For instance, if we look at the character type variables, “Levitate” is the most common ability (although note that this is only counting the cases where there is only a single ability – more on this later), “Dragon Pokémon” are the most common classfication [sic] (although the majority of the Pokémon are given a unique classification, which seems to go against the idea of classification), and “water” and “normal” type Pokémon are very common, and many Pokémon have flying as their secondary type. If we look at the numeric type variables, we can see that the &lt;code&gt;against_&lt;/code&gt; values appear to be numeric values between 0 and 4 in multiples of 0.25 (they represent the Pokémon’s strength against particular Pokémon types during battle), attack, defense and speed vary between 5 and 185, 230 and 180 respectively (so there is quite a big range depending on which Pokémon you have in a fight), there is at least one Pokémon that starts with a base happiness score of 0 (in fact there are 36, which is quite sad!), the percentage of males varies between 0 and 100 with 98 missing values (as expected). But overall there do not appear to be any strange outliers in these data. There are some pretty big Pokémon, but we will explore this in a little more detail later.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;change-variable-class&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;3.3&lt;/span&gt; Change Variable Class&lt;/h2&gt;
+&lt;p&gt;The m ajority of these data have been classified correctly by the &lt;code&gt;read.data()&lt;/code&gt; function as either numeric or characters (which are factorised automaticallyfor use in model and potting functions later). However, there are some changes that we may wish to make. Firstly, the &lt;code&gt;generation&lt;/code&gt; and &lt;code&gt;is_legendary&lt;/code&gt; variables should not be considered numeric, even though they are represented by numbers. For instance, a Pokémon could not come from Generation 2.345. So let’s make these changes from numeric to factorised character variables. Note that there is a natural order to the &lt;code&gt;generation&lt;/code&gt; values, so I will ensure that these are factorised as ordinal, just in case this comes into play later:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pokedat[[&amp;quot;generation&amp;quot;]] &amp;lt;- factor(as.character(pokedat[[&amp;quot;generation&amp;quot;]]), order = TRUE)
+pokedat[[&amp;quot;is_legendary&amp;quot;]] &amp;lt;- factor(as.character(pokedat[[&amp;quot;is_legendary&amp;quot;]]))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;These variabbles have been classified as factors even though they are represented by numeric values. The values representing the factor levels can actually be anything we choose, so it may be useful to change these to something more descriptive. For instance, it may be worth adding the word “Generation” to the &lt;code&gt;generation&lt;/code&gt; variable, whilst the &lt;code&gt;is_legendary&lt;/code&gt; variable may be more useful as a binary TRUE/FALSE value. It doesn’t matter what we put, since for later analyses dummy numeric variables will be used for calculations:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;levels(pokedat[[&amp;quot;generation&amp;quot;]]) &amp;lt;- paste(&amp;quot;Generation&amp;quot;, levels(pokedat[[&amp;quot;generation&amp;quot;]]))
+levels(pokedat[[&amp;quot;is_legendary&amp;quot;]]) &amp;lt;- c(FALSE, TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The defaults for the other factors seem to be suitable, so I will leave thse as they are.&lt;/p&gt;
+&lt;p&gt;In comparison, the &lt;code&gt;capture_rate&lt;/code&gt; value is being classed as a factor, even though it should be a number. Why is this?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;levels(pokedat[[&amp;quot;capture_rate&amp;quot;]])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;100&amp;quot;                      &amp;quot;120&amp;quot;                     
+##  [3] &amp;quot;125&amp;quot;                      &amp;quot;127&amp;quot;                     
+##  [5] &amp;quot;130&amp;quot;                      &amp;quot;140&amp;quot;                     
+##  [7] &amp;quot;145&amp;quot;                      &amp;quot;15&amp;quot;                      
+##  [9] &amp;quot;150&amp;quot;                      &amp;quot;155&amp;quot;                     
+## [11] &amp;quot;160&amp;quot;                      &amp;quot;170&amp;quot;                     
+## [13] &amp;quot;180&amp;quot;                      &amp;quot;190&amp;quot;                     
+## [15] &amp;quot;200&amp;quot;                      &amp;quot;205&amp;quot;                     
+## [17] &amp;quot;220&amp;quot;                      &amp;quot;225&amp;quot;                     
+## [19] &amp;quot;235&amp;quot;                      &amp;quot;25&amp;quot;                      
+## [21] &amp;quot;255&amp;quot;                      &amp;quot;3&amp;quot;                       
+## [23] &amp;quot;30&amp;quot;                       &amp;quot;30 (Meteorite)255 (Core)&amp;quot;
+## [25] &amp;quot;35&amp;quot;                       &amp;quot;45&amp;quot;                      
+## [27] &amp;quot;50&amp;quot;                       &amp;quot;55&amp;quot;                      
+## [29] &amp;quot;60&amp;quot;                       &amp;quot;65&amp;quot;                      
+## [31] &amp;quot;70&amp;quot;                       &amp;quot;75&amp;quot;                      
+## [33] &amp;quot;80&amp;quot;                       &amp;quot;90&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Aha. So there is a non-numeric value in there – &lt;code&gt;30 (Meteorite)255 (Core)&lt;/code&gt;. Let’s see which Pokémon this applies to:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;as.character(subset(pokedat, capture_rate == &amp;quot;30 (Meteorite)255 (Core)&amp;quot;)[[&amp;quot;name&amp;quot;]])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Minior&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is a “Meteor” type Pokémon that appears to have a different capture rate under different conditions. Baased on the online &lt;a href=&#34;https://pokemondb.net/pokedex&#34;&gt;Pokedex&lt;/a&gt;, the canonical value to use here is 30 for its Meteorite form, so let’s use this and convert it into a numeric value. One thing to bear in mind here is that factors can be a little funny. When I convert to a number, it will convert the level values to a number, not necessarily the values themselves. So in this case, it will not give me the values but instead will give me the order of the values. For instance. look at the output of the following example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;t &amp;lt;- factor(c(&amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;, &amp;quot;3&amp;quot;, &amp;quot;20&amp;quot;))
+data.frame(factor = t, level = levels(t), number = as.numeric(t))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   factor level number
+## 1      1     1      1
+## 2      2     2      2
+## 3      3    20      4
+## 4     20     3      3&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So the levels are based on a character sort rather than a numeric sort, which puts “20” ahead of “4”. Then, to add to this further, the factor “20” is actually the 3&lt;sup&gt;rd&lt;/sup&gt; factor so gets the value 3, whilst the factor “3” is the 4&lt;sup&gt;th&lt;/sup&gt; level, and so gets a value 4. So the output is definitely not what we would expect when converting this to a number. To avoid this, we need to convert to a character value before we do anything else:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pokedat[[&amp;quot;capture_rate&amp;quot;]] &amp;lt;- as.character(pokedat[[&amp;quot;capture_rate&amp;quot;]])
+pokedat[pokedat[[&amp;quot;name&amp;quot;]] == &amp;quot;Minior&amp;quot;, &amp;quot;capture_rate&amp;quot;] = &amp;quot;30&amp;quot;
+pokedat[[&amp;quot;capture_rate&amp;quot;]] &amp;lt;- as.numeric(pokedat[[&amp;quot;capture_rate&amp;quot;]])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This should now be a pretty clean data set ready for analysis.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exploratory-analyses&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;4&lt;/span&gt; Exploratory Analyses&lt;/h1&gt;
+&lt;p&gt;There are a lot of data here, and I could spend ages exploring every facet, but I just really wanrt to get a tester for these data here. First of all, let’s take a look at the distribution of some of the main statistics to see how they look across the dataset. For the majority of these plots, I will be using the &lt;code&gt;ggplot2&lt;/code&gt; library which offers a very nice way to produce publication-quality figures using a standardised lexicon, along with the &lt;code&gt;dplyr&lt;/code&gt; package which provides a simple way to rearrange data into suitable formats for producing plots. These are part of the &lt;a href=&#34;https://www.tidyverse.org&#34;&gt;Tidyverse&lt;/a&gt; suite of packages from Hadley Wickham, and form a very useful suite of packages with a common grammar that can be used together to make Data Science more efficient and to produce beautiful plots easily. Handy &lt;em&gt;cheat sheets&lt;/em&gt; can be found for &lt;a href=&#34;https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf&#34;&gt;dplyr&lt;/a&gt; and &lt;a href=&#34;https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf&#34;&gt;ggplot2&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;ggplot2&amp;quot;)
+library(&amp;quot;dplyr&amp;quot;)
+library(&amp;quot;ggrepel&amp;quot;)
+library(&amp;quot;RColorBrewer&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;attack&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;4.1&lt;/span&gt; Attack&lt;/h2&gt;
+&lt;p&gt;First of all, let’s take a look at the attack strength of all Pokémon split by their main type:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pokedat %&amp;gt;% mutate(&amp;#39;MainType&amp;#39; = type1) %&amp;gt;%
+ggplot(aes(x = attack, fill = MainType)) + 
+  geom_density(alpha = 0.2) + 
+  xlab(&amp;quot;Attack Strength&amp;quot;) + ylab(&amp;quot;Density&amp;quot;) +
+  theme_bw() + 
+  theme(axis.title   = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+        axis.text    = element_text(size = 18),
+        legend.title = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+        legend.text  = element_text(size = 20))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/attack_dist-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;In general, there is a wide range of attack strengths and they are largely distributed with a roughly normal distribution around the mean attack strength of 77.86 that we saw earlier. However, we do see that there are some differences in the different Pokémon types available. However, this probably isn’t the easiest way to see differences between the groups. Instead, let’s use a boxplot. Here, we can see the overall distribution, with the 25&lt;sup&gt;th&lt;/sup&gt; percentile, the median (50&lt;sup&gt;th&lt;/sup&gt; percentile), and the 75&lt;sup&gt;th&lt;/sup&gt; percentile making up the range of the box, and outliers (I believe those with values in the bottom 2.5&lt;sup&gt;th&lt;/sup&gt; percentile or upper 97.5&lt;sup&gt;th&lt;/sup&gt; percentile) highlighted as points on the plot. I have added notches to the boxplots, which show the confidence interval represeneted by:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[median \pm \frac{1.58*IQR}{\sqrt{n}}\]&lt;/span&gt;
+Where IQR is the interquartile range. Essentially, if the notch values do not overlap between two boxes, it suggests that there may be a statistically significant difference between them:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pokedat %&amp;gt;% mutate(&amp;#39;MainType&amp;#39; = type1) %&amp;gt;%
+ggplot(aes(y = attack, x = MainType, fill = MainType)) + 
+  geom_boxplot(notch = TRUE) + 
+  xlab(&amp;quot;Attack Strength&amp;quot;) + ylab(&amp;quot;Density&amp;quot;) +
+  theme_bw() + 
+  theme(axis.title   = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+        axis.text.x  = element_text(size = 18, angle = 90, hjust = 1),
+    axis.text.y  = element_text(size = 18),
+        legend.title = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+        legend.text  = element_text(size = 20))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/attack_box-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;From this plot, we can see that ‘dragon’, ‘fighting’, ‘ground’, ‘rock’ and ‘steel’ type Pokémon have higher attack strength, whilst ‘fairy’ and ‘psychic’ type seem to have slightly lower attack strength. This would make sense based on the names, and we can test this a little more formally by using an ANOVA (analysis of variance) analysis to look for significant effects of the Pokémon type on the attack strength. This can be done quite simply by using linear models:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attack_vs_type1 &amp;lt;- lm(attack ~ type1, data = pokedat)
+summary(attack_vs_type1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = attack ~ type1, data = pokedat)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -70.16 -22.31  -3.50  19.26 114.88 
+## 
+## Coefficients:
+##               Estimate Std. Error t value             Pr(&amp;gt;|t|)    
+## (Intercept)    70.1250     3.6263  19.338 &amp;lt; 0.0000000000000002 ***
+## type1dark      17.6681     6.7675   2.611             0.009208 ** 
+## type1dragon    36.2824     6.9439   5.225          0.000000223 ***
+## type1electric   0.6955     6.1178   0.114             0.909515    
+## type1fairy     -8.0139     8.1087  -0.988             0.323308    
+## type1fighting  29.0536     6.8531   4.239          0.000025078 ***
+## type1fire      11.3750     5.5998   2.031             0.042561 *  
+## type1flying    -3.4583    18.1316  -0.191             0.848783    
+## type1ghost      2.6157     6.9439   0.377             0.706501    
+## type1grass      3.6442     5.0288   0.725             0.468871    
+## type1ground    24.6875     6.5375   3.776             0.000171 ***
+## type1ice        3.1793     7.3700   0.431             0.666301    
+## type1normal     5.0369     4.7082   1.070             0.285036    
+## type1poison     2.5313     6.5375   0.387             0.698719    
+## type1psychic   -4.5590     5.5691  -0.819             0.413253    
+## type1rock      20.5417     5.8473   3.513             0.000468 ***
+## type1steel     22.9583     7.2527   3.166             0.001608 ** 
+## type1water      3.1820     4.6320   0.687             0.492311    
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 30.77 on 783 degrees of freedom
+## Multiple R-squared:  0.1039, Adjusted R-squared:  0.08448 
+## F-statistic: 5.343 on 17 and 783 DF,  p-value: 0.00000000002374&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is not a great model by any means, as the R-squared values suggest that Pokémon type alone explains only a small proportion of the variance in the data. From the summary of the model, we can see that the fit model has an intercept of 70.1 (which is close to the overall mean of 77.86), with an offset specific to each of the different types. As we saw from the boxplot, ‘dragon’, ‘fighting’, ‘ground’, ‘rock’ and ‘steel’ all have significant increases in attack (as can be seen by the resulting p-value), but also ‘dark’ and ‘fire’ type which I missed from looking at the boxplot. We see also that ‘fairy’ and ‘psychic’ type Pokémon show a decrease in attack strength, however this difference is not significant. So if you want a strong Pokémon, then these types are your best shot:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;dark&lt;/li&gt;
+&lt;li&gt;dragon&lt;/li&gt;
+&lt;li&gt;fighting&lt;/li&gt;
+&lt;li&gt;fire&lt;/li&gt;
+&lt;li&gt;ground&lt;/li&gt;
+&lt;li&gt;rock&lt;/li&gt;
+&lt;li&gt;steel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It is also worth mentioning that there are a few outliers here, which represent ridiculously powerful Pokémon. In general, these are those with a strength greater than 150, but there are also two fairy Pokémon with higher strength than is typically seen within the ‘fairy’ type Pokémon. Let’s use the &lt;a href=&#34;https://en.wikipedia.org/wiki/Cook%27s_distance&#34;&gt;Cook’s Distance&lt;/a&gt; to identify the outliers from the above model. The idea here is to test the influence of each Pokémon by comparing the least-squares regression with and without the sample included. A higher value indicates a possible outlier. So let’s have a look at the outliers, which we are going to class as those with a Cook’s Distance greater than 4 times the mean of the Cook’s Distance over the entire data set (note that this is a commonly used threshold, but is entirely arbitrary):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;ggrepel&amp;quot;)
+library(&amp;quot;RColorBrewer&amp;quot;)
+cookdist &amp;lt;- cooks.distance(attack_vs_type1)
+cookdist_lim &amp;lt;- 4*mean(cookdist, na.rm=T)#0.012
+data.frame(Pokenum   = pokedat[[&amp;quot;pokedex_number&amp;quot;]], 
+           Pokename  = pokedat[[&amp;quot;name&amp;quot;]], 
+           CooksDist = cookdist,
+           Pokelab   = ifelse(cookdist &amp;gt; cookdist_lim, as.character(pokedat[[&amp;quot;name&amp;quot;]]), &amp;quot;&amp;quot;),
+           Outlier   = ifelse(cookdist &amp;gt; cookdist_lim, TRUE, FALSE),
+           PokeCol   = ifelse(cookdist &amp;gt; cookdist_lim, as.character(pokedat[[&amp;quot;type1&amp;quot;]]), &amp;quot;&amp;quot;)) %&amp;gt;%
+  ggplot(aes(x = Pokenum, y = CooksDist, color = PokeCol, shape = Outlier, size = Outlier, label = Pokelab)) +
+  geom_point() + 
+  scale_shape_manual(values = c(16, 8)) +
+  scale_size_manual(values = c(2, 5)) +
+  scale_color_manual(values = c(&amp;quot;black&amp;quot;, colorRampPalette(brewer.pal(9, &amp;quot;Set1&amp;quot;))(length(table(pokedat[[&amp;quot;type1&amp;quot;]]))))) +
+  geom_text_repel(nudge_x = 0.2, size = 8) +
+  geom_hline(yintercept = cookdist_lim, linetype = &amp;quot;dashed&amp;quot;, color = &amp;quot;red&amp;quot;) +
+  xlab(&amp;quot;Pokedex Number&amp;quot;) + ylab(&amp;quot;Cook&amp;#39;s Distance&amp;quot;) +
+  theme_bw() +
+  theme(#legend.position = &amp;quot;name&amp;quot;,
+        axis.title      = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+        axis.text       = element_text(size = 18),
+        legend.title    = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+        legend.text     = element_text(size = 20),
+        )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/strength_cooks-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The flying Pokémon Tornadus and Noibat are the biggest outliers. However, interestingly whilst Tornadus has a particularly high attack strength of 100 for a flying type Pokémon, Noibat has a low attack strength of 30. So both are outliers compared to the flyiong type Pokémon as a whole, with a mean of 66.6666667 ± 35.1188458. It is worth mentioning that Tornadus is a Legendary Pokémon which probably explains why it has a higher attack strength.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pokemon/641-incarnate.png&#34; alt=&#34;Tornadus&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Tornadus&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Whilst these two do not show up on the barplots, it is likely that these are responsible for the strange distribution of the notched boxplot. I suspect this odd shape is a result of the calculation of the confidence interval for the notches exceeding the 25&lt;sup&gt;th&lt;/sup&gt; and 75&lt;sup&gt;th&lt;/sup&gt; percentiles due to a wide range of values, but I do enjoy the fact that it looks like it is itself flying!&lt;/p&gt;
+&lt;p&gt;The two outlying fairy type Pokémon are Xerneas and Togepi, another favourite of my daughter’s:&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pokemon/175.png&#34; alt=&#34;Togepi&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Togepi&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;defence&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;4.2&lt;/span&gt; Defence&lt;/h2&gt;
+&lt;p&gt;Let’s repeat this to look at the defence values across the different Pokémon types:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pokedat %&amp;gt;% mutate(&amp;#39;MainType&amp;#39; = type1) %&amp;gt;%
+ggplot(aes(x = defense, fill = MainType)) + 
+  geom_density(alpha = 0.2) + 
+  xlab(&amp;quot;Defence Strength&amp;quot;) + ylab(&amp;quot;Density&amp;quot;) +
+  theme_bw() + 
+  theme(axis.title   = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+        axis.text    = element_text(size = 18),
+        legend.title = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+        legend.text  = element_text(size = 20))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/defence_dist-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;There seems to be a bit more of a distinction between the different types as compared to the attack distribution, so let’s also look at the boxplots:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pokedat %&amp;gt;% mutate(&amp;#39;MainType&amp;#39; = type1) %&amp;gt;%
+ggplot(aes(y = defense, x = MainType, fill = MainType)) + 
+  geom_boxplot(notch = TRUE) + 
+  xlab(&amp;quot;Defence Strength&amp;quot;) + ylab(&amp;quot;Density&amp;quot;) +
+  theme_bw() + 
+  theme(axis.title   = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+        axis.text.x  = element_text(size = 18, angle = 90, hjust = 1),
+    axis.text.y  = element_text(size = 18),
+        legend.title = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+        legend.text  = element_text(size = 20))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/defence_box-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We see more outliers here as compared to the attack strength and a very clear increase in defence for steel and rock type Pokémon (unsurprisingly), as well as dragon type. There are no clear types with lower defence, similar again to what we saw in the attack strength distribution plots. Let’s once again look at this using linear models:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;defence_vs_type1 &amp;lt;- lm(defense ~ type1, data = pokedat)
+summary(defence_vs_type1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = defense ~ type1, data = pokedat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -70.208 -20.847  -3.031  16.518 159.153 
+## 
+## Coefficients:
+##                Estimate Std. Error t value             Pr(&amp;gt;|t|)    
+## (Intercept)    70.84722    3.37247  21.008 &amp;lt; 0.0000000000000002 ***
+## type1dark      -0.32998    6.29376  -0.052               0.9582    
+## type1dragon    15.41204    6.45779   2.387               0.0172 *  
+## type1electric  -9.02671    5.68954  -1.587               0.1130    
+## type1fairy     -2.68056    7.54108  -0.355               0.7223    
+## type1fighting  -4.45437    6.37337  -0.699               0.4848    
+## type1fire      -3.05876    5.20784  -0.587               0.5571    
+## type1flying    -5.84722   16.86236  -0.347               0.7289    
+## type1ghost      8.67130    6.45779   1.343               0.1797    
+## type1grass      0.02457    4.67678   0.005               0.9958    
+## type1ground    13.05903    6.07981   2.148               0.0320 *  
+## type1ice        1.06582    6.85403   0.156               0.8765    
+## type1normal   -11.15198    4.37865  -2.547               0.0111 *  
+## type1poison    -0.81597    6.07981  -0.134               0.8933    
+## type1psychic   -1.58307    5.17923  -0.306               0.7599    
+## type1rock      25.41944    5.43795   4.674    0.000003469793310 ***
+## type1steel     49.36111    6.74494   7.318    0.000000000000623 ***
+## type1water      2.63523    4.30777   0.612               0.5409    
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 28.62 on 783 degrees of freedom
+## Multiple R-squared:  0.1534, Adjusted R-squared:  0.135 
+## F-statistic: 8.347 on 17 and 783 DF,  p-value: &amp;lt; 0.00000000000000022&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As expected, we see very clear significant increase in defence strength for rock and steel type Pokémon, with a slight increase seen also for dragon and ground type Pokémon. There is also a slight reduction for normal type Pokémon. Flying Pokémon again show an odd distribution, so I expect again to see outliers for this class. Let’s look at the outliers now, again using the COok’s Distance:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cookdist &amp;lt;- cooks.distance(defence_vs_type1)
+cookdist_lim &amp;lt;- 4*mean(cookdist, na.rm=T)#0.012
+data.frame(Pokenum   = pokedat[[&amp;quot;pokedex_number&amp;quot;]], 
+           Pokename  = pokedat[[&amp;quot;name&amp;quot;]], 
+           CooksDist = cookdist,
+           Pokelab   = ifelse(cookdist &amp;gt; cookdist_lim, as.character(pokedat[[&amp;quot;name&amp;quot;]]), &amp;quot;&amp;quot;),
+           Outlier   = ifelse(cookdist &amp;gt; cookdist_lim, TRUE, FALSE),
+           PokeCol   = ifelse(cookdist &amp;gt; cookdist_lim, as.character(pokedat[[&amp;quot;type1&amp;quot;]]), &amp;quot;&amp;quot;)) %&amp;gt;%
+  ggplot(aes(x = Pokenum, y = CooksDist, color = PokeCol, shape = Outlier, size = Outlier, label = Pokelab)) +
+  geom_point() + 
+  scale_shape_manual(values = c(16, 8)) +
+  scale_size_manual(values = c(2, 5)) +
+  scale_color_manual(values = c(&amp;quot;black&amp;quot;, colorRampPalette(brewer.pal(9, &amp;quot;Set1&amp;quot;))(length(table(pokedat[[&amp;quot;type1&amp;quot;]]))))) +
+  geom_text_repel(nudge_x = 0.2, size = 8) +
+  geom_hline(yintercept = cookdist_lim, linetype = &amp;quot;dashed&amp;quot;, color = &amp;quot;red&amp;quot;) +
+  xlab(&amp;quot;Pokedex Number&amp;quot;) + ylab(&amp;quot;Cook&amp;#39;s Distance&amp;quot;) +
+  theme_bw() +
+  theme(axis.title      = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+        axis.text       = element_text(size = 18),
+        legend.title    = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+        legend.text     = element_text(size = 20),
+        )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/defence_cooks-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;As expected, Noibat and Tornadus are outliers here, and are joined by Noivern (which is an evolution of Noibat). As it turns out, these are the only 3 Pokémon in the flying type, which explains why they show up as outliers and why the boxplot has such a strange distribution. Other outliers include ice-type Pokémon Avalugg (defence 184), steel-type Pokémon Steelix and Aggron (both with defence 230), and bug-type Pokémon Shuckle (defence 230) which doubles up as a rock type Pokémon:&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pokemon/213.png&#34; alt=&#34;Shuckle&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Shuckle&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;As seen with Shuckle, we should bear in mind that we have only focussed on the primary Pokémon type here, and have not considered the &lt;code&gt;type2&lt;/code&gt; values. So it is possible that we are missing the full picture when looking only at the first class for some of these Pokémon.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;other&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;4.3&lt;/span&gt; Other&lt;/h2&gt;
+&lt;p&gt;We could do this for all of the different values, and there are many different ways that we may want to examine these data. We can look at eaxch variable in the data set and examine them for odd distributions, we can look for outliers (as we have done above), we can start to examine relationships between variables, and we can look for correlation between different values (which we will do further below). Indeed a considerable amount of time &lt;em&gt;should&lt;/em&gt; be spent exploring data in this way to ensure it is of good quality – the old saying “garbage in, garbage out” is very true. But to be honest there are more interesting things that I want to do with these data, so let’s crack on…&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ensuring-we-use-accurate-data-classes-throughout&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;4.4&lt;/span&gt; Ensuring we use accurate data classes throughout&lt;/h2&gt;
+&lt;p&gt;It is important to ensure that we are using the data in the correct way for our analyses. First of all let’s take a look at the abilities that each Pokémon has. As it stands, the &lt;code&gt;abilities&lt;/code&gt; variable is not terribly useful, as it fails to link Pokémon who may share abilities but not exactly. We could spend some time decoding the abilities, and create a “dictionary” of different abilities for each Pokémon, but perhaps a better measure may be to simply look at the &lt;em&gt;number&lt;/em&gt; of abilities that each Pokémon has:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;abilities &amp;lt;- strsplit(as.character(pokedat[[&amp;quot;abilities&amp;quot;]]), &amp;quot;, &amp;quot;)
+abilities &amp;lt;- sapply(abilities, FUN = function(x) gsub(&amp;quot;\\[|\\&amp;#39;|\\]&amp;quot;, &amp;quot;&amp;quot;, x))
+names(abilities) &amp;lt;- rownames(pokedat)
+pokedat[[&amp;quot;number_abilities&amp;quot;]] &amp;lt;- sapply(abilities, FUN = length)
+table(pokedat[[&amp;quot;number_abilities&amp;quot;]])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##   1   2   3   4   6 
+## 109 245 427   7  13&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So the majority of Pokémon have only 1, 2 or 3 abilities, with only a small number of Pokémon have more than 3 abilities, and around half having exactly 3.&lt;/p&gt;
+&lt;p&gt;I want to now look only at the variables that might theoretically be descriptive of the Pokémon in some kind of model. So we can remove the individual abilties (although the &lt;em&gt;number&lt;/em&gt; of abiltities will likely be of interest), the names and Pokedex number, and the classification which seems to be fairly ambiguous. We also need to ensure that we use the dummy variables for the variables encoded as factors.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;normalization&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;5&lt;/span&gt; Normalization&lt;/h1&gt;
+&lt;p&gt;Prior to doing this, I want to look at a few different ways to normalize all of the variables to ensure that they all have values that are comparable. Some algorithms are more sensitive to normalization than others, and it becomes quite obvious why this may be something to consider here when you consider that whilst the stats value &lt;code&gt;attack&lt;/code&gt; lies between 5 and 185, the &lt;code&gt;experience_growth&lt;/code&gt; value ranges between 600,000 and 1,640,000. That’s a &amp;gt;10,000-fold increase. This variable will completely dominate the calculations for certain machine-learning algorithms like K-Nearest Neighbours (KNN) and Support Vector Machines (SVM) where the distance between data points is important. SO let’s look at how we might want to normalize these data prior to analysis.&lt;/p&gt;
+&lt;div id=&#34;min-max-normalization&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;5.1&lt;/span&gt; Min-Max Normalization&lt;/h2&gt;
+&lt;p&gt;There are a few different ways to do this. One way is to &lt;em&gt;standardize&lt;/em&gt; the data, so that we bring them all into a common scale of &lt;span class=&#34;math inline&#34;&gt;\([0,1]\)&lt;/span&gt;, but we maintain the distribution for each specific variable. So if one variable has a very skewed distriburtion, this will be maintained. A simple way to do this is to use the &lt;em&gt;min-max scaling&lt;/em&gt; approach, where you subtract the lowest value (so that the minimum value is always zero) and then divide by the range of the data so that the data are spread in the range &lt;span class=&#34;math inline&#34;&gt;\([0,1]\)&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[x&amp;#39; = \frac{x - x_{min}}{x_{max} - x_{min}}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Let’s compare the standardized and non-standardized attack values:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attack_std &amp;lt;- (pokedat[[&amp;quot;attack&amp;quot;]] - min(pokedat[[&amp;quot;attack&amp;quot;]]))/(max(pokedat[[&amp;quot;attack&amp;quot;]]) - min(pokedat[[&amp;quot;attack&amp;quot;]]))
+data.frame(Raw          = pokedat[[&amp;quot;attack&amp;quot;]],
+           Standardized = attack_std) %&amp;gt;%
+  tidyr::gather(&amp;quot;class&amp;quot;, &amp;quot;attack&amp;quot;, Raw, Standardized) %&amp;gt;%
+  mutate(class = factor(class, levels = c(&amp;quot;Raw&amp;quot;, &amp;quot;Standardized&amp;quot;))) %&amp;gt;%
+  ggplot(aes(x = attack, fill = class)) +
+  geom_density(alpha = 0.2) +
+  facet_wrap(. ~ class, scales = &amp;quot;free&amp;quot;) + 
+  xlab(&amp;quot;Attack Strength&amp;quot;) + ylab(&amp;quot;Density&amp;quot;) +
+  theme_bw() + 
+  theme(legend.position = &amp;quot;none&amp;quot;,
+    axis.title      = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+    axis.text       = element_text(size = 18),
+    legend.title    = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+    legend.text     = element_text(size = 20),
+    strip.text      = element_text(size = 24, face = &amp;quot;bold&amp;quot;)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/standardize_attack-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;So as you can see here, the distribution of the attack scores remains the same, but the scales over which the distribution is spread are different.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;z-score-normalization&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;5.2&lt;/span&gt; Z-Score Normalization&lt;/h2&gt;
+&lt;p&gt;However, sometimes it is preferable to instead that every feature has a standard distribution that can be easily described to make them more comparable. In this case, you can &lt;em&gt;normalize&lt;/em&gt; the data so that the distribution of all features is shifted towards that of a &lt;a href=&#34;https://en.wikipedia.org/wiki/Normal_distribution&#34;&gt;normal (Gaussian) distribution&lt;/a&gt;. This is a typical “bell-shaped” curve, which can be exclusively described by the mean and the standard deviation. An example where I use this approach regularly is in gene-expression analysis, where we normalize the data such that the levels of expression of each gene is represented by a normal distribution, so that we can test for samples where the expression is significantly outside of the confines of this distribution. We can then look at all of the genes that seem to show significantly different expression than we would expect using hypothesis testing approaches, and look for common functions of these genes through the use of network analysis, gene ontology analysis and other downstream analyses.&lt;/p&gt;
+&lt;p&gt;A simple normalization approach is the z-score normalization, which will transform the data so that the distribution has a mean of 0 and a standard deviation of 1. The transformation is as follows:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[x&amp;#39; = \frac{x - \mu}{\sigma}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;So we simply subtract the mean &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; (to center the data), and divide by the standard deviation &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;. Let’s again visualise this by comparing the raw and normalized data:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attack_norm &amp;lt;- (pokedat[[&amp;quot;attack&amp;quot;]] - mean(pokedat[[&amp;quot;attack&amp;quot;]]))/sd(pokedat[[&amp;quot;attack&amp;quot;]])
+data.frame(Raw          = pokedat[[&amp;quot;attack&amp;quot;]],
+           Normalized   = attack_norm) %&amp;gt;%
+  tidyr::gather(&amp;quot;class&amp;quot;, &amp;quot;attack&amp;quot;, Raw, Normalized) %&amp;gt;%
+  mutate(class = factor(class, levels = c(&amp;quot;Raw&amp;quot;, &amp;quot;Normalized&amp;quot;))) %&amp;gt;%
+  ggplot(aes(x = attack, fill = class)) +
+  geom_density(alpha = 0.2) +
+  facet_wrap(. ~ class, scales = &amp;quot;free&amp;quot;) + 
+  xlab(&amp;quot;Attack Strength&amp;quot;) + ylab(&amp;quot;Density&amp;quot;) +
+  theme_bw() + 
+  theme(legend.position = &amp;quot;none&amp;quot;,
+    axis.title      = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+    axis.text       = element_text(size = 18),
+    legend.title    = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+    legend.text     = element_text(size = 20),
+    strip.text      = element_text(size = 24, face = &amp;quot;bold&amp;quot;)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/normalize_attack-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;So the normalized data now has a mean of 0, with the majority of values lying between -2 and 2. Note that since this is a fairly simple normalization technique, the distribution itself is not really changed, but there are other methods such as quantile normalization which can reshape the data to a Gaussian curve, or indeed any other dstribution as required.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;choosing-a-normalization-method&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;5.3&lt;/span&gt; Choosing a Normalization Method&lt;/h2&gt;
+&lt;p&gt;The choice of which method to use will largely depend on what you are trying to do. The min-max scaling method is a common method used in machine learning, but does not handle outliers very well – a sample with an extreme value in the raw data will still have an extreme value in the scaled data, resulting in bunching up of the remaining data since it is all bounded within the range &lt;span class=&#34;math inline&#34;&gt;\([0,1]\)&lt;/span&gt;. The Z-score normalization is better at dealing with outliers as they will appear far away from the mean value of 0, but the range of data is no longer bounded meaning that different variables will now have different ranges. Other normalization processes may make your data more homogenous, but at the cost of potentially losing aspects of the data that may be useful.&lt;/p&gt;
+&lt;p&gt;Many machine learning algorithms use some kind of &lt;em&gt;distance&lt;/em&gt; measure, in order to look for similarity between different items. This can be a simple Euclidean distance, which is a k-dimensional measure of “as the crow flies”. If the scales are very different between your variables, then this will cause a significant issue.&lt;/p&gt;
+&lt;p&gt;For the following analyses, I will use Z-score normalization, since I know that there are a few extreme outliers in these data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;looking-for-patterns&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;6&lt;/span&gt; Looking for Patterns&lt;/h1&gt;
+&lt;div id=&#34;correlation-of-variables&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;6.1&lt;/span&gt; Correlation of Variables&lt;/h2&gt;
+&lt;p&gt;One thing that it is worth doing before heading down a route of data modelling is to look at the correlation structure between the variables in the data set. If there are highly correlated variables (for instance one might imagine height and weight to be highly correlated), then both will offer the same information to the model – adding both will give no additional predictive power than adding only one. There is then a danger of over-fitting the data, which can happen if you create a model so complicated that, whilst it may fit the training data very well, it is so complex as to no longer be applicable to external data sets making it essentially useful. An extreme example is if we create a model where we have one variable for each sample, that is equal to 1 for that specific sample, and 0 for every other sample. This would fit the data perfectly, but would be of absolutely no use for any other data. In addition, we can risk biasing the data by including multiple variables that essentially encode the same information.&lt;/p&gt;
+&lt;p&gt;So we can calculate a pairwise correlation matrix, which will give us a measure of similarity between each pair of variables by comparing the two vectors of values for the 801 Pokémon. There are multiple measures of correlation that can be used. The standard is the &lt;a href=&#34;https://en.wikipedia.org/wiki/Pearson_correlation_coefficient&#34;&gt;Pearson Correlation&lt;/a&gt;, which is a measure of the linearity of the relationship between two values. A value of 1 represents an entirely linear monotonic relationship (as one value increases, so does the other, but with every unit increase in one variable matching a unit increase in the other in a linear way), a value of 0 represents no linearity between the values (no clear relationship between the two), and a value of -1 represents an inverse monotonic linear relationship (anti-correlated).&lt;/p&gt;
+&lt;p&gt;For this analysis, I will be using the &lt;a href=&#34;https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient&#34;&gt;Spearman Correlation&lt;/a&gt; coefficient. Instead of using the values themselves, this method first ranks the data, and then looks at the correlation. The idea here is that the unit difference between each successive value is kept constant, meaning that outliers do not have a big impact. This is therefore independent of the distribution of the data, and is therefore a non-parametric method. Since we identified some outliers with some of these variables, this method will remove the effect that these might have.&lt;/p&gt;
+&lt;p&gt;We can represent these values by using a heatmap, which is a way of representing 3-dimensional data. The value of the correlation, rather than being represented on an axis as a value, will be represented by a colour. Values of the SPearman correlation closer to 1 will appear more red, whilst those closer to -1 will appear more blue. Those closer to 0 will appear white.&lt;/p&gt;
+&lt;p&gt;In addition, I will apply a hierarchical clustering method to ensure that the variables most similar to one another are located close to one another on the figure. Pairwise distances are calculated by looking at the &lt;a href=&#34;https://en.wikipedia.org/wiki/Euclidean_distance&#34;&gt;Euclidean distance&lt;/a&gt;, and similar variables are clustered together, allowing us to pick out by eye those most similar to one another.&lt;/p&gt;
+&lt;p&gt;As mentioned earlier, we first want to ensure that we are looking at numerical values, or at least numerical representations of factors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pokedat_vals &amp;lt;- pokedat[, !names(pokedat) %in% c(&amp;quot;abilities&amp;quot;, &amp;quot;classfication&amp;quot;, &amp;quot;japanese_name&amp;quot;, &amp;quot;name&amp;quot;, &amp;quot;pokedex_number&amp;quot;)]
+pokedat_vals[[&amp;quot;type1&amp;quot;]]        &amp;lt;- as.numeric(pokedat_vals[[&amp;quot;type1&amp;quot;]])
+pokedat_vals[[&amp;quot;type2&amp;quot;]]        &amp;lt;- as.numeric(pokedat_vals[[&amp;quot;type2&amp;quot;]])
+pokedat_vals[[&amp;quot;generation&amp;quot;]]   &amp;lt;- as.numeric(pokedat_vals[[&amp;quot;generation&amp;quot;]])
+pokedat_vals[[&amp;quot;is_legendary&amp;quot;]] &amp;lt;- as.numeric(pokedat_vals[[&amp;quot;is_legendary&amp;quot;]])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will give us a purely numeric data set for use in numeric calculations. Finally we will normalize the data using Z-score normalization:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pokedat_norm &amp;lt;- scale(pokedat_vals, center = TRUE, scale = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally let’s take a look at the correlation plot:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;pheatmap&amp;quot;)
+pokecor_var &amp;lt;- cor(pokedat_norm, method = &amp;quot;spearman&amp;quot;)        
+colors  &amp;lt;- colorRampPalette(c(&amp;#39;dark blue&amp;#39;,&amp;#39;white&amp;#39;,&amp;#39;dark red&amp;#39;))(255)#colorRampPalette( rev(brewer.pal(9, &amp;quot;Blues&amp;quot;)) )(255)
+pheatmap(pokecor_var, 
+         clustering_method = &amp;quot;complete&amp;quot;,
+         show_colnames = FALSE,
+         show_rownames = TRUE,
+         col=colors, 
+         fontsize_row = 24)  &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/correlation_var-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can see a few clear cases of correlated variables here, especially between a few of the values giving attack strength against certain Pokémon types. For instance, attack against ghost- and dark-type Pokémon are very similar (which makes sense), as are attacks against electric- and rock-type Pokémon (makes less sense). The clearest aspect of the figure is a block of high positive correlations between a number of variables associated with the Pokémon’s vital statistics. So the most similar variables are those like speed, defence strength, attack strength, height, weight, health points, experience growth, etc. This makes a lot of sense, with bigger Pokémon having better attack and defence, more health points, etc. We also see that these variables are very highly anti-correlated with the capture-rate, which again makes sense – the better Pokémon are harder to catch. However, none of these correlations seem significantly high to require the remobval of any variables prior to analysis.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;height-vs-weight&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;6.2&lt;/span&gt; Height vs Weight&lt;/h2&gt;
+&lt;p&gt;Let’s take a look at the height vs the weight. We can also include a few additional variables to see how the Pokémon strength and defence affect the relationship. I am going to scale both the x-and y-axes by using a &lt;span class=&#34;math inline&#34;&gt;\(log_{10}\)&lt;/span&gt; transformation to avoid much larger Pokémon drowing out the smaller ones:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(aes(x = height_m, y = weight_kg, color = attack, size = defense), data = pokedat) +
+  geom_point(alpha = 0.2) +
+  scale_color_gradient2(name = &amp;quot;Attack&amp;quot;, midpoint = mean(pokedat[[&amp;quot;attack&amp;quot;]]), low = &amp;quot;blue&amp;quot;, mid = &amp;quot;white&amp;quot;, high = &amp;quot;red&amp;quot;) +
+  scale_size_continuous(name = &amp;quot;Defence&amp;quot;, range = c(1, 10)) +
+  xlab(&amp;quot;Height (m)&amp;quot;) + ylab(&amp;quot;Weight (Kg)&amp;quot;) +
+  scale_x_log10() +
+  scale_y_log10() +
+  #theme_bw() + 
+  theme(axis.title      = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+        axis.text       = element_text(size = 18),
+        legend.title    = element_text(size = 24, face = &amp;quot;bold&amp;quot;),
+        legend.text     = element_text(size = 20),
+        strip.text      = element_text(size = 24, face = &amp;quot;bold&amp;quot;)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/height_vs_weight-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;So there is a clear relationship, and in general taller Pokémon (such as Walor, the largest of the Pokémon) also weigh more as we might expect:&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pokemon/321.png&#34; alt=&#34;Walord, the largest Pokemon&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Walord, the largest Pokemon&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;We also see that in general the attack strength of the larger Pokémon is higher than the smaller ones, although there are definitely some outliers, such as Cosmeom, a legendary Pokémon only 10 cm tall that weighs nearly 1,000 kg!&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pokemon/cosmoem.png&#34; alt=&#34;Cosmoem, the smallest Pokemon&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Cosmoem, the smallest Pokemon&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;correlation-between-pokemon&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;6.3&lt;/span&gt; Correlation between Pokémon&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pokecor_sample &amp;lt;- cor(t(pokedat_norm), method = &amp;quot;spearman&amp;quot;)        
+colors  &amp;lt;- colorRampPalette(c(&amp;#39;dark blue&amp;#39;,&amp;#39;white&amp;#39;,&amp;#39;dark red&amp;#39;))(255)
+pheatmap(pokecor_sample, 
+         clustering_method = &amp;quot;complete&amp;quot;,
+         show_colnames = FALSE,
+         show_rownames = FALSE,
+         annotation = pokedat[, c(&amp;quot;generation&amp;quot;, &amp;quot;type1&amp;quot;, &amp;quot;type2&amp;quot;, &amp;quot;is_legendary&amp;quot;)],
+         col=colors)  &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/correlation_pokemon-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;So here we see the correlation structure between the 801 Pokémon, and it very clearly shows similarities between groups of Pokémon. The red boxes that we see down the diagonal represent highly similar groups, and at the top I have annotated the factor variables generation, type1, type2 and is_legendary. Almost all of the legendary Pokémon cluster together, suggesting that these are all similar to one another across these variables. Similarly there are a number of Pokémon types that clearly cluster together, such as rock type and dark type Pokémon. Interestingly the Generation number seems to be unrelated to Pokémon similarity.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;principal-component-analysis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;6.4&lt;/span&gt; Principal Component Analysis&lt;/h2&gt;
+&lt;p&gt;A good way to explore data such as these to look for underlying trends in the data is to use a dimensional-reduction algorithm to reduce these high-dimensional data down into asmaller number of easy to digest chunks. Principal component analysis (PCA) is one such approach, and can be used to look for the largest sources of variation within a high dimensional data set. For a data set with n variables, we can think of these data existing in an n-dimensional space. PCA is a mathematical trick that rotates these axes in n-dimensional space so that the x-axis of the rotation explains the largest possible amount of variation in the data, the y-axis then explains the next largest possible amount of variation, the z-axis the next largest amount, etc. In many cases, a very large amount of the total variation in the original n-dimensional data set can be captured by only a small number of so-called principal components. This can be used to look for underlying trends in the data. So let’s have a look at how this looks:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pc &amp;lt;- prcomp(pokedat_vals, scale. = TRUE)
+pc_plot &amp;lt;- as.data.frame(pc[[&amp;quot;x&amp;quot;]])
+pc_plot &amp;lt;- cbind(pc_plot, pokedat[rownames(pc_plot), c(&amp;quot;generation&amp;quot;, &amp;quot;type1&amp;quot;, &amp;quot;type2&amp;quot;, &amp;quot;is_legendary&amp;quot;)])
+explained_variance &amp;lt;- 100*((pc[[&amp;quot;sdev&amp;quot;]])^2 / sum(pc[[&amp;quot;sdev&amp;quot;]]^2))
+screeplot(pc, type = &amp;quot;line&amp;quot;, main = &amp;quot;Principal Component Loadings&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/PCA-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;In this plot, we see that PC1 and PC2 explain a lot of variance compared to the other PCs, but the drop off is not complete at this point. In a lot of data sets, the first few PCs explain the vast majority of the variance, and so this plot drops off considerably to a flat line by PC3 or PC4. Let’s take a look at how discriminatory these PCs are to these data:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(aes(x = PC1, y = PC2, shape = is_legendary, color = type1), data = pc_plot) +
+  geom_point(size = 5, alpha = 0.7) +
+  xlab(sprintf(&amp;quot;PC%d (%.2f%%)&amp;quot;, 1, explained_variance[1])) +
+  ylab(sprintf(&amp;quot;PC%d (%.2f%%)&amp;quot;, 2, explained_variance[2])) +
+  theme(axis.title   = element_text(size = 14, face = &amp;quot;bold&amp;quot;),
+        axis.text    = element_text(size = 12),
+        legend.title = element_text(size = 18, face = &amp;quot;bold&amp;quot;),
+        legend.text  = element_text(size = 14))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/PCA_PC1_vs_PC2-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can see that this PCA approach clearly discriminates the legendary Pokémon (triangles) from the other Pokémon (circles) in PC1, which is the new axis that explains the most variance in the data (although note that this is still only 17.2%, so not a huge amount really). There is some separation seen between the different Pokémon groups, which seems to represent the second most significant source of variation, accounting for another 10.4%. Let’s look at PC3 as well to see if this is able to discriminate the samples further:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(aes(x = PC2, y = PC3, shape = is_legendary, color = type1), data = pc_plot) +
+  geom_point(size = 5, alpha = 0.7) +
+  xlab(sprintf(&amp;quot;PC%d (%.2f%%)&amp;quot;, 2, explained_variance[2])) +
+  ylab(sprintf(&amp;quot;PC%d (%.2f%%)&amp;quot;, 3, explained_variance[3])) +
+  theme(axis.title   = element_text(size = 14, face = &amp;quot;bold&amp;quot;),
+        axis.text    = element_text(size = 12),
+        legend.title = element_text(size = 18, face = &amp;quot;bold&amp;quot;),
+        legend.text  = element_text(size = 14))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-07-15_Gotta_Catch_em_all_Pokemon/index_files/figure-html/PCA_PC2_vs_PC3-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;By looking at the 2&lt;sup&gt;nd&lt;/sup&gt; and 3&lt;sup&gt;rd&lt;/sup&gt; PCs, we do see a slight separation between the Pokémon types, but it is not strong.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;correlation-based-recommendation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;6.5&lt;/span&gt; Correlation-Based Recommendation&lt;/h2&gt;
+&lt;p&gt;As a little aside, I want to see whether it is possible to recommend similar Pokémon to any Pokémon that you might suggest. For instance, my daughter’s absolute favourite is Eevee (a cuddly fox-like Pokémon):&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pokemon/133.png&#34; alt=&#34;Eeevee&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Eeevee&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;So let’s see whether there are any other Pokémon that are similar to Eevee, based on a simple correlation match. To do this, I will calculate the Spearman correlation coefficient between Eevee and every other Pokémon, and see which the most similar are:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;eevee &amp;lt;- as.numeric(pokedat_vals[&amp;quot;Eevee&amp;quot;, ])
+eevee_cor &amp;lt;- apply(pokedat_vals, MAR = 1, FUN = function (x) cor(x, eevee, method = &amp;quot;spearman&amp;quot;))
+head(sort(eevee_cor, decreasing = TRUE), 10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Eevee     Aipom   Sentret Teddiursa    Patrat Zigzagoon   Rattata 
+## 1.0000000 0.9781018 0.9728923 0.9695460 0.9693680 0.9690263 0.9689643 
+##    Meowth  Raticate    Bidoof 
+## 0.9687552 0.9676089 0.9669312&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So here are a few of the most similar Pokémon:&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pokemon/190.png&#34; alt=&#34;Aipom&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Aipom&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pokemon/161.png&#34; alt=&#34;Sentret&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Sentret&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pokemon/216.png&#34; alt=&#34;Teddiursa&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Teddiursa&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pokemon/504.png&#34; alt=&#34;Patrat&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Patrat&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Well they all look kind of cuddly like Eevee, except for the really creepy evil beaver Patrat at the end!&lt;/p&gt;
+&lt;p&gt;However, what would be even more efficient (maybe not in this case, but in the case of a much higher-dimensional data set like a gene-expression data set of 30,000 genes) is to use the reduced dataset after using PCA. The first 10 PCs explained around two thirds of the variance on the data, so by using these 10 values rather than the 37 values originally, we reduce the computations with a relatively small loss of data. Let’s see what the outputs are in this case:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pc_df_sub &amp;lt;- as.data.frame(pc[[&amp;quot;x&amp;quot;]])[, 1:10]
+eevee &amp;lt;- as.numeric(pc_df_sub[&amp;quot;Eevee&amp;quot;, ])
+eevee_cor_pca &amp;lt;- apply(pc_df_sub, MAR = 1, FUN = function (x) cor(x, eevee, method = &amp;quot;spearman&amp;quot;))
+head(sort(eevee_cor_pca, decreasing = TRUE), 10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Eevee    Spinda  Delcatty   Watchog     Aipom    Furret  Smeargle 
+## 1.0000000 0.9636364 0.9515152 0.9515152 0.9393939 0.9272727 0.9030303 
+##   Herdier Vanillish    Meowth 
+## 0.9030303 0.9030303 0.8909091&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pokemon/327.png&#34; alt=&#34;Spinda&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Spinda&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pokemon/301.png&#34; alt=&#34;Delcatty&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Delcatty&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pokemon/505.png&#34; alt=&#34;Watchog&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Watchog&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;pokemon/162.png&#34; alt=&#34;Furret&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Furret&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Similarly cute, but with another creepy one! After checking with the experiment subject (my daughter), it seems that the best hits are definitely Watchog and Furret, so this seems to cope well at picking out similarly cuddly looking Pokémon.&lt;/p&gt;
+&lt;p&gt;Obviously here we are simply looking for Pokémon with similar characteristics. This is not as in-depth as a collaboritive filtering method where we have some subjective ranking of items to help us to determine the &lt;em&gt;best&lt;/em&gt; Pokémon to match somebody’s needs. However, by using the reduced PCA data set we are able to find very close matches using only a reduced subset of the data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;predicting-legendary-pokemon&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;7&lt;/span&gt; Predicting Legendary Pokémon&lt;/h1&gt;
+&lt;p&gt;Based on our previous analyses, we see that there is a clear discrimination between normal and Legendary Pokémon. These are incredibly rare, and very powerful Pokémon in the game. So is it possible to identify a Legendary Pokémon based on the variables available from this database? And if so, which variables are the most important?&lt;/p&gt;
+&lt;p&gt;To do predictive modelling, we need to first split our data up into a training data set to use to train the model, and then a validation data set to use to confirm the accuracy of the predictions that this model makes. There are more robust ways to do this, such as &lt;a href=&#34;https://en.wikipedia.org/wiki/Cross-validation_(statistics)&#34;&gt;cross-validation&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Bootstrapping_(statistics)&#34;&gt;bootstrapping&lt;/a&gt;, which allow you to assess the accuracy of the model. Cross validation can be applied simply by using the &lt;code&gt;caret&lt;/code&gt; package in R.&lt;/p&gt;
+&lt;p&gt;We will also split the data randomly into two data sets – one containing 80% of the Pokémon for training the model, and one containing 20% of the Pokémon for validation purposes. For the following model fitting approaches, we do not need to have the categorical data converted into numbers as we did for the correlation analysis, as the factors will be treated correctly automatically We do however still need to ignore the non-informative variables. In addition, I am going to remove the “against_” columns to avoid overfitting of the data. So let’s generate our two data sets:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;caret&amp;quot;)
+set.seed(0)
+split_index &amp;lt;- createDataPartition(y = pokedat[[&amp;quot;is_legendary&amp;quot;]], p = 0.8, list = FALSE)
+rm_index       &amp;lt;- which(names(pokedat) %in% c(&amp;quot;abilities&amp;quot;, &amp;quot;classfication&amp;quot;, &amp;quot;japanese_name&amp;quot;, &amp;quot;name&amp;quot;, &amp;quot;pokedex_number&amp;quot;))
+rm_index       &amp;lt;- c(grep(&amp;quot;against&amp;quot;, names(pokedat)), rm_index)
+training_dat   &amp;lt;- pokedat[split_index,  -rm_index]
+validation_dat &amp;lt;- pokedat[-split_index, -rm_index]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So let’s try a few different common methods used for classification purposes.&lt;/p&gt;
+&lt;div id=&#34;support-vector-machine&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;7.1&lt;/span&gt; Support-Vector Machine&lt;/h2&gt;
+&lt;p&gt;We can then train our SVM model, incorporating a preprocessing step to center and scale the data, and performing 10-fold repeated cross validation which we repeat 3 times:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(0)
+trctrl    &amp;lt;- trainControl(method = &amp;quot;repeatedcv&amp;quot;, number = 10, repeats = 3)
+model_svm &amp;lt;- train(is_legendary ~., 
+                   data = training_dat, 
+                   method = &amp;quot;svmLinear&amp;quot;,
+                   trControl = trctrl,
+                   preProcess = c(&amp;quot;center&amp;quot;, &amp;quot;scale&amp;quot;),
+                   tuneLength = 10)
+model_svm&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Support Vector Machines with Linear Kernel 
+## 
+## 641 samples
+##  18 predictor
+##   2 classes: &amp;#39;FALSE&amp;#39;, &amp;#39;TRUE&amp;#39; 
+## 
+## Pre-processing: centered (56), scaled (56) 
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 577, 576, 576, 577, 577, 578, ... 
+## Resampling results:
+## 
+##   Accuracy   Kappa    
+##   0.9802138  0.8782632
+## 
+## Tuning parameter &amp;#39;C&amp;#39; was held constant at a value of 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So this model is able to predict whether the Pokémon is Legendary based on these 18 predictor variables with 98.02% accuracy (correct predictions). The Kappa value is normalised to account for the fact that we could get pretty good accuracy if we just called everything not Legendary due to the imbalance in the classes.&lt;/p&gt;
+&lt;p&gt;This accuracy is based on resampling of the training data. How does it cope with the validation data? Let’s take a look at the confusion matrix for the predicted outcomes compared to the true values:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;predict_legendary &amp;lt;- predict(model_svm, newdata = validation_dat)
+svm_confmat &amp;lt;- confusionMatrix(predict_legendary, validation_dat[[&amp;quot;is_legendary&amp;quot;]])
+svm_confmat&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction FALSE TRUE
+##      FALSE   144    1
+##      TRUE      2   13
+##                                           
+##                Accuracy : 0.9812          
+##                  95% CI : (0.9462, 0.9961)
+##     No Information Rate : 0.9125          
+##     P-Value [Acc &amp;gt; NIR] : 0.000314        
+##                                           
+##                   Kappa : 0.8863          
+##                                           
+##  Mcnemar&amp;#39;s Test P-Value : 1.000000        
+##                                           
+##             Sensitivity : 0.9863          
+##             Specificity : 0.9286          
+##          Pos Pred Value : 0.9931          
+##          Neg Pred Value : 0.8667          
+##              Prevalence : 0.9125          
+##          Detection Rate : 0.9000          
+##    Detection Prevalence : 0.9062          
+##       Balanced Accuracy : 0.9574          
+##                                           
+##        &amp;#39;Positive&amp;#39; Class : FALSE           
+## &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;SO according to these multiple statistics, of the 14 Legendary Pokémon in the validation data, we correctly identified 13 of them, but missed 1. 2 were identified incorrectly. Our ultimate accuracy is 98.12%, which seems to be pretty good. However, it is possible to further tune this model, by adjusting the tuning parameter &lt;code&gt;C&lt;/code&gt;, by tweaking the parameters included in the model, and moving from a linear SVM model. However, all told, this is a pretty good result.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;k-nearest-neighbour&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;7.2&lt;/span&gt; k-Nearest Neighbour&lt;/h2&gt;
+&lt;p&gt;Another classification method is the k-Nearest Neighbour (kNN) algorithm. The idea here is that a record is kept of all of the data in the training data, and a new sample is compared to find the k samples “closest” to it. The classification is then calculated based on some average of the classifications of these nearest neighbours. The method of determining the “nearest” neighbour can be one of a number of different methods, including Euclidean distance as described earlier.&lt;/p&gt;
+&lt;p&gt;Also, the value of k is very important. Using the &lt;code&gt;caret&lt;/code&gt; package in R, we are able to test using multiple different values of k to find the value that optimises the model accuracy. So let’s train our model, again performing 10-fold repeated cross validation which we repeat 3 times:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(0)
+trctrl    &amp;lt;- trainControl(method = &amp;quot;repeatedcv&amp;quot;, number = 10, repeats = 3)
+model_knn &amp;lt;- train(is_legendary ~., 
+                   data = training_dat, 
+                   method = &amp;quot;knn&amp;quot;,
+                   trControl = trctrl,
+                   preProcess = c(&amp;quot;center&amp;quot;, &amp;quot;scale&amp;quot;),
+                   tuneLength = 10)
+model_knn&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## k-Nearest Neighbors 
+## 
+## 641 samples
+##  18 predictor
+##   2 classes: &amp;#39;FALSE&amp;#39;, &amp;#39;TRUE&amp;#39; 
+## 
+## Pre-processing: centered (56), scaled (56) 
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 577, 576, 576, 577, 577, 578, ... 
+## Resampling results across tuning parameters:
+## 
+##   k   Accuracy   Kappa    
+##    5  0.9470304  0.5515501
+##    7  0.9444345  0.5158836
+##    9  0.9428470  0.4854601
+##   11  0.9376461  0.4246775
+##   13  0.9350660  0.3903400
+##   15  0.9355788  0.3898290
+##   17  0.9376542  0.4161790
+##   19  0.9376784  0.4063420
+##   21  0.9355786  0.3765296
+##   23  0.9381750  0.4070014
+## 
+## Accuracy was used to select the optimal model using the largest value.
+## The final value used for the model was k = 5.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can see that the accuracy is optimised by using k = 5 nearest neighbours, which gives an accuracy of 94.7% – below that of the SVM accuracy. Now let’s test it on the validation data set:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;predict_legendary &amp;lt;- predict(model_knn, newdata = validation_dat)
+knn_confmat &amp;lt;- confusionMatrix(predict_legendary, validation_dat[[&amp;quot;is_legendary&amp;quot;]])
+knn_confmat&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction FALSE TRUE
+##      FALSE   145    4
+##      TRUE      1   10
+##                                           
+##                Accuracy : 0.9688          
+##                  95% CI : (0.9286, 0.9898)
+##     No Information Rate : 0.9125          
+##     P-Value [Acc &amp;gt; NIR] : 0.004163        
+##                                           
+##                   Kappa : 0.7833          
+##                                           
+##  Mcnemar&amp;#39;s Test P-Value : 0.371093        
+##                                           
+##             Sensitivity : 0.9932          
+##             Specificity : 0.7143          
+##          Pos Pred Value : 0.9732          
+##          Neg Pred Value : 0.9091          
+##              Prevalence : 0.9125          
+##          Detection Rate : 0.9062          
+##    Detection Prevalence : 0.9313          
+##       Balanced Accuracy : 0.8537          
+##                                           
+##        &amp;#39;Positive&amp;#39; Class : FALSE           
+## &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So we can already see that the results of this model are less positive than the SVM model.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;logistic-regression&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;7.3&lt;/span&gt; Logistic Regression&lt;/h2&gt;
+&lt;p&gt;For classification problems with only two groups, linear regression is often a good first option. This is a generalised linear model, where we require a transformation of the response variable to ensure that it fits a continuous scale. In this case, the response variable is the probability of being in the Legendary class, so we need to map this to the simple yes/no outcome of the input training data. The logit function is often used, which is a transformation between a probability &lt;code&gt;p&lt;/code&gt; and a real number:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[logit(p) = log(\frac{p}{1-p})\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;So let’s fit a logistic regression model containing all of our data, again using 3 repeats of 10-fold cross validation, and see what we get back:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(0)
+trctrl    &amp;lt;- trainControl(method = &amp;quot;repeatedcv&amp;quot;, number = 10, repeats = 3)
+model_logreg &amp;lt;- train(is_legendary ~., 
+                      data = training_dat, 
+                      method = &amp;quot;glm&amp;quot;,
+                      family = &amp;quot;binomial&amp;quot;,
+                      trControl = trctrl,
+                      preProcess = c(&amp;quot;center&amp;quot;, &amp;quot;scale&amp;quot;),
+                      tuneLength = 10)
+model_logreg&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Generalized Linear Model 
+## 
+## 641 samples
+##  18 predictor
+##   2 classes: &amp;#39;FALSE&amp;#39;, &amp;#39;TRUE&amp;#39; 
+## 
+## Pre-processing: centered (56), scaled (56) 
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 577, 576, 576, 577, 577, 578, ... 
+## Resampling results:
+## 
+##   Accuracy   Kappa   
+##   0.9667197  0.802881&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So we actually get a better accuracy from the cross-validation than for SVM or kNN at 96.67% accuracy. So let’s test it on the validation data set:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;predict_legendary &amp;lt;- predict(model_logreg, newdata = validation_dat)
+logreg_confmat &amp;lt;- confusionMatrix(predict_legendary, validation_dat[[&amp;quot;is_legendary&amp;quot;]])
+logreg_confmat&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction FALSE TRUE
+##      FALSE   141    1
+##      TRUE      5   13
+##                                           
+##                Accuracy : 0.9625          
+##                  95% CI : (0.9202, 0.9861)
+##     No Information Rate : 0.9125          
+##     P-Value [Acc &amp;gt; NIR] : 0.01131         
+##                                           
+##                   Kappa : 0.792           
+##                                           
+##  Mcnemar&amp;#39;s Test P-Value : 0.22067         
+##                                           
+##             Sensitivity : 0.9658          
+##             Specificity : 0.9286          
+##          Pos Pred Value : 0.9930          
+##          Neg Pred Value : 0.7222          
+##              Prevalence : 0.9125          
+##          Detection Rate : 0.8812          
+##    Detection Prevalence : 0.8875          
+##       Balanced Accuracy : 0.9472          
+##                                           
+##        &amp;#39;Positive&amp;#39; Class : FALSE           
+## &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The accuracy of this model on the validation data set is 96.25%.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;random-forest&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;7.4&lt;/span&gt; Random Forest&lt;/h2&gt;
+&lt;p&gt;As a final model, we will look at using a random forest classifier. A random forest is essentially created by creating a number of decision trees and averaging over them all. I will use the same cross-validation scheme as previously, and will allow &lt;code&gt;caret&lt;/code&gt; to identify the optimum parameters:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(0)
+trctrl    &amp;lt;- trainControl(method = &amp;quot;repeatedcv&amp;quot;, number = 10, repeats = 3)
+model_rf &amp;lt;- train(is_legendary ~., 
+                  data = training_dat, 
+                  method = &amp;quot;rf&amp;quot;,
+                  trControl = trctrl,
+                  preProcess = c(&amp;quot;center&amp;quot;, &amp;quot;scale&amp;quot;),
+                  tuneLength = 10)
+model_rf&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Random Forest 
+## 
+## 641 samples
+##  18 predictor
+##   2 classes: &amp;#39;FALSE&amp;#39;, &amp;#39;TRUE&amp;#39; 
+## 
+## Pre-processing: centered (56), scaled (56) 
+## Resampling: Cross-Validated (10 fold, repeated 3 times) 
+## Summary of sample sizes: 577, 576, 576, 577, 577, 578, ... 
+## Resampling results across tuning parameters:
+## 
+##   mtry  Accuracy   Kappa    
+##    2    0.9911611  0.9396362
+##    8    0.9984292  0.9905178
+##   14    0.9984292  0.9905178
+##   20    0.9984292  0.9905178
+##   26    0.9984292  0.9905178
+##   32    0.9984292  0.9905178
+##   38    0.9984292  0.9905178
+##   44    0.9984292  0.9905178
+##   50    0.9984292  0.9905178
+##   56    0.9984292  0.9905178
+## 
+## Accuracy was used to select the optimal model using the largest value.
+## The final value used for the model was mtry = 8.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This approach identified an accuracy of 99.84% (with a normalised kappa value of 99.05%) with an &lt;code&gt;mtry&lt;/code&gt; value of 8. This is incredibly good, and is the best outcome so far. However, it is worth noting that this approach is significantly slower than the others. Let’s check against our validation data set:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;predict_legendary &amp;lt;- predict(model_rf, newdata = validation_dat)
+confusionMatrix(predict_legendary, validation_dat[[&amp;quot;is_legendary&amp;quot;]])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction FALSE TRUE
+##      FALSE   145    1
+##      TRUE      1   13
+##                                           
+##                Accuracy : 0.9875          
+##                  95% CI : (0.9556, 0.9985)
+##     No Information Rate : 0.9125          
+##     P-Value [Acc &amp;gt; NIR] : 0.00005782      
+##                                           
+##                   Kappa : 0.9217          
+##                                           
+##  Mcnemar&amp;#39;s Test P-Value : 1               
+##                                           
+##             Sensitivity : 0.9932          
+##             Specificity : 0.9286          
+##          Pos Pred Value : 0.9932          
+##          Neg Pred Value : 0.9286          
+##              Prevalence : 0.9125          
+##          Detection Rate : 0.9062          
+##    Detection Prevalence : 0.9125          
+##       Balanced Accuracy : 0.9609          
+##                                           
+##        &amp;#39;Positive&amp;#39; Class : FALSE           
+## &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So whilst the training accuracy is nearly 100%, here we see slightly lower accuracy on the test data set. It is still pretty good going, but could still be improved.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;8&lt;/span&gt; Conclusion&lt;/h1&gt;
+&lt;p&gt;We have managed to explore these data in a number of different ways and have identified some interesting themes and patterns. However, there is a lot of additional work that can be done. Correlation-based recommendation seems to work to identify similar Pokémon, at least in the small number of cases that I looked at. My wife showed me &lt;a href=&#34;https://www.amazon.co.uk/Pokemon-Trainer/dp/B07GYQC8C7&#34;&gt;this&lt;/a&gt; toy that can guess any Pokémon that you think of, which probably uses a similar approach. I’m in the wrong business…&lt;/p&gt;
+&lt;p&gt;In particular, whilst it was interesting to play with some of the most commonly used machine learning methods, I have spent no real time tuning the model parameters. The variables themselves used in the data set could be tweaked to identify those variables most associated with the response variable. Given that these are incredibly rare and powerful Pokémon, we will inevitably find that the fighting based variables like attack and defence are highly discriminative, but also those such as the capture rate and experience growth associated. In addition, we have looked only at additive models here and have not considered interaction terms. We can also spend time fine-tuning the parameters of the models themselves to improve the accuracy further.&lt;/p&gt;
+&lt;p&gt;However, despite this, we got some very good results from the default model parameters for several commonly used methods. kNN, SVM, logistic regression and random forests gave very similar results, but with SVM and random forest giving the best predictive outcomes.&lt;/p&gt;
+&lt;p&gt;Ultimately, the key to developing any machine learning algorithm is to trial multiple different approaches and tune the parameters for the specific data in question. Also, a machine learning algorithm is only as good as the data that it is trained on, so feeding in more good quality cleaned data will help the model to learn. Ultimately, machine learning is aimed at developing a model that is able to predict something from new data, so it needs to be as generalised as possible.&lt;/p&gt;
+&lt;p&gt;So hopefully when I come across a new Pokémon not currently found in my Pokedex, I can easily check whether it is Legendary by asking it a few questions about its vital statistics. Very useful.&lt;/p&gt;
+&lt;p&gt;Gotta catch ’em all!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;session-info&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;9&lt;/span&gt; Session Info&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sessionInfo()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## R version 3.6.1 (2019-07-05)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Sierra 10.12.6
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] caret_6.0-84       lattice_0.20-38    pheatmap_1.0.12   
+## [4] RColorBrewer_1.1-2 ggrepel_0.8.1      dplyr_0.8.3       
+## [7] ggplot2_3.2.0     
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_1.0.2          lubridate_1.7.4     tidyr_1.0.0        
+##  [4] class_7.3-15        assertthat_0.2.1    zeallot_0.1.0      
+##  [7] digest_0.6.20       ipred_0.9-9         foreach_1.4.7      
+## [10] R6_2.4.0            plyr_1.8.4          backports_1.1.4    
+## [13] stats4_3.6.1        evaluate_0.14       e1071_1.7-2        
+## [16] blogdown_0.16       pillar_1.4.2        rlang_0.4.0        
+## [19] lazyeval_0.2.2      data.table_1.12.2   kernlab_0.9-27     
+## [22] rpart_4.1-15        Matrix_1.2-17       rmarkdown_1.14     
+## [25] labeling_0.3        splines_3.6.1       gower_0.2.1        
+## [28] stringr_1.4.0       munsell_0.5.0       compiler_3.6.1     
+## [31] xfun_0.8            pkgconfig_2.0.2     htmltools_0.3.6    
+## [34] nnet_7.3-12         tidyselect_0.2.5    tibble_2.1.3       
+## [37] prodlim_2018.04.18  bookdown_0.12       codetools_0.2-16   
+## [40] randomForest_4.6-14 crayon_1.3.4        withr_2.1.2        
+## [43] MASS_7.3-51.4       recipes_0.1.7       ModelMetrics_1.2.2 
+## [46] grid_3.6.1          nlme_3.1-140        gtable_0.3.0       
+## [49] lifecycle_0.1.0     magrittr_1.5        scales_1.0.0       
+## [52] stringi_1.4.3       reshape2_1.4.3      timeDate_3043.102  
+## [55] ellipsis_0.2.0.1    generics_0.0.2      vctrs_0.2.0        
+## [58] lava_1.6.6          iterators_1.0.12    tools_3.6.1        
+## [61] glue_1.3.1          purrr_0.3.3         survival_2.44-1.1  
+## [64] yaml_2.2.0          colorspace_1.4-1    knitr_1.23&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Center for Enzyme Innovation</title>
+      <link>/project/2019-06-18_center_for_enzyme_innovation/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>/project/2019-06-18_center_for_enzyme_innovation/</guid>
+      <description>&lt;p&gt;The Centre for Enzyme Innovation is a new initiative set up at the University of Portsmouth, with a goal to find solutions to some of the most pressing global environmental problems. In particular, we aim to examine environmental samples to find how the natural world has solved the problem of plastic pollution, by identifying microorganisms who have evolved to be able to break down plastics in the environment. By identifying these microorgansisms, and further understanding the enzymatic methods that they use towards this goal, we aim to harness the amazing work that nature has done, and find ways to enhance this and scale it up on an industrial scale to allow their use in circular recycling of plastics.&lt;/p&gt;
+
+&lt;p&gt;The Centre was &lt;a href=&#34;https://www.port.ac.uk/enquire/news/portsmouth-scientists-awarded-major-plastics-funding&#34; target=&#34;_blank&#34;&gt;recently awarded £5.8 million&lt;/a&gt; in funding from the Research England Expanding Excellence Fund. Together with significant investment from the University of Portsmouth, we aim to use this funding to speed up our progress towards finding a solution to one of the world’s greatest environmental challenges – plastic waste.&lt;/p&gt;
+
+&lt;p&gt;We will be working in the Discovery phase of the pipeline, aiming to use next generation &lt;a href=&#34;https://nanoporetech.com&#34; target=&#34;_blank&#34;&gt;Nanopore&lt;/a&gt; sequencing to explore microorganisms present on samples taken from environmental sites of interest (e.g. plastic receycling centres) to try and profile what is present and how they have developed to survive on plastic substrates. We aim to use this bioprospecting approach to explore metagenomics and metatranscriptomics of samples to identify mechanisms of action for plastic degaradation, and in particular to compare with previously explored species to identify what makes these species unique. This information, and information on the make-up of enzymes involved in the processes, will feed through the pipeline to be further engineered to create enzymes that can be scaled up on an industrial scale. These data will be combined with data from public repositories to feed into novel machine learning algorithms to help to train algorithms for the identification of further potential candidates for feeding through the pipeline.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How Predictable Are Ultra Runners?</title>
+      <link>/post/2018-04-24-how-predictable-are-ultrarunners/</link>
+      <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/post/2018-04-24-how-predictable-are-ultrarunners/</guid>
+      <description>
+
+&lt;h1 id=&#34;note&#34;&gt;Note&lt;/h1&gt;
+
+&lt;p&gt;&lt;em&gt;This blog post was originally written in 2017 for a less formal personal blog with a focus on ultramarathon running, which is a hobby that I am quite passionate about. I have decided to include all of my data science related blog posts here to keep things centralised, but please excuse the more informal language used throughout.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;This post is a continuation from my &lt;a href=&#34;/post/2018-04-18-Suunto-Or-Garmin/index.html&#34;&gt;previous post&lt;/a&gt;, looking at various aspects of the posting habits of the Ultra Running Community (URC). This was originally intended to be just an additional section in that blog post, but it was getting a little unwieldy so I decided to split it off into its own post to stop it from getting too crazy. This post is probably a lot less interesting than the last post, as it is really looking at one central question; can I predict which group member is posting based on the content of the message? Spoiler alert, you can&amp;rsquo;t! The posters on this forum are apparently &lt;em&gt;all&lt;/em&gt; sarcastic bastards, so it is difficult to pick them apart. But it was quite interesting trying.&lt;/p&gt;
+
+&lt;p&gt;So as a bit of an experiment, I decided to play around with these data to see if the language that people use in their posts is specific enough to allow us to predict who has written something based on what the post says. This is a job for &lt;em&gt;machine-learning&lt;/em&gt;, which is really a lot less grandiose than it sounds. Essentially what we are doing here is using data to train a model of some description that can be applied to a new set of data to make predictions. In this case, we are looking to fit a model that is able to classify posts into one of a number of groups, where each group represents a single user. As an example of a classification problem, think of the spam filter in your email client. This is essentially a model that has been trained to look at the email message content and determine whether it is spam or not (e.g. if it is full of words like &lt;em&gt;viagra&lt;/em&gt;, &lt;em&gt;Nigerian Prince&lt;/em&gt;, &lt;em&gt;penis enlargement&lt;/em&gt;, &lt;em&gt;make money today&lt;/em&gt;, etc. then it is clearly all kosher). This would be a 2-class classification problem.&lt;/p&gt;
+
+&lt;p&gt;For classification problems such as this, we require a training set on which to fit our model, and a validation set to determine the quality of the model. The validation set must be independent of the training set, as we want to test how the model will generalize to new data. The idea of &lt;em&gt;cross validation&lt;/em&gt; is essentially to split your training data into a training set and a validation set such that the validation is independent of the model fitting (to avoid the effects of over-fitting in the training set). There are various ways to split your data in this way. For now I will simply randomly select a subset for training and a smaller subset for validation (the &lt;em&gt;Holdout Method&lt;/em&gt;), but for true cross-validation this should then be repeated several times so that the average over several validation sets is used. For example, in &lt;em&gt;k-fold cross validation&lt;/em&gt; you would randomly distribute the data into &lt;code&gt;k&lt;/code&gt; equally sized subsets, and use exactly one of these as the validation set and &lt;code&gt;k-1&lt;/code&gt; as the training set. This is then repeated &lt;code&gt;k&lt;/code&gt; times, each time using a different subset as the validation set.&lt;/p&gt;
+
+&lt;p&gt;It makes sense to restrict this analysis to the most active posters, and so I will limit the analysis to only users who have contributed 50 or more posts to the forum. This gives us 5,233 posts, from 48 users. I will randomly select 4,000 posts for the training set, and use the remainder for validation:&lt;/p&gt;
+
+&lt;p&gt;{% highlight r %}
+posts50 &amp;lt;- URC                 %&amp;gt;%
+           group_by(from_name) %&amp;gt;%    ## Group by poster
+           filter(n() &amp;gt;= 50)   %&amp;gt;%    ## Select only posters with &amp;gt;50 posts
+           select(from_name, message) ## Keep poster name and message content
+set.seed(0) ## Set seed for random number generation for reproducibility
+ids   &amp;lt;- sample(1:nrow(posts50), 4000) ## Randomly select 4000
+train &amp;lt;- posts50[ids,]  ## Keep random ids as training set
+test  &amp;lt;- posts50[-ids,] ## Use remaining ids as validation
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h1 id=&#34;natural-language-programming&#34;&gt;Natural Language Programming&lt;/h1&gt;
+
+&lt;p&gt;The model that we will be using is the &lt;a href=&#34;https://en.wikipedia.org/wiki/Bag-of-words_model&#34; target=&#34;_blank&#34;&gt;Bag Of Words&lt;/a&gt; model, which is a natural language programming technique that aims to represent text based on the frequency of words within it. There are some things that we can do to reduce the vector space of available terms, such as removing capital letters and removing so called &amp;ldquo;stop words&amp;rdquo; (common words like &amp;ldquo;is&amp;rdquo;, &amp;ldquo;and&amp;rdquo;, &amp;ldquo;but&amp;rdquo;, &amp;ldquo;the&amp;rdquo;, etc.). We can also limit the analysis to only words that occur frequently in the text, although there is a possibility of missing specific terms used by only one or two individuals, say, that may help the predictiveness of the model.&lt;/p&gt;
+
+&lt;p&gt;I will be using the &lt;a href=&#34;https://cran.r-project.org/web/packages/text2vec&#34; target=&#34;_blank&#34;&gt;text2vec&lt;/a&gt; package in R which is efficient at generating the required document-term matrix (DTM) for fitting our model. In particular, it generates unique tokens for each term rather than using the terms themselves, which reduces computational overheads. An iterative function can then be applied to generate the DTM. So let&amp;rsquo;s generate such an iterator over the term tokens:&lt;/p&gt;
+
+&lt;p&gt;{% highlight r %}
+library(text2vec)
+train_tokens &amp;lt;- train$message                      %&amp;gt;%
+                iconv(&amp;ldquo;latin1&amp;rdquo;, &amp;ldquo;ASCII&amp;rdquo;, sub = &amp;ldquo;&amp;rdquo;) %&amp;gt;% # Convert to ASCII format
+                tolower                            %&amp;gt;% # Make lower case
+                word_tokenizer                         # Break terms into tokens
+it_train &amp;lt;- itoken(train_tokens, ids = train$from_name, progressbar = FALSE)
+it_train
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;{% highlight text %}&lt;/p&gt;
+
+&lt;h2 id=&#34;itoken&#34;&gt;&lt;itoken&gt;&lt;/h2&gt;
+
+&lt;h2 id=&#34;inherits-from-iterator&#34;&gt;Inherits from: &lt;iterator&gt;&lt;/h2&gt;
+
+&lt;h2 id=&#34;public&#34;&gt;Public:&lt;/h2&gt;
+
+&lt;h2 id=&#34;chunk-size-400&#34;&gt;chunk_size: 400&lt;/h2&gt;
+
+&lt;h2 id=&#34;clone-function-deep-false&#34;&gt;clone: function (deep = FALSE)&lt;/h2&gt;
+
+&lt;h2 id=&#34;counter-0&#34;&gt;counter: 0&lt;/h2&gt;
+
+&lt;h2 id=&#34;ids-nici-griffin-tremayne-dill-cowdry-iain-edward-smuts-neil&#34;&gt;ids: Nici Griffin Tremayne Dill Cowdry Iain Edward Smuts Neil &amp;hellip;&lt;/h2&gt;
+
+&lt;h2 id=&#34;initialize-function-iterable-ids-null-chunks-number-10-progress-interactive&#34;&gt;initialize: function (iterable, ids = NULL, chunks&lt;em&gt;number = 10, progress&lt;/em&gt; = interactive(),&lt;/h2&gt;
+
+&lt;h2 id=&#34;is-complete-active-binding&#34;&gt;is_complete: active binding&lt;/h2&gt;
+
+&lt;h2 id=&#34;iterable-list&#34;&gt;iterable: list&lt;/h2&gt;
+
+&lt;h2 id=&#34;length-active-binding&#34;&gt;length: active binding&lt;/h2&gt;
+
+&lt;h2 id=&#34;nextelem-function&#34;&gt;nextElem: function ()&lt;/h2&gt;
+
+&lt;h2 id=&#34;preprocessor-list&#34;&gt;preprocessor: list&lt;/h2&gt;
+
+&lt;h2 id=&#34;progress-false&#34;&gt;progress: FALSE&lt;/h2&gt;
+
+&lt;h2 id=&#34;progressbar-null&#34;&gt;progressbar: NULL&lt;/h2&gt;
+
+&lt;h2 id=&#34;tokenizer-list&#34;&gt;tokenizer: list&lt;/h2&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Next we use this iterator to create a vocabulary DTM for fitting the model. To start with, I will use all of the words, but later we could look at filtering out stop words and less frequent terms:&lt;/p&gt;
+
+&lt;p&gt;{% highlight r %}
+vocab      &amp;lt;- create_vocabulary(it_train)
+vectorizer &amp;lt;- vocab_vectorizer(vocab)
+train_dtm  &amp;lt;- create_dtm(it_train, vectorizer)
+dim(train_dtm)
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;{% highlight text %}&lt;/p&gt;
+
+&lt;h2 id=&#34;1-4000-13209&#34;&gt;[1]  4000 13209&lt;/h2&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;The result is a matrix with 4,000 rows (the number of messages in the training set) and 13,209 columns (the number of unique terms in the training set). So each message is now represented as a vector of counts for all possible terms in the search space. The hope now is that we will be able to fit a model that is able to discriminate different users based on their word usage. Unlikely, but hey let&amp;rsquo;s give it a shot.&lt;/p&gt;
+
+&lt;h1 id=&#34;random-forest&#34;&gt;Random Forest&lt;/h1&gt;
+
+&lt;p&gt;In this case, our dependent variable is the name of the user who posted the message which is a categorical variable. The independent variables are the counts for each of the 13,209 terms across the data set. I am going to start by using a random forest model, which is one of the more popular classification models available. A decision tree is a quite simple (although incredibly powerful) stepwise model that you can think of like a flow chart. The model fitting will create a series of nodes where your independent variables are used to discrimate between one choice and another, eventually leading to a certain prediction depending on the values of the variables in your model. A random forest essentially fits a whole load of these classification decision trees and outputs the &lt;em&gt;modal&lt;/em&gt; (most common) class across all of them.&lt;/p&gt;
+
+&lt;p&gt;One benefit of using random forests over something like generalised linear models (see later) is that, since they rely on fairly independent tests at each stage in the tree, they are more robust to correlated variables in the model. With such a large set of term variables there is undoubtedly correlation between many of these terms, particularly as many of these variables are likely to be largely made of zeroes. Of course, this sparsity itself causes somewhat of a problem, and should be taken into account in the analysis. But for now I will ignore it and just hope that it isn&amp;rsquo;t a problem&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;To begin with,let&amp;rsquo;s fit a simple random forest model and see how it looks:&lt;/p&gt;
+
+&lt;p&gt;{% highlight r %}
+library(&amp;ldquo;randomForest&amp;rdquo;)
+rf_model &amp;lt;- randomForest(x = as.matrix(train_dtm), y = as.factor(rownames(train_dtm)))
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Note that I set the &lt;code&gt;y&lt;/code&gt; parameter to be a factor so that it is clear that this is a classification model. Now we can test our model by seeing how it performs at predicting the user for our test data set. First we generate a similar DTM for the test data set. Note that we use the same &lt;code&gt;vectorizer&lt;/code&gt; as we used for the training set:&lt;/p&gt;
+
+&lt;p&gt;{% highlight r %}
+test_tokens &amp;lt;- test$message                       %&amp;gt;%
+               iconv(&amp;ldquo;latin1&amp;rdquo;, &amp;ldquo;ASCII&amp;rdquo;, sub = &amp;ldquo;&amp;rdquo;) %&amp;gt;% # Convert to ASCII format
+               tolower                            %&amp;gt;% # Make lower case
+               word_tokenizer                         # Break terms into tokens
+it_test     &amp;lt;- itoken(test_tokens, ids = test$from_name, progressbar = FALSE)
+test_dtm    &amp;lt;- create_dtm(it_test, vectorizer)
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;And then we use our model to predict the user for each of the posts in our test data set. To do this we use the &lt;code&gt;predict()&lt;/code&gt; method for &lt;code&gt;randomForest&lt;/code&gt; objects, and output the response class with the majority vote amongst all of the decision trees:&lt;/p&gt;
+
+&lt;p&gt;{% highlight r %}
+test_predict &amp;lt;- predict(rf_model, as.matrix(test_dtm), type = &amp;ldquo;response&amp;rdquo;)
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;So, how did we do? Let&amp;rsquo;s see how many of these were correctly predicted:&lt;/p&gt;
+
+&lt;p&gt;{% highlight r %}
+table(test_predict == rownames(test_dtm))
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;{% highlight text %}&lt;/p&gt;
+
+&lt;h2 id=&#34;false-true&#34;&gt;FALSE  TRUE&lt;/h2&gt;
+
+&lt;h2 id=&#34;760-473&#34;&gt;760   473&lt;/h2&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;This model predicts the poster only 38.4 % of the time, which isn&amp;rsquo;t particularly good.&lt;/p&gt;
+
+&lt;h1 id=&#34;model-improvements&#34;&gt;Model Improvements&lt;/h1&gt;
+
+&lt;p&gt;So can we improve this? Yes, probably. The first thing that I can try is to be a little more clever in the way that I parameterise the data. So rather than simply counting words, I will instead use &lt;em&gt;n-grams&lt;/em&gt; &amp;ndash; combinations of &lt;code&gt;n&lt;/code&gt; words that will be more sensitive to the types of phrases that different people typically use. Obviously increasing &lt;code&gt;n&lt;/code&gt; in this case will also increase the memory and run time considerably, so there are limits to what we can feasibly do. Also, it is probably worth noting that removal of stop words is less likely to be the best way to go about this, as this will affect the structure of the n-grams. So this time let us leave the stop words in, but parameterise with &lt;code&gt;3-grams&lt;/code&gt;. I will also limit the count to those n-grams used at least 10 times:&lt;/p&gt;
+
+&lt;p&gt;{% highlight r %}
+vocab &amp;lt;- create_vocabulary(it_train, ngram = c(1L, 3L)) ## use 1-, 2- and 3-grams
+vocab &amp;lt;- vocab %&amp;gt;%
+         prune_vocabulary(term_count_min = 10) ## Only keep n-grams with count greater than 10
+vectorizer &amp;lt;- vocab_vectorizer(vocab)
+dtm_train  &amp;lt;- create_dtm(it_train, vectorizer)
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Note here that we used the notation &lt;code&gt;1L, 3L&lt;/code&gt;, which tells &lt;code&gt;R&lt;/code&gt; to explicitly use integer values rather than numeric values. In many cases this has little to no effect, but in programming an integer variable will take up much less memory (4 bytes per element) than a double precision floating point number (8 bytes per element).&lt;/p&gt;
+
+&lt;p&gt;Another thing that we can do to improve the model fit is that we can attempt to normalise our DTM to account for the fact that different Facebook messages may be longer or shorter than others. Typically the &amp;ldquo;documents&amp;rdquo; in this case (the messages) are very small so I imagine this will have only a minimal effect. Here I will use the &lt;em&gt;term frequency-inverse document frequency&lt;/em&gt; (TF-IDF) transformation. The idea here is to not only normalise the data, but also to scale the terms such that terms that are more common (i.e. those used regularly in all posts) are down-weighted, whilst those that are more specific to a small number of users (and will thus be more predictive) are up-weighted.&lt;/p&gt;
+
+&lt;p&gt;{% highlight r %}
+tfidf           &amp;lt;- TfIdf$new()
+train_dtm_tfidf &amp;lt;- fit_transform(train_dtm, tfidf)
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Finally there is some fine tunning that can be made to the model fitting procudure. Here we are dealing with a very sparse set of data, since most of the counts are zero in this matrix (not everybody uses every word or set of words). This can cause issues with the random forest model. In addition, there may be some imbalance in the classes (for instance as we saw above different individuals post more often than others).&lt;/p&gt;
+
+&lt;p&gt;Now I don&amp;rsquo;t claim to be an expert in machine learning, and random forests in particular are not my forte. However, different selections for the parameters can have big effects on the quality of the model. The two main parameters for a random forest are the number of trees (&lt;code&gt;ntree&lt;/code&gt;) and the number of features that are evaluated at each branch in the trees (&lt;code&gt;mtry&lt;/code&gt;). The higher the better for the number of trees, although run-time can be a hindrance on this. For the second parameter, I have seen it suggested that the square root of the number of features is a good place to start, and this is the default for classification anyway. So let&amp;rsquo;s try increasing the number of trees, and running this on the TF-IDF transformed 3-gram data:&lt;/p&gt;
+
+&lt;p&gt;{% highlight r %}
+rf_model_tfidf &amp;lt;- randomForest(x = as.matrix(train_dtm_tfidf),
+                               y = as.factor(rownames(train_dtm_tfidf)),
+                               ntree = 1000)
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;One note to make here is that this is slllllllloooooooooowwwwwwwwww! This needed to be run overnight to finish. Using something like python is probably a better bet when running machine learning algorithms like this, and I will probably do another post later in the future to look at some alternative ways to do this.&lt;/p&gt;
+
+&lt;p&gt;So let&amp;rsquo;s take a look at whether or not this model is more effective at predicting the user:&lt;/p&gt;
+
+&lt;p&gt;{% highlight r %}
+dtm_test       &amp;lt;- create_dtm(it_test, vectorizer)
+test_dtm_tfidf &amp;lt;- fit_transform(test_dtm, tfidf)
+test_predict &amp;lt;- predict(rf_model_tfidf, as.matrix(test_dtm_tfidf), type = &amp;ldquo;response&amp;rdquo;)
+table(test_predict == rownames(test_dtm))
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;{% highlight text %}&lt;/p&gt;
+
+&lt;h2 id=&#34;false-true-1&#34;&gt;FALSE  TRUE&lt;/h2&gt;
+
+&lt;h2 id=&#34;751-482&#34;&gt;751   482&lt;/h2&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Wow, so now we have improved the prediction to a whopping 39.1%. Hmm. An improvement of 0.7% was not &lt;em&gt;quite&lt;/em&gt; as much as I was hoping for.&lt;/p&gt;
+
+&lt;h1 id=&#34;logistic-regression&#34;&gt;Logistic Regression&lt;/h1&gt;
+
+&lt;p&gt;Okay, so let&amp;rsquo;s try a different model to see if that has any effect. I am going to fit a &lt;a href=&#34;https://en.wikipedia.org/wiki/Logistic_regression&#34; target=&#34;_blank&#34;&gt;logistic regression&lt;/a&gt;. Regression is simply an attempt to fit a linear approximation to a set of data that minimises the difference between the modeled value and the true value (the &lt;em&gt;residuals&lt;/em&gt;). I will do a more thorough post on statistical modelling in the future, but for now think of regression models as being an attempt to fit a line of best fit between some variable $y$ that you suspect is dependent on some other variables $x_1, x_2, &amp;hellip;, x_n$. The idea then is to use this model to predict $y$ based on new measurements of $x_1, x_2, &amp;hellip;, x_n$. So here we are trying to fit a model that will provide us with an estimate of the user based on the words used in the post.&lt;/p&gt;
+
+&lt;p&gt;Here I will use the &lt;a href=&#34;https://cran.r-project.org/web/packages/glmnet/index.html&#34; target=&#34;_blank&#34;&gt;glmnet&lt;/a&gt; package to fit the logistic regression. Logistic regression is a subset of Generalised Linear Models (GLM), which are an extension of ordinary linear regression allowing for errors that are not normally distributed through the use of a link function. Since we have multiple possible classes in the dependent variable, this will be a multinomial logistic regression:&lt;/p&gt;
+
+&lt;p&gt;{% highlight r %}
+library(&amp;ldquo;glmnet&amp;rdquo;)
+glm_model_tfidf &amp;lt;- cv.glmnet(x = train_dtm_tfidf, y = as.factor(train$from_name),
+                              family = &amp;lsquo;multinomial&amp;rsquo;,
+                              alpha = 1,
+                              type.measure = &amp;ldquo;deviance&amp;rdquo;,
+                              nfolds = 5,
+                              thresh = 1e-3,
+                              maxit = 1e3)
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;This is an n-fold cross-validated GLM (hence &lt;code&gt;cv.glmnet&lt;/code&gt;), which is a method of validation for the model that splits the data into &lt;code&gt;n&lt;/code&gt; equally sized subsets, then uses &lt;code&gt;n-1&lt;/code&gt; subsets as training data and the remaining subset as the validation data to test the accuracy of the model. This is repeated &lt;code&gt;n&lt;/code&gt; times, and the average is used. This is actually a better method than I have used in these data (selecting a test data set and running the model on the remaining subset) as every sample is used in the validation, which avoids over-fitting.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;family&lt;/code&gt; parameter gives the model family that defines the error model, which in turn determines the link function to be used. In this case we are using multinomial logistic regression, so the predicted response is a vector of probabilities between 0 and 1 &amp;ndash; one for each potential response &amp;ndash; all adding to 1. The link function, which defines the relationship between the linear predictor and the mean of the distribution function, is the &lt;code&gt;logit&lt;/code&gt; function, which in the binary case gives the log odds of the prediction ($X\beta = ln (\mu/(1-\mu)$).&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;alpha&lt;/code&gt; value will utilise an L1 regularisation of the data to account for the sparsity that we see in the data. The &lt;code&gt;type.measure&lt;/code&gt; value determines the measurement to use to determine the cross validation, in this case the misclassification error. &lt;code&gt;nfolds&lt;/code&gt; gives the value of &lt;code&gt;k&lt;/code&gt; for the k-fold cross validation, &lt;code&gt;thresh&lt;/code&gt; gives the threshold for the convergence of the coordinate descent loop, and &lt;code&gt;maxit&lt;/code&gt; gives the maximum number of iterations to perform.&lt;/p&gt;
+
+&lt;p&gt;So let&amp;rsquo;s see if this is any better:&lt;/p&gt;
+
+&lt;p&gt;{% highlight r %}
+test_predict &amp;lt;- predict(glm_model_tfidf, as.matrix(test_dtm_tfidf), type = &amp;ldquo;response&amp;rdquo;)
+table(colnames(test_predict)[apply(test_predict, MAR = 1, which.max)] == rownames(test_dtm))
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;{% highlight text %}&lt;/p&gt;
+
+&lt;h2 id=&#34;false-true-2&#34;&gt;FALSE  TRUE&lt;/h2&gt;
+
+&lt;h2 id=&#34;752-481&#34;&gt;752   481&lt;/h2&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Nope. We still only see about 39% accurately assigned.&lt;/p&gt;
+
+&lt;h1 id=&#34;discussion&#34;&gt;Discussion&lt;/h1&gt;
+
+&lt;p&gt;Okay, so it is possible (highly probable?) that I have made some mistakes in this analysis, and that I could vastly improve the creation of the DTM, but I think it is more propbable that these posts are simply not distinct enough to determine individuals writing styles. I guess in a group with such a narrow focus, it is inevitable that people will be posting very similar content to one another. There is after all only so many ways to ask &amp;ldquo;Suunto or Garmin&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s examine why we are struggling to distinguish these posts in a little more detail. Below is a heatmap showing the probability for each of the 48 potential posters, predicted for all 1,233 of the posts in the validation data set. A heatmap is a kind of 3-dimensional plot, where colour is used to represent the third dimension. So the 48 potential posters are shown on the x-axis, the 1,233 posts are shown on the y-axis, and the magnitude of the estimated probability for user &lt;code&gt;i&lt;/code&gt; based on post &lt;code&gt;j&lt;/code&gt; is represented by a colour from red (0% probability) to white (100% probability). Note that here I have scaled the data using a square root so that smaller probabilities (which we expect to see) are more visible. The rows and columns are arranged such that more similar values are closer together.&lt;/p&gt;
+
+&lt;p&gt;{% highlight r %}
+library(&amp;ldquo;gplots&amp;rdquo;)
+heatmap.2(sqrt(test_predict[,,1]), trace = &amp;ldquo;none&amp;rdquo;, margins = c(10,0), labRow = FALSE)
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;similar_posts.png&#34; alt=&#34;Heatmap showing similarity between posters on the URC Facebook group&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So the biggest problem here is that the vast majority of the posts are estimated as most likely coming from either Neil Bryant, Stef Schuermans or James Adams. And actually, the ones that it gets correct are almost all from one of these posters:&lt;/p&gt;
+
+&lt;p&gt;{% highlight r %}
+pie(sort(table(rownames(test_dtm)[colnames(test_predict)[apply(test_predict, MAR = 1, which.max)] == rownames(test_dtm)])))
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;similar_posts_pie.png&#34; alt=&#34;Pie chart showing the most active posters within the URC Facebook group&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I wonder whether these guys are skewing the model because of their, ahem, above average posting habits. But frankly at this stage I&amp;rsquo;m kind of bored, so I think that I will leave it there. Another time maybe. Ultimately I believe that these posts are simply too short and bereft of salient information to be useful for making predictions.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Calero-Nieto F | IRunFasterThanMyCode</title>
+    <link>/authors/calero-nieto-f/</link>
+      <atom:link href="/authors/calero-nieto-f/index.xml" rel="self" type="application/rss+xml" />
+    <description>Calero-Nieto F</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Wed, 01 Jan 2014 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Calero-Nieto F</title>
+      <link>/authors/calero-nieto-f/</link>
+    </image>
+    
+    <item>
+      <title>BET protein inhibition shows efficacy against JAK2V617F-driven neoplasms</title>
+      <link>/publication/2014_bet_protein_inhibition_shows_efficacy_against_jak2v617f-driven_neoplasms/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>/publication/2014_bet_protein_inhibition_shows_efficacy_against_jak2v617f-driven_neoplasms/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

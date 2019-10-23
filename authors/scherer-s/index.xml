@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scherer S | IRunFasterThanMyCode</title>
+    <link>/authors/scherer-s/</link>
+      <atom:link href="/authors/scherer-s/index.xml" rel="self" type="application/rss+xml" />
+    <description>Scherer S</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Thu, 01 Apr 2010 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Scherer S</title>
+      <link>/authors/scherer-s/</link>
+    </image>
+    
+    <item>
+      <title>Origins and functional impact of copy number variation in the human genome</title>
+      <link>/publication/2010_origins_and_functional_impact_of_copy_number_variation_in_the_human_genome/</link>
+      <pubDate>Thu, 01 Apr 2010 00:00:00 +0000</pubDate>
+      <guid>/publication/2010_origins_and_functional_impact_of_copy_number_variation_in_the_human_genome/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

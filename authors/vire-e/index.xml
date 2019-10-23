@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Viré E | IRunFasterThanMyCode</title>
+    <link>/authors/vire-e/</link>
+      <atom:link href="/authors/vire-e/index.xml" rel="self" type="application/rss+xml" />
+    <description>Viré E</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Tue, 03 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Viré E</title>
+      <link>/authors/vire-e/</link>
+    </image>
+    
+    <item>
+      <title>Inhibition of the acetyltransferase NAT10 normalizes progeric and aging cells by rebalancing the Transportin-1 nuclear import pathway</title>
+      <link>/publication/2018_inhibition_of_the_acetyltransferase_nat10_normalizes_progeric_and_aging_cells_by_rebalancing_the_transportin-1_nuclear_import_pathway/</link>
+      <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>/publication/2018_inhibition_of_the_acetyltransferase_nat10_normalizes_progeric_and_aging_cells_by_rebalancing_the_transportin-1_nuclear_import_pathway/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The breast cancer oncogene EMSY represses transcription of antimetastatic microRNA miR-31</title>
+      <link>/publication/2014_the_breast_cancer_oncogene_emsy_represses_transcription_of_antimetastatic_microrna_mir-31/</link>
+      <pubDate>Thu, 06 Mar 2014 00:00:00 +0000</pubDate>
+      <guid>/publication/2014_the_breast_cancer_oncogene_emsy_represses_transcription_of_antimetastatic_microrna_mir-31/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

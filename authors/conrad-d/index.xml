@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Conrad D | IRunFasterThanMyCode</title>
+    <link>/authors/conrad-d/</link>
+      <atom:link href="/authors/conrad-d/index.xml" rel="self" type="application/rss+xml" />
+    <description>Conrad D</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Thu, 01 Apr 2010 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Conrad D</title>
+      <link>/authors/conrad-d/</link>
+    </image>
+    
+    <item>
+      <title>Origins and functional impact of copy number variation in the human genome</title>
+      <link>/publication/2010_origins_and_functional_impact_of_copy_number_variation_in_the_human_genome/</link>
+      <pubDate>Thu, 01 Apr 2010 00:00:00 +0000</pubDate>
+      <guid>/publication/2010_origins_and_functional_impact_of_copy_number_variation_in_the_human_genome/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

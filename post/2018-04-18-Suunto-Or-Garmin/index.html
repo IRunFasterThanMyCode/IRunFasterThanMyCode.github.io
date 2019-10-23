@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.5.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Sam Robson">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Analysis of posts from the Ultra Running Community (URC) Facebook page looking at syntax usage, posting habits, and sentiment analysis using R.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2018-04-18-suunto-or-garmin/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.1884ccbe79662c38d99b291260b58a24.css">
+
+  
+
+  
+
+
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/2018-04-18-suunto-or-garmin/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="IRunFasterThanMyCode">
+  <meta property="og:url" content="/post/2018-04-18-suunto-or-garmin/">
+  <meta property="og:title" content="Suunto Or Garmin? The Age Old Question. | IRunFasterThanMyCode">
+  <meta property="og:description" content="Analysis of posts from the Ultra Running Community (URC) Facebook page looking at syntax usage, posting habits, and sentiment analysis using R."><meta property="og:image" content="/post/2018-04-18-suunto-or-garmin/featured.jpg">
+  <meta property="twitter:image" content="/post/2018-04-18-suunto-or-garmin/featured.jpg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2018-04-18T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2018-04-18T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/2018-04-18-suunto-or-garmin/"
+  },
+  "headline": "Suunto Or Garmin? The Age Old Question.",
+  
+  "image": [
+    "/post/2018-04-18-suunto-or-garmin/featured.jpg"
+  ],
+  
+  "datePublished": "2018-04-18T00:00:00Z",
+  "dateModified": "2018-04-18T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Sam Robson"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "IRunFasterThanMyCode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/irunfasterthanmycode.jpg"
+    }
+  },
+  "description": "Analysis of posts from the Ultra Running Community (URC) Facebook page looking at syntax usage, posting habits, and sentiment analysis using R."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Suunto Or Garmin? The Age Old Question. | IRunFasterThanMyCode</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/"><img src="/img/irunfasterthanmycode.jpg" alt="IRunFasterThanMyCode"></a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#resources"><span>Resources</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/CV/SamRobson_CV_Academic/SamRobson_CV_Academic.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+<div class="article-container pt-3">
+  <h1>Suunto Or Garmin? The Age Old Question.</h1>
+
+  
+
+  
+
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Apr 18, 2018
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    29 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2018-04-18-suunto-or-garmin/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/blog/">Blog</a>, <a href="/categories/data-science/">Data Science</a>, <a href="/categories/running/">Running</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/2018-04-18-suunto-or-garmin/&amp;text=Suunto%20Or%20Garmin?%20The%20Age%20Old%20Question." target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/2018-04-18-suunto-or-garmin/&amp;t=Suunto%20Or%20Garmin?%20The%20Age%20Old%20Question." target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Suunto%20Or%20Garmin?%20The%20Age%20Old%20Question.&amp;body=/post/2018-04-18-suunto-or-garmin/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/2018-04-18-suunto-or-garmin/&amp;title=Suunto%20Or%20Garmin?%20The%20Age%20Old%20Question." target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Suunto%20Or%20Garmin?%20The%20Age%20Old%20Question.%20/post/2018-04-18-suunto-or-garmin/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/2018-04-18-suunto-or-garmin/&amp;title=Suunto%20Or%20Garmin?%20The%20Age%20Old%20Question." target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 383px;">
+  <div style="position: relative">
+    <img src="/post/2018-04-18-suunto-or-garmin/featured_hud09e6acdc204f1fe8ee0d9fc2e127036_55251_720x0_resize_q90_lanczos.jpg" alt="" class="featured-image">
+    <span class="article-header-caption"><a href="https://mightygadget.co.uk/wp-content/uploads/2018/02/garmin-235-vs-suunto.jpg" target="_blank">https://mightygadget.co.uk/wp-content/uploads/2018/02/garmin-235-vs-suunto.jpg</a></span>
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#note"><span class="toc-section-number">1</span> Note</a></li>
+<li><a href="#introduction"><span class="toc-section-number">2</span> Introduction</a></li>
+<li><a href="#rfacebook"><span class="toc-section-number">3</span> Rfacebook</a><ul>
+<li><a href="#temporary-token"><span class="toc-section-number">3.1</span> Temporary Token</a></li>
+<li><a href="#fboauth"><span class="toc-section-number">3.2</span> fbOAuth</a></li>
+</ul></li>
+<li><a href="#ultra-running-community"><span class="toc-section-number">4</span> Ultra Running Community</a></li>
+<li><a href="#likes-comments-and-shares"><span class="toc-section-number">5</span> Likes, Comments and Shares</a></li>
+<li><a href="#top-contributors"><span class="toc-section-number">6</span> Top Contributors</a></li>
+<li><a href="#when-are-people-posting"><span class="toc-section-number">7</span> When are people posting?</a></li>
+<li><a href="#most-popular-posts"><span class="toc-section-number">8</span> Most Popular Posts</a></li>
+<li><a href="#how-often-do-people-actually-talk-about-ultras"><span class="toc-section-number">9</span> How Often Do People Actually Talk About Ultras?</a></li>
+<li><a href="#suunto-or-garmin"><span class="toc-section-number">10</span> Suunto or Garmin?</a></li>
+<li><a href="#summing-up"><span class="toc-section-number">11</span> Summing Up</a></li>
+<li><a href="#session-info"><span class="toc-section-number">12</span> Session Info</a></li>
+</ul>
+</div>
+
+<div id="note" class="section level1">
+<h1><span class="header-section-number">1</span> Note</h1>
+<p><em>This blog post was originally written in 2017 for a less formal personal blog with a focus on ultramarathon running, which is a hobby that I am quite passionate about. I have decided to include all of my data science related blog posts here to keep things centralised, but please excuse the more informal language used throughout.</em></p>
+</div>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">2</span> Introduction</h1>
+<p>In <a href="/post/2018-04-15-ultrarunner-or-ultra-runner/">my last post</a>, I took a look at ways to pull data down from Twitter and analyse some specific trends. It was quite interesting for me to see how easy it is to access these data, and there is a huge amount to be gleened from these sorts of data. The idea of this post is to use a similar approach to pull data from the Ultra Running Community page on <a href="https://www.facebook.com">Facebook</a>, and then to use these data to play around further with the <code>dplyr</code>, <code>tidyr</code> and <code>ggplot2</code> R packages. Just for funsies, I’m also going to have a bit of a crack at some machine learning concepts. In particular, a question that seems to comes up pretty regularly is whether the best GPS watch for running is from <a href="http://www.suunto.com">Suunto</a> or <a href="https://www.garmin.com">Garmin</a>. I figured I could save us all some time and answer the question once and for all…</p>
+<p>Just a little aside here; I think that some people missed the point last time. I honestly don’t care much about these questions, they are just a jumping off point for me to practice some of the data analysis techniques that come up in my work. The best way to get better at something is to practice, so these posts are just a way of combining something I love with a more practical purpose. The idea of this blog is for me to practice these things until they become second nature. Of course in the process, I may just find something interesting along the way.</p>
+<p>Probably not though.</p>
+</div>
+<div id="rfacebook" class="section level1">
+<h1><span class="header-section-number">3</span> Rfacebook</h1>
+<p>Following on from my experiences playing around with the <a href="https://twitter.com">Twitter</a> API, I decided to have a look to see if there were similar programmatic ways to access Facebook data. This can be accomplished using the <a href="https://cran.r-project.org/web/packages/Rfacebook/">Rfacebook</a> package in R, which is very similar to the <code>TwitteR</code> package that I used previously. This package accesses the Facebook <a href="https://developers.facebook.com/docs/graph-api">Graph API Explorer</a>, allowing access to a huge amount of data from the Facebook social <em>graph</em>.</p>
+<p>So first of all, let’s install the <code>Rfacebook</code> package. We can install the stable version from the Comprehensive R Archive Network (<a href="https://cran.r-project.org">CRAN</a>):</p>
+<pre class="r"><code>install.packages(&quot;Rfacebook&quot;)</code></pre>
+<p>Or install the more up-to-date but less stable developmental version from Github:</p>
+<pre class="r"><code>library(&quot;devtools&quot;)
+install_github(&quot;pablobarbera/Rfacebook/Rfacebook&quot;)</code></pre>
+<p>I am using the developmental version here. There are several additional packages that also need to be installed:</p>
+<pre class="r"><code>install.packages(c(&quot;httr&quot;, &quot;rjson&quot;, &quot;httpuv&quot;))</code></pre>
+<p>As with <code>TwitteR</code>, access to the API is controlled through the use of API tokens. There are two ways of doing this - either by registering as a developer and generating an app as I did with <code>TwitteR</code>, or through the use of a temporary token which gives you access for a limited period of 2 hours. Let’s look at each of these in turn:</p>
+<div id="temporary-token" class="section level2">
+<h2><span class="header-section-number">3.1</span> Temporary Token</h2>
+<p>To generate a temporary token, just go to the <a href="https://developers.facebook.com/tools/explorer/">Graph API Explorer</a> page and generate a new token by clicking on <code>Get Token</code> -&gt; <code>Get Access Token</code>. You need to select the permissions that you want to grant access for, which will depend on what you are looking do:</p>
+<div class="figure">
+<img src="Graph-API-Explorer.png" alt="Create Temporary Access Token" />
+<p class="caption">Create Temporary Access Token</p>
+</div>
+<p>I just granted permission to everything for this analysis. Once you have an access token, this can be used as the <code>token</code> parameter when using functions such as <code>getUsers()</code>.</p>
+</div>
+<div id="fboauth" class="section level2">
+<h2><span class="header-section-number">3.2</span> fbOAuth</h2>
+<p>The above is the most simple method, but this access token will only last for 2 hours, at which point you will need to generate a new one. If you want a longer term solution, you can set up <a href="https://en.wikipedia.org/wiki/OAuth">Open Authorization</a> access in a similar way to for the <code>TwitteR</code> package. The downside is that you lose the ability to search friend networks unless your friends are also using the app that you generate - and I don’t want to inflict that on people just so that I can <del>steal their identity</del> analyse their networks.</p>
+<p>This method is almost identical to the process used for generating the OAuth tokens in the <code>TwitteR</code> app, and a good description of how to do it can be found in this <a href="http://thinktostart.com/analyzing-facebook-with-r/">blog post</a>.</p>
+<p>However, I am feeling pretty lazy today and so I will just use the temporary method.</p>
+</div>
+</div>
+<div id="ultra-running-community" class="section level1">
+<h1><span class="header-section-number">4</span> Ultra Running Community</h1>
+<p>With nearly 18,000 members, the Ultra Running Community Facebook page is a very active community of ultrarunners from around the world. Runners are able to ask questions, share blogs, and generally speak with like-minded individuals about everything from gear selection to how best to prevent chaffing when running. It’s been going since June 2012, so there are a fair few posts available to look through.</p>
+<p>So let’s load in all of the posts from the URC page:</p>
+<pre class="r"><code>library(&quot;Rfacebook&quot;)
+token &lt;- &quot;XXXXXX&quot;  ## Insert your temporary token from Graph API Explorer
+URC &lt;- getGroup(&quot;259647654139161&quot;, token, n=50000)</code></pre>
+<p>This command will create an object of class <code>data.frame</code> containing the most recent 50,000 posts available in the Facebook Group with ID <code>259647654139161</code> (which is the internal ID for the Ultra Running Community page). The page was set up in June 2012 By Neil Bryant, and currently (as of 20th March 2017) contains a total of 24,836 posts. So this command will actually capture every single post.</p>
+<p>The <code>data.frame</code> is somewhat of the workhorse of R, and looks to the user like a spreadsheet like you would expect to see in Excel. Behind the scene it is actually a list of lists, with each column representing a particular measurement or descriptive annotation of that particular datum. The ideal situation is to design your data frame such that every row is an individual measurement, and every column is some aspect relating to that measurement. This can sometimes go against the instinctual way that you might store data, but makes downstream analyses much simpler.</p>
+<p>As an example, suppose that you were measuring something (blood glucose levels, weight, lung capacity, VO2 max, etc.) at three times of the day for 2 individuals. Your natural inclination may be to design your table in this way:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Sample</th>
+<th>Measurement 1</th>
+<th>Measurement 2</th>
+<th>Measurement 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sample1</td>
+<td>0.3</td>
+<td>0.4</td>
+<td>0.3</td>
+</tr>
+<tr class="even">
+<td>Sample2</td>
+<td>0.6</td>
+<td>0.6</td>
+<td>0.7</td>
+</tr>
+</tbody>
+</table>
+<p>But actually the optimum way to represent this is to treat each measurement as a different row in your data table, and use a descriptive categorical variable to represent the repeated measurements:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Sample</th>
+<th>Measurement</th>
+<th>Replicate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sample1</td>
+<td>0.3</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Sample1</td>
+<td>0.4</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Sample1</td>
+<td>0.3</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Sample2</td>
+<td>0.6</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Sample2</td>
+<td>0.6</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Sample2</td>
+<td>0.7</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>You can then add additional information relating to each individual measurement, which can be factored into your model down the line.</p>
+<p>In this case, we have a data frame where each row is a post on the URC feed, and each column gives you information on the post such as who wrote it, what the post says, when it was written, any links involved, and how many likes, comments and shares each post has. We can take a quick look at what the data.frame looks like by using the <code>str()</code> function. This will tell us a little about each column, such as the data format (character, numeric, logical, factor, etc.) and the first few entries in each column:</p>
+<pre class="r"><code>str(URC)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    24836 obs. of  11 variables:
+##  $ from_id       : chr  &quot;10203232759527000&quot; &quot;10154582131480554&quot; &quot;10206266800967107&quot; &quot;10153499987966664&quot; ...
+##  $ from_name     : chr  &quot;Steph Wade&quot; &quot;Esther Bramley&quot; &quot;Tom Chapman&quot; &quot;Polat Dede&quot; ...
+##  $ message       : chr  &quot;Anyone who runs in Speedcross 3s tried Sportiva? I&#39;ve had several pairs of Speedcross  but thinking about tryin&quot;| __truncated__ &quot;Hi guys server pain in knee two weeks after 41miler. Ran 3 miles Tuesday no problem. Pain started at 5m and got&quot;| __truncated__ &quot;mega depressed; need advice. Running really well over xmas, since then, painful hip &amp; groin, chasing itb, glute&quot;| __truncated__ NA ...
+##  $ created_time  : chr  &quot;2017-03-19T08:38:15+0000&quot; &quot;2017-03-18T12:19:26+0000&quot; &quot;2017-03-18T16:30:54+0000&quot; &quot;2017-03-19T08:42:38+0000&quot; ...
+##  $ type          : chr  &quot;status&quot; &quot;status&quot; &quot;status&quot; &quot;photo&quot; ...
+##  $ link          : chr  NA NA NA &quot;https://www.facebook.com/tahtaliruntosky/photos/a.659614340816057.1073741827.659609490816542/1145262965584523/?type=3&quot; ...
+##  $ id            : chr  &quot;259647654139161_1064067560363829&quot; &quot;259647654139161_1063418100428775&quot; &quot;259647654139161_1063562803747638&quot; &quot;259647654139161_1064068937030358&quot; ...
+##  $ story         : logi  NA NA NA NA NA NA ...
+##  $ likes_count   : num  0 0 0 0 0 2 2 58 7 1 ...
+##  $ comments_count: num  5 23 9 0 25 9 4 64 77 12 ...
+##  $ shares_count  : num  0 1 0 0 0 0 0 0 3 0 ...</code></pre>
+</div>
+<div id="likes-comments-and-shares" class="section level1">
+<h1><span class="header-section-number">5</span> Likes, Comments and Shares</h1>
+<p>The first step in any data analysis is to check that the data make sense. You’ve probably heard the old adage “garbage in; garbage out”, so data cleaning is an essential first step to ensure that we are not basing our conclusions on erroneous information from the beginning. There are far too many posts here to look at them all by hand, but there are a few things we can certainly have a look at to check that the values make sense.</p>
+<p>For instance, let’s take a look at the number of likes, comments and shares. We would expect all of these values to be positive whole numbers, so this is something that is easy to check. To do this, I will be making use of the <a href="https://ggplot2.tidyverse.org">ggplot2</a> package, which allows for some incredibly powerful plotting in R. The idea is to define the plot in terms of <em>aesthetics</em>, where different elements of the plot (x and y values, colour, size, shape, etc.) can be mapped to elements of your data.</p>
+<p>In this case I want to plot a distribution plot where the colour of the plot is mapped to whether we are looking at likes, comments or shares. To do this, I need to rearrange the data such that the <code>likes_count</code>, <code>comments_count</code> and <code>shares_count</code> columns are in a single column <code>counts</code>, with an additional column defining whether it is a like, a comment, or a share count (as described in the example above).</p>
+<p>I will use the <a href="https://cran.r-project.org/web/packages/tidyr/tidyr.pdf">tidyr</a>, <a href="https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html">stringr</a> and <a href="https://cran.r-project.org/web/packages/dplyr/vignettes/introduction.html">dplyr</a> packages to rearrange the data:</p>
+<pre class="r"><code>library(&quot;tidyr&quot;)
+library(&quot;dplyr&quot;)
+library(&quot;stringr&quot;)
+like_comment_share &lt;- URC                                                 %&gt;% 
+                      gather(count_type, count, likes_count:shares_count) %&gt;%
+                      select(count_type, count)
+head(like_comment_share)</code></pre>
+<pre><code>##    count_type count
+## 1 likes_count     0
+## 2 likes_count     0
+## 3 likes_count     0
+## 4 likes_count     0
+## 5 likes_count     0
+## 6 likes_count     2</code></pre>
+<p><code>tidyr</code>, <code>stringr</code> and <code>dplyr</code> are incredibly powerful packages written by Hadley Wickham, which provide a simple to understand <em>grammar</em> to apply to the filtering and tweaking of data frames in R. In particular, these can be used to convert the data into the <em>tidy</em> format described above, allowing very simple and intuitive plotting with <code>ggplot2</code>. One particularly useful feature is the ability to use the <code>%&gt;%</code> command to pipe the output to perform multiple data frame modifications.</p>
+<p>In the above code, we pipe the raw data <code>URC</code> into the <code>gather()</code> function, which will take the three columns from <code>likes_count</code> through to <code>shares_count</code> and split them into two new columns: <code>count_type</code> which will be one of <code>shares_count</code>, <code>likes_count</code> and <code>comments_count</code> , and <code>count</code> which will take the value from the specified column. So essentially this produces a new data set with 3 times as many rows. This is then piped into <code>select()</code> which will select the relevant columns.</p>
+<p>First let’s just check that they are are all positive integers as expected:</p>
+<pre class="r"><code>all(like_comment_share$count == as.integer(like_comment_share$count))</code></pre>
+<p>[1] TRUE</p>
+<pre class="r"><code>all(like_comment_share$count &gt;= 0)</code></pre>
+<p>[1] TRUE</p>
+<p>Annoyingly there is no easy way to check that a vector of numbers is made up of integers, so this line will check that the numbers do not change after converting to integers. Similarly, we use <code>all()</code> to check that all of the counts are greater than or equal to zero. They are as we would hope.</p>
+<p>Then we can use <code>ggplot2</code> for the plotting:</p>
+<pre class="r"><code>library(&quot;ggplot2&quot;)
+ggplot(like_comment_share, aes(x = log10(count+1), col = count_type, fill = count_type)) + 
+  geom_density(alpha = 0.1) +
+  labs(x = &quot;Count (log10)&quot;, y = &quot;Density&quot;) +
+  theme(axis.text    = element_text(size = 16),
+        axis.title   = element_text(size = 20),
+        legend.text  = element_text(size = 18),
+        legend.title = element_text(size = 24))</code></pre>
+<p><img src="/post/2018-04-18-Suunto-Or-Garmin/index_files/figure-html/2017-04-15-like_comment_share-1.png" width="3000" /></p>
+<p>Here we use this output to plot a distribution plot showing the distribution of counts for the three different metrics – shares, comments and likes. We use the <code>count</code> as the <code>x</code> aesthetic, and <code>count_type</code> as both the <code>col</code> and <code>fill</code> aesthetics to colour them. The main function <code>ggplot()</code> will specify the aesthetics, and then we add additional elements to the plot by using the <code>+</code> command. Here we add the <code>geom_density()</code> element to plot the data in a density plot (the <code>alpha</code> value will make the colours transparent for overplotting), the <code>labs()</code> function will change the plot labels, and the <code>theme()</code> function let’s you change aspects of the figure text, such as the size.</p>
+<p>Note that here I have plotted the <span class="math inline">\(log_{10}\)</span> of the counts, which reduces the effects of outliers. Also note that I have added 1 to the counts. This is because <span class="math inline">\(log_{10}(0)\)</span> is undefined. The idea here is that a count of 1 will get a value of 0, a count of 10 gets a value of 1, a count of 100 gets a value of 2, etc.</p>
+<p>So what does this tell us? Well not too much really. Not many people share posts from the page, but there aren’t too many that don’t get comments or likes. So it is a very active community. Posts tend to have more comments than likes, which makes sense because you can only like something once, but can comment as many times as you want. But the main thing that this shows is that these counts all seem to be in the right sort of expected range.</p>
+<p>Often exploratory plots like this can be useful to highlight problems in the raw data. One such example might be if a negative count existed in these data, which could happen due to input errors but quite clearly does not represent a valid count. As it happens, since these data are not manually curated, it is highly unlikely that such errors will be present, but you should never assume anything about any given data set.</p>
+</div>
+<div id="top-contributors" class="section level1">
+<h1><span class="header-section-number">6</span> Top Contributors</h1>
+<p>Let’s take a look at the all-time most common contributors to the page, again using the <code>ggplot2</code> package:</p>
+<pre class="r"><code>top_contributors &lt;- URC              %&gt;% 
+                    count(from_name) %&gt;%
+                    top_n(50, n)     %&gt;%
+                    arrange(desc(n))
+ggplot(top_contributors, 
+       aes(x = factor(from_name, levels = top_contributors$from_name), 
+           y = n,
+           fill = n)) + 
+  geom_bar(stat = &quot;identity&quot;) +
+  scale_fill_gradient(low=&quot;blue&quot;, high=&quot;red&quot;) +
+  labs(x = &quot;&quot;, y = &quot;Number of Posts&quot;) +
+  theme(axis.title  = element_text(size = 18),
+        axis.text.x = element_text(size = 12, angle = 45, hjust = 1),
+        axis.text.y = element_text(size = 14),
+        legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/post/2018-04-18-Suunto-Or-Garmin/index_files/figure-html/2017-04-15-contributors-1.png" width="3000" /></p>
+<p>Here I have first used <code>dplyr</code> to count up the number of posts per user and select the top 50 contributors, then used <code>ggplot2</code> to plot a barplot showing the number of posts per person. I have used the <code>scale_fill_gradient()</code> element to colour the bars based on their height, such that those with the highest number of posts are coloured red, whilst those with the lowest are coloured blue.</p>
+<p>The top contributor to the page is Neil Bryant (757 posts), who is the founder member so this makes sense. James Adams is the second biggest contributor (489 posts), and he has less of an excuse really.</p>
+<p>Let’s take a look at James’ posting habits:</p>
+<pre class="r"><code>library(&quot;xts&quot;)
+jamesadams &lt;- URC                                                        %&gt;%
+              filter(from_name == &quot;James Adams&quot;)                         %&gt;% 
+              mutate(created_time = as.POSIXct(created_time))            %&gt;%
+              count(created_time)
+jamesadams_xts &lt;- xts(jamesadams$n, order.by = jamesadams$created_time)
+jamesadams_month &lt;- apply.monthly(jamesadams_xts, FUN = sum)
+plot(jamesadams_month, ylab = &quot;Number of Posts&quot;, main = &quot;&quot;, cex.lab = 1.7, cex.axis = 1.4)</code></pre>
+<p><img src="/post/2018-04-18-Suunto-Or-Garmin/index_files/figure-html/2017-04-15-JamesAdams-1.png" width="3000" /></p>
+<p>Here I have used the package <code>xts</code> to deal with the <code>POSIXct</code> date format. In particular this will deal correctly with months with zero counts. James has been pretty active since summer 2013 (probably publicising <a href="https://www.amazon.com/Running-Stuff-James-Adams/dp/1784622621">his book</a>), but his activity has been on the decline throughout 2016 – the price you pay when your family size doubles I guess.</p>
+</div>
+<div id="when-are-people-posting" class="section level1">
+<h1><span class="header-section-number">7</span> When are people posting?</h1>
+<p>Next we can break the posts down by the day on which they are posted:</p>
+<pre class="r"><code>URC      &lt;- URC %&gt;%
+            mutate(dow = factor(weekdays(as.POSIXct(created_time)), labels = c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;, &quot;Sunday&quot;)))
+post_day &lt;- URC %&gt;%
+            count(dow)
+ggplot(post_day, aes(x = dow, y = n, fill = dow)) + 
+  geom_bar(stat = &quot;identity&quot;) + 
+  labs(x = &quot;&quot;, y = &quot;Number of Posts&quot;) + 
+  theme(axis.text.x = element_text(size = 20, angle = 45, hjust = 1),
+        axis.text.y = element_text(size = 16),
+        axis.title  = element_text(size = 20),
+        legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/post/2018-04-18-Suunto-Or-Garmin/index_files/figure-html/2017-04-15-posting_day-1.png" width="3000" /></p>
+<p>Similarly to previously, here I have used <code>dplyr</code> to reduce the full data down to a table of counts of posts per day of the week, then plotted them using <code>ggplot2</code>. Surprisingly (to me anyway) there is no increase in activity during the weekend. I guess most of us are checking Facebook during working hours and busy running at the weekend…</p>
+<p>Wednesdays are interestingly bereft of posts though for some reason. Could this be people checking URC at work on Monday and Tuesday through boredom, only to find themselves told off and having to catch up on work by Wedesday? Then by the time the weekend rolls around we’re all back liking away with impunity ready to go through the whole process again the next week.</p>
+<p>Let’s look at the same plot for the 1,000 most popular posts (based on likes):</p>
+<pre class="r"><code>post_day &lt;- URC                      %&gt;%
+            top_n(1000, likes_count) %&gt;%
+            count(dow)
+ggplot(post_day, aes(x = dow, y = n, fill = dow)) + 
+  geom_bar(stat = &quot;identity&quot;) + 
+  labs(x = &quot;&quot;, y = &quot;Number of Posts&quot;) + 
+  theme(axis.text.x = element_text(size = 20, angle = 45, hjust = 1),
+        axis.text.y = element_text(size = 16),
+        axis.title  = element_text(size = 20),
+        legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/post/2018-04-18-Suunto-Or-Garmin/index_files/figure-html/2017-04-15-posting_day_most_likes-1.png" width="3000" /></p>
+<p>So from this it is clear that if you want people to like your post, you should post on a Tuesday or a Thursday. Quite why people might be feeling so much more likely to click that all important like button on these dayas, I have no idea. But hey, stats don’t lie.</p>
+</div>
+<div id="most-popular-posts" class="section level1">
+<h1><span class="header-section-number">8</span> Most Popular Posts</h1>
+<p>So looking at the popular posts above got me thinking about how best to actually define a “popular” post. Is it a post with a lot of likes, or a post that everybody is commenting on? Let’s take a look at the top 5 posts based on each criteria:</p>
+<pre class="r"><code>print.AsIs(URC %&gt;% arrange(desc(likes_count)) %&gt;% top_n(5, likes_count) %&gt;% select(message))</code></pre>
+<pre><code>                                                                                                                                                                                                                                                                       message</code></pre>
+<p>1 Thinking how far I’ve come and getting a bit emotional. .3 year ago i was a size 20/22 and couldnt run to end of the street. Yesterday i ran 30 mile as a training run and wasn’t even aching afterwards. Now nearly 45 and a size 10 and never felt better. I love my life!!!!
+2 I saw this picture couple years ago and I found it very inspiring so I thought I’d share it. is a 12-year-old childhood cancer survivor who loves to run with his dad.
+3 Not sure if swear words are accepted. 088208820882
+4 “What you doing up here?” said the sheep.Pike last night, not a soul to be seen…
+5 0880</p>
+<pre class="r"><code>print.AsIs(URC %&gt;% arrange(desc(comments_count)) %&gt;% top_n(5, comments_count) %&gt;% select(message))</code></pre>
+<pre><code>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   message</code></pre>
+<p>1 For me claiming something you haven’t earned is not only immoral it’s fraudulent. And it’s a huge insult to all who’ve attempted the feat before you and legitimately fallen short. What do you guys think?
+2 Anyone else do race to the stones and found it a rip off? I was not impressed with most things. were good such as medics and lots of water but who wants fudge bars and cadburies at aid stations. like a money making race to me, especially considering all the sponsorship they had. ’ve got lots of other rants about it but let’s hear anyone else’s thoughts first
+3 New Game.am trying to convince some new ultra runners that you do not need to spend a load of money on kit to put one foot in front of the other a few more times. This is difficult given that half the posts in forums seems to be asking for recommendations or giving recommendations as to how one might waste money on kit.out of interest, what was the value of the kit you wore in your last ultra? Including nutrition. Obviously you will have to guess if you had them as a gift or can’t remember. Surely someone is going to have less than £100?
+4 I had a small sabre rattling session last night with someone on this group. Nothing major by any stretch of the imagination - we just have opposing views on DNF. But it got me curios to what the opinions of others are on this subject. Is failing to finish something that you would risk your life to avoid? Is it something to fear? Is it something that will eventually happen to us all? Is it something that we can learn from? Etc,etc. Your thoughts please
+5 i cannot wait to watch the EPSN footage - amazing stuff. It is a shame Robert has his doubters though.: was described as “trolling”, which was an over the top description (agree with the comments there)</p>
+<p>It seems to me that the posts with more likes tend to be posts with a much more positive message than those with most comments. The top liked posts are those from people who have overcome some form of adversity (such as the top liked post with 1,369 likes from Mandy Norris who had awesomely run 30 miles after losing half her body weight), whilst the top commented posts tend to be more controversial posts (such as the top commented post with 287 comments about Mark Vaz’s fraudulent JOGLE “World Record”).</p>
+<p>Let’s take a look at how closely these two poularity measures are correlated in the Ultra Running Community:</p>
+<pre class="r"><code>ggplot(URC, aes(x = comments_count, y = likes_count)) +
+  geom_point(shape = 19, alpha = 0.2, size = 5) + 
+  geom_smooth(method = &quot;lm&quot;, se = TRUE) +
+  geom_point(data = URC %&gt;% top_n(5, comments_count), aes(x = comments_count, y = likes_count, color = &quot;red&quot;, size = 5)) +
+  geom_point(data = URC %&gt;% top_n(5, likes_count), aes(x = comments_count, y = likes_count, color = &quot;blue&quot;, size = 5)) +
+  labs(x = &quot;Number of Comments&quot;, y = &quot;Number of Likes&quot;) + 
+  theme(axis.text   = element_text(size = 16),
+        axis.title  = element_text(size = 20),
+        legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/post/2018-04-18-Suunto-Or-Garmin/index_files/figure-html/2017-04-15-likes_vs_comments-1.png" width="3000" /></p>
+<p>Here we are plotting a correlation scatterplot between the number of likes and the number of comments for each post. I have a set an alpha value of 0.2 for the scatterplot so that the individual points are made more see-through. That way, overplotting can be seen by darker coloured plots. I have also added in a line of best fit generated by fitting a linear model (<code>method= lm</code>), together with an estimate of the standard error shown by the grey surrounding of the blue line (<code>se = TRUE</code>). Finally I have highlighted the top 5 commented posts in blue, and the top 5 liked posts in red.</p>
+<p>It is pretty clear from this plot that there is virtually no correlation between the number of comments and the number of likes, particularly for those with more likes or comments. In general the posts with more likes do not have the most comments (and vice versa), suggesting that in general we like the nice posts, but comment on the ones that upset us. In fact, it looks as if Mandy’s post is the only exception, with both the highest number of likes but also a high number of comments (220).</p>
+<p>We can calculate the correlation between these measures, which is a measure of the linear relationship between two variables. A value of 1 indicates that they are entirely dependent on one another, whilst a value of 0 indicates that the two are entirely independent of one another. A value of -1 indicates an inverse depdnedancy, such that an increase in one variable is associated with a similar decrease in the other variable. Given the difference in the scales between likes and comments, I will use the <em>Spearman correlation</em>, which looks at correlation between the ranks of the data and therefore ensures that each unit increment is 1 for both variables meaning that it is robust to outliers. The Spearman correlation between these two variables is <code>0.27</code>, so there is virtually no correlation between likes and comments.</p>
+</div>
+<div id="how-often-do-people-actually-talk-about-ultras" class="section level1">
+<h1><span class="header-section-number">9</span> How Often Do People Actually Talk About Ultras?</h1>
+<p>It seems recently that there is more talk of charlatans and frauds than races, and a lot of people have commented on the fact that there seems to be less and less actual discussion of ultras recently. So let’s see if this is the case, by tracking how often the term <em>ultra</em> is actually used over time:</p>
+<pre class="r"><code>ultraposts &lt;- URC                                                        %&gt;%
+              filter(str_detect(message, &quot;ultra&quot;))                       %&gt;% 
+              mutate(created_time = as.POSIXct(created_time))            %&gt;%
+              count(created_time)
+ultraposts_xts &lt;- xts(ultraposts$n, order.by = ultraposts$created_time)
+ultraposts_month &lt;- apply.monthly(ultraposts_xts, FUN = sum)
+plot(ultraposts_month, ylab = &quot;Number of Ultra Posts&quot;, main = &quot;&quot;)</code></pre>
+<p><img src="/post/2018-04-18-Suunto-Or-Garmin/index_files/figure-html/2017-04-15-ultra_usage-1.png" width="3000" /></p>
+<p>Over the last year or so, the number of people in the group has risen dramatically, and yet it certainly seems that fewer people are actually discussing ultras these days. I guess read into that what you will – perhaps the feed is indeed dominated by Suunto vs Garmin questions?</p>
+<p>Hell, let’s find out.</p>
+</div>
+<div id="suunto-or-garmin" class="section level1">
+<h1><span class="header-section-number">10</span> Suunto or Garmin?</h1>
+<p>So let’s take a look at the real question that everybody cares about – which is more popular, Suunto or Garmin. All my cards on the table; I have a Suunto Peak Ambit 3, but if it helps I had to Google that because I really don’t keep up on these things. I’m really not a gear not, and prefer to make do. The only reason that I got this is that my previous watch died a death, and I like to use a watch for navigation. I didn’t pay for it – at that price I couldn’t bring myself to fork out the money. But it was a gift, and I am very pleased with it. It has a great battery life, and is pretty simple when loading data to my computer. Despite being a stats guy, I don’t normally focus much on my own data, but actually it has been interesting to see how slow I have become recently due to an ongoing injury. Perhaps it will help me to push myself in training onece it is sorted.</p>
+<p>But as I understand it, the Garmin Fenix 3 does exactly the same stuff. Is one better than the other? I couldn’t possibly say. Many people have tried, but I suspect that it comes down to personal preference rather than there being some objective difference between the two.</p>
+<p>But just for the hell of it, let’s see how often people talk about the two. I will be simply using fuzzy matching to look for any use of the terms “suunto” or “garmin” in the post. Fuzzy matching is able to spot slight misspellings, such as “Sunto” or “Garmin”, and is carried out using the base <code>agrep()</code> function in R:</p>
+<pre class="r"><code>suunto &lt;- agrep(&quot;suunto&quot;, URC$message, ignore.case = TRUE)
+garmin &lt;- agrep(&quot;garmin&quot;, URC$message, ignore.case = TRUE)
+pie(c(length(setdiff(suunto, garmin)), length(setdiff(garmin, suunto)), length(intersect(suunto, garmin))), labels = c(&quot;Suunto&quot;, &quot;Garmin&quot;, &quot;Both&quot;), cex = 2)</code></pre>
+<p><img src="/post/2018-04-18-Suunto-Or-Garmin/index_files/figure-html/2017-04-15-suunto_vs_garmin-1.png" width="3000" /></p>
+<p>So of the 24,836 posts on the URC page, 237 (0.95 %) mention Suunto, whilst 552 (2.22 %) mention Garmin. Only 77 (0.3 %) mention both, which I assume are the posts specifically asking which of the two is best. Given the way some people moan about how often this question comes up, these numbers are actually surprisingly small I think. But based on this it seems that Garmin is more popular, although it would be interesting to look at the actual responses on those “VS” posts to see what the outcome actually was in each case.</p>
+<p>Having said that, there is nothing to suggest what these posts about Garmin’s are actually saying. They may be generally saying that they hate Garmins. So I am going to play around with a bit of sentiment analysis using the <code>qdap</code> package. Essentially this is a machine learning algorithm that has been trained to identify the sentiment underlying a post, with positive values representing a generally positive sentiment (and vice versa). So let’s break down the Garmin and Suunto posts to see how they stack up:</p>
+<pre class="r"><code>library(&quot;qdap&quot;)
+
+## Convert to ASCII and get rid of upper case
+suunto_msg &lt;- URC$message[suunto]                %&gt;%
+              iconv(&quot;latin1&quot;, &quot;ASCII&quot;, sub = &quot;&quot;) %&gt;%
+              tolower                                         
+garmin_msg &lt;- URC$message[garmin]                %&gt;%
+              iconv(&quot;latin1&quot;, &quot;ASCII&quot;, sub = &quot;&quot;) %&gt;%
+              tolower                                            
+
+## Calculate the sentiment polarity
+suunto_sentiment &lt;- polarity(gsub(&quot;[[:punct:]]&quot;, &quot;&quot;, suunto_msg))
+garmin_sentiment &lt;- polarity(gsub(&quot;[[:punct:]]&quot;, &quot;&quot;, garmin_msg))
+
+## Plot in a stacked barplot
+sent_dat &lt;- data.frame(Watch     = c(rep(&quot;Suunto&quot;, length(suunto)), 
+                                     rep(&quot;Garmin&quot;, length(garmin))),
+                       Sentiment = c(suunto_sentiment$all$polarity,
+                                     garmin_sentiment$all$polarity))
+ggplot(sent_dat, aes(x = Sentiment, col = Watch, fill = Watch)) + 
+  geom_density(alpha = 0.1) +
+  labs(x = &quot;Sentiment Polarity&quot;, y = &quot;Density&quot;) +
+  theme(axis.text    = element_text(size = 16),
+        axis.title   = element_text(size = 20),
+        legend.text  = element_text(size = 18),
+        legend.title = element_text(size = 24))</code></pre>
+<p><img src="/post/2018-04-18-Suunto-Or-Garmin/index_files/figure-html/2017-04-15-suunto_vs_garmin_sentiment-1.png" width="3000" /></p>
+<p>So a value of zero on this distribution plot suggests a neutral sentiment to the post, a positive number suggests a positive sentiment, and a negative number suggests a negative sentiment. While the majority of the posts seem to be fairly neutral in both cases, it certainly seems that the majority of the Garmin posts are positive whilst the Suunto posts are more neutral with many positive <em>and</em> negative posts.</p>
+<p>We can actually put a number on this, for whether or not there is truly a statistically significant difference between the distribution of sentiment scores for the two watches. To do this, we will us a statistical test that checks how likely it is that we would see a difference of the magnitude seen here given that there is no difference between what people actually think of the watch. This is the so-called “null-hypothesis”, and essentially says that there is no difference, and any differences that we do see are purely random errors. We can test this hypothesis using one of a number of different tests, with the aim to see whether there is evidence that we can reject this null hypothesis, thus suggesting that there is indeed a true difference between the distributions. So we never really “prove” that there is a difference, but instead show that there is suitable evidence to disprove the null hypothesis.</p>
+<p>To do this some test statistic is calculated and is tested to see if it is significantly different than what you would expect to see by chance. Typically this is assessed using a “p-value”, which is one of the most misunderstood measurements in statistics. This value represents the probability that you would see a test statistic <em>at least as high</em> as that measured purely by chance, even if both sets of data were drawn from the same distribution. So both the Garmin and Suunto scores are a tiny subset of all possible opinions of people in the world, the population distribution. Our two sample populations are either drawn from an overall population where there is no difference, or from two distinct populations for people who have a view one way or the other.</p>
+<p>It is pretty clear from the above figure that these values are not normally distributed (a so-called “bell-curve” distribution), so we cannot use a simple t-test which basically tests the difference in the means between two distributions (after taking the variance into account). Instead we would be better off using a non-parametric test which does not require the data to be parameterised into some fixed probability density function. The <a href="https://en.wikipedia.org/wiki/Kolmogorov–Smirnov_test">Kolmogorov Smirnov test</a> is one method that can be used, and works by looking at how the cummulative distribution functions of two distinct samples differ:</p>
+<pre class="r"><code>ks.test(subset(sent_dat, Watch == &quot;Suunto&quot;)[[&quot;Sentiment&quot;]], subset(sent_dat, Watch == &quot;Garmin&quot;)[[&quot;Sentiment&quot;]])</code></pre>
+<pre><code>## Warning in ks.test(subset(sent_dat, Watch == &quot;Suunto&quot;)[[&quot;Sentiment&quot;]],
+## subset(sent_dat, : p-value will be approximate in the presence of ties</code></pre>
+<pre><code>## 
+##  Two-sample Kolmogorov-Smirnov test
+## 
+## data:  subset(sent_dat, Watch == &quot;Suunto&quot;)[[&quot;Sentiment&quot;]] and subset(sent_dat, Watch == &quot;Garmin&quot;)[[&quot;Sentiment&quot;]]
+## D = 0.093653, p-value = 0.1091
+## alternative hypothesis: two-sided</code></pre>
+<p>Here we run a two-sided test, which simply means that we have no <em>a priori</em> reason to suspect one distribution to be greater than the other. We could do a one-sided test where the alternative hypothesis that we are testing is “A is greater than B”, rather than the two-sided test where we are testing the alternative hypothesis that “A is not equal to B”. <span class="math inline">\(D\)</span> is the maximum distance between the empirical distribution functions, and <span class="math inline">\(p\)</span> is the p-value. Typically, a threshold used to reject the null hypothesis is for <span class="math inline">\(p\)</span> to be less than 0.05 (5 %), although it is fairly arbitrary. But in this case, we would conclude that there is not sufficient evidence to reject the null hypothesis.</p>
+<p>As an alternative, we can instead use the <a href="https://en.wikipedia.org/wiki/Mann–Whitney_U_test">Wilcoxon rank sum test</a> (also called the Mann-Whitney <em>U</em> test). The idea is to rank all of the data, sum up the ranks from one of the samples, and use this to calculate the test statistic <span class="math inline">\(U\)</span> (which takes into account the sample sizes). So if the distributions are pretty similar, the sum of the ranks will be similar for sample 1 and sample 2. If there is a big difference, one sample will have more higher ranked values than the other, resulting in a higher value for <span class="math inline">\(U\)</span>. Let’s take a look at this:</p>
+<pre class="r"><code>wilcox.test(subset(sent_dat, Watch == &quot;Suunto&quot;)[[&quot;Sentiment&quot;]], subset(sent_dat, Watch == &quot;Garmin&quot;)[[&quot;Sentiment&quot;]])</code></pre>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  subset(sent_dat, Watch == &quot;Suunto&quot;)[[&quot;Sentiment&quot;]] and subset(sent_dat, Watch == &quot;Garmin&quot;)[[&quot;Sentiment&quot;]]
+## W = 59157, p-value = 0.03066
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p>Note that the test statistic here is actually <span class="math inline">\(W\)</span>, but in this case <span class="math inline">\(W\)</span> and <span class="math inline">\(U\)</span> are equivalent. So this test would result in us rejecting the null hypothesis with the same threshold as above. So which one is correct? Well, this is a great example of why you should never trust statistics. Both of these are perfectly reasonable tests to perform in this case but give different results. Many people would simply choose the one that gives the lowest p-value, but this is pretty naughty and is often called “p-hacking”. At the end of the day, a p-value higher than 0.05 does not mean that there is <em>not</em> a true difference between the distributions, just that the current data does not provide enough evidence to reject the null hypothesis.</p>
+<p>So my conclusion from this is that I made the wrong decision, and will from now on look upon my useless Suunto watch with hatred and resentment. I can only hope that this post will save anyone else from making such an awful mistake.</p>
+</div>
+<div id="summing-up" class="section level1">
+<h1><span class="header-section-number">11</span> Summing Up</h1>
+<p>It has been quite <em>fun</em> playing around with these data tonight, and I have had an opportunity to try out a few new techniques that I have wanted to play with for a while. As ever, there is loads more that can be gleaned from these data, but I should probably do something a little more productive right now. Like sleeping. I have actually done a while load more playing with machine learning algorithms of my own, but this post has already become a little too unruly so I will post this later as a separate post.</p>
+<p>But in summary, people on the Ultra Running Community page spend far too much time posting during working hours, seem to be talking less and less about ultra running, and definitely prefer Garmins to Suuntos. So this has all been completely worth it.</p>
+</div>
+<div id="session-info" class="section level1">
+<h1><span class="header-section-number">12</span> Session Info</h1>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 3.6.1 (2019-07-05)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Sierra 10.12.6
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] qdap_2.3.2             RColorBrewer_1.1-2     qdapTools_1.3.3       
+##  [4] qdapRegex_0.7.2        qdapDictionaries_1.0.7 xts_0.11-2            
+##  [7] zoo_1.8-6              ggplot2_3.2.0          stringr_1.4.0         
+## [10] dplyr_0.8.3            tidyr_1.0.0            randomForest_4.6-14   
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_1.0.2          lattice_0.20-38     xlsxjars_0.6.1     
+##  [4] gtools_3.8.1        assertthat_0.2.1    zeallot_0.1.0      
+##  [7] digest_0.6.20       slam_0.1-45         R6_2.4.0           
+## [10] plyr_1.8.4          chron_2.3-54        backports_1.1.4    
+## [13] evaluate_0.14       blogdown_0.16       pillar_1.4.2       
+## [16] rlang_0.4.0         lazyeval_0.2.2      data.table_1.12.2  
+## [19] gdata_2.18.0        rmarkdown_1.14      gender_0.5.2       
+## [22] labeling_0.3        igraph_1.2.4.1      RCurl_1.95-4.12    
+## [25] munsell_0.5.0       compiler_3.6.1      xfun_0.8           
+## [28] pkgconfig_2.0.2     htmltools_0.3.6     reports_0.1.4      
+## [31] tidyselect_0.2.5    tibble_2.1.3        gridExtra_2.3      
+## [34] bookdown_0.12       codetools_0.2-16    XML_3.98-1.20      
+## [37] crayon_1.3.4        withr_2.1.2         bitops_1.0-6       
+## [40] openNLP_0.2-6       grid_3.6.1          gtable_0.3.0       
+## [43] lifecycle_0.1.0     magrittr_1.5        scales_1.0.0       
+## [46] xlsx_0.6.1          stringi_1.4.3       reshape2_1.4.3     
+## [49] NLP_0.2-0           openNLPdata_1.5.3-4 xml2_1.2.0         
+## [52] venneuler_1.1-0     ellipsis_0.2.0.1    vctrs_0.2.0        
+## [55] wordcloud_2.6       tools_3.6.1         glue_1.3.1         
+## [58] purrr_0.3.3         plotrix_3.7-6       parallel_3.6.1     
+## [61] yaml_2.2.0          tm_0.7-6            colorspace_1.4-1   
+## [64] rJava_0.9-11        knitr_1.23</code></pre>
+</div>
+
+    </div>
+
+    
+
+
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/tags/data-science/">Data Science</a>
+  
+  <a class="badge badge-light" href="/tags/facebook/">Facebook</a>
+  
+  <a class="badge badge-light" href="/tags/ultrarunning/">ultrarunning</a>
+  
+  <a class="badge badge-light" href="/tags/ultra/">ultra</a>
+  
+  <a class="badge badge-light" href="/tags/running/">running</a>
+  
+  <a class="badge badge-light" href="/tags/ultramarathon/">ultramarathon</a>
+  
+  <a class="badge badge-light" href="/tags/marathon/">marathon</a>
+  
+  <a class="badge badge-light" href="/tags/suunto/">Suunto</a>
+  
+  <a class="badge badge-light" href="/tags/garmin/">Garmin</a>
+  
+  <a class="badge badge-light" href="/tags/dplyr/">dplyr</a>
+  
+  <a class="badge badge-light" href="/tags/tidyr/">tidyr</a>
+  
+  <a class="badge badge-light" href="/tags/ggplot2/">ggplot2</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card">
+    
+      
+      <img class="portrait mr-3" src="/authors/samrobson/avatar_huef261ec2a0b29c1127d55274a0b630a9_2690596_250x250_fill_q90_lanczos_center.jpeg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">Sam Robson</a></h5>
+      <h6 class="card-subtitle">Lead Bioinformatician at the Centre for Enzyme Innovation</h6>
+      <p class="card-text">Lead Bioinformatician at the Centre for Enzyme Innovation</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:samuel.robson@port.ac.uk" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/samrobson/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=90hzm3gAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/irunfasterthanmycode" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/2018-04-15-ultrarunner-or-ultra-runner/">Ultramarathon, Ultra Marathon or Ultra-Marathon?</a></li>
+          
+          <li><a href="/resources/rtutorial/">How To Use R</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  let disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "https-irunfasterthanmycode-github-io" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  
+</section>
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    <script id="dsq-count-scr" src="https://https-irunfasterthanmycode-github-io.disqus.com/count.js" async></script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.d6bd04fdad2ad213aa8111c5a3b72fc5.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2017 Sam Robson &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

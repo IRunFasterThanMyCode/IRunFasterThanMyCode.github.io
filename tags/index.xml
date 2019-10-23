@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags | IRunFasterThanMyCode</title>
+    <link>/tags/</link>
+      <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <description>Tags</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Sat, 05 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Tags</title>
+      <link>/tags/</link>
+    </image>
+    
+    <item>
+      <title>classification</title>
+      <link>/tags/classification/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/classification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Science</title>
+      <link>/tags/data-science/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Keras</title>
+      <link>/tags/keras/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/keras/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>/tags/machine-learning/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MNIST</title>
+      <link>/tags/mnist/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/mnist/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>prediction</title>
+      <link>/tags/prediction/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/prediction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/tags/r/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TensorFlow</title>
+      <link>/tags/tensorflow/</link>
+      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/tensorflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>KNN</title>
+      <link>/tags/knn/</link>
+      <pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/knn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>logistic regression</title>
+      <link>/tags/logistic-regression/</link>
+      <pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/logistic-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Normalization</title>
+      <link>/tags/normalization/</link>
+      <pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/normalization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PCA</title>
+      <link>/tags/pca/</link>
+      <pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/pca/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Random Forest</title>
+      <link>/tags/random-forest/</link>
+      <pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/random-forest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Recommendation</title>
+      <link>/tags/recommendation/</link>
+      <pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/recommendation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SVM</title>
+      <link>/tags/svm/</link>
+      <pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/svm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bioinformatics</title>
+      <link>/tags/bioinformatics/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/bioinformatics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Genomics</title>
+      <link>/tags/genomics/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/genomics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Heritage</title>
+      <link>/tags/heritage/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/heritage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Research Centres</title>
+      <link>/tags/research-centres/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/research-centres/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transcriptomics</title>
+      <link>/tags/transcriptomics/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/transcriptomics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Portsmouth Heritage Hub</title>
+      <link>/tags/portsmouth-heritage-hub/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/portsmouth-heritage-hub/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>University of Portsmouth</title>
+      <link>/tags/university-of-portsmouth/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/university-of-portsmouth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NGS</title>
+      <link>/tags/ngs/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/ngs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Anderson</title>
+      <link>/tags/anderson/</link>
+      <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/anderson/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Guinness</title>
+      <link>/tags/guinness/</link>
+      <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/guinness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GWR</title>
+      <link>/tags/gwr/</link>
+      <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/gwr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mimi</title>
+      <link>/tags/mimi/</link>
+      <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/mimi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Record</title>
+      <link>/tags/record/</link>
+      <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/record/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>transcon</title>
+      <link>/tags/transcon/</link>
+      <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/transcon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ultra</title>
+      <link>/tags/ultra/</link>
+      <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/ultra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ultrarunning</title>
+      <link>/tags/ultrarunning/</link>
+      <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/ultrarunning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>USA</title>
+      <link>/tags/usa/</link>
+      <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/usa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>World</title>
+      <link>/tags/world/</link>
+      <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/world/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dplyr</title>
+      <link>/tags/dplyr/</link>
+      <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/dplyr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Facebook</title>
+      <link>/tags/facebook/</link>
+      <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/facebook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Garmin</title>
+      <link>/tags/garmin/</link>
+      <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/garmin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggplot2</title>
+      <link>/tags/ggplot2/</link>
+      <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/ggplot2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>glm</title>
+      <link>/tags/glm/</link>
+      <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/glm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>marathon</title>
+      <link>/tags/marathon/</link>
+      <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/marathon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>multinomial</title>
+      <link>/tags/multinomial/</link>
+      <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/multinomial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>natural language programming</title>
+      <link>/tags/natural-language-programming/</link>
+      <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/natural-language-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>randomforest</title>
+      <link>/tags/randomforest/</link>
+      <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/randomforest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>running</title>
+      <link>/tags/running/</link>
+      <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/running/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Suunto</title>
+      <link>/tags/suunto/</link>
+      <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/suunto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidyr</title>
+      <link>/tags/tidyr/</link>
+      <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/tidyr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ultramarathon</title>
+      <link>/tags/ultramarathon/</link>
+      <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/ultramarathon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Twitter</title>
+      <link>/tags/twitter/</link>
+      <pubDate>Sun, 15 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/twitter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pipeline</title>
+      <link>/tags/pipeline/</link>
+      <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/pipeline/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Welcome</title>
+      <link>/tags/welcome/</link>
+      <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/tags/welcome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sequencing</title>
+      <link>/tags/sequencing/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>/tags/sequencing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Marine Biology</title>
+      <link>/tags/marine-biology/</link>
+      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>/tags/marine-biology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microbiology</title>
+      <link>/tags/microbiology/</link>
+      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>/tags/microbiology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>How To</title>
+      <link>/tags/how-to/</link>
+      <pubDate>Wed, 23 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/tags/how-to/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tools</title>
+      <link>/tags/tools/</link>
+      <pubDate>Wed, 23 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorials</title>
+      <link>/tags/tutorials/</link>
+      <pubDate>Wed, 23 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/tags/tutorials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Biomaterials</title>
+      <link>/tags/biomaterials/</link>
+      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/tags/biomaterials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Disease</title>
+      <link>/tags/disease/</link>
+      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/tags/disease/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Environmental Biology</title>
+      <link>/tags/environmental-biology/</link>
+      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/tags/environmental-biology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Epigenetics and Development</title>
+      <link>/tags/epigenetics-and-development/</link>
+      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/tags/epigenetics-and-development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pharmacology</title>
+      <link>/tags/pharmacology/</link>
+      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/tags/pharmacology/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
