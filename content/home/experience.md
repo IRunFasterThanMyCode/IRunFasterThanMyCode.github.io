@@ -24,7 +24,7 @@ date_format = "Jan 2006"
   location = "Portsmouth, UK"
   date_start = "2019-06-01"
   date_end = ""
-  description = "I lead a team of bioinformatics researchers using whole-genome and transcriptome sequencing technology to study novel organisms that generate enzymes able to break down substrates such as plastics. We aim to find novel enzymes and work with other reserchers to bioengineer enzymes to help combat the worldwide plastic crisis. The Centre for Enzyme Innovation was funded by ~£6 million in funding from the Research England Expanding Excellence Fund."
+  description = "I lead a team of bioinformatics researchers using whole-genome and transcriptome sequencing technology to study novel organisms that generate enzymes able to break down substrates such as plastics. We aim to find novel enzymes and work with other reserchers to bioengineer enzymes to help combat the worldwide plastic crisis. The Centre for Enzyme Innovation recently received ~£6 million in funding from the Research England Expanding Excellence Fund."
 
 [[experience]]
   title = "Senior Research Fellow (Bioinformatics)"
@@ -33,7 +33,7 @@ date_format = "Jan 2006"
   location = "Portsmouth, UK"
   date_start = "2017-05-01"
   date_end = ""
-  description = "Bioinformatics researcher in the School of Pharmacy & Biomedical Science at the University of Portsmouth. I work in collaboration with other researchers within the department on projects with a high bioinformatics component, in particular working with high-throughput sequencing (e.g. ChIP-seq and RNA-seq) data sets. I also maintain my own research interests, develop tools for the wider bioinformatics community, and supervise and teach PhD and MRes students with an interest in developing bioinformatics skills."
+  description = "I am a bioinformatics researcher and Faculty Bioinformatics Lead in the Faculty of Science and Health at the University of Portsmouth. I work in collaboration with other researchers within the department on projects with a high bioinformatics component, in particular working with high-throughput sequencing (e.g. ChIP-seq and RNA-seq) data sets. I also maintain my own research interests, develop tools for the wider bioinformatics community, and supervise and teach PhD and MRes students with an interest in developing bioinformatics skills."
   
 [[experience]]
   title = "Sam Robson Consulting"
@@ -42,7 +42,7 @@ date_format = "Jan 2006"
   location = "Cambridgeshire, UK"
   date_start = "2014-05-01"
   date_end = "2017-03-01"
-  description = "I Provided statistical expertise for the largest study of doctor burnout yet conducted. In particular, I took a very large multi-factorial dataset and identified key factors influencing doctor burnout through the use of a variety of statistical methods, including multivariate mixed-effects regression analysis." 
+  description = "I provided statistical expertise for the largest study of doctor burnout yet conducted. In particular, I took a very large multi-factorial dataset and identified key factors influencing doctor burnout through the use of a variety of statistical methods, including multivariate mixed-effects regression analysis." 
   
 [[experience]]
   title = "Bioinformatician"
@@ -51,7 +51,7 @@ date_format = "Jan 2006"
   location = "Cambridgeshire, UK"
   date_start = "2010-03-01"
   date_end = "2017-03-01"
-  description = "I work as the lab bioinformatician in the lab of Tony Kouzarides at the the Gurdon Institute, as part of the University of Cambridge. My role is to help in the design of experiments and analyse data in collaboration with other members of the lab. My main focus is in the analysis of high-throughput sequencing data. In particular, the group has a focus on the understanding of the role of histone modifications in diseases such as cancer." 
+  description = "I worked as the lab bioinformatician in the lab of Tony Kouzarides at the the Gurdon Institute, as part of the University of Cambridge. My role was to help in the design of experiments and analyse data in collaboration with other members of the lab. My main focus was in the analysis of high-throughput sequencing data. In particular, the group had a focus on the understanding of the role of histone modifications in diseases such as cancer." 
   
 [[experience]]
   title = "Statistical/Mathematical Biologist"
@@ -60,6 +60,6 @@ date_format = "Jan 2006"
   location = "Cambridgeshire, UK"
   date_start = "2008-03-01"
   date_end = "2010-03-01"
-  description = "I worked under Matt Hurles and as a member of the Wellcome Trust Case-Control Consortium, on identifying potential associations between copy number variants (CNVs) and common disease. Structural variation, whereby large sections of DNA are lost, duplicated, relocated or inverted from one genome to the next, is prevalent in the human genome. Some of these structural variants can affect the number of copies of genes in the diploid genome (CNVs). We are looking to see if any of these variants are causal for any of eight common disease by performing a large (22,243 samples) case-control genome-wide association study. My main roles are to maintain, process and normalise this extremely large data set; to perform various optimisation and QC steps for these data to ensure we are working with the cleanest data set possible; and ultimately to look for associations between CNV and common disease by using novel statistical tools developed in-house." 
+  description = "I worked under Matt Hurles and as a member of the Wellcome Trust Case-Control Consortium, on identifying potential associations between copy number variants (CNVs) and common disease. Structural variation, whereby large sections of DNA are lost, duplicated, relocated or inverted from one genome to the next, is prevalent in the human genome. Some of these structural variants can affect the number of copies of genes in the diploid genome (CNVs). We looked to see if any of these variants were causal for any of eight common disease by performing a large (22,243 samples) case-control genome-wide association study. My main roles were to maintain, process and normalise this extremely large data set; to perform various optimisation and QC steps for these data to ensure we were working with the cleanest data set possible; and ultimately to look for associations between CNV and common disease by using novel statistical tools developed in-house." 
 
 +++
