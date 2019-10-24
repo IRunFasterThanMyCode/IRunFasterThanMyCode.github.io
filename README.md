@@ -1,3 +1,10 @@
+# Personal website Dr Sam Robson
+
+Personal website for Dr Sam Robson. I am a computational biologist with a strong mathematics and statistics background. I have extensive experience of maintaining, processing, and analysing Big Data from next generation DNA sequencing and expertise in a wide variety of data mining, data visualisation, deep learning, and machine learning methods to identify statistically significant trends in high-dimensional data. I am currently the Bioinformatics Lead at the Centre for Enzyme Innovation and Faculty Bioinformatics Lead at the University of Portsmouth.
+
+This website has been generated using the **Academic** theme using the ```blogdown``` package in R.
+
+
 # [Academic Kickstart](https://sourcethemes.com/academic/)
 
 **Academic** makes it easy to create a beautiful website for free using Markdown, Jupyter, or RStudio. Customize anything on your site with widgets, themes, and language packs. [Check out the latest demo](https://academic-demo.netlify.com/) of what you'll get in less than 10 minutes, or [view the showcase](https://sourcethemes.com/academic/#expo).
