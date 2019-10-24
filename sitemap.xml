@@ -18,12 +18,12 @@
   </url>
   
   <url>
-    <loc>/tags/data-science/</loc>
+    <loc>/categories/data-science/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/data-science/</loc>
+    <loc>/tags/data-science/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -68,12 +68,12 @@
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
+    <loc>/tags/r/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/r/</loc>
+    <loc>/categories/r/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -723,21 +723,6 @@
   </url>
   
   <url>
-    <loc>/software/mysoftware/</loc>
-    <lastmod>2018-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/pipeline/</loc>
-    <lastmod>2018-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/software/</loc>
-    <lastmod>2018-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/welcome/</loc>
     <lastmod>2018-04-01T00:00:00+00:00</lastmod>
   </url>
@@ -765,16 +750,6 @@
   <url>
     <loc>/authors/vakoc-cr/</loc>
     <lastmod>2017-12-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2017-11-09_introduction-to-bioinformatics/</loc>
-    <lastmod>2017-11-07T09:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/</loc>
-    <lastmod>2017-11-07T09:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -823,12 +798,12 @@
   </url>
   
   <url>
-    <loc>/categories/how-to/</loc>
+    <loc>/tags/how-to/</loc>
     <lastmod>2017-08-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/how-to/</loc>
+    <loc>/categories/how-to/</loc>
     <lastmod>2017-08-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -843,12 +818,12 @@
   </url>
   
   <url>
-    <loc>/categories/tutorials/</loc>
+    <loc>/tags/tutorials/</loc>
     <lastmod>2017-08-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/tutorials/</loc>
+    <loc>/categories/tutorials/</loc>
     <lastmod>2017-08-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -980,11 +955,6 @@
   <url>
     <loc>/project/2017-08-17_role-of-variant-histones-on-xenopus-development/</loc>
     <lastmod>2017-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2017-06-16_bioinformatics-research-at-the-university-of-portsmouth/</loc>
-    <lastmod>2017-06-16T11:30:00+00:00</lastmod>
   </url>
   
   <url>

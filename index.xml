@@ -213,16 +213,16 @@ summary(MNIST_model)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Let’s take a look at how the accuracy and the loss (caluclated as categorical cross-entropy) change as the model training progresses:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(training_output)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2019-10-05_Deep_Learning_with_Keras_in_RStudio/index_files/figure-html/MNIST_training_plot-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can see that the loss is high and the accuracy low at the start of the training, but they quickly improve within the first 10 epochs. After this, they begin to plateau, resulting in a loss of 0.06 and accuracy of 98.4%.&lt;/p&gt;
+&lt;p&gt;We can see that the loss is high and the accuracy low at the start of the training, but they quickly improve within the first 10 epochs. After this, they begin to plateau, resulting in a loss of 0.06 and accuracy of 98.43%.&lt;/p&gt;
 &lt;p&gt;This is pretty good, so let’s see how it works with the test set:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;test_output &amp;lt;- MNIST_model %&amp;gt;% evaluate(test_dat_x, test_dat_y)
 test_output&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## $loss
-## [1] 0.1076846
+## [1] 0.1039611
 ## 
 ## $acc
-## [1] 0.9826&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;So 98.26% of the 10,000 test cases were predicted accurately. So this means that 174 were wrong. Let’s take a look at some of these:&lt;/p&gt;
+## [1] 0.9786&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So 97.86% of the 10,000 test cases were predicted accurately. So this means that 214 were wrong. Let’s take a look at some of these:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;predicted &amp;lt;- MNIST_model %&amp;gt;% predict_classes(test_dat_x)
 which_wrong &amp;lt;- which(predicted != test_dat_y_raw)
 par(mfcol = c(3,6))
@@ -317,7 +317,7 @@ for (i in which_wrong[1:18]) {
 &lt;/div&gt;
 &lt;div id=&#34;conclusions&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;14&lt;/span&gt; Conclusions&lt;/h1&gt;
-&lt;p&gt;According to Wikipedia, one of the best results for the MNIST database used a hierarchical system of convolutional neural networks and managed to get an error rate of 0.23%. Here I have an error rate of 1.74%, so I clearly have a way to go! Often in classification algorithms, using standard machine learning algorithms will get you pretty far with pretty good error rates. However, to tune the models further to get error rates down to these sorts of levels, more complex models are required. Neural networks can be used to push the error rates down further. Getting the right answer 96% of the time is pretty good, but if you’re relying on that classification to tell whether there is a pedestrian stood in front of a self-driving car, it is incredibly important to ensure that this error rate is as close to 0 as possible.&lt;/p&gt;
+&lt;p&gt;According to Wikipedia, one of the best results for the MNIST database used a hierarchical system of convolutional neural networks and managed to get an error rate of 0.23%. Here I have an error rate of 2.14%, so I clearly have a way to go! Often in classification algorithms, using standard machine learning algorithms will get you pretty far with pretty good error rates. However, to tune the models further to get error rates down to these sorts of levels, more complex models are required. Neural networks can be used to push the error rates down further. Getting the right answer 96% of the time is pretty good, but if you’re relying on that classification to tell whether there is a pedestrian stood in front of a self-driving car, it is incredibly important to ensure that this error rate is as close to 0 as possible.&lt;/p&gt;
 &lt;p&gt;However, this has been a very useful attempt at incorparting the powerful interface of Keras and the workflow of TensorFlow in R. Being able to incorporate powerful deep learning networks in R is incredobly useful, and will allow for incorporation with pre-existing pipelines already developed for bioinformatics analyses utilising the powerful pacakges available from &lt;a href=&#34;https://bioconductor.org&#34;&gt;Bioconductor&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Deep learning algorithms currently have a huge number of applications, from self-driving cars to facial recognition, and are being incorporated into technology in many industries. Development of deep learning algorithms and Big Data processing approaches will provide significant technological advancements. I am currently working on some potentially interesting applications, and hope to further my expertise in this area by working more with the R Keras API interface.&lt;/p&gt;
 &lt;/div&gt;
@@ -3146,15 +3146,6 @@ wordcloud(cloud_dat, max.words = 1000, min.freq = 5, random.order = FALSE, color
     </item>
     
     <item>
-      <title>NGS Pipeline</title>
-      <link>/software/mysoftware/</link>
-      <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
-      <guid>/software/mysoftware/</guid>
-      <description>&lt;p&gt;I have written and implemented a pipeline for the analysis of NGS data from various sources (ChIP-Seq, RNA-Seq, 16S rDNA, &lt;em&gt;de novo&lt;/em&gt; assembly, etc.) which I have been using in my analyses. It utilises a number of well documented and curated tools and tracks each step of the process using a centralised mysql database. I am currently working to make this portable as I believe that it may be of use to other researchers. Once this is complete, I will make the code available here.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Welcome to the University of Portsmouth Bioinformatics Group Website</title>
       <link>/post/2018-04-01-welcome-to-the-university-of-portsmouth-bioinformatics-group-website/</link>
       <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
@@ -3175,15 +3166,6 @@ wordcloud(cloud_dat, max.words = 1000, min.freq = 5, random.order = FALSE, color
       <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
       <guid>/publication/2017_promoter-bound_mettl3_maintains_myeloid_leukaemia_by_m6a-dependent_translation_control/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Introduction to Bioinformatics</title>
-      <link>/talk/2017-11-09_introduction-to-bioinformatics/</link>
-      <pubDate>Tue, 07 Nov 2017 09:00:00 +0000</pubDate>
-      <guid>/talk/2017-11-09_introduction-to-bioinformatics/</guid>
-      <description>&lt;p&gt;The term &amp;ldquo;bioinformatics&amp;rdquo; can apply to a wide range of disciplines in the biological sciences, and the field lies at the interface between biology, statistics, mathematics and computer science. This lecture will give a brief insight into the importance of bioinformatics in the biological sciences, and in particular will focus on the rise of next generation sequencing (NGS) approaches for reading the sequences of large amounts of DNA and RNA molecules simultaneously. We will discuss varied uses for NGS technology, how the Illumina Sequencing by Synthesis platform works, some insight into data formats associated with NGS, and an introduction to some of the resources available to bioinformaticians. This session will be delivered by Dr. Sam Robson.&lt;/p&gt;
-</description>
     </item>
     
     <item>
@@ -5410,15 +5392,6 @@ abline(a = 0, b = 1, lty = 2)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
       <guid>/project/2017-08-17_role-of-variant-histones-on-xenopus-development/</guid>
       <description>&lt;p&gt;Together with &lt;a href=&#34;http://www.port.ac.uk/school-of-biological-sciences/staff/prof-matt-guille.html&#34; target=&#34;_blank&#34;&gt;Professor Matt Guille&lt;/a&gt; and &lt;a href=&#34;http://www.port.ac.uk/school-of-biological-sciences/staff/dr-fiona-myers.html&#34; target=&#34;_blank&#34;&gt;Dr. Fiona Myers&lt;/a&gt;, we are examining development in the model species &lt;em&gt;Xenopus laevis&lt;/em&gt;. We are using a wide range of techniques, including ChIP-seq to study epigenetic changes and to observe transcription factor binding throughout development, RNA-seq to study changes in gene expression, structural analysis of DNA tertiary structures, and Nanopore sequencing using the &lt;a href=&#34;https://nanoporetech.com&#34; target=&#34;_blank&#34;&gt;Oxford Nanopore MinION&lt;/a&gt; system to look at whole genome changes.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Bioinformatics Research at the University of Portsmouth</title>
-      <link>/talk/2017-06-16_bioinformatics-research-at-the-university-of-portsmouth/</link>
-      <pubDate>Fri, 16 Jun 2017 11:30:00 +0000</pubDate>
-      <guid>/talk/2017-06-16_bioinformatics-research-at-the-university-of-portsmouth/</guid>
-      <description>&lt;p&gt;An introduction to the University of Portsmouth faculty to the background and previous work of Dr. Sam Robson, given at the IBBS Research Day just after his appointment to the University.&lt;/p&gt;
 </description>
     </item>
     

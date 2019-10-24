@@ -817,7 +817,3 @@ Gotta catch 'em all!
 ``` {r sessioninfo}
 sessionInfo()
 ```
-
-``` {r saveimage, echo = FALSE}
-save.image("output.Rdat")
-```

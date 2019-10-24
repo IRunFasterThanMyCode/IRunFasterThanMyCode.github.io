@@ -213,16 +213,16 @@ summary(MNIST_model)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Let’s take a look at how the accuracy and the loss (caluclated as categorical cross-entropy) change as the model training progresses:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(training_output)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2019-10-05_Deep_Learning_with_Keras_in_RStudio/index_files/figure-html/MNIST_training_plot-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can see that the loss is high and the accuracy low at the start of the training, but they quickly improve within the first 10 epochs. After this, they begin to plateau, resulting in a loss of 0.06 and accuracy of 98.4%.&lt;/p&gt;
+&lt;p&gt;We can see that the loss is high and the accuracy low at the start of the training, but they quickly improve within the first 10 epochs. After this, they begin to plateau, resulting in a loss of 0.06 and accuracy of 98.43%.&lt;/p&gt;
 &lt;p&gt;This is pretty good, so let’s see how it works with the test set:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;test_output &amp;lt;- MNIST_model %&amp;gt;% evaluate(test_dat_x, test_dat_y)
 test_output&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## $loss
-## [1] 0.1076846
+## [1] 0.1039611
 ## 
 ## $acc
-## [1] 0.9826&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;So 98.26% of the 10,000 test cases were predicted accurately. So this means that 174 were wrong. Let’s take a look at some of these:&lt;/p&gt;
+## [1] 0.9786&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So 97.86% of the 10,000 test cases were predicted accurately. So this means that 214 were wrong. Let’s take a look at some of these:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;predicted &amp;lt;- MNIST_model %&amp;gt;% predict_classes(test_dat_x)
 which_wrong &amp;lt;- which(predicted != test_dat_y_raw)
 par(mfcol = c(3,6))
@@ -317,7 +317,7 @@ for (i in which_wrong[1:18]) {
 &lt;/div&gt;
 &lt;div id=&#34;conclusions&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;14&lt;/span&gt; Conclusions&lt;/h1&gt;
-&lt;p&gt;According to Wikipedia, one of the best results for the MNIST database used a hierarchical system of convolutional neural networks and managed to get an error rate of 0.23%. Here I have an error rate of 1.74%, so I clearly have a way to go! Often in classification algorithms, using standard machine learning algorithms will get you pretty far with pretty good error rates. However, to tune the models further to get error rates down to these sorts of levels, more complex models are required. Neural networks can be used to push the error rates down further. Getting the right answer 96% of the time is pretty good, but if you’re relying on that classification to tell whether there is a pedestrian stood in front of a self-driving car, it is incredibly important to ensure that this error rate is as close to 0 as possible.&lt;/p&gt;
+&lt;p&gt;According to Wikipedia, one of the best results for the MNIST database used a hierarchical system of convolutional neural networks and managed to get an error rate of 0.23%. Here I have an error rate of 2.14%, so I clearly have a way to go! Often in classification algorithms, using standard machine learning algorithms will get you pretty far with pretty good error rates. However, to tune the models further to get error rates down to these sorts of levels, more complex models are required. Neural networks can be used to push the error rates down further. Getting the right answer 96% of the time is pretty good, but if you’re relying on that classification to tell whether there is a pedestrian stood in front of a self-driving car, it is incredibly important to ensure that this error rate is as close to 0 as possible.&lt;/p&gt;
 &lt;p&gt;However, this has been a very useful attempt at incorparting the powerful interface of Keras and the workflow of TensorFlow in R. Being able to incorporate powerful deep learning networks in R is incredobly useful, and will allow for incorporation with pre-existing pipelines already developed for bioinformatics analyses utilising the powerful pacakges available from &lt;a href=&#34;https://bioconductor.org&#34;&gt;Bioconductor&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Deep learning algorithms currently have a huge number of applications, from self-driving cars to facial recognition, and are being incorporated into technology in many industries. Development of deep learning algorithms and Big Data processing approaches will provide significant technological advancements. I am currently working on some potentially interesting applications, and hope to further my expertise in this area by working more with the R Keras API interface.&lt;/p&gt;
 &lt;/div&gt;

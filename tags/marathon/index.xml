@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Marathon | IRunFasterThanMyCode</title>
+    <title>marathon | IRunFasterThanMyCode</title>
     <link>/tags/marathon/</link>
       <atom:link href="/tags/marathon/index.xml" rel="self" type="application/rss+xml" />
-    <description>Marathon</description>
+    <description>marathon</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Tue, 24 Apr 2018 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/irunfasterthanmycode.jpg</url>
-      <title>Marathon</title>
+      <title>marathon</title>
       <link>/tags/marathon/</link>
     </image>
     

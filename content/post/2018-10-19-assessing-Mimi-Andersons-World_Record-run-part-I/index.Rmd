@@ -488,7 +488,3 @@ I genuinely hope that this is useful to some of you in addressing some of the co
 ``` {r sessioninfo}
 sessionInfo()
 ```
-
-``` {r saveimage, echo = FALSE}
-save.image("output.Rdat")
-```

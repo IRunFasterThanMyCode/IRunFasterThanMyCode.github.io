@@ -397,7 +397,3 @@ But in summary, people on the Ultra Running Community page spend far too much ti
 ``` {r sessioninfo}
 sessionInfo()
 ```
-
-``` {r saveimage, echo = FALSE}
-save.image("output.Rdat")
-```

@@ -371,7 +371,3 @@ Deep learning algorithms currently have a huge number of applications, from self
 ``` {r sessioninfo}
 sessionInfo()
 ```
-
-``` {r saveimage, echo = FALSE}
-save.image("output.Rdat")
-```
