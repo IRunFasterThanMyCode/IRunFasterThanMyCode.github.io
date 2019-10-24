@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>logistic regression | IRunFasterThanMyCode</title>
+    <title>Logistic Regression | IRunFasterThanMyCode</title>
     <link>/tags/logistic-regression/</link>
       <atom:link href="/tags/logistic-regression/index.xml" rel="self" type="application/rss+xml" />
-    <description>logistic regression</description>
+    <description>Logistic Regression</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Mon, 15 Jul 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/irunfasterthanmycode.jpg</url>
-      <title>logistic regression</title>
+      <title>Logistic Regression</title>
       <link>/tags/logistic-regression/</link>
     </image>
     
