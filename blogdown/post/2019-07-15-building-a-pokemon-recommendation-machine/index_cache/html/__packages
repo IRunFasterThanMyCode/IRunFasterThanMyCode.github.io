@@ -1,0 +1,8 @@
+base
+ggplot2
+dplyr
+ggrepel
+RColorBrewer
+pheatmap
+lattice
+caret

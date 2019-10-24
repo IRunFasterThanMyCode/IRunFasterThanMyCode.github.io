@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.5.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Sam Robson">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Use of TensorFlow through the Keras API in RStudio to explore deep learning model training">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.1884ccbe79662c38d99b291260b58a24.css">
+
+  
+
+  
+
+
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="IRunFasterThanMyCode">
+  <meta property="og:url" content="/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/">
+  <meta property="og:title" content="Deep Learning using TensorFlow Through the Keras API in RStudio | IRunFasterThanMyCode">
+  <meta property="og:description" content="Use of TensorFlow through the Keras API in RStudio to explore deep learning model training"><meta property="og:image" content="/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/featured.png">
+  <meta property="twitter:image" content="/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/featured.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-10-05T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2019-10-05T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/"
+  },
+  "headline": "Deep Learning using TensorFlow Through the Keras API in RStudio",
+  
+  "image": [
+    "/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/featured.png"
+  ],
+  
+  "datePublished": "2019-10-05T00:00:00Z",
+  "dateModified": "2019-10-05T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Sam Robson"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "IRunFasterThanMyCode",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/irunfasterthanmycode.jpg"
+    }
+  },
+  "description": "Use of TensorFlow through the Keras API in RStudio to explore deep learning model training"
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Deep Learning using TensorFlow Through the Keras API in RStudio | IRunFasterThanMyCode</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/"><img src="/img/irunfasterthanmycode.jpg" alt="IRunFasterThanMyCode"></a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#resources"><span>Resources</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/CV/SamRobson_CV_Academic/SamRobson_CV_Academic.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+<div class="article-container pt-3">
+  <h1>Deep Learning using TensorFlow Through the Keras API in RStudio</h1>
+
+  
+
+  
+
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Oct 5, 2019
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    16 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/blog/">Blog</a>, <a href="/categories/data-science/">Data Science</a>, <a href="/categories/machine-learning/">Machine Learning</a>, <a href="/categories/r/">R</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/&amp;text=Deep%20Learning%20using%20TensorFlow%20Through%20the%20Keras%20API%20in%20RStudio" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/&amp;t=Deep%20Learning%20using%20TensorFlow%20Through%20the%20Keras%20API%20in%20RStudio" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Deep%20Learning%20using%20TensorFlow%20Through%20the%20Keras%20API%20in%20RStudio&amp;body=/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/&amp;title=Deep%20Learning%20using%20TensorFlow%20Through%20the%20Keras%20API%20in%20RStudio" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Deep%20Learning%20using%20TensorFlow%20Through%20the%20Keras%20API%20in%20RStudio%20/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/&amp;title=Deep%20Learning%20using%20TensorFlow%20Through%20the%20Keras%20API%20in%20RStudio" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 405px;">
+  <div style="position: relative">
+    <img src="/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/featured_hu5cc81aa4cbc8c9bc588f40fa80a9b2c4_17046_720x0_resize_lanczos_2.png" alt="" class="featured-image">
+    <span class="article-header-caption">tensorflow.org</span>
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#tensorflow"><span class="toc-section-number">2</span> TensorFlow</a></li>
+<li><a href="#keras"><span class="toc-section-number">3</span> Keras</a></li>
+<li><a href="#mnist-database"><span class="toc-section-number">4</span> MNIST Database</a></li>
+<li><a href="#data-transformation"><span class="toc-section-number">5</span> Data Transformation</a></li>
+<li><a href="#sequential-models"><span class="toc-section-number">6</span> Sequential Models</a></li>
+<li><a href="#dense-layer"><span class="toc-section-number">7</span> Dense Layer</a></li>
+<li><a href="#activation-layer"><span class="toc-section-number">8</span> Activation Layer</a></li>
+<li><a href="#dropout-layer"><span class="toc-section-number">9</span> Dropout Layer</a></li>
+<li><a href="#define-initial-model"><span class="toc-section-number">10</span> Define Initial Model</a></li>
+<li><a href="#compile-model"><span class="toc-section-number">11</span> Compile Model</a></li>
+<li><a href="#training-the-model"><span class="toc-section-number">12</span> Training the Model</a></li>
+<li><a href="#results"><span class="toc-section-number">13</span> Results</a></li>
+<li><a href="#conclusions"><span class="toc-section-number">14</span> Conclusions</a></li>
+<li><a href="#session-info"><span class="toc-section-number">15</span> Session Info</a></li>
+</ul>
+</div>
+
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>Machine learning and artificial intelligence is a hot topic in the tech world, but the expression “machine learning” can describe anything from fitting a straight line through some data, to a machine able to think, learn and react to the world in highly sophisticated ways (e.g. self-driving cars if you want to be positive about AI, or SkyNet from Terminator if you want to be a naysayer). Whilst common machine learning techniques like support vector machines and k-Nearest Neighbour algorithms can be used to solve a huge number of problems, deep learning algorithms like neural networks are required to create these highly sophisticated models.</p>
+<p>In this blog, I will explore the use of some commonly used tools for generating neural networks within the R programming language.</p>
+</div>
+<div id="tensorflow" class="section level1">
+<h1><span class="header-section-number">2</span> TensorFlow</h1>
+<p>TensorFlow is one of the most powerful tools for deep learning, and in particular is widely used for training neural networks to classify various aspects of images. It is a freely distributed open-source library in python (but mainly written in C++) originally created by Google, but has become the cornerstone of many deep learning models currently out there</p>
+<p>A <em>Tensor</em> is a multi-dimensional array, and the TensorFlow libraries represent a highly efficient pipeline for the myriad linear algebra calculations required to generate new tensors through the layers of the network.</p>
+</div>
+<div id="keras" class="section level1">
+<h1><span class="header-section-number">3</span> Keras</h1>
+<p>The <a href="https://keras.io">Keras API</a> is a high-level user-friendly neural network API (application programming interface) designed for accessing deep neural networks. One of the benefits is that it is able to run on GPUs as well as CPUs, which have been shown to work better for training neural networks since they are able more efficient at running the huge number of simple calculations required for model training (for example convolutions of image data).</p>
+<p>Keras can be used an interface to TensorFlow for training deep multi-level networks for use in deep learning applications. Both are developed in python, but here I am going to use the RStudio interface to run a few simple deep learning models to trial the process ahead of a more in-depth application. R and python are somewhat at war in the data science community, with (in my opinion) R being better for more general data analysis and visualisation (for instance, whilst the python <code>seaborn</code> package produces beautiful images, the <code>ggplot2</code> package is far more elaborate). However, with the Keras and TensorFlow packages (and the generally higher memory impact of using R), python is typically far more suited for deep learning applications.</p>
+<p>However, the ability to access the Keras API through RStudio, and the amazing power of using RStudio to develop workflows, will make this a perfect “one stop shop” for data science needs. Much of this work is developed from the <a href="https://tensorflow.rstudio.com">RStudio Keras and TensorFlow tutorials</a>.</p>
+<p>We first load the <code>reticulate</code> package to pipe python commands through R:</p>
+<pre class="r"><code>library(&quot;reticulate&quot;)</code></pre>
+<p>Then install and load the <code>keras</code> package. When we load it using the <code>install_keras()</code> function, we can define different backend engines and choose to use GPUs rather than CPUs, but for this example I will simply use the default TensorFlow backend on my laptop CPU:</p>
+<pre class="r"><code>devtools::install_github(&quot;rstudio/keras&quot;)
+library(&quot;keras&quot;)</code></pre>
+</div>
+<div id="mnist-database" class="section level1">
+<h1><span class="header-section-number">4</span> MNIST Database</h1>
+<p>So let’s have a little play by looking at a standard machine learning approach, looking at the <a href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> dataset. This is the Modified National Institute of Standards and Technology database, and contains a large amount of images of handwritten digits that is used to train models for handwriting recognition. Ultimately, the same models can be used for a huge number of classification tasks.</p>
+<pre class="r"><code>mnist_dat &lt;- dataset_mnist()</code></pre>
+<p>The dataset contains a training set of 60,000 images, and a test set of 10,000 images. Each image is pre-normalised such that each digit is a grayscale image that fits into a 28x28 pixel bounding box.Each image is also supplied with a label that tells us what the digit should really be. This dataset is commonly used as a kind of benchmark for new models, with people vying to build the model with the lowest error rate possible:</p>
+<p>So let’s define our data sets. We will require two main data sets; a <strong>training</strong> set where we show the model the images and tell it what it should recognise, and a <strong>test</strong> dataset where we can predict the result and check against the ground level label. For each data set, we will create a dataset <code>x</code> containing all of the images, and a dataset <code>y</code> containing the labels:</p>
+<pre class="r"><code>training_dat_x_raw &lt;- mnist_dat[[&quot;train&quot;]][[&quot;x&quot;]]
+training_dat_y_raw &lt;- mnist_dat[[&quot;train&quot;]][[&quot;y&quot;]]
+test_dat_x_raw     &lt;- mnist_dat[[&quot;test&quot;]][[&quot;x&quot;]]
+test_dat_y_raw     &lt;- mnist_dat[[&quot;test&quot;]][[&quot;y&quot;]]</code></pre>
+<p>Each of the images is essentially a 2D array, with 28 rows and 28 columns, with each cell representing the greyscale value of the pixel. So the <code>_dat_x</code> data sets are 3D arrays. So accessing specific elements from these arrays in R is similar to accessing rows and columns using the <code>[x,y]</code> style axis, but we need to specify a third element <code>z</code> for the specific array that we want to access – <code>[z,x,y]</code>. So lets take a look at an exampl of the input data:</p>
+<pre class="r"><code>par(mfcol = c(3,6))
+par(mar = c(0, 0, 3, 0), xaxs = &#39;i&#39;, yaxs = &#39;i&#39;)
+for (i in 1:18) { 
+  plot_dat &lt;- training_dat_x_raw[i, , ]
+  plot_dat &lt;- t(apply(plot_dat, MAR = 2, rev)) 
+  image(1:28, 1:28, plot_dat, 
+        col  = gray((0:255)/255), 
+        xaxt =&#39;n&#39;, 
+        main = training_dat_y_raw[i],
+        cex  = 4, axes = FALSE)
+}</code></pre>
+<p><img src="/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/index_files/figure-html/MNIST_plot_entries-1.png" width="3000" /></p>
+</div>
+<div id="data-transformation" class="section level1">
+<h1><span class="header-section-number">5</span> Data Transformation</h1>
+<p>We can easily reduce this 3D data by essentially taking each 28x28 matrix and collapsing the 784 values down into a 1D vector. Then we can make one big 2D matrix containing all of the data. Ordinarily, this could be done by reassigning the dimensions of the array, but by using the <code>array_reshape()</code> function, the data is adjusted to meet the requirements for Keras:</p>
+<pre class="r"><code>training_dat_x &lt;- array_reshape(training_dat_x_raw, c(nrow(training_dat_x_raw), 784))
+test_dat_x     &lt;- array_reshape(test_dat_x_raw,     c(nrow(test_dat_x_raw), 784))
+dim(training_dat_x)</code></pre>
+<pre><code>## [1] 60000   784</code></pre>
+<p>The values in these arrays are greyscale values, representing 256 integer values between 0 (black) and 255 (white). It will be useful for downstream analyses to rescale these values to real values in the range <span class="math inline">\([0,1]\)</span>:</p>
+<pre class="r"><code>training_dat_x &lt;- training_dat_x/255
+test_dat_x     &lt;- test_dat_x/255</code></pre>
+<p>The R-specific way to deal with categorical data would be to encode the values in the <code>y</code> datasets to a factor with 10 levels (“0”, “1”, “2”, etc). However, Keras requires the data to be in a slightly different format, so we use the <code>to_categorical()</code> function instead. This will encode the value in a new matrix with 10 columns and <code>n</code> rows, such that every row contains exactly one <code>1</code> (representing the label) and nine <code>0s</code>. This is known as an identity matrix. Keras uses a lot of linear algebra, and this encoding makes these calculations much simpler:</p>
+<pre class="r"><code>training_dat_y &lt;- to_categorical(training_dat_y_raw, 10)
+test_dat_y     &lt;- to_categorical(test_dat_y_raw, 10)
+dim(training_dat_y)</code></pre>
+<pre><code>## [1] 60000    10</code></pre>
+</div>
+<div id="sequential-models" class="section level1">
+<h1><span class="header-section-number">6</span> Sequential Models</h1>
+<p>A standard deep learning neural network model can be thought of as a number of sequential layers, with each layer representing a different abstraction of the data. For instance, consider a model looking at facial recognition from image data. The first layer might represent edges of different aspects of the image. The next layer might be designed to pick out nose shape. The next might pick out hair. The next might determine the orientation of the face. etc. Then by adding more and more layers, we can develop models able to classify samples based on a wide range of different features.</p>
+<p>Of course, there is a danger in statistics of <em>over-fitting</em> data, which is when we create a model so specific for the training data that it becomes practically worthless. By definition, adding more variables into a model will always improve the fit, but at the cost of its applicability to other data sets. In models such as linear models, we look for parsimony – a model should be as complicated as it needs to be <em>and no more complicated</em>. The old phrase is:</p>
+<blockquote>
+<p>When you hear hooves, think horse not zebra</p>
+</blockquote>
+<p>However, deep learning sequential models such as these are robust to these problems, since model training can back-propagate, allowing us to incorporate far more levels than would be possible with other machine learning techniques.</p>
+<p>The general steps involved in using Keras for deep learning are to first build your model, compile it to configure the parameters that will be used to develop the “best” model, train it using your training data, then test it on an additional data set to see how it copes.</p>
+<p>So let’s build a simple sequential neural network model object using <code>keras_model_sequential()</code>, then add a series of additional layers that we hope will accurately identify our different categories. Adding sequential layers uses similar syntax to the tidyverse libraries such as <code>dplyr</code>, by using the pipe operator <code>%&gt;%</code>:</p>
+<pre class="r"><code>model &lt;- keras_model_sequential()
+model %&gt;%
+  layer_dense(units = 28, input_shape = c(784)) %&gt;%
+  layer_activation(activation = &quot;relu&quot;) %&gt;%
+  layer_dropout(rate = 0.4)</code></pre>
+</div>
+<div id="dense-layer" class="section level1">
+<h1><span class="header-section-number">7</span> Dense Layer</h1>
+<p>The first layer is a densely connected neural network layer, which takes a set of nD input tensors (in this case 1D input tensors), and generate a weights matrix by breaking the tensor into subsets and using this to learn the weights by doing some linear algebra (vector and matrix multiplication). The output from the <code>dense</code> layer is then generated as follows:</p>
+<p><span class="math display">\[output = activation(dot(input, kernel) + bias)\]</span></p>
+<p>So the weights kernel is generated and multiplied (dot product) with the input. If requested, a bias is also calculated and added to account for any systematic bias identified in the data. An <code>activation</code> function is then used to generate the final tensor to go on to the following layer (in this case we have specified this is a separate layer).</p>
+</div>
+<div id="activation-layer" class="section level1">
+<h1><span class="header-section-number">8</span> Activation Layer</h1>
+<p>An activation function can often be necessary to ensure the back-propogation and gradient descent algorithms work. By default, no activation is used. However, this is a linear identity function, which is very limited. A common activation function is the <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">Rectified Linear Unit</a> (<code>ReLU</code>), which is linear for positive values, but zero for negative values. This is usually a good starting point as it is very simple and fast. Another option is the <code>[softmax](https://en.wikipedia.org/wiki/Softmax_function)</code> function, which transforms each input logit (the pre-activated values) by taking the exponential and normalizing by the sum of exponentials over all inputs so that the sum is exactly 1:</p>
+<p><span class="math display">\[\sigma(y_i) = \frac{e^{y_i}}{\sum^{K}_{j=1}e^{y_j}}\]</span></p>
+<p>It is commonly used for multinomial logistic regression, where a different softmax function is applied for each class with a different probability incorporated, since it is able to transform input numbers into probabilities. The use of exponentials ensures that there are no negative values, no matter how negative the input logit. So the <code>softmax</code> function outputs a probability distribution for potential outcomes in the range <span class="math inline">\([0,1]\)</span>.</p>
+</div>
+<div id="dropout-layer" class="section level1">
+<h1><span class="header-section-number">9</span> Dropout Layer</h1>
+<p>Finally, we specify a dropout layer, which essentially drops a proportion of the nodes in the neural network to prevent over-fitting. In this case we have connections in the network between all of the tensor subsets generated. However, many of them are more useful in the model than others, so here we deactivate the 40% least useful nodes. Of course, this will reduce the training performance, but will prevent the issue of over-fitting making the model more generalised and applicable to other data sets. Model fitting is all about tweaking parameters and layers to get the most effective model, and this is one way in which we can improve the effectiveness of the model at predicting unseen data.</p>
+</div>
+<div id="define-initial-model" class="section level1">
+<h1><span class="header-section-number">10</span> Define Initial Model</h1>
+<p>So let’s generate a more thorough model of 4 dense layers, gradually filtering down to a final output of 10 probabilities using the <code>softmax</code> activation function – the probabilities for the 10 digits:</p>
+<pre class="r"><code>MNIST_model &lt;- keras_model_sequential()
+MNIST_model %&gt;%
+  layer_dense(units = 256, input_shape = c(784)) %&gt;%
+  layer_activation(activation = &quot;relu&quot;) %&gt;%
+  layer_dropout(rate = 0.4) %&gt;%
+  layer_dense(units = 128) %&gt;%
+  layer_activation(activation = &quot;relu&quot;) %&gt;%
+  layer_dropout(rate = 0.3) %&gt;%
+  layer_dense(units = 56) %&gt;%
+  layer_activation(activation = &quot;relu&quot;) %&gt;%
+  layer_dropout(rate = 0.2) %&gt;%
+  layer_dense(units = 10) %&gt;%
+  layer_activation(activation = &quot;softmax&quot;)
+summary(MNIST_model)</code></pre>
+<pre><code>## Model: &quot;sequential_1&quot;
+## ___________________________________________________________________________
+## Layer (type)                     Output Shape                  Param #     
+## ===========================================================================
+## dense_1 (Dense)                  (None, 256)                   200960      
+## ___________________________________________________________________________
+## activation_1 (Activation)        (None, 256)                   0           
+## ___________________________________________________________________________
+## dropout_1 (Dropout)              (None, 256)                   0           
+## ___________________________________________________________________________
+## dense_2 (Dense)                  (None, 128)                   32896       
+## ___________________________________________________________________________
+## activation_2 (Activation)        (None, 128)                   0           
+## ___________________________________________________________________________
+## dropout_2 (Dropout)              (None, 128)                   0           
+## ___________________________________________________________________________
+## dense_3 (Dense)                  (None, 56)                    7224        
+## ___________________________________________________________________________
+## activation_3 (Activation)        (None, 56)                    0           
+## ___________________________________________________________________________
+## dropout_3 (Dropout)              (None, 56)                    0           
+## ___________________________________________________________________________
+## dense_4 (Dense)                  (None, 10)                    570         
+## ___________________________________________________________________________
+## activation_4 (Activation)        (None, 10)                    0           
+## ===========================================================================
+## Total params: 241,650
+## Trainable params: 241,650
+## Non-trainable params: 0
+## ___________________________________________________________________________</code></pre>
+<p>Here we can see the change in shape of the tensors throughout the model, and the number of trainable parameters at each layer level. These are fully connected layers, so every neuron (values in the tensors) is connected to every other neuron. So the number of parameters (or connections) is given by multiplying the number of values in the input layer by the number in the previous layer plus one. So in total we have nearly a quarter of a million parameters to estimate here.</p>
+</div>
+<div id="compile-model" class="section level1">
+<h1><span class="header-section-number">11</span> Compile Model</h1>
+<p>So next we can compile this model to tell it which methods we want to use to estimate these parameters:</p>
+<pre class="r"><code>MNIST_model %&gt;% 
+  compile(
+    loss = &quot;categorical_crossentropy&quot;,
+    optimizer = optimizer_rmsprop(),
+    metrics = c(&quot;accuracy&quot;)
+  )</code></pre>
+<p>The loss function here is the method that will be used to optimise the parameters by comparing the predicted value with that of the actual value. Categorical crossentropy is commonly used in classification models when the output is a probability. It increases logarithmically as the predicted value diverges from the true value.</p>
+<p>The optimizer is used to ensure that the algorithm converges in training. We are trying to minimise the loss function, so <a href="https://en.wikipedia.org/wiki/Gradient_descent">Gradient Descent</a> can be used to optimse by iteratively recalculating the weights and bias until the minima is found. There is a danger of getting stuck at a local minima value, so sometimes it may be necessary to tune the parameters to avoid this. In this case, we are using RMSProp optimizer, which is similar to Gradient Descent but attempts to avoid this by adding oscillations to the descent.</p>
+<p>Finally, we can specify which metrics we wish to output inorder to evaluate the model during training. Here we look at the accuracy to determine how often our model gives the correct prediction in the trained data.</p>
+</div>
+<div id="training-the-model" class="section level1">
+<h1><span class="header-section-number">12</span> Training the Model</h1>
+<p>So now let’s train our model with our training data to estimate the parameters:</p>
+<pre class="r"><code>training_output &lt;- MNIST_model %&gt;% 
+  fit(
+    training_dat_x, training_dat_y,
+    batch_size = 128,
+    epochs = 30,
+    verbose = 1,
+    validation_split = 0.2
+  )</code></pre>
+<p>Here we are going to run the model using our reformated training data above. The <code>epoch</code> argument determines the number of iterations used to optimize the model parameters. In each epoch, we will use <code>batch_size</code> samples per epoch for the gradient update.</p>
+<p>The <code>validation_split</code> argument is used for running cross-validation in order to evaluate the quality of the model. A portion of the training data is kept aside, and is used to validate the current model parameters and calculate the accuracy.</p>
+</div>
+<div id="results" class="section level1">
+<h1><span class="header-section-number">13</span> Results</h1>
+<p>Let’s take a look at how the accuracy and the loss (caluclated as categorical cross-entropy) change as the model training progresses:</p>
+<pre class="r"><code>plot(training_output)</code></pre>
+<p><img src="/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/index_files/figure-html/MNIST_training_plot-1.png" width="3000" /></p>
+<p>We can see that the loss is high and the accuracy low at the start of the training, but they quickly improve within the first 10 epochs. After this, they begin to plateau, resulting in a loss of 0.07 and accuracy of 98.39%.</p>
+<p>This is pretty good, so let’s see how it works with the test set:</p>
+<pre class="r"><code>test_output &lt;- MNIST_model %&gt;% evaluate(test_dat_x, test_dat_y)
+test_output</code></pre>
+<pre><code>## $loss
+## [1] 0.1082727
+## 
+## $acc
+## [1] 0.9817</code></pre>
+<p>So 98.17% of the 10,000 test cases were predicted accurately. So this means that 183 were wrong. Let’s take a look at some of these:</p>
+<pre class="r"><code>predicted &lt;- MNIST_model %&gt;% predict_classes(test_dat_x)
+which_wrong &lt;- which(predicted != test_dat_y_raw)
+par(mfcol = c(3,6))
+par(mar = c(0, 0, 3, 0), xaxs = &#39;i&#39;, yaxs = &#39;i&#39;)
+for (i in which_wrong[1:18]) {
+  plot_dat &lt;- test_dat_x_raw[i, , ]
+  plot_dat &lt;- t(apply(plot_dat, MAR = 2, rev)) 
+  image(1:28, 1:28, plot_dat, 
+        col  = gray((0:255)/255), 
+        xaxt =&#39;n&#39;, 
+        main = paste(&quot;Predict =&quot;, predicted[i], &quot;\nReal =&quot;, test_dat_y_raw[i]),
+        cex  = 2, axes = FALSE)
+}</code></pre>
+<p><img src="/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/index_files/figure-html/MNIST_wrong-1.png" width="3000" /></p>
+<p>So we can see why the algorithm struggled with some of these, such as predicting 6s as 0s, and numbers that are slanted or squished. However, this obviously shows a lack of generalisation in the model, which is not brilliant for dealing with hand written numbers.</p>
+<p>Obviously this is a fairly basic example of a neural network model, and the sorts of models being used in technology like self-driving cars contain far more layers than this. Model tuning is essential to compare and contrast models to identify the optimum model.</p>
+<!-- # Model Comparison -->
+<!-- Models can be compared in various different ways, but one example is to use the TensorBoard, a visualisation tool from TensorFlow that shows dynamic graphs of the Keras training and test metrics. To compare multiple models, we can record the data, and then visualise it on TensorBoard.  -->
+<!-- So let's try to compare a 1-layer model with a 4-layer model. We use the ```callback_tensorboard()``` function to save the data to add to TensorBoard.  -->
+<!-- First let's run a 1-layer model: -->
+<!-- ``` {r model_comparison_1layer} -->
+<!-- model1 <- keras_model_sequential() -->
+<!-- model1 %>% -->
+<!--   layer_dense(units = 10) %>% -->
+<!--   layer_activation(activation = "softmax") %>% -->
+<!--   compile( -->
+<!--     loss = "categorical_crossentropy", -->
+<!--     optimizer = optimizer_rmsprop(), -->
+<!--     metrics = c("accuracy") -->
+<!--   ) %>% -->
+<!--   fit( -->
+<!--     training_dat_x, training_dat_y, -->
+<!--     batch_size = 128, -->
+<!--     epochs = 30, -->
+<!--     verbose = 1, -->
+<!--     validation_split = 0.2, -->
+<!--     callbacks = callback_tensorboard("model1") -->
+<!--   ) -->
+<!-- ``` -->
+<!-- So we can see that this is much worse than our first model, with only an 82.5% accuracy. Let's now try a 10-layer model: -->
+<!-- ``` {r model_comparison_10layer} -->
+<!-- model10 <- keras_model_sequential() -->
+<!-- model10 %>% -->
+<!--   layer_dense(units = 500, input_shape = c(784)) %>% -->
+<!--   layer_activation(activation = "relu") %>% -->
+<!--   layer_dropout(rate = 0.5) %>% -->
+<!--   layer_dense(units = 450) %>% -->
+<!--   layer_activation(activation = "relu") %>% -->
+<!--   layer_dropout(rate = 0.5) %>% -->
+<!--   layer_dense(units = 400) %>% -->
+<!--   layer_activation(activation = "relu") %>% -->
+<!--   layer_dropout(rate = 0.4) %>% -->
+<!--   layer_dense(units = 350) %>% -->
+<!--   layer_activation(activation = "relu") %>% -->
+<!--   layer_dropout(rate = 0.4) %>% -->
+<!--   layer_dense(units = 300) %>% -->
+<!--   layer_activation(activation = "relu") %>% -->
+<!--   layer_dropout(rate = 0.3) %>% -->
+<!--   layer_dense(units = 250) %>% -->
+<!--   layer_activation(activation = "relu") %>% -->
+<!--   layer_dropout(rate = 0.3) %>% -->
+<!--   layer_dense(units = 200) %>% -->
+<!--   layer_activation(activation = "relu") %>% -->
+<!--   layer_dropout(rate = 0.2) %>% -->
+<!--   layer_dense(units = 150) %>% -->
+<!--   layer_activation(activation = "relu") %>% -->
+<!--   layer_dropout(rate = 0.2) %>% -->
+<!--   layer_dense(units = 100) %>% -->
+<!--   layer_activation(activation = "relu") %>% -->
+<!--   layer_dropout(rate = 0.1) %>% -->
+<!--   layer_dense(units = 10) %>% -->
+<!--   layer_activation(activation = "softmax") %>% -->
+<!--   compile( -->
+<!--     loss = "categorical_crossentropy", -->
+<!--     optimizer = optimizer_rmsprop(), -->
+<!--     metrics = c("accuracy") -->
+<!--   ) %>% -->
+<!--   fit( -->
+<!--     training_dat_x, training_dat_y, -->
+<!--     batch_size = 128, -->
+<!--     epochs = 30, -->
+<!--     verbose = 1, -->
+<!--     validation_split = 0.2, -->
+<!--     callbacks = callback_tensorboard("model10") -->
+<!--   ) -->
+<!-- ``` -->
+<!-- So this model is better than the 1-layer model, but I have essentially added layers with fairly random parameters. The result is a model that is more complicated, but less accurate than the initial model that we generated. But we can compare these directly using Tensorboard: -->
+<!-- ``` {r tensorboard} -->
+<!-- tensorboard(c("model1", "model10")) -->
+<!-- ``` -->
+<!-- This allows us to explore differences betwen multiple models, and can be used to interactively identify the optimal model for our needs. -->
+</div>
+<div id="conclusions" class="section level1">
+<h1><span class="header-section-number">14</span> Conclusions</h1>
+<p>According to Wikipedia, one of the best results for the MNIST database used a hierarchical system of convolutional neural networks and managed to get an error rate of 0.23%. Here I have an error rate of 1.83%, so I clearly have a way to go! Often in classification algorithms, using standard machine learning algorithms will get you pretty far with pretty good error rates. However, to tune the models further to get error rates down to these sorts of levels, more complex models are required. Neural networks can be used to push the error rates down further. Getting the right answer 96% of the time is pretty good, but if you’re relying on that classification to tell whether there is a pedestrian stood in front of a self-driving car, it is incredibly important to ensure that this error rate is as close to 0 as possible.</p>
+<p>However, this has been a very useful attempt at incorparting the powerful interface of Keras and the workflow of TensorFlow in R. Being able to incorporate powerful deep learning networks in R is incredobly useful, and will allow for incorporation with pre-existing pipelines already developed for bioinformatics analyses utilising the powerful pacakges available from <a href="https://bioconductor.org">Bioconductor</a>.</p>
+<p>Deep learning algorithms currently have a huge number of applications, from self-driving cars to facial recognition, and are being incorporated into technology in many industries. Development of deep learning algorithms and Big Data processing approaches will provide significant technological advancements. I am currently working on some potentially interesting applications, and hope to further my expertise in this area by working more with the R Keras API interface.</p>
+</div>
+<div id="session-info" class="section level1">
+<h1><span class="header-section-number">15</span> Session Info</h1>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 3.6.1 (2019-07-05)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Sierra 10.12.6
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] keras_2.2.5.0   reticulate_1.13
+## 
+## loaded via a namespace (and not attached):
+##  [1] tidyselect_0.2.5  xfun_0.8          remotes_2.1.0    
+##  [4] reshape2_1.4.3    purrr_0.3.3       lattice_0.20-38  
+##  [7] colorspace_1.4-1  generics_0.0.2    testthat_2.1.1   
+## [10] htmltools_0.3.6   usethis_1.5.1     yaml_2.2.0       
+## [13] base64enc_0.1-3   rlang_0.4.0       pkgbuild_1.0.3   
+## [16] pillar_1.4.2      glue_1.3.1        withr_2.1.2      
+## [19] sessioninfo_1.1.1 plyr_1.8.4        tensorflow_2.0.0 
+## [22] stringr_1.4.0     munsell_0.5.0     blogdown_0.16    
+## [25] gtable_0.3.0      devtools_2.1.0    codetools_0.2-16 
+## [28] memoise_1.1.0     evaluate_0.14     labeling_0.3     
+## [31] knitr_1.23        callr_3.3.0       ps_1.3.0         
+## [34] tfruns_1.4        curl_3.3          Rcpp_1.0.2       
+## [37] backports_1.1.4   scales_1.0.0      desc_1.2.0       
+## [40] pkgload_1.0.2     jsonlite_1.6      fs_1.3.1         
+## [43] ggplot2_3.2.0     digest_0.6.20     stringi_1.4.3    
+## [46] dplyr_0.8.3       bookdown_0.12     processx_3.4.1   
+## [49] grid_3.6.1        rprojroot_1.3-2   cli_1.1.0        
+## [52] tools_3.6.1       magrittr_1.5      tibble_2.1.3     
+## [55] lazyeval_0.2.2    pkgconfig_2.0.2   crayon_1.3.4     
+## [58] whisker_0.4       zeallot_0.1.0     Matrix_1.2-17    
+## [61] prettyunits_1.0.2 assertthat_0.2.1  rmarkdown_1.14   
+## [64] R6_2.4.0          compiler_3.6.1</code></pre>
+</div>
+
+    </div>
+
+    
+
+
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/tags/data-science/">Data Science</a>
+  
+  <a class="badge badge-light" href="/tags/machine-learning/">Machine Learning</a>
+  
+  <a class="badge badge-light" href="/tags/tensorflow/">TensorFlow</a>
+  
+  <a class="badge badge-light" href="/tags/keras/">Keras</a>
+  
+  <a class="badge badge-light" href="/tags/mnist/">MNIST</a>
+  
+  <a class="badge badge-light" href="/tags/prediction/">prediction</a>
+  
+  <a class="badge badge-light" href="/tags/classification/">classification</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card">
+    
+      
+      <img class="portrait mr-3" src="/authors/samrobson/avatar_huef261ec2a0b29c1127d55274a0b630a9_2690596_250x250_fill_q90_lanczos_center.jpeg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">Sam Robson</a></h5>
+      <h6 class="card-subtitle">Lead Bioinformatician at the Centre for Enzyme Innovation</h6>
+      <p class="card-text">Lead Bioinformatician at the Centre for Enzyme Innovation</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:samuel.robson@port.ac.uk" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/samrobson/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=90hzm3gAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/irunfasterthanmycode" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/2019-07-15-building-a-pokemon-recommendation-machine/">Building a Pokémon Recomendation Machine</a></li>
+          
+          <li><a href="/post/2018-10-19-strava-data-mining-assessing-mimi-andersons-world-record-run/">Strava Data Mining: Assessing Mimi Anderson&#39;s World Record Run Across the USA</a></li>
+          
+          <li><a href="/post/2018-04-18-suunto-or-garmin/">Suunto Or Garmin? The Age Old Question.</a></li>
+          
+          <li><a href="/post/2018-04-15-ultrarunner-or-ultra-runner/">Ultramarathon, Ultra Marathon or Ultra-Marathon?</a></li>
+          
+          <li><a href="/project/2019-06-18-center-for-enzyme-innovation/">Center for Enzyme Innovation</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  let disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "https-irunfasterthanmycode-github-io" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  
+</section>
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    <script id="dsq-count-scr" src="https://https-irunfasterthanmycode-github-io.disqus.com/count.js" async></script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.d6bd04fdad2ad213aa8111c5a3b72fc5.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2017 Sam Robson &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+base
+randomForest
+tidyr
+dplyr
+stringr
+ggplot2
+zoo
+xts
+qdapDictionaries
+qdapRegex
+qdapTools
+RColorBrewer
+qdap
