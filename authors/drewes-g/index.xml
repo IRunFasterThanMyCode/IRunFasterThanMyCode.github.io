@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Drewes G | IRunFasterThanMyCode</title>
+    <link>/authors/drewes-g/</link>
+      <atom:link href="/authors/drewes-g/index.xml" rel="self" type="application/rss+xml" />
+    <description>Drewes G</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Sat, 01 Feb 2014 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Drewes G</title>
+      <link>/authors/drewes-g/</link>
+    </image>
+    
+    <item>
+      <title>Recurrent mutations, including NPM1c, activate a BRD4-dependent core transcriptional program in acute myeloid leukemia</title>
+      <link>/publication/2014_recurrent_mutations_including_nmp1c_activates_a_brd4_dependent_core_transcriptional_program_in_acute_myeloid_leukemia/</link>
+      <pubDate>Sat, 01 Feb 2014 00:00:00 +0000</pubDate>
+      <guid>/publication/2014_recurrent_mutations_including_nmp1c_activates_a_brd4_dependent_core_transcriptional_program_in_acute_myeloid_leukemia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inhibition of BET recruitment to chromatin as an effective treatment for MLL-fusion leukaemia</title>
+      <link>/publication/2011_inhibition_of_bet_recruitment_to_chromatin_as_an_effective_treatment_for_mll-fusion_leaukemia/</link>
+      <pubDate>Sun, 02 Oct 2011 00:00:00 +0000</pubDate>
+      <guid>/publication/2011_inhibition_of_bet_recruitment_to_chromatin_as_an_effective_treatment_for_mll-fusion_leaukemia/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

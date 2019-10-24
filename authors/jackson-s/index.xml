@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jackson S | IRunFasterThanMyCode</title>
+    <link>/authors/jackson-s/</link>
+      <atom:link href="/authors/jackson-s/index.xml" rel="self" type="application/rss+xml" />
+    <description>Jackson S</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Thu, 15 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Jackson S</title>
+      <link>/authors/jackson-s/</link>
+    </image>
+    
+    <item>
+      <title>Phosphorylation of histone H4T80 triggers DNA damage checkpoint recovery</title>
+      <link>/publication/2018_phosphorylation_of_histone_h4t80_triggers_dna_damage_checkpoint_recovery/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>/publication/2018_phosphorylation_of_histone_h4t80_triggers_dna_damage_checkpoint_recovery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inhibition of the acetyltransferase NAT10 normalizes progeric and aging cells by rebalancing the Transportin-1 nuclear import pathway</title>
+      <link>/publication/2018_inhibition_of_the_acetyltransferase_nat10_normalizes_progeric_and_aging_cells_by_rebalancing_the_transportin-1_nuclear_import_pathway/</link>
+      <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>/publication/2018_inhibition_of_the_acetyltransferase_nat10_normalizes_progeric_and_aging_cells_by_rebalancing_the_transportin-1_nuclear_import_pathway/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

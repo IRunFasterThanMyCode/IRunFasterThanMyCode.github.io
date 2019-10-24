@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Houseley J | IRunFasterThanMyCode</title>
+    <link>/authors/houseley-j/</link>
+      <atom:link href="/authors/houseley-j/index.xml" rel="self" type="application/rss+xml" />
+    <description>Houseley J</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Tue, 25 Apr 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Houseley J</title>
+      <link>/authors/houseley-j/</link>
+    </image>
+    
+    <item>
+      <title>RNA binding by the histone methyltransferases Set1 and Set2</title>
+      <link>/publication/2017_rna-binding-by-the-histone-methyltransferases-set1-and-set2/</link>
+      <pubDate>Tue, 25 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/2017_rna-binding-by-the-histone-methyltransferases-set1-and-set2/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

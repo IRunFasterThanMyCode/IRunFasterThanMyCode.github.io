@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NGS | IRunFasterThanMyCode</title>
+    <link>/tags/ngs/</link>
+      <atom:link href="/tags/ngs/index.xml" rel="self" type="application/rss+xml" />
+    <description>NGS</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>NGS</title>
+      <link>/tags/ngs/</link>
+    </image>
+    
+    <item>
+      <title>Development of Bioinformatics Tools</title>
+      <link>/project/2017-08-17-development-of-bioinformatics-tools/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>/project/2017-08-17-development-of-bioinformatics-tools/</guid>
+      <description>&lt;p&gt;As well as collaborating with researchers from throughout the School of Pharmacy and Biomedical Sciences, we are also working to develop several tools for use alongside commonly used and freely available analysis tools. These tools will be made available via the University of Portsmouth &lt;a href=&#34;https://github.com/uopbioinformatics&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt; account.&lt;/p&gt;
+
+&lt;p&gt;This includes development of a next generation sequencing data analysis platform created by Dr. Sam Robson, which allows for processing, mapping and analysis of a number of data types, including data generated from ChIP-Seq, RNA-Seq, 16S.rDNA amplicon sequencing, whole genome sequencing and ancient DNA sequencing approaches.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sequencing Facilities</title>
+      <link>/resources/sequencingfacilities/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>/resources/sequencingfacilities/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#commercial-sequencing-facilities&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1&lt;/span&gt; Commercial Sequencing Facilities&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#theragen-etex&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1.1&lt;/span&gt; &lt;span&gt;Theragen Etex&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#source-bioscience&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1.2&lt;/span&gt; &lt;span&gt;Source Bioscience&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#lgc-sequencing-service&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1.3&lt;/span&gt; &lt;span&gt;LGC Sequencing Service&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#mr.dna-lab&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1.4&lt;/span&gt; &lt;span&gt;Mr. DNA Lab&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#gatc-biotech&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1.5&lt;/span&gt; &lt;span&gt;GATC Biotech&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#genome-scan&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1.6&lt;/span&gt; &lt;span&gt;Genome Scan&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#comparison-table&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;2&lt;/span&gt; Comparison Table&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#platforms&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;2.1&lt;/span&gt; Platforms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#technologies&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;2.2&lt;/span&gt; Technologies&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#services&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;2.3&lt;/span&gt; Services&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;On this page you will find a list of commercial and academic sequencing facilities that you may wish to consider when looking for sequencing solutions for your project. In cases where the facility have been used by a member of the faculty here at the University of Portsmouth, you will find links to the researchers with experience. I will attempt to collate some feedback from these researchers on this page over time, but if you have any further questions, please contact the researchers indicated directly.&lt;/p&gt;
+&lt;div id=&#34;commercial-sequencing-facilities&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;1&lt;/span&gt; Commercial Sequencing Facilities&lt;/h1&gt;
+&lt;div id=&#34;theragen-etex&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;1.1&lt;/span&gt; &lt;a href=&#34;http://www.theragenetex.com/bio/&#34;&gt;Theragen Etex&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A company in South Korea who offer a number of different sequencing services, including whole genome, exome, transcriptome, and epigenome sequencing technologies. They offer sequencing using Illumina HiSeq 4000/2500, Ion Torrent PGM and Ion Torrent Proton sequencers. Their services include whole genome sequencing, exome sequencing, RNA seq, epigenomics and &lt;strong&gt;de novo&lt;/strong&gt; assembly. They also offer library preparation and bioinformatics support if required. They offer a guarentee on sequence on coverage, although this results from pooling of samples across multiple lanes which may cause batch difficulties in downstream analyses. They are very quick to respond to emails and in our experience seem very keen to provide us with good quality data. Typically they seem to offer very competitive rates for sequencing needs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.port.ac.uk/school-of-pharmacy-and-biomedical-sciences/staff/prof-darek-gorecki.html&#34;&gt;Prof. Darek Gorecki&lt;/a&gt; - RNA seq&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;source-bioscience&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;1.2&lt;/span&gt; &lt;a href=&#34;https://www.sourcebioscience.com/?gclid=CJKgxLDd99YCFe6w7QodMpsMeg&#34;&gt;Source Bioscience&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A company based in Nottingham who seem to offer a very comprehensive catalogue of sequencing services, including RNA seq, ChIP seq, whole genome sequencing, exome sequencing, targeted sequening and metagenomics. They offer DNA/RNA extraction, library preparation, and bioinformatics support if required. They offer Illumina MiSeq, Illumina HiSeq and Illumina NextSeq services. They are one of the leading providers of commercial sequencing in Europe. Data that we have recieved from them in the past has been of high quality, however we have had one case of lost data which is yet to be resolved in a satisfactory manner. Communication when requesting services and data generation are very fast, but communication when problems have arisen has been very poor.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.port.ac.uk/school-of-pharmacy-and-biomedical-sciences/staff/prof-darek-gorecki.html&#34;&gt;Prof. Darek Gorecki&lt;/a&gt; - RNA seq&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.port.ac.uk/school-of-biological-sciences/staff/maria-salta.html&#34;&gt;Dr. Maria Salta&lt;/a&gt; - 16S rDNA Sequencing&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.port.ac.uk/school-of-biological-sciences/staff/prof-matt-guille.html&#34;&gt;Prof. Matt Guille&lt;/a&gt; - RNA Seq&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lgc-sequencing-service&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;1.3&lt;/span&gt; &lt;a href=&#34;https://www.lgcgroup.com/services/dna-sequencing/#.WeYcaUw7lBw&#34;&gt;LGC Sequencing Service&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;LGC (Laboratory of the Government Chemist) are a UK-based sequencing company with a long history in bioanalytics. They offer a range of services as well as next generation sequencing, including consultancy, product testing and forensic science. They are able to provide services including RNA seq, ChIP seq, metagenomics, microbial sequencing, and genotyping. They offer assistance with DNA/RNA extraction, library preparation, project design, and bioinformatics support.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.port.ac.uk/school-of-biological-sciences/staff/dr-joanne-preston.html&#34;&gt;Joanne Preston&lt;/a&gt; - 16S rDNA Sequencing&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.port.ac.uk/school-of-biological-sciences/staff/dr-joy-watts.html&#34;&gt;Joy Watts&lt;/a&gt; - Transcriptome Assembly&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mr.dna-lab&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;1.4&lt;/span&gt; &lt;a href=&#34;http://www.mrdnalab.com&#34;&gt;Mr. DNA Lab&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;They offer sequencing using Illumina MiSeq, Illumina HiSeq, Pacific Biosciences Sequel (for longer read lengths), Ion Torrent S5 XL and Ion Torrent PGM machines. They offer support for many sequencing services, including whole genome sequencing, exome sequencing, &lt;em&gt;de novo&lt;/em&gt; assembly, metagenomics, RNA seq and ChIP seq. They offer a guarentee on sequence on coverage, although this results from pooling of samples across multiple lanes which may cause batch difficulties in downstream analyses.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;gatc-biotech&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;1.5&lt;/span&gt; &lt;a href=&#34;https://www.gatc-biotech.com/en/index.html&#34;&gt;GATC Biotech&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;GATC Biotech are a German-based commercial sequencing facility providing a comprehensive list of next generation sequencing services including whole genome sequencing, &lt;strong&gt;de novo&lt;/strong&gt; sequencing, targeted sequencing, amplicon sequencing, metagenomics, RNA seq, ChIP seq and BS seq. They have expertise in Illumina MiSeq, Illumina HiSeq and PacBio RS II. Their &lt;strong&gt;INVIEW&lt;/strong&gt; and &lt;strong&gt;NGSELECT&lt;/strong&gt; packages provide a complete service, from DNA/RNA extraction, through library preparation and sequencing, to bioinformatics analysis.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;genome-scan&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;1.6&lt;/span&gt; &lt;a href=&#34;https://www.genomescan.nl&#34;&gt;Genome Scan&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Through their ServiceXS department, Genome Scan provide a comprehensive series of research services, including whole genome sequencing, exome sequencing, RNA seq, small RNA seq and bisulfite seq. They offer sequencing using Illumina HiSeq 2500/4000, Illumina NextSeq 500 and Pacific Bioscience RS II (for longer read lengths). They provide a full sequencing service, including library proeration and downstream bioinformatics support.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;comparison-table&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;2&lt;/span&gt; Comparison Table&lt;/h1&gt;
+&lt;p&gt;Below is a table that I have compiled based on the instruments available and the analyses that each facility is able to provide. Please note that I may have missed something - if I have made a mistake please let me know at &lt;a href=&#34;mailto:samuel.robson@port.ac.uk&#34; class=&#34;email&#34;&gt;samuel.robson@port.ac.uk&lt;/a&gt;. It is highly likely that any of these facilities would have the capacity to run whatever sequencing experiment you are hoping to conduct, but this table is based on the expertise highlighted on their websites:&lt;/p&gt;
+&lt;div id=&#34;platforms&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;2.1&lt;/span&gt; Platforms&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;em&gt;Facility&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;Theragen&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;Source&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;LGC&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;Mr DNA&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;GATC&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;Genome Scan&lt;/em&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;HiSeq&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;MiSeq&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;NextSeq&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;PacBio&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Ion Torrent&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;technologies&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;2.2&lt;/span&gt; Technologies&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;em&gt;Facility&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;Theragen&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;Source&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;LGC&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;Mr DNA&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;GATC&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;Genome Scan&lt;/em&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;strong&gt;De Novo&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Transcriptomics&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Epigenetics&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;WGS&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;WES&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Metagenomics&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Epigenomics&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;services&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;2.3&lt;/span&gt; Services&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;em&gt;Facility&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;Theragen&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;Source&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;LGC&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;Mr DNA&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;GATC&lt;/em&gt;&lt;/th&gt;
+&lt;th&gt;&lt;em&gt;Genome Scan&lt;/em&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;DNA/RNA Extraction&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Library Prep&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Bioinformatics&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;td&gt;T&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Changes in microbial communities of Cliona celeta during observed changes in sponge health</title>
+      <link>/project/2017-09-29-microbial-community-of-cliona-celeta-during-observed-changes-in-sponge-health/</link>
+      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>/project/2017-09-29-microbial-community-of-cliona-celeta-during-observed-changes-in-sponge-health/</guid>
+      <description>&lt;p&gt;Cliona celeta is a yellow boring sponge found around the waters of the UK. The diversity of sponges in the Skomer Marine Nature Reserve has been surveyed since the 1990s. In 2013 divers observed apparent disease in C. celeta individuals across Skomer Island and the Marloes Peninsula. The previously healthy yellow sponge became colonised by fouling organisms followed by tissue decay and patches of black necrotic sponge. This issue appears to be seasonal, largely seen between the months of March and October, and is the first recorded incidence of sponge disease in temperate coastal waters. In addition, several sponges were seen to be fouled by algal and invertebrate species, without progression to the black state, which is indicative of reduced anti-fouling mechanisms in the sponge.&lt;/p&gt;
+
+&lt;p&gt;Working together with &lt;a href=&#34;http://www.port.ac.uk/school-of-biological-sciences/staff/dr-joanne-preston.html&#34; target=&#34;_blank&#34;&gt;Dr Joanne Preston&lt;/a&gt;, we are working to identify the change in microbial communities following the shift between healthy and fouled or necrotic tissue in sponges based on microbiological culturing and 16S rDNA sequencing of the sponge host and the microbial communities.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Genotyping of Ancient DNA from Crew Members from the Mary Rose</title>
+      <link>/project/2017-09-29-genotyping-of-crew-members-of-the-mary-rose/</link>
+      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>/project/2017-09-29-genotyping-of-crew-members-of-the-mary-rose/</guid>
+      <description>&lt;p&gt;Built in Portsmouth in 1510, the Mary Rose was the flagship of the fleet of Henry VIII, and had a long and lustrious career until it capsized north of the Isle of Wight in the Battle of the Solent in 1545. Fewer than 35 of the roughly 400 crew members escaped. The wreck was discovered in 1971, and following years of excavation activities the hull was raised from the seabed in 1982 and transported to its home port of Portsmouth. Since then, years of archaeological work has been carried out on the hull itself and on the nearly 20,000 artefacts that have so far been discovered.&lt;/p&gt;
+
+&lt;p&gt;Working together with &lt;a href=&#34;http://www.port.ac.uk/school-of-biological-sciences/staff/dr-garry-scarlett.html&#34; target=&#34;_blank&#34;&gt;Dr Garry Scarlett&lt;/a&gt; at the University of Portsmouth, and the &lt;a href=&#34;http://www.maryrose.org&#34; target=&#34;_blank&#34;&gt;Mary Rose Museum&lt;/a&gt;, we will be looking to understand more about the members of the crew by working on genotyping of the ancient DNA from the skeletons of crew members raised from the wreckage. Using whole genome sequencing techniques, we hope to develop an understanding of phenotypic characteristics, disease traits and geographic information of crew members of one of the most famous ship wrecks in history.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Effects of Anti-Fouling Coatings on Marine Biofilms</title>
+      <link>/project/2017-08-17-anti-fouling-marine-biofilms/</link>
+      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/project/2017-08-17-anti-fouling-marine-biofilms/</guid>
+      <description>&lt;p&gt;Marine biofilms, or &amp;ldquo;biofouling&amp;rdquo;, are communities of micro-organisms bound together on a surface by an extracellular matrix composed of extracellular polymeric substances (EPS). Biofilms consist predominantly of phytoplankton (particularly diatoms which are photosynthesising algae) and bacteria, which bind to surfaces in the marine environment to form complex 3 dimensional surface structures.&lt;/p&gt;
+
+&lt;p&gt;The formation of these biofilms can affect all types of surfaces in the marine environment, and substrates include such man-made structures as the hulls of ships, nets used by fishing trawlers, pipelines used to transport oil and gas, and boat propellors. Biofilm formation on ships can have a costly impact due to increased drag - for example the increased cost of fuel has been estimated at around $56 million per year for DDG-51 naval ships.&lt;/p&gt;
+
+&lt;p&gt;For this reason, testing novel antifouling substrates that are environmentally benign is of great importance to many marine-based industries. Working together with &lt;a href=&#34;http://www.port.ac.uk/school-of-biological-sciences/staff/maria-salta.html&#34; target=&#34;_blank&#34;&gt;Dr. Maria Salta&lt;/a&gt; we have been analysing the changes in bacterial communities on different man-made surfaces using next-generation sequencing. This project combines microbiological analysis with both 16S rDNA amplicon sequencing (for populationa analysis) and whole transcriptome sequencing using RNA seq (for gene expression analysis).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Effects of Radiation Exposure in the Environment</title>
+      <link>/project/2017-08-17-effect-of-radiation-exposure-on-fish/</link>
+      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/project/2017-08-17-effect-of-radiation-exposure-on-fish/</guid>
+      <description>&lt;p&gt;Exposure to radiation can have deleterious effects on gene expression regulation, particularly due to increased DNA damage and deregulation of DNA damage checkpoint pathways. Working together with Dr. Adelaide Lerebours, we are performing differential expression analyses to understand the effects of radiation on 3-spined stickleback under laboratory conditions, and in particular attempting to characterise the differences between normal and abnormal offspring of exposed parents to understand how mutations are passed down through the lineage. In addition, we are looking at the effects of radiation exposure in the field, by looking at the effects of radiation exposure on lakes around the Chernobyl nuclear power station which suffered a catastrophic meltdown in 1986. The effects of this are still being felt today, and this project will allow us to understand the negative impact that this disaster has had on aquatic life in the area.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Gene Expression Profiling of Duchenne Muscular Dystrophy</title>
+      <link>/project/2017-08-17-expression-profiling-of-dmd/</link>
+      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/project/2017-08-17-expression-profiling-of-dmd/</guid>
+      <description>&lt;p&gt;Duchenne muscular dystrophy (DMD) is an X-linked recessive form of muscular dystrophy typically presenting in boys at around the age of four. DMD is caused by mutations in the DMD gene, which is the largest gene in the genome with 79 exons encoding a range of dystrophin proteins. These proteins are expressed in skeletal and cardiac muscles and also in brain and other non-muscle tissues, where they have specific roles. Their absence due to DMD mutations causes specific abnormalities such as progressive muscle weakness and wasting and cognitive deficits. Muscle weakness begins in the upper legs and pelvis but quickly spreads until boys are unable to walk and eventually cannot breathe unaided.  As yet, no cure exists for DMD, despite it being the most common form of muscular dystrophy.&lt;/p&gt;
+
+&lt;p&gt;Together with &lt;a href=&#34;http://www.port.ac.uk/school-of-pharmacy-and-biomedical-sciences/staff/prof-darek-gorecki.html&#34; target=&#34;_blank&#34;&gt;Professor Darek Gorecki&lt;/a&gt;, we are using RNA seq analysis to identify the changes in expression associated with a point mutation in the Dmd gene in a dystrophic mouse model. By identifying the pathways most impacted by the dystrophic phenotype, we hope to identify novel areas for future therapeutic intervention.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Xenopus Development Project</title>
+      <link>/project/2017-08-17-role-of-variant-histones-on-xenopus-development/</link>
+      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/project/2017-08-17-role-of-variant-histones-on-xenopus-development/</guid>
+      <description>&lt;p&gt;Together with &lt;a href=&#34;http://www.port.ac.uk/school-of-biological-sciences/staff/prof-matt-guille.html&#34; target=&#34;_blank&#34;&gt;Professor Matt Guille&lt;/a&gt; and &lt;a href=&#34;http://www.port.ac.uk/school-of-biological-sciences/staff/dr-fiona-myers.html&#34; target=&#34;_blank&#34;&gt;Dr. Fiona Myers&lt;/a&gt;, we are examining development in the model species &lt;em&gt;Xenopus laevis&lt;/em&gt;. We are using a wide range of techniques, including ChIP-seq to study epigenetic changes and to observe transcription factor binding throughout development, RNA-seq to study changes in gene expression, structural analysis of DNA tertiary structures, and Nanopore sequencing using the &lt;a href=&#34;https://nanoporetech.com&#34; target=&#34;_blank&#34;&gt;Oxford Nanopore MinION&lt;/a&gt; system to look at whole genome changes.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Genomics | IRunFasterThanMyCode</title>
+    <link>/tags/genomics/</link>
+      <atom:link href="/tags/genomics/index.xml" rel="self" type="application/rss+xml" />
+    <description>Genomics</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Tue, 18 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Genomics</title>
+      <link>/tags/genomics/</link>
+    </image>
+    
+    <item>
+      <title>Center for Enzyme Innovation</title>
+      <link>/project/2019-06-18-center-for-enzyme-innovation/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>/project/2019-06-18-center-for-enzyme-innovation/</guid>
+      <description>&lt;p&gt;The Centre for Enzyme Innovation is a new initiative set up at the University of Portsmouth, with a goal to find solutions to some of the most pressing global environmental problems. In particular, we aim to examine environmental samples to find how the natural world has solved the problem of plastic pollution, by identifying microorganisms who have evolved to be able to break down plastics in the environment. By identifying these microorgansisms, and further understanding the enzymatic methods that they use towards this goal, we aim to harness the amazing work that nature has done, and find ways to enhance this and scale it up on an industrial scale to allow their use in circular recycling of plastics.&lt;/p&gt;
+
+&lt;p&gt;The Centre was &lt;a href=&#34;https://www.port.ac.uk/enquire/news/portsmouth-scientists-awarded-major-plastics-funding&#34; target=&#34;_blank&#34;&gt;recently awarded £5.8 million&lt;/a&gt; in funding from the Research England Expanding Excellence Fund. Together with significant investment from the University of Portsmouth, we aim to use this funding to speed up our progress towards finding a solution to one of the world’s greatest environmental challenges – plastic waste.&lt;/p&gt;
+
+&lt;p&gt;We will be working in the Discovery phase of the pipeline, aiming to use next generation &lt;a href=&#34;https://nanoporetech.com&#34; target=&#34;_blank&#34;&gt;Nanopore&lt;/a&gt; sequencing to explore microorganisms present on samples taken from environmental sites of interest (e.g. plastic receycling centres) to try and profile what is present and how they have developed to survive on plastic substrates. We aim to use this bioprospecting approach to explore metagenomics and metatranscriptomics of samples to identify mechanisms of action for plastic degaradation, and in particular to compare with previously explored species to identify what makes these species unique. This information, and information on the make-up of enzymes involved in the processes, will feed through the pipeline to be further engineered to create enzymes that can be scaled up on an industrial scale. These data will be combined with data from public repositories to feed into novel machine learning algorithms to help to train algorithms for the identification of further potential candidates for feeding through the pipeline.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Genotyping of Ancient DNA from Crew Members from the Mary Rose</title>
+      <link>/project/2017-09-29-genotyping-of-crew-members-of-the-mary-rose/</link>
+      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>/project/2017-09-29-genotyping-of-crew-members-of-the-mary-rose/</guid>
+      <description>&lt;p&gt;Built in Portsmouth in 1510, the Mary Rose was the flagship of the fleet of Henry VIII, and had a long and lustrious career until it capsized north of the Isle of Wight in the Battle of the Solent in 1545. Fewer than 35 of the roughly 400 crew members escaped. The wreck was discovered in 1971, and following years of excavation activities the hull was raised from the seabed in 1982 and transported to its home port of Portsmouth. Since then, years of archaeological work has been carried out on the hull itself and on the nearly 20,000 artefacts that have so far been discovered.&lt;/p&gt;
+
+&lt;p&gt;Working together with &lt;a href=&#34;http://www.port.ac.uk/school-of-biological-sciences/staff/dr-garry-scarlett.html&#34; target=&#34;_blank&#34;&gt;Dr Garry Scarlett&lt;/a&gt; at the University of Portsmouth, and the &lt;a href=&#34;http://www.maryrose.org&#34; target=&#34;_blank&#34;&gt;Mary Rose Museum&lt;/a&gt;, we will be looking to understand more about the members of the crew by working on genotyping of the ancient DNA from the skeletons of crew members raised from the wreckage. Using whole genome sequencing techniques, we hope to develop an understanding of phenotypic characteristics, disease traits and geographic information of crew members of one of the most famous ship wrecks in history.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Xenopus Development Project</title>
+      <link>/project/2017-08-17-role-of-variant-histones-on-xenopus-development/</link>
+      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/project/2017-08-17-role-of-variant-histones-on-xenopus-development/</guid>
+      <description>&lt;p&gt;Together with &lt;a href=&#34;http://www.port.ac.uk/school-of-biological-sciences/staff/prof-matt-guille.html&#34; target=&#34;_blank&#34;&gt;Professor Matt Guille&lt;/a&gt; and &lt;a href=&#34;http://www.port.ac.uk/school-of-biological-sciences/staff/dr-fiona-myers.html&#34; target=&#34;_blank&#34;&gt;Dr. Fiona Myers&lt;/a&gt;, we are examining development in the model species &lt;em&gt;Xenopus laevis&lt;/em&gt;. We are using a wide range of techniques, including ChIP-seq to study epigenetic changes and to observe transcription factor binding throughout development, RNA-seq to study changes in gene expression, structural analysis of DNA tertiary structures, and Nanopore sequencing using the &lt;a href=&#34;https://nanoporetech.com&#34; target=&#34;_blank&#34;&gt;Oxford Nanopore MinION&lt;/a&gt; system to look at whole genome changes.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

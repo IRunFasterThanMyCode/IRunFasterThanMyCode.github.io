@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cvs | IRunFasterThanMyCode</title>
+    <link>/cv/</link>
+      <atom:link href="/cv/index.xml" rel="self" type="application/rss+xml" />
+    <description>Cvs</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Cvs</title>
+      <link>/cv/</link>
+    </image>
+    
+    <item>
+      <title></title>
+      <link>/cv/samrobson_cv_academic/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/cv/samrobson_cv_academic/readme/</guid>
+      <description>
+
+&lt;h1 id=&#34;twenty-seconds-curriculum-vitae-in-latex&#34;&gt;Twenty Seconds Curriculum Vitae in LaTex&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.paypal.me/CarmineSpagnuolo&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://img.shields.io/badge/PayPal-Donate%20to%20Author-blue.svg&#34; alt=&#34;Donate&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;curricula-vitae-résumés&#34;&gt;Curricula Vitae - Résumés&lt;/h1&gt;
+
+&lt;p&gt;A curriculum vitae, otherwise known as a CV or résumé, is a document used by individuals to communicate their work history, education and skill set. This is a style template for your curriculum written in LaTex. The main goal of this template is to provide a curriculum that is able to survive to the résumés screening of &amp;ldquo;twenty seconds&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The author assumes no responsibility for the topicality, correctness, completeness or quality of the information provided and for the obtained résumés.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;This is designed for computer scientists but there is no limitation to use it for résumés in other disciplines.&lt;/p&gt;
+
+&lt;h3 id=&#34;if-you-like-this-curriculum-please-don-t-forget-to-leave-a-star-to-help-the-development-and-improvement&#34;&gt;If you like this curriculum, please don&amp;rsquo;t forget to leave a star, to help the development and improvement.&lt;/h3&gt;
+
+&lt;h2 id=&#34;the-basic-idea-is-kiss-keep-it-simple-stupid&#34;&gt;The basic idea is KISS - Keep It Simple, Stupid.&lt;/h2&gt;
+
+&lt;p&gt;In a nutshell &lt;em&gt;&lt;strong&gt;&amp;ldquo;It is vain to do with more what can be done with fewer&amp;rdquo;&lt;/strong&gt;&lt;/em&gt; &amp;ndash; Occam&amp;rsquo;s razor &amp;ndash;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;This template has been designed to create a &amp;ldquo;one-page&amp;rdquo; résumé is therefore not suitable to create curriculum of more than one-page.&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Please do not try to create curriculum more than one-page.&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;how-to-describe-your-experiences&#34;&gt;How to describe your experiences?&lt;/h3&gt;
+
+&lt;p&gt;There are many theories about the résumé screening process of &amp;ldquo;Big&amp;rdquo; companies.
+Resume screeners and the interviewers look in your résumé for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Are you smart?&lt;/li&gt;
+&lt;li&gt;Can you code (act for what you apply)?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Anyway according to the guidelines of this template you should use a really simple form to describe each items in your résumé:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Accomplished &amp;lt;X&amp;gt; by implementing &amp;lt;Y&amp;gt; which led to &amp;lt;Z&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here&amp;rsquo;s an examples:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Reduced object rendering time by 75% by applying Floyd&#39;s algorithm, leading to a 10% reduction in system boot time.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;ndash; &lt;em&gt;Cracking the Coding Interview, Book, Gayle Laakmann Mcdowell&lt;/em&gt; &amp;ndash;&lt;/p&gt;
+
+&lt;h2 id=&#34;toy-résumé&#34;&gt;Toy Résumé&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex/raw/master/Twenty-Seconds_cv.jpg&#34; alt=&#34;sample résumé&#34; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;build&#34;&gt;Build&lt;/h1&gt;
+
+&lt;p&gt;This guide walks you to build your résumé.&lt;/p&gt;
+
+&lt;p&gt;Build requirements:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;LaTex installation.
+
+&lt;ul&gt;
+&lt;li&gt;additionals packages:&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ClearSans, fontenc&lt;/li&gt;
+&lt;li&gt;tikz&lt;/li&gt;
+&lt;li&gt;xcolor&lt;/li&gt;
+&lt;li&gt;textpos&lt;/li&gt;
+&lt;li&gt;ragged2e&lt;/li&gt;
+&lt;li&gt;etoolbox&lt;/li&gt;
+&lt;li&gt;ifmtarg&lt;/li&gt;
+&lt;li&gt;ifthen&lt;/li&gt;
+&lt;li&gt;pgffor&lt;/li&gt;
+&lt;li&gt;marvosym&lt;/li&gt;
+&lt;li&gt;parskip&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;build-through-gnu-make-command&#34;&gt;Build through GNU Make command&lt;/h3&gt;
+
+&lt;p&gt;Clean your project résumé.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;make clean
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Build your project résumé.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;make all
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;ndash; &lt;em&gt;Alternately you can build through your favorite LaTex editor.&lt;/em&gt; &amp;ndash;&lt;/p&gt;
+
+&lt;h1 id=&#34;environment-style-and-list-of-commands&#34;&gt;Environment style and list of commands&lt;/h1&gt;
+
+&lt;p&gt;The style is divided in two parts. The former is the left side bar: that contains personal information, profile picture, and information about your professional skills. The second part is the body that should be contains details about your academic studies, professional experiences and all the information that you want (remember the KISS principle).&lt;/p&gt;
+
+&lt;h3 id=&#34;profile-environment&#34;&gt;Profile environment&lt;/h3&gt;
+
+&lt;p&gt;These are the command to set up the profile information.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Set up the image profile.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\profilepic{paht_name}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Set up your name.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\cvname{your name}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Set up your job profile.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\cvjobtitle{your job title}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Set up your date of birth.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\cvdate{date}   
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Set up your address.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\cvaddress{address}     
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Set up your telephone number.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\cvnumberphone{phone number}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Set up your email.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\cvmail{email address}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Set up your personal home page.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\cvsite{home page address}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Set up a brief description of you.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\about{brief description}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Set up the skills with chart style. Each skill must is a couple &lt;code&gt;{name/value}&lt;/code&gt;, where the value is a floating point value between &lt;code&gt;0&lt;/code&gt; and &lt;code&gt;6&lt;/code&gt;. This is an agreement for the graphics issues, the &lt;code&gt;0&lt;/code&gt; correspond to a Fundamental awareness while &lt;code&gt;6&lt;/code&gt; to a Expert awareness level.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\skills{{name skill1/5.8},{name skill2/4}} 
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Set up the skills with text style.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\skillstext{{name skill1/5.8},{name skill2/4}} 
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To create the profile use the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\makeprofile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;body-environment&#34;&gt;Body environment&lt;/h3&gt;
+
+&lt;p&gt;The body document part is composed by sections.
+In the sections you can put two kinds of list items.&lt;/p&gt;
+
+&lt;p&gt;The first (&lt;em&gt;Twenty items environment&lt;/em&gt;) intends a list of detailed information with four part: &lt;strong&gt;Data&lt;/strong&gt; &amp;ndash; &lt;strong&gt;Title&lt;/strong&gt; &amp;ndash; &lt;strong&gt;Place&lt;/strong&gt; &amp;ndash; &lt;strong&gt;Description&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The second (&lt;em&gt;Twenty items short environment&lt;/em&gt;) intends a fewer informationinformation (you can customize this list more easily): &lt;strong&gt;Data&lt;/strong&gt; &amp;ndash; &lt;strong&gt;Description&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;sections&#34;&gt;Sections&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Set up a new section in the body part.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\section{sction name}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;twenty-items-environment&#34;&gt;Twenty items environment&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;\begin{twenty}
+  \twentyitem
+    {year}
+    {title}
+    {place}
+    {description}
+\end{twenty}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;twenty-items-short-environment&#34;&gt;Twenty items short environment&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;\begin{twentyshort}
+  \twentyitemshort
+    {year}
+    {description}
+\end{twentyshort}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;other-commands&#34;&gt;Other commands&lt;/h3&gt;
+
+&lt;p&gt;There other two fun command: \icon and \round; that enables to wrap the text in oval shape.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;	\icon{text}
+	\round{text, color}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lugo D | IRunFasterThanMyCode</title>
+    <link>/authors/lugo-d/</link>
+      <atom:link href="/authors/lugo-d/index.xml" rel="self" type="application/rss+xml" />
+    <description>Lugo D</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Tue, 01 Dec 2015 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Lugo D</title>
+      <link>/authors/lugo-d/</link>
+    </image>
+    
+    <item>
+      <title>Generation of a selective small molecule inhibitor of the CBP/p300 bromodomain for leukemia therapy</title>
+      <link>/publication/2015_generation_of_a_selective_small_molecule_inhibitor_of_the_cbp_p300_bromodomain_for_leukemia_therapy/</link>
+      <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+      <guid>/publication/2015_generation_of_a_selective_small_molecule_inhibitor_of_the_cbp_p300_bromodomain_for_leukemia_therapy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Recurrent mutations, including NPM1c, activate a BRD4-dependent core transcriptional program in acute myeloid leukemia</title>
+      <link>/publication/2014_recurrent_mutations_including_nmp1c_activates_a_brd4_dependent_core_transcriptional_program_in_acute_myeloid_leukemia/</link>
+      <pubDate>Sat, 01 Feb 2014 00:00:00 +0000</pubDate>
+      <guid>/publication/2014_recurrent_mutations_including_nmp1c_activates_a_brd4_dependent_core_transcriptional_program_in_acute_myeloid_leukemia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inhibition of BET recruitment to chromatin as an effective treatment for MLL-fusion leukaemia</title>
+      <link>/publication/2011_inhibition_of_bet_recruitment_to_chromatin_as_an_effective_treatment_for_mll-fusion_leaukemia/</link>
+      <pubDate>Sun, 02 Oct 2011 00:00:00 +0000</pubDate>
+      <guid>/publication/2011_inhibition_of_bet_recruitment_to_chromatin_as_an_effective_treatment_for_mll-fusion_leaukemia/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

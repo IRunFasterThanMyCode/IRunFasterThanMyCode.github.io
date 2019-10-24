@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Urh M | IRunFasterThanMyCode</title>
+    <link>/authors/urh-m/</link>
+      <atom:link href="/authors/urh-m/index.xml" rel="self" type="application/rss+xml" />
+    <description>Urh M</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Tue, 01 Dec 2015 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Urh M</title>
+      <link>/authors/urh-m/</link>
+    </image>
+    
+    <item>
+      <title>Generation of a selective small molecule inhibitor of the CBP/p300 bromodomain for leukemia therapy</title>
+      <link>/publication/2015_generation_of_a_selective_small_molecule_inhibitor_of_the_cbp_p300_bromodomain_for_leukemia_therapy/</link>
+      <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+      <guid>/publication/2015_generation_of_a_selective_small_molecule_inhibitor_of_the_cbp_p300_bromodomain_for_leukemia_therapy/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

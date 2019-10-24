@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Santos-Rosa H | IRunFasterThanMyCode</title>
+    <link>/authors/santos-rosa-h/</link>
+      <atom:link href="/authors/santos-rosa-h/index.xml" rel="self" type="application/rss+xml" />
+    <description>Santos-Rosa H</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Thu, 15 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Santos-Rosa H</title>
+      <link>/authors/santos-rosa-h/</link>
+    </image>
+    
+    <item>
+      <title>Phosphorylation of histone H4T80 triggers DNA damage checkpoint recovery</title>
+      <link>/publication/2018_phosphorylation_of_histone_h4t80_triggers_dna_damage_checkpoint_recovery/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>/publication/2018_phosphorylation_of_histone_h4t80_triggers_dna_damage_checkpoint_recovery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RNA binding by the histone methyltransferases Set1 and Set2</title>
+      <link>/publication/2017_rna-binding-by-the-histone-methyltransferases-set1-and-set2/</link>
+      <pubDate>Tue, 25 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/2017_rna-binding-by-the-histone-methyltransferases-set1-and-set2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Glutamine methylation in histone H2A is an RNA-polymerase-I-dedicated modification</title>
+      <link>/publication/2014_glutamine_methylation_in_histone_h2a_is_an_rna-polymerase-i-dedicated_modification/</link>
+      <pubDate>Thu, 23 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>/publication/2014_glutamine_methylation_in_histone_h2a_is_an_rna-polymerase-i-dedicated_modification/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
