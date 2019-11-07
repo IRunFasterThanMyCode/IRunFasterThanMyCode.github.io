@@ -5,7 +5,7 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Sat, 05 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/irunfasterthanmycode.jpg</url>
       <title>Tags</title>
@@ -13,18 +13,42 @@
     </image>
     
     <item>
-      <title>classification</title>
-      <link>/tags/classification/</link>
-      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>/tags/classification/</guid>
+      <title>Data Science</title>
+      <link>/tags/data-science/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/data-science/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Data Science</title>
-      <link>/tags/data-science/</link>
+      <title>How To</title>
+      <link>/tags/how-to/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/how-to/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/tags/python/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorials</title>
+      <link>/tags/tutorials/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/tags/tutorials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>classification</title>
+      <link>/tags/classification/</link>
       <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>/tags/data-science/</guid>
+      <guid>/tags/classification/</guid>
       <description></description>
     </item>
     
@@ -253,7 +277,7 @@
     </item>
     
     <item>
-      <title>ultra</title>
+      <title>Ultra</title>
       <link>/tags/ultra/</link>
       <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/tags/ultra/</guid>
@@ -325,7 +349,7 @@
     </item>
     
     <item>
-      <title>marathon</title>
+      <title>Marathon</title>
       <link>/tags/marathon/</link>
       <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
       <guid>/tags/marathon/</guid>
@@ -365,7 +389,7 @@
     </item>
     
     <item>
-      <title>running</title>
+      <title>Running</title>
       <link>/tags/running/</link>
       <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
       <guid>/tags/running/</guid>
@@ -437,26 +461,10 @@
     </item>
     
     <item>
-      <title>How To</title>
-      <link>/tags/how-to/</link>
-      <pubDate>Wed, 23 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>/tags/how-to/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Tools</title>
       <link>/tags/tools/</link>
       <pubDate>Wed, 23 Aug 2017 00:00:00 +0000</pubDate>
       <guid>/tags/tools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tutorials</title>
-      <link>/tags/tutorials/</link>
-      <pubDate>Wed, 23 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>/tags/tutorials/</guid>
       <description></description>
     </item>
     

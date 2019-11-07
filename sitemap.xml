@@ -3,22 +3,67 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/categories/</loc>
+    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/data-science/</loc>
+    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/how-to/</loc>
+    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/how-to/</loc>
+    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/resources/pythontutorial/</loc>
+    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/python/</loc>
+    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/resources/</loc>
+    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/tutorials/</loc>
+    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tutorials/</loc>
+    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/blog/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/classification/</loc>
-    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/data-science/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -29,11 +74,6 @@
   
   <url>
     <loc>/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/</loc>
-    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -68,17 +108,12 @@
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2019-10-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/r/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>/categories/r/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -768,11 +803,6 @@
   </url>
   
   <url>
-    <loc>/resources/</loc>
-    <lastmod>2017-10-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/sequencing/</loc>
     <lastmod>2017-10-17T00:00:00+00:00</lastmod>
   </url>
@@ -808,32 +838,12 @@
   </url>
   
   <url>
-    <loc>/tags/how-to/</loc>
-    <lastmod>2017-08-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/how-to/</loc>
-    <lastmod>2017-08-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/resources/rtutorial/</loc>
     <lastmod>2017-08-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/tools/</loc>
-    <lastmod>2017-08-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/tutorials/</loc>
-    <lastmod>2017-08-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/tutorials/</loc>
     <lastmod>2017-08-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -2920,15 +2930,6 @@
   <url>
     <loc>/authors/zhang-y/</loc>
     <lastmod>2010-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/cv/samrobson_cv_academic/readme/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/cv/</loc>
   </url>
   
 </urlset>

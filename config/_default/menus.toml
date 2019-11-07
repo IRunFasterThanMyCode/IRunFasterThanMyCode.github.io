@@ -28,22 +28,22 @@
   url = "#resources"
   weight = 50
   
-#[[main]]
-#  name = "Software"
-#  url = "#software"
-#  weight = 60
-
-#[[main]]
-#  name = "Talks"
-#  url = "#talks"
-#  weight = 70
+[[main]]
+   name = "R"
+   url = "resources/rtutorial/index.html"
+   weight = 60
+   
+[[main]]
+   name = "Python"
+   url = "resources/pythontutorial/index.html"
+   weight = 70
 
 [[main]]
   name = "Contact"
   url = "#contact"
   weight = 80
-
+  
 [[main]]
    name = "CV"
-   url = "cv/SamRobson_CV_Academic/SamRobson_CV_Academic.pdf"
+   url = "cv/SamRobson_CV_Academic.pdf"
    weight = 90

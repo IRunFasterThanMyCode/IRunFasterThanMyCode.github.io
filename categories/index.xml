@@ -5,12 +5,28 @@
     <link>/categories/</link>
       <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <description>Categories</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Sat, 05 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/irunfasterthanmycode.jpg</url>
       <title>Categories</title>
       <link>/categories/</link>
     </image>
+    
+    <item>
+      <title>How To</title>
+      <link>/categories/how-to/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/categories/how-to/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorials</title>
+      <link>/categories/tutorials/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/categories/tutorials/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Blog</title>
@@ -65,22 +81,6 @@
       <link>/categories/bioinformatics/</link>
       <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
       <guid>/categories/bioinformatics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>How To</title>
-      <link>/categories/how-to/</link>
-      <pubDate>Wed, 23 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>/categories/how-to/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tutorials</title>
-      <link>/categories/tutorials/</link>
-      <pubDate>Wed, 23 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>/categories/tutorials/</guid>
       <description></description>
     </item>
     

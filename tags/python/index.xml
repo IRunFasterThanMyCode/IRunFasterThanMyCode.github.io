@@ -1,0 +1,1472 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python | IRunFasterThanMyCode</title>
+    <link>/tags/python/</link>
+      <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <description>Python</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Python</title>
+      <link>/tags/python/</link>
+    </image>
+    
+    <item>
+      <title>How To Use Python</title>
+      <link>/resources/pythontutorial/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>/resources/pythontutorial/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1&lt;/span&gt; Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#installing-python&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;2&lt;/span&gt; Installing Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#basics-of-python&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3&lt;/span&gt; Basics of Python&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#getting-started&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3.1&lt;/span&gt; Getting started&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#loading-new-packages&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3.2&lt;/span&gt; Loading new packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#white-space&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3.3&lt;/span&gt; White-space&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#object-oriented-programming&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3.4&lt;/span&gt; Object-oriented programming&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-types&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3.5&lt;/span&gt; Data Types&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#function&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3.6&lt;/span&gt; Function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#printing&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3.7&lt;/span&gt; Printing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#storing-multiple-values&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;4&lt;/span&gt; Storing Multiple Values&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#lists-and-tuples&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;4.1&lt;/span&gt; Lists and Tuples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#dictionary&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;4.2&lt;/span&gt; Dictionary&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#numpy&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5&lt;/span&gt; NumPy&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction-1&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5.1&lt;/span&gt; Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#arrays&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5.2&lt;/span&gt; Arrays&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#matrices&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5.3&lt;/span&gt; Matrices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#indexing-and-slicing&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5.4&lt;/span&gt; Indexing and slicing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#matrix-multiplication&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5.5&lt;/span&gt; Matrix multiplication&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#sorting&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5.6&lt;/span&gt; Sorting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#structured-array&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5.7&lt;/span&gt; Structured Array&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pandas&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6&lt;/span&gt; Pandas&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction-2&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6.1&lt;/span&gt; Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-frames&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6.2&lt;/span&gt; Data Frames&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#indexing-and-slicing-1&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6.3&lt;/span&gt; Indexing and Slicing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-filtering&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7&lt;/span&gt; Data Filtering&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#data-sorting&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7.1&lt;/span&gt; Data Sorting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-cleaning&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7.2&lt;/span&gt; Data Cleaning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#combining-dataframes&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7.3&lt;/span&gt; Combining DataFrames&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#reading-and-writing-data&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7.4&lt;/span&gt; Reading and Writing Data&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#control-sequences&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;8&lt;/span&gt; Control Sequences&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#if-else&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;8.1&lt;/span&gt; IF ELSE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#for&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;8.2&lt;/span&gt; FOR&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#while&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;8.3&lt;/span&gt; WHILE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#loop-control&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;8.4&lt;/span&gt; Loop Control&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#writing-functions&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;9&lt;/span&gt; Writing Functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#statistics&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;10&lt;/span&gt; Statistics&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#basic-statistics&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;10.1&lt;/span&gt; Basic Statistics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#variation&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;10.2&lt;/span&gt; Variation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#correlation&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;10.3&lt;/span&gt; Correlation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#linear-models&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;10.4&lt;/span&gt; Linear Models&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#plotting-with-python&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;11&lt;/span&gt; Plotting With Python&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#histograms&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;11.1&lt;/span&gt; Histograms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#quantile-quantile-plots&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;11.2&lt;/span&gt; Quantile-Quantile Plots&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pie-chart&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;11.3&lt;/span&gt; Pie Chart&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#bar-plot&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;11.4&lt;/span&gt; Bar Plot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#line-plots&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;11.5&lt;/span&gt; Line Plots&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#scatterplots&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;11.6&lt;/span&gt; Scatterplots&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#boxplots&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;11.7&lt;/span&gt; Boxplots&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#seaborn-package&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;11.8&lt;/span&gt; Seaborn package&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#subplots&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;11.9&lt;/span&gt; Subplots&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#saving-figures&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;11.10&lt;/span&gt; Saving Figures&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#example-analysis&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;12&lt;/span&gt; Example Analysis&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction-3&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;12.1&lt;/span&gt; Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#load-data&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;12.2&lt;/span&gt; Load Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#calculate-fold-change&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;12.3&lt;/span&gt; Calculate Fold Change&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#compare-data&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;12.4&lt;/span&gt; Compare Data&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;1&lt;/span&gt; Introduction&lt;/h1&gt;
+&lt;p&gt;As a bioinformatics researcher, I primarily use the statistical programming language R for my analyses, mainly due to the huge number of resources available in the &lt;a href=&#34;https://bioconductor.org&#34;&gt;Bioconductor&lt;/a&gt; libraries. I have previously written a &lt;a href=&#34;/resources/rtutorial/index.html&#34;&gt;Tutorial for R&lt;/a&gt;, so thought that I would do something similar for the data science programming language &lt;a href=&#34;https://www.python.org&#34;&gt;Python&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Python is an interpreted, high-level language that supports both object-oriented and structured programming. Both Python and R are widely used in the data science world, with both having very similar functionality, but specific pros and cons making the “correct” choice for which one to use being somewhat dependent on the task at hand. Python is typically considered to be more memory efficient than R, and has some amazingly powerful libraries for data science such as scikit-learn and &lt;a href=&#34;https://www.tensorflow.org&#34;&gt;TensorFlow&lt;/a&gt;, whilst R has amazing libraries for bioinformatics and superb data visualization through the &lt;a href=&#34;https://ggplot2.tidyverse.org&#34;&gt;ggplot2&lt;/a&gt; package and the other &lt;a href=&#34;https://www.tidyverse.org&#34;&gt;TidyVerse&lt;/a&gt; packages from Hadley Wickham.&lt;/p&gt;
+&lt;p&gt;However, R has some amazingly memory-efficient implementations (including an interface to TensorFlow and other machine learning tools), and Python has a huge bioinformatics suite with the &lt;a href=&#34;https://biopython.org&#34;&gt;biopython&lt;/a&gt; suite and excellent plotting packages such as &lt;a href=&#34;https://seaborn.pydata.org&#34;&gt;seaborn&lt;/a&gt;. So ultimately, both are excellent, and knowing either can be a fantastic tool in your data science toolbox.&lt;/p&gt;
+&lt;p&gt;This is an introduction to Python that should allow new users to understand how Python works. It will follow a similar flow to the R introduction, so the two can be compared to understand the differences between the two languages.&lt;/p&gt;
+&lt;p&gt;As with R and other languages, comments can be added using the &lt;code&gt;#&lt;/code&gt; comment character. Everything to the right of this character is ignored by Python. This allows you to add words and descriptions to your code which are ignored entirely by the interpreter, but can be used for people looking at the source code to help document what a particular code chunk does. You can NEVER have too many comments!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;installing-python&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;2&lt;/span&gt; Installing Python&lt;/h1&gt;
+&lt;p&gt;Python can be downloaded and installed from the &lt;a href=&#34;https://www.python.org/downloads/&#34;&gt;Python&lt;/a&gt; website. It is available for all major operating systems, and installation is quite straightforward. The current version is 3.8.0, but updates are released regularly. Additional packages can be installed by using the &lt;code&gt;pip&lt;/code&gt; Python package manager as follows:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;pip install newpackage&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is also possible to use larger package managers such as the &lt;a href=&#34;https://anaconda.org&#34;&gt;Anaconda&lt;/a&gt; data science platform. This is an open-source distribution containing over 1,500 Python and R packages that ensures all dependencies are maintained and any required packages are present. &lt;code&gt;conda&lt;/code&gt; will allow you to generate multiple environments to work in depending on requirements.&lt;/p&gt;
+&lt;p&gt;Unlike R, there is no specific Integrated Development Environment, but there are multiple different programs that can be sconsidered such as &lt;a href=&#34;https://www.spyder-ide.org&#34;&gt;Spyder&lt;/a&gt; and &lt;a href=&#34;https://www.jetbrains.com/pycharm&#34;&gt;PyCharm&lt;/a&gt;. There is also the &lt;a href=&#34;https://jupyter.org&#34;&gt;Jupyter&lt;/a&gt; notebook program, which allows interactive computing supporting many different programming languages. This is similar to R markdown (which is used to generate the content of this blog), in that it merges markdown formatted text with code chunks. This can be used to create auto-generated reports by including code output embedded into the text.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;basics-of-python&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;3&lt;/span&gt; Basics of Python&lt;/h1&gt;
+&lt;div id=&#34;getting-started&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;3.1&lt;/span&gt; Getting started&lt;/h2&gt;
+&lt;p&gt;If using a command line interface, Python can be run simply by typing the name as follows:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;python&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will open up an interactive Python environment, which can be closed by pressing &lt;code&gt;Ctrl+D&lt;/code&gt;. This is a command line version allowing you to see the results of the commands that you enter as you run them. You can also generate Python scripts, which typically have the suffix &lt;code&gt;.py&lt;/code&gt; and can be run by calling Python on them:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;python myfile.py&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The command line is shown by the &lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt; character. Simply type your command here and press return to see the results. If your command is not complete, then you will see a syntax error:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print (&amp;quot;Hello World!&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is possible to store data values in objects in Python using the &lt;code&gt;=&lt;/code&gt; assignment command. Since these objects can have their value reassigned, they are known as variables. Unlike some other languages, variables do not need to be declared ahead of their use, and their type is declared automatically when you assign them based on their value. Basic data types include integers (a whole number), floating point numbers (fractions), and character strings:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;int = 3
+float = 4.678
+str = &amp;quot;hello&amp;quot;
+
+print (int)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print (float)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 4.678&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print (str)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## hello&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Variables should ideally be named with some descriptor that gives some idea of what it represents. It must start with a letter or underscore, and can only contain alpha-numeric characters and underscores. It is worth bearing in mind that the names are case-sensitive, so &lt;code&gt;myvar&lt;/code&gt;, &lt;code&gt;MyVar&lt;/code&gt; and &lt;code&gt;MYVAR&lt;/code&gt; would be three different variables.&lt;/p&gt;
+&lt;p&gt;There are lots of different variable naming conventions to choose from (e.g. see &lt;a href=&#34;https://en.wikipedia.org/wiki/Naming_convention_(programming)&#34;&gt;here&lt;/a&gt;), but once you have chosen one try and stick to it throughout.&lt;/p&gt;
+&lt;p&gt;Simple arithmetic can be performed using the standard arithmetic operators (&lt;code&gt;+&lt;/code&gt;, &lt;code&gt;-&lt;/code&gt;, &lt;code&gt;*&lt;/code&gt;, &lt;code&gt;/&lt;/code&gt;), as well as the exponent operator (&lt;code&gt;**&lt;/code&gt;). There is a level of precedence to these functions – the exponent will be calculated first, followed by multiplication and division, followed by plus and minus. For this reason, you must be careful that your arithmetic is doing what you expect it to do. You can get around this by encapsulating subsets of the sum in parentheses, which will be calculated from the inside out:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;1 + 2 * 3   # 2 times 3 is 6, then add 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 7&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;(1 + 2) * 3 # 1 plus 2 is 3, then times 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 9&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;1 + (2 * 3) # 2 times 3 is 6, then add 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 7&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;2**4+1      # 2 to the power of 4 is 16, then add 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 17&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The remainder left over following division can be returned by using the “modulo” operator (&lt;code&gt;%%&lt;/code&gt;), and can be important for instance when testing for even numbers:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;6%2 # 6 is divisible by 2 exactly three times&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;6%4 # 6 is divisible by 4 one time with a remainder of 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can also use other variables in these assignments:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = 1
+y = x
+y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;z = x + y 
+z&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 2&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;loading-new-packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;3.2&lt;/span&gt; Loading new packages&lt;/h2&gt;
+&lt;p&gt;Additional packages can be loaded into Python by using the &lt;code&gt;import&lt;/code&gt; command:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import newpackage&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can name the imported package something different to save having to type the full name every time:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import newpackage as new&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To use a method (e.g. &lt;code&gt;foo()&lt;/code&gt;) from an imported package, we use the dot notation as follows. If we have used a shorter name for the package, we can use this name to save typing the full name each time:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;new.foo()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Sometimes, we may want to only load a package subset which we can do as follows:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;from newpackage import subpackage&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;All functions available from this package are now available for use.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;white-space&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;3.3&lt;/span&gt; White-space&lt;/h2&gt;
+&lt;p&gt;One big difference with using Python compared with many other languages is that Python uses white-space to delineate code blocks rather than using curly brackets (&lt;code&gt;{&lt;/code&gt; and &lt;code&gt;}&lt;/code&gt;). So indentations must align correctly to ensure that the interpreter is able to determine which code chunks are in the same block. An example of a code chunk is an &lt;code&gt;ifelse&lt;/code&gt; chunk, which will be described later. In R, using curly braces, this would look like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 10
+y &amp;lt;- 20
+if (x &amp;gt;= y) {
+  if (x &amp;gt; y) {
+    cat(&amp;quot;x is bigger than y&amp;quot;)
+  } else {
+    cat(&amp;quot;x is equal to y&amp;quot;)
+  }
+} else {
+  cat(&amp;quot;x is smaller than y&amp;quot;)
+} &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## x is smaller than y&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In Python, this is done by ensuring the indentation level of the parent and child statements is kept consistent:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = 10
+y = 20
+if x &amp;gt;= y:
+  if x &amp;gt; y:
+    print (&amp;quot;x is bigger than y&amp;quot;)
+  else:
+    print (&amp;quot;x is equal to y&amp;quot;)
+else:
+  print (&amp;quot;x is smaller than y&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## x is smaller than y&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This ensures that the code looks more clean and elegant, but it does mean that it is possible to run into issues if you do not ensure that the indentation levels are correct. For instance, let’s see what happens if we change the indentation levels of the print functions:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = 10
+y = 20
+if x &amp;gt;= y:
+  if x &amp;gt; y:
+  print (&amp;quot;x is bigger than y&amp;quot;)
+  else:
+  print (&amp;quot;x is equal to y&amp;quot;)
+else:
+  print (&amp;quot;x is smaller than y&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;object-oriented-programming&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;3.4&lt;/span&gt; Object-oriented programming&lt;/h2&gt;
+&lt;p&gt;Python supports an object-oriented programming (OOP) paradigm. The idea here is that each object that you use in Python is an instance of some well-defined class of data that has a set of attributes that can be accessed and methods that can be applied to it. New data classes can be specified which inherit the attributes and methods from other data types, making OOP a very modular programming approach. All of this information can be hidden away from the user, and only certain attributes and methods are made available whilst the rest are kept internal and private.&lt;/p&gt;
+&lt;p&gt;An example of this is to consider a new class &lt;code&gt;Car&lt;/code&gt;. There are many different cars out there, but each specific car is an instance of this new class &lt;code&gt;Car&lt;/code&gt;. When creating the new class, we can assign it certain attributes, such as &lt;code&gt;model&lt;/code&gt;, &lt;code&gt;make&lt;/code&gt;, &lt;code&gt;colour&lt;/code&gt;, &lt;code&gt;horsepower&lt;/code&gt;, &lt;code&gt;engine size&lt;/code&gt;, etc.&lt;/p&gt;
+&lt;p&gt;We can create such a new class as follows:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;class Car:
+  def __init__(self):
+    pass&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The class now exists, but there are no objects of this class. The class has an initializer function (the &lt;code&gt;__init(self)__&lt;/code&gt; function) that will create a new object of class &lt;code&gt;Car&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mycar = Car()
+print(mycar)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;lt;__main__.Car object at 0x12444c9d0&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So &lt;code&gt;mycar&lt;/code&gt; is an object of class &lt;code&gt;Car&lt;/code&gt;, but does not have any attributes associated with it. So let’s add a few:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;class Car:
+  def __init__(self, make, model):
+    self.make  = make
+    self.model = model&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we can instantiate a new object of class &lt;code&gt;Car&lt;/code&gt; with a specific make and model. The attributes are accessed using dot notation as follows:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mycar = Car(&amp;quot;Honda&amp;quot;, &amp;quot;Civic&amp;quot;)
+print(mycar.make)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Honda&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(mycar.model)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Civic&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We may also want to include some methods that can be applied to our object, such as &lt;code&gt;drive&lt;/code&gt;, where we can input a new destination to drive to. So let’s add a &lt;code&gt;drive()&lt;/code&gt; method to the &lt;code&gt;Car&lt;/code&gt; class:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;class Car:
+  def __init__(self, make, model):
+    self.make  = make
+    self.model = model
+    
+  def drive(self, where):
+    print (&amp;quot;Driving to &amp;quot; + where)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And let’s drive home in our car:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mycar = Car(&amp;quot;Honda&amp;quot;, &amp;quot;Civic&amp;quot;)
+mycar.drive(&amp;quot;home&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Driving to home&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I will describe some of these features in more detail later, but the dot notation for accessing object attributes and methods will feature in the following sections.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-types&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;3.5&lt;/span&gt; Data Types&lt;/h2&gt;
+&lt;p&gt;There are many classes available in Python, as well as the ability to generate new classes as described above. The most common are “numeric” (which you can do numerical calculations on – integers or floating point numbers), character strings (can contain letters, numbers, symbols etc., but cannot run numerical calculations), and boolean (TRUE or FALSE). The speech marks character &lt;code&gt;&amp;quot;&lt;/code&gt; is used to show that the class of y is “character”. You can also use the apostrophe &lt;code&gt;&#39;&lt;/code&gt;. You can check the class of a variable by using the &lt;code&gt;type()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = 12345
+type(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;lt;class &amp;#39;int&amp;#39;&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;y = 12345.0
+type(y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;lt;class &amp;#39;float&amp;#39;&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;z = &amp;quot;12345&amp;quot;
+type(z)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;lt;class &amp;#39;str&amp;#39;&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Addition is a well-defined operation on numerical objects, but is not defined on character class objects. Attempting to use a function which has not been defined for the object in question will throw an error:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x + 1 # x is numeric, so addition is well defined
+y + 1 # y is a character, so addition is not defined - produces an error&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The other important data class is “boolean”, which is simply a binary &lt;code&gt;True&lt;/code&gt; or &lt;code&gt;False&lt;/code&gt; value. There are certain operators that are used to compare two variables. The obvious ones are “is less than” (&lt;code&gt;&amp;lt;&lt;/code&gt;), “is greater than” (&lt;code&gt;&amp;gt;&lt;/code&gt;), “is equal to”&amp;quot; (&lt;code&gt;==&lt;/code&gt;). You can also combine these to see “is less than or equal to” (&lt;code&gt;&amp;lt;=&lt;/code&gt;) or “is greater than or equal to” (&lt;code&gt;&amp;gt;=&lt;/code&gt;). If the statement is true, then it will return the output “True”. Otherwise it will return “False”:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = 2
+y = 3
+
+x &amp;lt;= y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## True&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x &amp;gt;= y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## False&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can also combine these logical tests to ask complex questions by using the &lt;code&gt;and&lt;/code&gt; (&lt;code&gt;&amp;amp;&lt;/code&gt;) or the &lt;code&gt;or&lt;/code&gt; (&lt;code&gt;|&lt;/code&gt;) operators. You can also negate the output of a logical test by using the &lt;code&gt;not&lt;/code&gt; (&lt;code&gt;!&lt;/code&gt;) operator. This lets you test for very specific events in your data. Again, I recommend using parentheses to break up your tests to ensure that the tests occur in the order which you expect:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = 3
+y = 7
+z = 6
+
+(x &amp;lt;= 3 &amp;amp; y &amp;gt;= 8) &amp;amp; z == 6  &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## False&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;(x &amp;lt;= 3 &amp;amp; y &amp;gt;= 8) | z == 6 &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## True&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;(x != y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## True&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;function&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;3.6&lt;/span&gt; Function&lt;/h2&gt;
+&lt;p&gt;A function (also known as a method, subroutine, or procedure) is a named block of code that takes in one or more values, does something to them, and returns a result. A simple example is the &lt;code&gt;sum()&lt;/code&gt; function, which takes in two or more values in the form of a list, and returns the sum of all of the values:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;sum([1,2,3]) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 6&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In this example, the &lt;code&gt;sum()&lt;/code&gt; function takes only one variable (in this case a numeric list). Sometimes functions take more than one variable (also known as “arguments”). These are named values that must be specified for the function to run. The &lt;code&gt;sum()&lt;/code&gt; function takes two named arguments – &lt;code&gt;iterable&lt;/code&gt; (the list, tuple, etc whose items you wish to add together) and &lt;code&gt;start&lt;/code&gt; (an optional value to start the sum from). By default, the value of &lt;code&gt;start&lt;/code&gt; is 0, but you may want to add the sum to another value (for instance if you are calculating a cummulative sum):&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;sum([1,2,3], 10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 16&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you do not name arguments, they will be taken and assigned to the arguments in the order in which they are input. Any arguments not submitted will use their default value (0 for the case of &lt;code&gt;start&lt;/code&gt; here). We can however name the arguments and set the value using the &lt;code&gt;=&lt;/code&gt; sign.&lt;/p&gt;
+&lt;p&gt;To see the documentation for a specific function, use the &lt;code&gt;help()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;help(sum)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Help on built-in function sum in module builtins:
+## 
+## sum(iterable, start=0, /)
+##     Return the sum of a &amp;#39;start&amp;#39; value (default: 0) plus an iterable of numbers
+##     
+##     When the iterable is empty, return the start value.
+##     This function is intended specifically for use with numeric values and may
+##     reject non-numeric types.&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;printing&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;3.7&lt;/span&gt; Printing&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;print()&lt;/code&gt; can be used to print whatever is stored in the variable the function is called on. Print is what is known as an “overloaded”&amp;quot; function, which means that there are many functions named &lt;code&gt;print()&lt;/code&gt;, each written to deal with an object of a different class. The correct one is used based on the object that you supply. So calling &lt;code&gt;print()&lt;/code&gt; on a numeric variable will print the value stored in the variable. Calling it on a list prints all of the values stored in the list:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = 1
+print (x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;y = [1,2,3,4,5]
+print (y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1, 2, 3, 4, 5]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you notice, using &lt;code&gt;print()&lt;/code&gt; is the default when you just call the variable itself:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1, 2, 3, 4, 5]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here we are supplying a single argument to &lt;code&gt;print()&lt;/code&gt;. Multiple different string values can be concatenated using the &lt;code&gt;+&lt;/code&gt; character, and this concatenated string can then be printed:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = &amp;quot;hello&amp;quot;
+y = &amp;quot;world&amp;quot;
+print(x + y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## helloworld&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note here that the &lt;code&gt;+&lt;/code&gt; character will join the strings directly, so there is no space. However, &lt;code&gt;print()&lt;/code&gt; is also able to take any number of different arguments, and will print them one after the other with a space in between:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = &amp;quot;hello&amp;quot;
+y = &amp;quot;world&amp;quot;
+print(x, y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## hello world&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The concatenate command is only able to concatanate strings, so could not deal with numerical values:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = 100
+y = &amp;quot;bottles of beer on the wall&amp;quot;
+print(x + y)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, it is possible to caste a numeric value to a string using the &lt;code&gt;str()&lt;/code&gt; function, but using the multi-parameter use of the &lt;code&gt;print()&lt;/code&gt; method will automatically take care of this:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = 100
+y = &amp;quot;bottles of beer on the wall&amp;quot;
+print(x, y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 100 bottles of beer on the wall&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;\t&lt;/code&gt; is a special printing characters that you can use to print a tab character. Another similar special character that you may need to use is &lt;code&gt;\n&lt;/code&gt; which prints a new line:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = &amp;quot;hello&amp;quot;
+y = &amp;quot;world&amp;quot;
+print(x + &amp;quot;\t&amp;quot; + y + &amp;#39;\n&amp;#39; + &amp;quot;next line&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## hello    world
+## next line&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are also other characters, such as &lt;code&gt;&#39;&lt;/code&gt;, &lt;code&gt;&amp;quot;&lt;/code&gt;, &lt;code&gt;/&lt;/code&gt; and &lt;code&gt;\&lt;/code&gt;, which may require “escaping” with a backslash to avoid being interpreted in a different context. For instance, if you have a string containing an apostrophe within a string defined using apostrophes, the string will be interpreted as terminating earlier, and the code will not do what you expect:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;#39;It&amp;#39;s very annoying when this happens...&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here, the string submitted to &lt;code&gt;print()&lt;/code&gt; is actual “It” rather than the intended “It’s very annoying when this happens…”. The function will not know what to do about the remainder of the string, so an error will occur. However, by escaping the apostrophe, the string will be interpreted correctly:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;#39;It\&amp;#39;s easily fixed though!&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## It&amp;#39;s easily fixed though!&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Another alternative is to use double apostrophes as the delimiter, which will avoid the single apostrophe being misinterpreted:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;It&amp;#39;s easily fixed though!&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## It&amp;#39;s easily fixed though!&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;An alternative approach to using the concatanate operator that is able to cope with multiple different classes is to use %-formatting:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;%10s\t%5s&amp;quot; % (&amp;quot;Hello&amp;quot;, &amp;quot;World&amp;quot;)) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Hello   World&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;%10s\t%5s&amp;quot; % (&amp;quot;Helloooooo&amp;quot;, &amp;quot;World&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Helloooooo   World&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The first string shows how we want the inputs to be formatted, followed by a &lt;code&gt;%&lt;/code&gt; operator and a list of the inputs. Within the formatting string, placeholders of the form &lt;code&gt;%10s&lt;/code&gt; are replaced by the given inputs, with the first being replaced by the first argument in the list, and so on (so the number of additional arguments after the &lt;code&gt;%&lt;/code&gt; operator must match the number of placeholders). The number in the placeholder defines the width to allocate for printing that argument (positive is right aligned, negative is left aligned), decimal numbers in the placeholder define precision of floating point numbers, and the letter defines the type of argument to print (e.g. &lt;code&gt;s&lt;/code&gt; for string, &lt;code&gt;i&lt;/code&gt; for integer, &lt;code&gt;f&lt;/code&gt; for fixed point decimal, &lt;code&gt;e&lt;/code&gt; for exponential decimal). Here are some examples:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;%20s&amp;quot;  % (&amp;quot;Hello&amp;quot;)) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                Hello&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;%-20s&amp;quot; % (&amp;quot;Hello&amp;quot;)) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Hello&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;%10i&amp;quot;  % (12345)) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      12345&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;%10f&amp;quot;  % (12.345)) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  12.345000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;%10e&amp;quot;  % (12.345)) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 1.234500e+01&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;f-strings offer the same control on incorprating multiple variables into a string, but in a slightly more readable manner. In f-strings, the string is preceeded by the &lt;code&gt;f&lt;/code&gt; operator, and the variables are incorprated into the string by name within curly braces:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;forename = &amp;quot;Sam&amp;quot;
+surname = &amp;quot;Robson&amp;quot;
+job = &amp;quot;Bioinformatician&amp;quot;
+f&amp;quot;My name is {forename} {surname} and I am a {job}&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;My name is Sam Robson and I am a Bioinformatician&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The contents of the curly braces are evaluated at runtime, so can contain any valid expression:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;f&amp;quot;2 times 3 is {2*3}&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;2 times 3 is 6&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For readibility, these can be split over multiple lines, provided that each new line begins with the &lt;code&gt;f&lt;/code&gt; operator:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;forename = &amp;quot;Sam&amp;quot;
+surname = &amp;quot;Robson&amp;quot;
+job = &amp;quot;Bioinformatician&amp;quot;
+description = (f&amp;quot;My name is {forename} {surname}. &amp;quot;
+               f&amp;quot;I am a {job}&amp;quot;)
+description&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;My name is Sam Robson. I am a Bioinformatician&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;storing-multiple-values&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;4&lt;/span&gt; Storing Multiple Values&lt;/h1&gt;
+&lt;div id=&#34;lists-and-tuples&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;4.1&lt;/span&gt; Lists and Tuples&lt;/h2&gt;
+&lt;p&gt;In Python, vector-like lists of values are known as &lt;code&gt;lists&lt;/code&gt;. They can be declared simply by using square bracket notation as follows:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist = [1,2,3,4,5]
+mylist&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1, 2, 3, 4, 5]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Lists can store multiple variables of any data type, and are a very useful way of storing linked data together:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist = [1,2,3,4,5,&amp;quot;once&amp;quot;,&amp;quot;I&amp;quot;,&amp;quot;caught&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;fish&amp;quot;,&amp;quot;alive&amp;quot;,True]
+mylist&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1, 2, 3, 4, 5, &amp;#39;once&amp;#39;, &amp;#39;I&amp;#39;, &amp;#39;caught&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;fish&amp;#39;, &amp;#39;alive&amp;#39;, True]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can use the &lt;code&gt;range()&lt;/code&gt; function to create a sequence of integer values from a starting value to an end value. However, note that the end value is &lt;em&gt;not&lt;/em&gt; included:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;myrange = range(0,5)
+for i in myrange:
+  print(i)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0
+## 1
+## 2
+## 3
+## 4&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that I will discuss the &lt;code&gt;for&lt;/code&gt; loop in a later section. You can also add a third parameter to define the step between the sequential values. So to take every &lt;em&gt;other&lt;/em&gt; value from 0 to 10, you would add a step value of 2:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;myrange = range(0,11,2)
+for i in myrange:
+  print(i)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0
+## 2
+## 4
+## 6
+## 8
+## 10&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can access the individual elements of the list by using square brackets (&lt;code&gt;[&lt;/code&gt;) to index the array. The elements in the vector are numbered from 0 upwards, so to take the first and last values we do the following:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist[0]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist[4]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist[5]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;once&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you can see, an error is returned if you try to take an element that does not exist. The subset can be as long as you like, as long as it’s not longer than the full set:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist[1:4]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [2, 3, 4]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This process is known as “slicing”. It is also possible to tell Python how many values we want to increment by as we slice. So to take every &lt;em&gt;other&lt;/em&gt; value in the above slice, we would do the following:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist[1:4:2]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [2, 4]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This can also be used to reverse the order, by adding a minus sign to this final value. Here we do not specifically tell Python which values to use as the first and last value (which will take &lt;em&gt;all&lt;/em&gt; values), and increment by 1 again (which is implicit when no third value is included) using a minus sign to get the values in the reverse order:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist[::-1]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [True, &amp;#39;alive&amp;#39;, &amp;#39;fish&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;caught&amp;#39;, &amp;#39;I&amp;#39;, &amp;#39;once&amp;#39;, 5, 4, 3, 2, 1]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here, the &lt;code&gt;:&lt;/code&gt; in the brackets simply means to take all of the numbers from the first up to (but not including) the last. So &lt;code&gt;[0:2]&lt;/code&gt; will return the first 2 elements of the vector.&lt;/p&gt;
+&lt;p&gt;Using negative values for the start or end values will start the counting from the end of the array. So the index -2 will be the position 2 from the end of the array. Thus to get the final 2 values from a list we can do the following:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist[-2:]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [&amp;#39;alive&amp;#39;, True]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also use the square bracket notation to reassign elements of the list:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist2 = [1,2,3,4,5]
+mylist2[0] = &amp;quot;Hello World!&amp;quot;
+mylist2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [&amp;#39;Hello World!&amp;#39;, 2, 3, 4, 5]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A &lt;code&gt;tuple&lt;/code&gt; is very similar to a list, with two main differences. The first is that we use normal parentheses &lt;code&gt;(&lt;/code&gt; rather than square brackets, and the second is that we cannot change the elements of the tuple. The tuple isordered and &lt;em&gt;immutable&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist2 = (1,2,3,4,5)
+mylist2[0] = &amp;quot;Hello World!&amp;quot;
+mylist2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can completely reassign the entire variable if you want to, but once the elements of the tuple have been set they cannot be changed.&lt;/p&gt;
+&lt;p&gt;To drop elements from a list, you use the &lt;code&gt;pop()&lt;/code&gt; method. So to remove the value &lt;code&gt;2&lt;/code&gt; from the array we would do the following:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist = [1,2,3,4,5]
+mylist.pop(1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1, 3, 4, 5]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To add extra elements to a list, you can use the &lt;code&gt;append()&lt;/code&gt; method. So to add the value 2 back in we would do the following:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist.append(2)
+mylist&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1, 3, 4, 5, 2]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note here that &lt;code&gt;append()&lt;/code&gt; will add the value to the very end of the list To add an element to a specified position, you can use the &lt;code&gt;insert()&lt;/code&gt; method, specifying the specific position to which you want to add the value in the list:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist.insert(1, &amp;quot;Hello World!&amp;quot;)
+mylist&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1, &amp;#39;Hello World!&amp;#39;, 3, 4, 5, 2]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that the list can take values of different types. You can even create lists of lists, which can be accessed using multiple square brackets:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist = [1,2,3]
+mylist.append([&amp;quot;hello&amp;quot;, &amp;quot;world&amp;quot;])
+mylist&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1, 2, 3, [&amp;#39;hello&amp;#39;, &amp;#39;world&amp;#39;]]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mylist[3][0]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;hello&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here we select the first value from the array that makes up the fourth element of the array after appending.&lt;/p&gt;
+&lt;p&gt;We can also sort data in a list simply using the &lt;code&gt;sort()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mynum = [3, 94637, 67, 45, 23, 100, 45]
+mynum.sort()
+print(mynum)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [3, 23, 45, 45, 67, 100, 94637]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This works on both numeric and string data:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mystr = [&amp;#39;o&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;u&amp;#39;, &amp;#39;e&amp;#39;, &amp;#39;i&amp;#39;]
+mystr.sort()
+print(mystr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [&amp;#39;a&amp;#39;, &amp;#39;e&amp;#39;, &amp;#39;i&amp;#39;, &amp;#39;o&amp;#39;, &amp;#39;u&amp;#39;]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;By default sorting is from lowest to highest. By including the &lt;code&gt;reverse = True&lt;/code&gt; argument, we can get the list sorted in a reverse order:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mynum = [3, 94637, 67, 45, 23, 100, 45]
+mynum.sort(reverse = True)
+print(mynum)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [94637, 100, 67, 45, 45, 23, 3]&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dictionary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;4.2&lt;/span&gt; Dictionary&lt;/h2&gt;
+&lt;p&gt;A dictionary in Python is a named list, containing a series of key-value pairs, and is declared surrounded by curly braces. Each item in the dictionary is separated by commas and contains a key and a value separated by ‘:’ characters. Each key must be unique, whilst the values to which they refer may not be.&lt;/p&gt;
+&lt;p&gt;Dictionaries have the benefit compared to lists that you can access values based on the key values, using standard square bracket notation with the key name. This means that you do not need to know the index number for the value that you wish to access:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mydict = {&amp;#39;forename&amp;#39;:&amp;#39;Sam&amp;#39;, &amp;#39;surname&amp;#39;:&amp;#39;Robson&amp;#39;, &amp;#39;job&amp;#39;:&amp;#39;Bioinformatician&amp;#39;}
+print(mydict[&amp;quot;forename&amp;quot;], mydict[&amp;quot;surname&amp;quot;])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Sam Robson&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can use the square bracket notation to update the entry in the dictionary for the specified item:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mydict[&amp;quot;forename&amp;quot;] = &amp;quot;Samuel&amp;quot;
+print(mydict[&amp;quot;forename&amp;quot;], mydict[&amp;quot;surname&amp;quot;])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Samuel Robson&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And new items can be added by using a key that does not exist in the dictionary already:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mydict[&amp;quot;skills&amp;quot;] = &amp;quot;Python&amp;quot;
+print(mydict[&amp;quot;skills&amp;quot;])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Python&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;del&lt;/code&gt; statement can be used to remove specific entries in the dictionary:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;del mydict[&amp;quot;skills&amp;quot;]
+print(mydict)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## {&amp;#39;forename&amp;#39;: &amp;#39;Samuel&amp;#39;, &amp;#39;surname&amp;#39;: &amp;#39;Robson&amp;#39;, &amp;#39;job&amp;#39;: &amp;#39;Bioinformatician&amp;#39;}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And all items can be cleared by calling the &lt;code&gt;clear()&lt;/code&gt; method:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mydict.clear()
+print(mydict)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## {}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The length of a dictionary, specifically the number of key-value pairs, can be shown by using the &lt;code&gt;len()&lt;/code&gt; method:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mydict = {&amp;#39;forename&amp;#39;:&amp;#39;Sam&amp;#39;, &amp;#39;surname&amp;#39;:&amp;#39;Robson&amp;#39;, &amp;#39;job&amp;#39;:&amp;#39;Bioinformatician&amp;#39;}
+len(mydict)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 3&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also pull out all of the key-value pairs in the dictionary using the &lt;code&gt;items()&lt;/code&gt; method:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mydict = {&amp;#39;forename&amp;#39;:&amp;#39;Sam&amp;#39;, &amp;#39;surname&amp;#39;:&amp;#39;Robson&amp;#39;, &amp;#39;job&amp;#39;:&amp;#39;Bioinformatician&amp;#39;}
+mydict.items()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## dict_items([(&amp;#39;forename&amp;#39;, &amp;#39;Sam&amp;#39;), (&amp;#39;surname&amp;#39;, &amp;#39;Robson&amp;#39;), (&amp;#39;job&amp;#39;, &amp;#39;Bioinformatician&amp;#39;)])&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;numpy&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;5&lt;/span&gt; NumPy&lt;/h1&gt;
+&lt;div id=&#34;introduction-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;5.1&lt;/span&gt; Introduction&lt;/h2&gt;
+&lt;p&gt;Many calculations in data science require a field of mathematics called “linear algebra”, which is all about multiplication of data stored in vectors and matrices. &lt;a href=&#34;https://numpy.org&#34;&gt;NumPy&lt;/a&gt; is one of the most commonly used packages for scientific computing and provides very powerful tools for linear algebra using code from fast languages such as C/C++ and fortran. It allows you to generate arrays of values and offers vectorised calculations for linear algebra that offer huge improvements in performance. For instance, to sum two vectors of equal size (1 dimensional arrays), the result will be a vector where the i&lt;sup&gt;th&lt;/sup&gt; entry is the sum of the i&lt;sup&gt;th&lt;/sup&gt; entries from the input vectors.&lt;/p&gt;
+&lt;p&gt;NumPy is imported by using the &lt;code&gt;import&lt;/code&gt; declaration, and access functions from the package directly using the package name. We can define a shortened name for the package so that we do not have to type &lt;code&gt;numpy&lt;/code&gt; every time:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import numpy as np&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;arrays&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;5.2&lt;/span&gt; Arrays&lt;/h2&gt;
+&lt;p&gt;We can convert Python lists into NumPy arrays and use these to access the powerful additional methods associated with these data types:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = np.array([2,3,2,4,5])
+y = np.array([4,1,1,2,3])
+
+x+y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([6, 4, 3, 6, 8])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x*y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([ 8,  3,  2,  8, 15])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There is not much difference between the normal Python lists that we saw previously and the np arrays shown here, but the functionality is significantly improved. One function is the &lt;code&gt;np.arange()&lt;/code&gt; method, which allows us to generate a list of values between a start and end point incremented by a specific value. Unlike the &lt;code&gt;range()&lt;/code&gt; function seen previously, the step value does not need to be an integer:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.arange(0,10,2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([0, 2, 4, 6, 8])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.arange(0,100,10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.arange(1,2,0.1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([1. , 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The three arguments are the starting value, the final value (note that this will &lt;em&gt;not&lt;/em&gt; be included in the final list), and the step size.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;matrices&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;5.3&lt;/span&gt; Matrices&lt;/h2&gt;
+&lt;p&gt;As well as 1D arrays, we can look at 2D arrays, or &lt;code&gt;matrices&lt;/code&gt;. For example, this may be how you are used to seeing data in a spreadsheet context, with each row representing a different sample, and each row representing some measurement for that sample. An array is a special case of a matrix with only 1 row. We can use the &lt;code&gt;np.reshape()&lt;/code&gt; method to reshape an array into a different shape by giving the number of rows and columns of the output that we want to see:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.arange(1,10,1).reshape(3,3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([[1, 2, 3],
+##        [4, 5, 6],
+##        [7, 8, 9]])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note here that a matrix uses double square brackets &lt;code&gt;[[&lt;/code&gt; rather than the single square brackets used for 1-dimensional arrays. We can check the shape of the matrix by using the &lt;code&gt;shape()&lt;/code&gt; method:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;myarray = np.arange(1,10,1)
+myarray.shape&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (9,)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mymatrix = myarray.reshape(3,3)
+mymatrix.shape&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (3, 3)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The shape is given by a tuple where the first value gives the number of rows and the second gives the number of columns. Before reshaping, &lt;code&gt;myarray&lt;/code&gt; is a 1D array. After reshaping, &lt;code&gt;mymatrix&lt;/code&gt; becomes a 2D array, or matrix.&lt;/p&gt;
+&lt;p&gt;You can also generate a matrix as an array of arrays using double square baracket notation. Note that when doing this the length of each array must match to create a matrix:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mymatrix = np.array([[1,2,3],[4,5,6]])
+print(mymatrix)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[1 2 3]
+##  [4 5 6]]&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;indexing-and-slicing&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;5.4&lt;/span&gt; Indexing and slicing&lt;/h2&gt;
+&lt;p&gt;Indexing of 1D arrays works similarly to that of lists, by using the index of the value that you want to access in square brackets. Again, remember that indexing begins at 0, not 1, so to get the second value in the array you would use the index 1:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mymatrix = np.array([1,2,3,4,5,6])
+print(mymatrix[1])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The syntax for slicing is also the same as for lists, using &lt;code&gt;:&lt;/code&gt; to define the range:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mymatrix = np.array([1,2,3,4,5,6])
+print(mymatrix[2:4])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [3 4]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(mymatrix[::2])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1 3 5]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For 2D matrix indexing, we need to specify two values - one for the index of the rows and another for the index of the columns:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mymatrix = np.array([[1,2,3],[4,5,6]])
+print(mymatrix[0,0])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Slicing can be a little more complex, but you can use the same approach of specifying the row and column slices separated by a comma as above. So to take the first two columns we would do the following to take all of the rows (&lt;code&gt;:&lt;/code&gt;), but only the first two columns (&lt;code&gt;0:2&lt;/code&gt;):&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mymatrix = np.array([[1,2,3],[4,5,6]])
+print(mymatrix[:,0:2])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[1 2]
+##  [4 5]]&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;matrix-multiplication&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;5.5&lt;/span&gt; Matrix multiplication&lt;/h2&gt;
+&lt;p&gt;Multiplication of matrices is probably too much to go into in too much detail here, but the &lt;code&gt;dot product&lt;/code&gt; of two matrices can only be performed if the number of &lt;em&gt;columns&lt;/em&gt; of the first matrix matches the number of &lt;em&gt;rows&lt;/em&gt; of the second. The dot product can be calculated for two such matrices using the &lt;code&gt;np.dot()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;A = np.array([1,2,3]).reshape(1,3)
+B = np.arange(1,10,1).reshape(3,3)
+np.dot(A,B)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([[30, 36, 42]])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Matrix multiplication does not always follow the commutative law of multiplication, since it is not always the case that &lt;code&gt;A.B&lt;/code&gt; is the same as &lt;code&gt;B.A&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.dot(A,B)
+np.dot(B,A)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The identity matrix is an example where matrix multiplication &lt;em&gt;is&lt;/em&gt; commutative, since any matrix multiplied by the identity matrix (of the correct dimensions) gives itself. To give an identity matrix, a square matrix with 1s on the diagonals and 0s everywhere else, you can use the &lt;code&gt;np.eye()&lt;/code&gt; function with the dimension specified:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;C = np.eye(3)
+print(C)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[1. 0. 0.]
+##  [0. 1. 0.]
+##  [0. 0. 1.]]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.dot(B,C)
+np.dot(C,B)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are a number of other useful functions available that are very useful in the field of linear algebra and matrix multiplication. For example, to generate a matrix of 0s, you can use the &lt;code&gt;np.zeros()&lt;/code&gt; function, giving a 2D tuple as input:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.zeros((2,3))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([[0., 0., 0.],
+##        [0., 0., 0.]])&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sorting&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;5.6&lt;/span&gt; Sorting&lt;/h2&gt;
+&lt;p&gt;NumPy has a powerful sorting method, which can act much like the list &lt;code&gt;sort()&lt;/code&gt; function seen previously:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;myarray = np.array([3, 94637, 67, 45, 23, 100, 45])
+myarray.sort()
+print(myarray)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [    3    23    45    45    67   100 94637]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We are also able to use the &lt;code&gt;argsort()&lt;/code&gt; method to get the indexing of the input array, rather than the sorted array itself:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;myarray = np.array([3, 94637, 67, 45, 23, 100, 45])
+myarray.argsort()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([0, 4, 3, 6, 2, 5, 1])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This sort function is more powerful than the standard Python sort function for lists as it is able to sort both 1D arrays and 2D (and indeed multi-dimensional in general) matrices, and can use multiple different sorting algorithms. For matrices, the default is to sort the values on the final axis, which in the case of the case of a 2D matrix will sort the values within each row individually:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mymatrix = np.array([[6,3,3],[1,2,4]])
+mymatrix.sort()
+print(mymatrix)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[3 3 6]
+##  [1 2 4]]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If we would instead prefer to sort on the columns, we can specify the &lt;code&gt;axis&lt;/code&gt; argument:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mymatrix = np.array([[6,3,3],[1,2,4]])
+mymatrix.sort(axis=0)
+print(mymatrix)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[1 2 3]
+##  [6 3 4]]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also specify which algorithm we want to use for sorting (e.g. &lt;code&gt;quicksort&lt;/code&gt;, &lt;code&gt;mergesort&lt;/code&gt; or &lt;code&gt;heapsort&lt;/code&gt;), which can have an impact on the speed and efficiency:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mymatrix = np.array([[6,3,3],[1,2,4]])
+mymatrix.sort(kind = &amp;#39;mergesort&amp;#39;)
+print(mymatrix)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[3 3 6]
+##  [1 2 4]]&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;structured-array&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;5.7&lt;/span&gt; Structured Array&lt;/h2&gt;
+&lt;p&gt;NumPy arrays are homogenous, and contain a single class of data. Structured arrays on the other hand are arrays of structures, each of a different class. For this, we need to define ahead of time the class of data to be included by using a &lt;code&gt;dtype&lt;/code&gt; parameter. This is a list of tupels, where each tupel is a pair giving the name of the structure and the type of data that it will hold:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;dtype = [(&amp;#39;Name&amp;#39;, (np.str_, 10)), (&amp;#39;Age&amp;#39;, np.int32), (&amp;#39;Score&amp;#39;, np.float64)]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here, we are defining 3 types of fields within the structure:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;code&gt;Name&lt;/code&gt; – A string with a maximum of 10 characters&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Age&lt;/code&gt; – A 32 bit integer&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Score&lt;/code&gt; – A 64 bit floating point value&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Then we can create a structured array where every element is a tuple containing exactly 3 values corresponding to the types as described in &lt;code&gt;dtype&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mystruct = np.array([(&amp;#39;John&amp;#39;, 37, 99.3), (&amp;#39;Paul&amp;#39;, 33, 92.6), (&amp;#39;Ringo&amp;#39;, 40, 97.5), (&amp;#39;George&amp;#39;, 35, 92.6)], dtype = dtype)
+print(mystruct)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [(&amp;#39;John&amp;#39;, 37, 99.3) (&amp;#39;Paul&amp;#39;, 33, 92.6) (&amp;#39;Ringo&amp;#39;, 40, 97.5)
+##  (&amp;#39;George&amp;#39;, 35, 92.6)]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This structured array is a table-like structure that can make it easier to access and modify elements of the data. For instance, the sort function on this data type can take the parameter &lt;code&gt;order&lt;/code&gt; to specify which field to use for sorting. So to sort by the &lt;code&gt;Score&lt;/code&gt; field, we would do the following:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mystruct.sort(order=&amp;quot;Score&amp;quot;)
+print(mystruct)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [(&amp;#39;George&amp;#39;, 35, 92.6) (&amp;#39;Paul&amp;#39;, 33, 92.6) (&amp;#39;Ringo&amp;#39;, 40, 97.5)
+##  (&amp;#39;John&amp;#39;, 37, 99.3)]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can order on multiple fields to break ties in the &lt;code&gt;Score&lt;/code&gt; field by organising also on the &lt;code&gt;Age&lt;/code&gt; field:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mystruct.sort(order=[&amp;quot;Score&amp;quot;,&amp;quot;Age&amp;quot;])
+print(mystruct)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [(&amp;#39;Paul&amp;#39;, 33, 92.6) (&amp;#39;George&amp;#39;, 35, 92.6) (&amp;#39;Ringo&amp;#39;, 40, 97.5)
+##  (&amp;#39;John&amp;#39;, 37, 99.3)]&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pandas&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;6&lt;/span&gt; Pandas&lt;/h1&gt;
+&lt;div id=&#34;introduction-2&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;6.1&lt;/span&gt; Introduction&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://pandas.pydata.org&#34;&gt;Pandas&lt;/a&gt; is another commonly used library in Python that introduces a number of incredibly powerful tools for data wrangling from Wes McKinney. Pandas can load data from a number of sources, including comma separated or tab-delimited text files (CSV or TSV files respectively) and creates aPython object in the sort of structure that one would expect from a spreadsheet type software such as Excel. This &lt;code&gt;data frame&lt;/code&gt; shows many similarities with the &lt;code&gt;data.frame&lt;/code&gt; class in R. This is a high-level data structure, offering more control in order to access specific data than working with dictionaries and structured arrays.&lt;/p&gt;
+&lt;p&gt;To import the package, we use the &lt;code&gt;import&lt;/code&gt; command, and as with NumPy we can give it a local name to avoid having to write the whole name every time:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import pandas as pd&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-frames&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;6.2&lt;/span&gt; Data Frames&lt;/h2&gt;
+&lt;p&gt;Data frames can be generated by converting lists, dictionaries or NumPy arrays by using the &lt;code&gt;pd.DataFrame()&lt;/code&gt; function. Unlike the structured array, we do not need to specify the data types ahead of time. DataFrames can be generated from a list of lists by specifying the column names as follows:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;array = [[&amp;#39;John&amp;#39;, 37, 99.3], [&amp;#39;Paul&amp;#39;, 33, 92.6], [&amp;#39;Ringo&amp;#39;, 40, 97.5], [&amp;#39;George&amp;#39;, 35, 92.6]]
+df = pd.DataFrame(array, columns = [&amp;#39;Name&amp;#39;, &amp;#39;Age&amp;#39;, &amp;#39;Score&amp;#39;])
+df&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Name  Age  Score
+## 0    John   37   99.3
+## 1    Paul   33   92.6
+## 2   Ringo   40   97.5
+## 3  George   35   92.6&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Alternatively, you can use the dict syntax, wherby each column of the DataFrame is a different key-value pair in the dictionary, and the value is a list of entries of the same type:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;dict = {&amp;#39;Name&amp;#39;:[&amp;#39;John&amp;#39;, &amp;#39;Paul&amp;#39;, &amp;#39;Ringo&amp;#39;, &amp;#39;George&amp;#39;], &amp;#39;Age&amp;#39;:[37,33,40,35], &amp;#39;Score&amp;#39;:[99.3,92.6,97.5,92.6]}
+df = pd.DataFrame(dict)
+df&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Name  Age  Score
+## 0    John   37   99.3
+## 1    Paul   33   92.6
+## 2   Ringo   40   97.5
+## 3  George   35   92.6&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The Pandas DataFrame class offers a large number of commonly used statistical functions which can generate summary statistics for the columns in the dataFrame. So to get the mean value of the numerical columns we would use &lt;code&gt;df.mean()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.mean()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Age      36.25
+## Score    95.50
+## dtype: float64&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And for the standard deviation we would use df.std()`:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.std()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Age      2.986079
+## Score    3.428313
+## dtype: float64&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;indexing-and-slicing-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;6.3&lt;/span&gt; Indexing and Slicing&lt;/h2&gt;
+&lt;p&gt;Selecting data from a DataFrame is significantly easier than trying to do so from lower-level Python classes. Getting data from specific columns is simply done by using the name of the column in square brackets:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df[&amp;#39;Name&amp;#39;]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0      John
+## 1      Paul
+## 2     Ringo
+## 3    George
+## Name: Name, dtype: object&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Multiple columns can be specified as a list:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df[[&amp;#39;Age&amp;#39;, &amp;#39;Score&amp;#39;]]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    Age  Score
+## 0   37   99.3
+## 1   33   92.6
+## 2   40   97.5
+## 3   35   92.6&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Selecting data in this way will return a new DataFrame. Rows of a DataFrame are labelled by an index, which can be accessed via the &lt;code&gt;index&lt;/code&gt; attribute:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.index&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## RangeIndex(start=0, stop=4, step=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;By default, the index is a range of indices starting from 0, and these are immutable. However, these can be converted to anything that you like provided that they are unique:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.index = [&amp;#39;a&amp;#39;,&amp;#39;b&amp;#39;,&amp;#39;c&amp;#39;,&amp;#39;d&amp;#39;]
+df&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Name  Age  Score
+## a    John   37   99.3
+## b    Paul   33   92.6
+## c   Ringo   40   97.5
+## d  George   35   92.6&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is also possible to specify an index when you generate the DataFrame:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df = pd.DataFrame(dict, index = [&amp;#39;a&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;c&amp;#39;, &amp;#39;d&amp;#39;])
+df&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Name  Age  Score
+## a    John   37   99.3
+## b    Paul   33   92.6
+## c   Ringo   40   97.5
+## d  George   35   92.6&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;These indexes can then be used select rows of interest. This can be done either by the index as we have done previously with lists, or by the index name. So to get the second row, we could either use the index number (2) or the index name (‘b’). To index by location, we use the &lt;code&gt;iloc&lt;/code&gt; attribute:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.iloc[1]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Name     Paul
+## Age        33
+## Score    92.6
+## Name: b, dtype: object&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Or to index by the row index names we use te &lt;code&gt;loc&lt;/code&gt; attribute:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.loc[&amp;#39;b&amp;#39;]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Name     Paul
+## Age        33
+## Score    92.6
+## Name: b, dtype: object&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can of course slice multiple rows and multiple columns to select any combination of the DataFrame that we desire:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.loc[[&amp;#39;b&amp;#39;,&amp;#39;d&amp;#39;],[&amp;#39;Name&amp;#39;,&amp;#39;Age&amp;#39;]]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Name  Age
+## b    Paul   33
+## d  George   35&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-filtering&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;7&lt;/span&gt; Data Filtering&lt;/h1&gt;
+&lt;p&gt;DataFrames can be filtered by using a conditional index to the rows or columns. So for instance, if we wanted to select only the people who scored greater than 95% in their test, we might run the following:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df[df[&amp;#39;Score&amp;#39;] &amp;gt; 95]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Name  Age  Score
+## a   John   37   99.3
+## c  Ringo   40   97.5&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Conditional statements can include any logical operators such as &lt;code&gt;and&lt;/code&gt; and &lt;code&gt;or&lt;/code&gt;, provided that they result in a list of booleans.&lt;/p&gt;
+&lt;div id=&#34;data-sorting&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;7.1&lt;/span&gt; Data Sorting&lt;/h2&gt;
+&lt;p&gt;Sorting of the data can be done by using the &lt;code&gt;sort_values&lt;/code&gt; method. This is similar to the NumPy sort, but will sort the whole DataFrame using the sorted index of the column (or index) of interest. There are a number of important parameters to consider:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;code&gt;by&lt;/code&gt; – The name or index of the column (or row) to use for sorting&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;axis&lt;/code&gt; – Whether you want to sort over the indexes (0) or the columns (1)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ascending&lt;/code&gt; – Whether to sort in ascending (True) or descending order (False)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;kind&lt;/code&gt; – The sorting algorithm to use&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So to sort the DataFrame in descending order on the &lt;code&gt;Score&lt;/code&gt; field, we would do the following:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df_srt = df.sort_values(by = [&amp;#39;Score&amp;#39;], ascending = False)
+df_srt&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Name  Age  Score
+## a    John   37   99.3
+## c   Ringo   40   97.5
+## b    Paul   33   92.6
+## d  George   35   92.6&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In addition, there is another parameter, &lt;code&gt;inplace&lt;/code&gt;. If set to True, calling this method will replace the original object with its sorted output, rather than you having to explicitly assign this:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.sort_values(by = [&amp;#39;Score&amp;#39;], ascending = False, inplace = True)
+df&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Name  Age  Score
+## a    John   37   99.3
+## c   Ringo   40   97.5
+## b    Paul   33   92.6
+## d  George   35   92.6&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is also possible to use the function &lt;code&gt;sort_index()&lt;/code&gt; to sort on the index of the DataFrame rather than the values within the DataFrame itself. This can be used, for instance, to return a sorted DataFrame back to its original state. By sorting the DataFrame above, we have created DataFrame with a non-consecutive index. By sorting on the index, we will return the DataFrame to its original state before we sorted it:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.sort_index(inplace = True)
+df&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Name  Age  Score
+## a    John   37   99.3
+## b    Paul   33   92.6
+## c   Ringo   40   97.5
+## d  George   35   92.6&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-cleaning&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;7.2&lt;/span&gt; Data Cleaning&lt;/h2&gt;
+&lt;p&gt;One of the first steps for any data analysis is to ensure that the data set that you are starting with is clean and does not contain any missing values. Let’s create a DataFrame with some missing values using the &lt;code&gt;np.nan&lt;/code&gt; value:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;dict = {&amp;#39;Name&amp;#39;:[&amp;#39;John&amp;#39;, np.nan, &amp;#39;Ringo&amp;#39;, &amp;#39;George&amp;#39;], &amp;#39;Age&amp;#39;:[37,np.nan,40,35], &amp;#39;Score&amp;#39;:[99.3,92.6,97.5,np.nan]}
+df = pd.DataFrame(dict)
+df&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Name   Age  Score
+## 0    John  37.0   99.3
+## 1     NaN   NaN   92.6
+## 2   Ringo  40.0   97.5
+## 3  George  35.0    NaN&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Missing values can be identified using the &lt;code&gt;isnull()&lt;/code&gt; method, which produces an array of True or False values depending on whether the data are missing or not:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.isnull()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Name    Age  Score
+## 0  False  False  False
+## 1   True   True  False
+## 2  False  False  False
+## 3  False  False   True&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Since True is treated as 1, whilst False is treated as 0 in numerical calculations, we can count the number of missing values by simply summing the values in this array:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.isnull().sum()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Name     1
+## Age      1
+## Score    1
+## dtype: int64&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So we have 1 value missing in each column. There are different ways of dealing with missing values, and it largely depends on the context. Sometimes, we may want to simply drop the data if it is no longer useful. For instance, the second row gives us only the score but we cannot link this to the name nor the age. Similarly, we may not be able to use the data for individuals where we do not have a score. The &lt;code&gt;dropna()&lt;/code&gt; method will remove all rows that contain an NA value:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.dropna()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Name   Age  Score
+## 0   John  37.0   99.3
+## 2  Ringo  40.0   97.5&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If we want to instead remove all &lt;em&gt;columns&lt;/em&gt; that contain an NA value, we can use the &lt;code&gt;axis&lt;/code&gt; parameter:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.dropna(axis = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Empty DataFrame
+## Columns: []
+## Index: [0, 1, 2, 3]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Since every column contains a missing value, we end up with an empty DataFrame. Other times, it may make sense to replace missing values with another value. The following will replace every missing value with the value &lt;code&gt;Missing&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.fillna(&amp;#39;Missing&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##       Name      Age    Score
+## 0     John       37     99.3
+## 1  Missing  Missing     92.6
+## 2    Ringo       40     97.5
+## 3   George       35  Missing&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Of course, this is not a whole lot better than the missing values for the numeric data. For numeric values, we can attempt to impute a value that is suitable by using the other data in the data set. Sometimes, simply using the mean of all of the other values in the column may be suitable:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df.fillna(df.mean())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Name        Age      Score
+## 0    John  37.000000  99.300000
+## 1     NaN  37.333333  92.600000
+## 2   Ringo  40.000000  97.500000
+## 3  George  35.000000  96.466667&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;combining-dataframes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;7.3&lt;/span&gt; Combining DataFrames&lt;/h2&gt;
+&lt;p&gt;Very often, it is necessary to combine data from multiple sources. For instance, we may want to scrape data from multiple different websites, and then combine them into a single DataFrame for analysis. If we have two DataFrames containing the same columns, we can append the rows of one to the other using the &lt;code&gt;append()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df1 = pd.DataFrame({&amp;#39;Name&amp;#39;:[&amp;#39;John&amp;#39;, &amp;#39;Paul&amp;#39;, &amp;#39;Ringo&amp;#39;, &amp;#39;George&amp;#39;], &amp;#39;Age&amp;#39;:[37,33,40,35], &amp;#39;Score&amp;#39;:[99.3,92.6,97.5,92.6]})
+df2 = pd.DataFrame({&amp;#39;Name&amp;#39;:[&amp;#39;Yoko&amp;#39;, &amp;#39;Brian&amp;#39;], &amp;#39;Age&amp;#39;:[32,54], &amp;#39;Score&amp;#39;:[91.6,97.0]})
+df1.append(df2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Name  Age  Score
+## 0    John   37   99.3
+## 1    Paul   33   92.6
+## 2   Ringo   40   97.5
+## 3  George   35   92.6
+## 0    Yoko   32   91.6
+## 1   Brian   54   97.0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice here that the row indexes are appended as is, and should be regenerated to make this dataframe more usable.&lt;/p&gt;
+&lt;p&gt;To add additional columns when the number of rows are identical, we use the &lt;code&gt;concat&lt;/code&gt; method:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df1 = pd.DataFrame({&amp;#39;Name&amp;#39;:[&amp;#39;John&amp;#39;, &amp;#39;Paul&amp;#39;, &amp;#39;Ringo&amp;#39;, &amp;#39;George&amp;#39;], &amp;#39;Age&amp;#39;:[37,33,40,35], &amp;#39;Score&amp;#39;:[99.3,92.6,97.5,92.6]})
+df2 = pd.DataFrame({&amp;#39;Gender&amp;#39;:[&amp;#39;Male&amp;#39;, &amp;#39;Male&amp;#39;, &amp;#39;Male&amp;#39;, &amp;#39;Male&amp;#39;]})
+pd.concat([df1,df2], axis = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Name  Age  Score Gender
+## 0    John   37   99.3   Male
+## 1    Paul   33   92.6   Male
+## 2   Ringo   40   97.5   Male
+## 3  George   35   92.6   Male&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A slightly safer way to combine two DataFrames is to merge them using &lt;code&gt;join()&lt;/code&gt;, where you can combine two DataFrames that share Columns. This might happen where you have two different sets of data for the same set of samples:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df1 = pd.DataFrame({&amp;#39;Name&amp;#39;:[&amp;#39;John&amp;#39;, &amp;#39;Paul&amp;#39;, &amp;#39;Ringo&amp;#39;, &amp;#39;George&amp;#39;], &amp;#39;Age&amp;#39;:[37,33,40,35], &amp;#39;Score&amp;#39;:[99.3,92.6,97.5,92.6]})
+df2 = pd.DataFrame({&amp;#39;Name&amp;#39;:[&amp;#39;John&amp;#39;, &amp;#39;Paul&amp;#39;], &amp;#39;Gender&amp;#39;:[&amp;#39;Male&amp;#39;, &amp;#39;Male&amp;#39;]})
+pd.merge(df1, df2, on = &amp;#39;Name&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    Name  Age  Score Gender
+## 0  John   37   99.3   Male
+## 1  Paul   33   92.6   Male&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;By default, this uses an &lt;code&gt;inner&lt;/code&gt; join, such that outputs are only given where values for &lt;code&gt;Name&lt;/code&gt; are found for both &lt;code&gt;df1&lt;/code&gt; and &lt;code&gt;df2&lt;/code&gt;. However, if we want to create a DataFrame with all values in it, but missing values where necessary, we can use an &lt;code&gt;outer&lt;/code&gt; join:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;pd.merge(df1, df2, on = &amp;#39;Name&amp;#39;, how = &amp;#39;outer&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Name  Age  Score Gender
+## 0    John   37   99.3   Male
+## 1    Paul   33   92.6   Male
+## 2   Ringo   40   97.5    NaN
+## 3  George   35   92.6    NaN&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;reading-and-writing-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;7.4&lt;/span&gt; Reading and Writing Data&lt;/h2&gt;
+&lt;p&gt;As well as generating DataFrames from arrays created in Python, we can directly read data from a variety of sources using Pandas. Examples include comma-separated value (CSV) files and tab-separated value (TSV) files, where rows are separated by new lines and columns are separated by a delimiter such as a comma or tab-character. In addition, Pandas can read directly from SQL databases, web sites, or Excel spreadsheets. There are some very basic example files available from &lt;a href=&#34;/files/RTutorial/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The function &lt;code&gt;read_csv&lt;/code&gt; is one of the most commonly used functions and will load in data from a CSV or TSV file. By default, it uses new lines (&lt;code&gt;\n&lt;/code&gt;) to delimit rows and commas (&lt;code&gt;,&lt;/code&gt;) to delimit columns. The &lt;code&gt;sep&lt;/code&gt; parameter can be used to set a different delimiter, for instance if the data are tab-delimited:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;pd.read_csv(&amp;quot;sample_annotation.txt&amp;quot;, sep = &amp;quot;\t&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   SampleName Treatment  Replicate CellType
+## 0    sample1   Control          1     HeLa
+## 1    sample2   Control          2     HeLa
+## 2    sample3   Control          3     HeLa
+## 3    sample4      Drug          1     HeLa
+## 4    sample5      Drug          2     HeLa
+## 5    sample6      Drug          3     HeLa&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are lots of additional arguments to the &lt;code&gt;read_csv()&lt;/code&gt; function; &lt;code&gt;header&lt;/code&gt; allows you to specify the row that should be used to name the columns of the data frame, &lt;code&gt;index_col&lt;/code&gt; allows you to specify the column that should be used as the row index, &lt;code&gt;sep&lt;/code&gt; gives the delimiter between column entries (e.g. &lt;code&gt;\t&lt;/code&gt; for tab-delimited files, or &lt;code&gt;,&lt;/code&gt; for comma-separated files), ‘usecols’ allows you to specify which subset of columns to load, &lt;code&gt;dtype&lt;/code&gt; allows you to specify which data types each column represent (as seen previously for structured arrays), &lt;code&gt;skiprows&lt;/code&gt; allows you to skip the given numbber of rows at the start of the file, &lt;code&gt;skipfooter&lt;/code&gt; does the same but skipping from the bottom of the file, &lt;code&gt;nrows&lt;/code&gt; gives the number of rows to read in, &lt;code&gt;na_values&lt;/code&gt; allows you to specify which values to count as being ‘NaN’. There are many more, but here is an example of using some of these different parameters:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;pd.read_csv(&amp;quot;sample_annotation.txt&amp;quot;, sep = &amp;quot;\t&amp;quot;, nrows = 4, index_col = 0)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            Treatment  Replicate CellType
+## SampleName                              
+## sample1      Control          1     HeLa
+## sample2      Control          2     HeLa
+## sample3      Control          3     HeLa
+## sample4         Drug          1     HeLa&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here, the unique &lt;code&gt;SampleName&lt;/code&gt; field has been used as the index, which may be more useful than simply numbering them as it is more descriptive.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;control-sequences&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;8&lt;/span&gt; Control Sequences&lt;/h1&gt;
+&lt;p&gt;One of the most useful things to be able to do with computers is to repeat the same command multiple times without having to do it by hand each time. For this, control sequences can be used to give you close control over the progress of your program.&lt;/p&gt;
+&lt;div id=&#34;if-else&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;8.1&lt;/span&gt; IF ELSE&lt;/h2&gt;
+&lt;p&gt;The first control sequence to look at is the “if else” command, which acts as a switch to run one of a selection of possible commands given a switch that you specify. For instance, you may want to do something different depending on whether a value is odd or even:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;val = 3
+if val%2 == 0:   # If it is even (exactly divisible by 2)
+  print(&amp;quot;Value is even&amp;quot;)
+else:             # Otherwise it must be odd
+  print(&amp;quot;Value is odd&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Value is odd&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here, the expression in the parentheses following “if” is evaluated, and if it evaluates to True then the block of code contained within the following curly braces is evaluated. Otherwise, the block of code following the “else” statement is evaluated. You can add additional tests by using the &lt;code&gt;elif&lt;/code&gt; statement:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;my_val = 27
+if my_val%2 == 0:
+  print(&amp;quot;Value is divisible by 2\n&amp;quot;)
+elif my_val%3 == 0:
+  print(&amp;quot;Value is divisible by 3\n&amp;quot;)
+else:
+  print(&amp;quot;Value is not divisible by 2 or 3&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Value is divisible by 3&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Each switch is followed by a block of code in the same indentation level, and the conditional statements are evaluated until one evaluates to True, at which point the relevant output is produced. If none of them evaluate to True, then the default code block following &lt;code&gt;else&lt;/code&gt; is evaluated instead. If no &lt;code&gt;else&lt;/code&gt; block is present, then the default is to just do nothing. These blocks can be as complicated as you like, and you can have &lt;code&gt;elif&lt;/code&gt; statements within the blocks to create a hierarchical structure.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;for&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;8.2&lt;/span&gt; FOR&lt;/h2&gt;
+&lt;p&gt;Another control structure is the &lt;code&gt;for&lt;/code&gt; loop, which will conduct the code in the block multiple times for a variety of values that you specify at the start. For instance, here is a simple countdown script:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;for i in range(10,0,-1):
+  print(i)
+  if i == 1:
+    print(&amp;quot;Blastoff!&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 10
+## 9
+## 8
+## 7
+## 6
+## 5
+## 4
+## 3
+## 2
+## 1
+## Blastoff!&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So the index &lt;code&gt;i&lt;/code&gt; is taken from the set of numbers (10, 9, …, 1), starting at the first value 10, and each time prints out the number followed by a newline. Then an &lt;code&gt;if&lt;/code&gt; statement checks to see if we have reached the final number, which we have not. It therefore returns to the start of the block, updates the number to the second value 9, and repeats. It does this until there are no more values to use.&lt;/p&gt;
+&lt;p&gt;As a small aside, this is slightly inefficient. Evaluation of the &lt;code&gt;if&lt;/code&gt; statement is conducted every single time the loop is traversed (10 times in this example). It will only ever be True at the end of the loop, so we could always take this out of the loop and evaluate the final printout after the loop is finished and save ourselves 10 calculations. Whilst the difference here is negligible, thinking of things like this may save you time in the future:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;for i in range(10,0,-1):
+  print(i)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 10
+## 9
+## 8
+## 7
+## 6
+## 5
+## 4
+## 3
+## 2
+## 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;Blastoff!&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Blastoff!&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;while&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;8.3&lt;/span&gt; WHILE&lt;/h2&gt;
+&lt;p&gt;The final main control structure is the &lt;code&gt;while&lt;/code&gt; loop. This is similar to the &lt;code&gt;for&lt;/code&gt; loop, and will continue to evaluate the code chunk as long as the specified expression evaluates to True:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;i = 10
+while i &amp;gt; 0:
+  print(i)
+  i -= 1 ## Equavalent to i = i-1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 10
+## 9
+## 8
+## 7
+## 6
+## 5
+## 4
+## 3
+## 2
+## 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;Blastoff!&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Blastoff!&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This does exactly the same as the &lt;code&gt;for&lt;/code&gt; loop above. In general, either can be used for a given purpose, but there are times when one would be more “elegant” than the other. For instance, here the for loop is better as you do not need to manually subtract 1 from the index each time.&lt;/p&gt;
+&lt;p&gt;However, if you did not know how many iterations were required before finding what you are looking for (for instance searching through a number of files), a &lt;code&gt;while&lt;/code&gt; loop may be more suitable.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;HOWEVER&lt;/strong&gt;: Be aware that it is possible to get caught up in an “infinite loop”. This happens if the conditional statement never evaluates to False. For instance, if we forget to decrement the index, &lt;code&gt;i&lt;/code&gt; will always be 10 and will therefore never be less than 0. This loop will therefore run forever:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;i = 10
+while i &amp;gt; 0:
+  print(i)
+print(&amp;quot;Blastoff!&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;loop-control&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;8.4&lt;/span&gt; Loop Control&lt;/h2&gt;
+&lt;p&gt;You can leave control loops early by using flow control constructs. &lt;code&gt;continue&lt;/code&gt; skips out of the current loop and moves onto the next in the sequence. In the following case, it will restart the loop when &lt;code&gt;i&lt;/code&gt; is 5 before printing:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;for i in range(1,11):
+  if i == 5:
+    continue
+  print(i) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 1
+## 2
+## 3
+## 4
+## 6
+## 7
+## 8
+## 9
+## 10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;Finished loop&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Finished loop&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;break&lt;/code&gt; will leave the code chunk entirely, and in this case will move onto the final print function as soon as it is identified that &lt;code&gt;i&lt;/code&gt; is equal to 5:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;for i in range(1,11):
+  if i == 5:
+    break
+  print(i) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 1
+## 2
+## 3
+## 4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;Finished loop&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Finished loop&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;writing-functions&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;9&lt;/span&gt; Writing Functions&lt;/h1&gt;
+&lt;p&gt;There are many functions available in Python, and chances are if you want to do something somebody has already written the function to do it. It is best to not re-invent the wheel if possible (or at least it is more efficient – sometimes it is good to reinvent the wheel to understand how it works), but very often you will want to create your own functions to save replicating code.&lt;/p&gt;
+&lt;p&gt;A function takes in one or more variables, does something with them, and returns something (e.g. a value or a plot). For instance, calculating the mean of a number of values is simply a case of adding them together and dividing by the number of values. Let’s write a function to do this and check that it matches the &lt;code&gt;mean()&lt;/code&gt; function from NumPy:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;def my_mean (x): # Here, x is an array of numbers
+  nvals = len(x)
+  valsum = sum(x)
+  return valsum/nvals
+
+my_vals = [3,5,6,3,4,3,4,7]
+my_mean(my_vals) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 4.375&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.mean(my_vals)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 4.375&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So, as with the loops earlier, the function is contained within a block of code with the same indentation level. A numeric vector is given to the function, the mean is calculated, and this value is returned to the user using the &lt;code&gt;return()&lt;/code&gt; function. This value can be captured into a variable of your choosing in the same way as with any function. As we see here, the value returned by this user-defined function is identical to that from the NumPy pacakge.&lt;/p&gt;
+&lt;p&gt;You can also add further arguments to the function call. If you want an argument to have a default value, you can specify this in the function declaration. This is the value that will be used if no argument value is specified. Any arguments that do not have a default value must be specified when calling the function, or an error will be thrown:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;def foo(x, arg):
+  print(x, arg)
+foo (&amp;quot;Hello&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now let’s try and add a default value for &lt;code&gt;arg&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;def foo(x, arg = &amp;quot;World!&amp;quot;):
+  print(x, arg)
+foo (&amp;quot;Hello&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Hello World!&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is a good point to mention an idea known as “scope”. After running the following function, have a look at the value &lt;code&gt;valsum&lt;/code&gt; calculated within the function:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;def my_mean(x): # Here, x is a numeric vector 
+  nvals = len(x)
+  valsum = sum(x)
+  return valsum/nvals
+my_vals = [3,5,6,3,4,3,4,7]
+my_mean(my_vals)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 4.375&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(valsum) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &amp;#39;valsum&amp;#39; is not defined
+## 
+## Detailed traceback: 
+##   File &amp;quot;&amp;lt;string&amp;gt;&amp;quot;, line 1, in &amp;lt;module&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So what went wrong? When we try to print the variable, Python is unable to find the object &lt;code&gt;valsum&lt;/code&gt;. So where is it? The “scope” of an object is the environment where it can be found. Up until now, we have been using what are known as “global variables”. That is we have created all of our objects within the “global environment”, which is the top level where Python searches for objects. These objects are available at all times.&lt;/p&gt;
+&lt;p&gt;However, when we call a function, a new environment, or “scope”, is created, and all variables created within the function become “local variables” that can only be accessed from within the function itself. As soon as we leave the scope of the function, these local variables are deleted. If you think about it, this makes sense – otherwise, every time we called a function, memory would fill up with a whole load of temporary objects.&lt;/p&gt;
+&lt;p&gt;So, the function itself is completely self-contained. A copy of the input variable is stored in a new local variable (called &lt;code&gt;x&lt;/code&gt; in this case), something is done to this object (possibly creating additional objects along the way), something is returned, and then all of these objects in the scope of the function are removed, and we move back into the global environment.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;statistics&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;10&lt;/span&gt; Statistics&lt;/h1&gt;
+&lt;div id=&#34;basic-statistics&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;10.1&lt;/span&gt; Basic Statistics&lt;/h2&gt;
+&lt;p&gt;Python is a commonly used programming language for data science, so statistical computation is incredibly important. The NumPy package provides a large number of in-built functions for caluclating a wide range of common statistics. The following example creates two vectors of 100 random values sampled from a normal distribution with mean 0 and standard deviation 1, then calculates various basic summary statistics:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = np.sort(np.random.normal(loc = 0, scale = 1, size = (100)))
+np.min(x)   &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -2.4901017513978916&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.max(x)   &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 2.0342720925979605&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.mean(x)  &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -0.005346002854634584&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.median(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0.05515553362632984&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The minimum and maximum values are the smallest and largest values respectively. The mean is what most people would think of when you asked for the average, and is calculated by summing the values and dividing by the total number of values. The median is another way of looking at the average, and is essentially the middle value (&lt;code&gt;50^th^&lt;/code&gt; percentile). Other percentiles can be calculated, which can give you an idea of where the majority of your data lie:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.quantile(x, q = 0.25) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -0.5658977276720896&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.quantile(x, q = 0.75) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0.5276885798940764&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.quantile(x, q = np.arange(0, 1, 0.1))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([-2.49010175, -1.18479618, -0.77638742, -0.45972912, -0.15753098,
+##         0.05515553,  0.23199671,  0.46014186,  0.65004843,  1.31168354])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;stats.describe()&lt;/code&gt; function from the &lt;code&gt;stats&lt;/code&gt; &lt;code&gt;scipy&lt;/code&gt; package will calculate many of these basic statistics for you:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import scipy
+from scipy import stats
+scipy.stats.describe(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## DescribeResult(nobs=100, minmax=(-2.4901017513978916, 2.0342720925979605), mean=-0.005346002854634584, variance=0.9294613607091599, skewness=-0.2268484990299433, kurtosis=-0.11476026245922721)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The mean and variance show you the average value and the spread about this average value for these data. Skewness and kurtosis tell us how different from a standard normal distribution these data are, with skewness representing asymmmetry and kurtosis representing the presence of a significant tail in the data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;variation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;10.2&lt;/span&gt; Variation&lt;/h2&gt;
+&lt;p&gt;Variance is the average of the squared distances of each individual value from their mean, and is a measure of how spread out the data are from the average. The standard deviation is simply the square root of this value &lt;span class=&#34;math inline&#34;&gt;\(var(x) = sd(x)^2\)&lt;/span&gt;:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.std(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0.9592532236599824&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.var(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0.9201667471020682&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The covariance is a measure of how much two sets of data vary together:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;y = np.sort(np.random.normal(loc = 0, scale = 1, size = (100)))
+np.var(y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0.6278146179612955&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.cov(x, y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([[0.92946136, 0.76000158],
+##        [0.76000158, 0.63415618]])&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;correlation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;10.3&lt;/span&gt; Correlation&lt;/h2&gt;
+&lt;p&gt;The covariance is related to the correlation between two data sets, which is a number between -1 and 1 indicating the level of dependance between the two variables. A value of 1 indicates perfect correlation, so that as one value increases so does the other. A value of -1 indicates perfect anti-correlation, so that as one value increases the other decreases. A value of 0 indicates that the two values change independently of one another:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.cov(x, y)/(np.std(x) * np.std(y)) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([[1.22287583, 0.99992061],
+##        [0.99992061, 0.83434804]])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This value is known as the Pearson correlation, which can be calculated using the &lt;code&gt;scipy.stats&lt;/code&gt; function &lt;code&gt;pearsonr()&lt;/code&gt;. The first value gives the Pearson correlation coefficient between the two arrays, and the second gives a p-value which gives some idea of the significance of the correlation (more on this later):&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;scipy.stats.pearsonr(x, y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (0.9899214012931843, 5.23717802380351e-85)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;An alternative method for calculating the correlation between two sets of values is to use the Spearman correlation, which is essentially the same as the Pearson correlation but is calculated on the &lt;em&gt;ranks&lt;/em&gt; of the data rather than the values themselves. In this way, each value increases by only one unit at a time in a monotonic fashion, meaning that the correlation score is more robust to the presence of outliers:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;scipy.stats.spearmanr(x, y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## SpearmanrResult(correlation=0.9999999999999999, pvalue=0.0)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So these values are pretty highly dependent on one another – not surprising considering that they are both drawn randomly from the same distribution (notice that we sorted them such that the values were increasing for both &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt;).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;linear-models&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;10.4&lt;/span&gt; Linear Models&lt;/h2&gt;
+&lt;p&gt;We can calculate the line of best fit between the two vectors by using linear regression, which searches for the best model &lt;span class=&#34;math inline&#34;&gt;\(y = a + bx\)&lt;/span&gt; that minimises the squared distances between the line (estimated values) and the observed data points. We can implement this using the &lt;code&gt;OLS&lt;/code&gt; ordinary least squares function from package from &lt;code&gt;statsmodels&lt;/code&gt;. We will use &lt;code&gt;y&lt;/code&gt; as the response variable, and &lt;code&gt;x&lt;/code&gt; as the explanatory variable:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import statsmodels.api as sm
+model = sm.OLS(y,x)
+fit = model.fit()
+fit.summary2()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;lt;class &amp;#39;statsmodels.iolib.summary2.Summary&amp;#39;&amp;gt;
+## &amp;quot;&amp;quot;&amp;quot;
+##                         Results: Ordinary least squares
+## ===============================================================================
+## Model:                  OLS              Adj. R-squared (uncentered): 0.970    
+## Dependent Variable:     y                AIC:                         -110.8315
+## Date:                   2019-11-07 12:42 BIC:                         -108.2263
+## No. Observations:       100              Log-Likelihood:              56.416   
+## Df Model:               1                F-statistic:                 3211.    
+## Df Residuals:           99               Prob (F-statistic):          2.88e-77 
+## R-squared (uncentered): 0.970            Scale:                       0.019137 
+## -------------------------------------------------------------------------------------
+##            Coef.        Std.Err.          t          P&amp;gt;|t|        [0.025       0.975]
+## -------------------------------------------------------------------------------------
+## x1         0.8172         0.0144       56.6686       0.0000       0.7886       0.8458
+## -------------------------------------------------------------------------------
+## Omnibus:                  40.164            Durbin-Watson:               0.167 
+## Prob(Omnibus):            0.000             Jarque-Bera (JB):            78.945
+## Skew:                     1.647             Prob(JB):                    0.000 
+## Kurtosis:                 5.846             Condition No.:               1     
+## ===============================================================================
+## 
+## &amp;quot;&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Explaining this output is beyond the scope of this short tutorial, but the coefficient estimates give us the values for the slope in the linear model, and tells us by how many units y increases as x increases by 1. The R-squared value is the proportion of variance in the data that is explained by the model, with a number closer to 1 indicating a better model fit.&lt;/p&gt;
+&lt;p&gt;The p-value tells us how significant these estimates are, both for the model as a whole from the F-statistic, and from the individual variables from the t-statistics. In statistical terms, we are testing the null hypothesis that the coefficient is actually equal to zero (i.e. there is not an association between &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt;). The p-value gives the probability of detecting a coefficient at least as large as the one that we calculated in our model given that the null hypothesis is actually true. If this probability is low enough, we can safely reject the null hypothesis and say that this variable is statistically significant. Often a value of 0.05 (5%) is used as the cutoff for rejection of the null hypothesis.&lt;/p&gt;
+&lt;p&gt;Hypothesis testing is a large part of statistics. The t-test is a commonly used test for comparing the means of two sets of numeric data. In simple terms we are looking to see if they are significantly different (e.g. does the expression of a particular gene change significantly following treatment with a drug). In statistical terms, we are testing to see if the change that we see in the means is greater than we would expect by chance alone.&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;scipy.stats.ttest_ind(x, y) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Ttest_indResult(statistic=-0.6452839600923539, pvalue=0.5194902137636705)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Since both &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; are drawn from the same distribution, the test shows there is no evidence that there is a difference between the mean. Let’s try again with a different data set, drawn from a different distribution with mean 10:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;z = np.sort(np.random.normal(loc = 10, scale = 1, size = (100)))
+scipy.stats.ttest_ind(x, z) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Ttest_indResult(statistic=-71.79781491100934, pvalue=1.0011045801868256e-143)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This time, the p-value is much less than 0.05, so we can reject the null hypothesis and make the claim that the mean of &lt;code&gt;z&lt;/code&gt; is significantly different from that of &lt;code&gt;x&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;plotting-with-python&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;11&lt;/span&gt; Plotting With Python&lt;/h1&gt;
+&lt;p&gt;Similarly to R, Python is able to generate publication quality figures simply and easily. One of the most common packages for plotting in Python is the &lt;a href=&#34;https://matplotlib.org&#34;&gt;&lt;code&gt;matplotlib&lt;/code&gt;&lt;/a&gt; package, in particular using the &lt;code&gt;pyplot&lt;/code&gt; module:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import matplotlib.pyplot as plt&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;pyplot&lt;/code&gt; module gives a Matlab-like interface for plotting figures in Python. The general layout is to call a plot function from &lt;code&gt;pyplot&lt;/code&gt; such as &lt;code&gt;plot()&lt;/code&gt;, &lt;code&gt;hist()&lt;/code&gt;, &lt;code&gt;scatter()&lt;/code&gt;, etc to initiate the plot, add various additional features (such as labels and legends), and finally use &lt;code&gt;show()&lt;/code&gt; to generate the image from the combined components.&lt;/p&gt;
+&lt;p&gt;There are a huge number of features that can be added to any plot, including the following:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Label the x-axis and y-axis with &lt;code&gt;xlabel()&lt;/code&gt; and &lt;code&gt;ylabel()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Add a title to the plot with &lt;code&gt;title()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Add a legend with &lt;code&gt;legend()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Change the range of the x-axis and y-axis by using &lt;code&gt;xlim()&lt;/code&gt; and &lt;code&gt;ylim()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Define the position of the ticks in the x and y-axes with &lt;code&gt;xticks()&lt;/code&gt; and &lt;code&gt;yticks()&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;There are also some common arguments in &lt;code&gt;pyplot&lt;/code&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;code&gt;color&lt;/code&gt; for specifying the color&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;alpha&lt;/code&gt; to define the opacity of the colors (0 is entirely see through, 1 is solid)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;linestyle&lt;/code&gt; to define whether the line should be solid (&lt;code&gt;-&lt;/code&gt;), dashed (&lt;code&gt;--&lt;/code&gt;), dot-dashed (&lt;code&gt;-.&lt;/code&gt;, etc)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;linewidth&lt;/code&gt; to define the width of the line&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;marker&lt;/code&gt; to define the type of point to use (&lt;code&gt;.&lt;/code&gt; for points, &lt;code&gt;o&lt;/code&gt; for circles, &lt;code&gt;s&lt;/code&gt; for square, &lt;code&gt;v&lt;/code&gt; for downward triangle, &lt;code&gt;^&lt;/code&gt; for upward triangle, &lt;code&gt;$...$&lt;/code&gt; to render strings in mathtext style)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;markersize&lt;/code&gt; to define the size of the points to use&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Whilst this is not an in depth tutorial for plotting in Python, here are a selection of commonly used plots, and how to generate them. We will use two randomly generated independent normally distributed arrays as an example:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = np.random.normal(loc = 0, scale = 1, size = (100))
+y = np.random.normal(loc = 0, scale = 1, size = (100))&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;histograms&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;11.1&lt;/span&gt; Histograms&lt;/h2&gt;
+&lt;p&gt;A histogram is used to examine the distribution of 1-dimensional data, by counting up the number of values that fall into discrete bins. The size of the bins (or the number of bins) can be specified by using the &lt;code&gt;bins&lt;/code&gt; argument. The counts for each bin are returned in the form of an array for further analysis:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;h = plt.hist(x, bins = 20, range = (-3,3), color = &amp;quot;red&amp;quot;)
+plt.title(&amp;quot;This is a histogram&amp;quot;)
+plt.xlabel(&amp;quot;x&amp;quot;)
+plt.ylabel(&amp;quot;count&amp;quot;)
+plt.show()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/histogram-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;quantile-quantile-plots&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;11.2&lt;/span&gt; Quantile-Quantile Plots&lt;/h2&gt;
+&lt;p&gt;After looking at the histogram, we may think that our data follows some specific distribution (e.g. normal distribution). Quantile-quantile plots can be used to see if two data sets are drawn from the same distribution. To do this, it plots the quantiles of each data set against one another. That is, it plots the 0&lt;sup&gt;th&lt;/sup&gt; percentile of data set A (the minimum value) against the 0th percentile of data set B, the 50&lt;sup&gt;th&lt;/sup&gt; percentiles (the medians) against each other, the 100&lt;sup&gt;th&lt;/sup&gt; percentiles (the maximum values) against each other, etc. Simply, it sorts both data sets, and makes them both the same length by estimating any missing values, then plots a scatterplot of the sorted data. If the two data sets are drawn from the same distribution, this plot should follow the &lt;span class=&#34;math inline&#34;&gt;\(x = y\)&lt;/span&gt; identity line at all but the most extreme point.&lt;/p&gt;
+&lt;p&gt;We can use the &lt;code&gt;api&lt;/code&gt; module from &lt;code&gt;statsmodels&lt;/code&gt; to plot a QQ plot to see if our randomly generated array was indeed drawn from a normal distribution, by comparing &lt;code&gt;x&lt;/code&gt; with a standard normal distribution (&lt;code&gt;scipy.stats.distributions.norm&lt;/code&gt;). A 45 degree line is added to show the theoretical identity between the two distributions. The closer the points lie to this line, the closer the two distributions are:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import statsmodels.api as sm
+sm.qqplot(x, line = &amp;#39;45&amp;#39;, dist = scipy.stats.distributions.norm)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/QQplot1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Indeed, these data seem to approximate a normal distribution.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pie-chart&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;11.3&lt;/span&gt; Pie Chart&lt;/h2&gt;
+&lt;p&gt;Now let’s say that we have a data set that shows the number of called peaks from a ChIPseq data set that fall into distinct genomic features (exons, introns, promoters and intergenic regions). One way to look at how the peaks fall would be to look at a pie graph, which shows proportions in a data set represented by slices of a circle:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;peaknums  = [1400,900,200,150]
+peaknames = [&amp;quot;exons&amp;quot;, &amp;quot;intron&amp;quot;, &amp;quot;promoter&amp;quot;, &amp;quot;intergenic&amp;quot;]
+p = plt.pie(peaknums, labels = peaknames)
+plt.show()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/pie1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This figure shows that the majority of the peaks fall into exons.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bar-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;11.4&lt;/span&gt; Bar Plot&lt;/h2&gt;
+&lt;p&gt;However, pie charts are typically discouraged by statisticians, because your eyes can often misjudge estimates of the area taken up by each feature. A better way of looking at data such as this would be in the form of a barplot:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;b = plt.bar(peaknames, peaknums)
+plt.show()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/barplot1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;line-plots&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;11.5&lt;/span&gt; Line Plots&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;pyplot&lt;/code&gt; function &lt;code&gt;plot()&lt;/code&gt; is the standard plotting method for 2-dimensional data, and is used to plot paired data &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; against one another, using markers and/or lines. Plots such as these are useful for looking at correlation between two data sets. By default, the &lt;code&gt;plot()&lt;/code&gt; function will plot a line plot:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;plt.plot(x,y)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/lineplot1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Note that this looks very messy. This is due to the fact that the line starts with the first pair of values &lt;code&gt;($x_1$, $x_2$)&lt;/code&gt;, then plots a line to the second pair of values &lt;code&gt;($x_1$, $x_2$)&lt;/code&gt;, and so on. Since &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; are completely random, there is no order from lowest to highest for either, and so we end up with this messy image. For a line plot, we need to sort the data so that the x-axis data run from left to right. Since both data sets need to remain paired, we only sort one data set, and use this ordering to rearrange both data sets using the &lt;code&gt;argsort()&lt;/code&gt; method:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;plt.plot(x[x.argsort()],y[x.argsort()])
+plt.show()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/lineplot2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can use a number of the arguments described above to modify this plot, including adding axis labels, a title, and some markers for each of the points:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;plt.plot(x[x.argsort()],y[x.argsort()], marker = &amp;#39;o&amp;#39;, color = &amp;#39;red&amp;#39;, linestyle = &amp;#39;--&amp;#39;)
+plt.title(&amp;quot;This is y vs. x&amp;quot;)
+plt.xlabel(&amp;quot;This is x&amp;quot;)
+plt.ylabel(&amp;quot;This is y&amp;quot;)
+plt.show()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/lineplot3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;scatterplots&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;11.6&lt;/span&gt; Scatterplots&lt;/h2&gt;
+&lt;p&gt;Sometimes we may only want to look at the markers and not plot a line between them, for instance to save us worrying about ordering as we had to do above. This allows us to take a general look over the relationship between two numeric data sets. For instance, for every student in a class, we may have scores from tests taken at the start and at the end of the year, and we want to compare them against one another to see how they compare. We can use the same function, and simply set the &lt;code&gt;linestyle&lt;/code&gt; to &lt;code&gt;&#39;&#39;&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;plt.plot(x,y, color = &amp;quot;red&amp;quot;, marker = &amp;#39;o&amp;#39;, markersize = 10, linestyle = &amp;#39;&amp;#39;)
+plt.title(&amp;quot;This is y vs. x&amp;quot;)
+plt.xlabel(&amp;quot;This is x&amp;quot;)
+plt.ylabel(&amp;quot;This is y&amp;quot;)
+plt.show()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/scatterplot1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Here we have coloured all of our points a single colour by using the &lt;code&gt;color = &amp;quot;red&amp;quot;&lt;/code&gt; argument. However, we may want to assign colours to each point separately by supplying an array of colours that is the same length as &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt;. This means that we can set colours based on the data themselves, e.g. to colour male and female samples differently to one another, or to color points that exceed some threshold of interest. To do this, we can use the &lt;code&gt;scatter()&lt;/code&gt; function, which can take a list of colors using the &lt;code&gt;c&lt;/code&gt; argument:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;## Create an array containing &amp;quot;black&amp;quot; for every element in x
+mycols = np.repeat(&amp;quot;black&amp;quot;, len(x))
+
+## Change the color based on the values in x and y
+mycols[(x &amp;gt;  0.5) &amp;amp; (y &amp;gt;  0.5)] = &amp;quot;red&amp;quot;
+mycols[(x &amp;lt; -0.5) &amp;amp; (y &amp;lt; -0.5)] = &amp;quot;blue&amp;quot;
+
+## Plot the scatter plot
+plt.scatter(x, y, color = mycols, marker = &amp;#39;o&amp;#39;)
+plt.title(&amp;quot;This is y vs. x&amp;quot;)
+plt.xlabel(&amp;quot;This is x&amp;quot;)
+plt.ylabel(&amp;quot;This is y&amp;quot;)
+plt.show()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/scatterplot2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;boxplots&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;11.7&lt;/span&gt; Boxplots&lt;/h2&gt;
+&lt;p&gt;To compare the distribution of multiple numeric data sets, we can use boxplots. A boxplot shows the overal distribution by plotting a box bounded by the first and third quartiles, with the median highlighted. This shows where the majority of the data lie. Additional values are plotted as whiskers coming out from the main box. Multiple boxes can be plotted next to one another allowing you to compare similarlities or differences between them. This can be used for instance to compare distributions of two different data sets, or to compare a numeric value in a data set after separating out multiple classes (e.g. comparing different age groups). The plot produces a &lt;code&gt;dict&lt;/code&gt; object:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;bp = plt.boxplot([x,y])
+plt.show()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/boxplot1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;There are a number of arguments that can be supplied, including &lt;code&gt;labels&lt;/code&gt; which allows you to specify the labels on the x-axis, &lt;code&gt;notch&lt;/code&gt; which will add a notch into the boxplot to represent the confident interval, &lt;code&gt;whis&lt;/code&gt; to determine the extent of the whiskers (any values not included within the whiskers are plotted as outliers), and &lt;code&gt;widths&lt;/code&gt; to change the widths of the boxes:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;bp = plt.boxplot([x,y], labels = [&amp;#39;x&amp;#39;, &amp;#39;y&amp;#39;], notch = 1, whis = 1, widths = [0.1, 1])
+plt.show()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/boxplot2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Pandas also has a &lt;code&gt;boxplot()&lt;/code&gt; function which can take the data in the form of a DataFrame, which is useful for instance if you want to compare the distribution of expression values over all genes for a number of different samples. It will do a pretty good job of pulling out only the numeric columns by default, or you can specify which columns you would like to plot:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;df = pd.DataFrame({&amp;#39;Name&amp;#39;:[&amp;#39;John&amp;#39;, &amp;#39;Paul&amp;#39;, &amp;#39;Jean&amp;#39;, &amp;#39;Paula&amp;#39;], &amp;#39;Age&amp;#39;:[37,33,40,35], &amp;#39;Score&amp;#39;:[99.3,92.6,97.5,92.6], &amp;#39;Gender&amp;#39;:[&amp;#39;Male&amp;#39;, &amp;#39;Male&amp;#39;, &amp;#39;Female&amp;#39;, &amp;#39;Female&amp;#39;]})
+df.boxplot(column = [&amp;#39;Age&amp;#39;, &amp;#39;Score&amp;#39;])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/boxplot3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;seaborn-package&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;11.8&lt;/span&gt; Seaborn package&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://seaborn.pydata.org/generated/seaborn.boxplot.html&#34;&gt;Seaborn&lt;/a&gt; package is an incredibly powerful package for plotting using DataFrames, and is quite similar to the `&lt;code&gt;ggplots2&lt;/code&gt; package in R. It makes defining the components of a plot much simpler in cases when data are stored correctly in DataFrame objects. It is beyond the scope of this tutorial to go into this in too much detail, but the idea is to use the names of the variables in the DataFrame to define various elements of the plot. For instance, in the following plot, we split data on the x-axis by their Gender, and then for each subset we plot the score:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import seaborn as sb
+sb.boxplot(x = &amp;#39;Gender&amp;#39;, y = &amp;#39;Score&amp;#39;, data = df)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/unnamed-chunk-145-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Seaborn will use some defaults to make this figure look nice, such as filling in the boxes automatically, labelling the axes, etc. However, a lot of additional parameters can be set to change these. If you are interested, I recommend spending some time looking over this package to see the number of options available to you.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;subplots&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;11.9&lt;/span&gt; Subplots&lt;/h2&gt;
+&lt;p&gt;By default, the graphics device will plot a single figure only. The &lt;code&gt;subplots()&lt;/code&gt; function can be used to create multiple subplots within a single plot. By default, the method will create a single figure and a single axis, but by including the number of rows and columns the axis can contain a list of multiple axes for plotting. Each element of the list can then be used to build up the plot as described above:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;fig, subplt = plt.subplots(2, 1)
+subplt[0].plot(x,y)
+subplt[1].plot(x,-y)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/subplot1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;To plot them side-by side instead, this is as simple as changing the arguments to &lt;code&gt;subplots()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;fig, subplt = plt.subplots(1,2)
+subplt[0].plot(x,y)
+subplt[1].plot(x,-y)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/subplot2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;For multiple rows and columns, the axis output is a 2-dimensional NumPy array so each plot can be accessed and modified using square brackets notation:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;fig, subplt = plt.subplots(2,2)
+subplt[0,0].plot(x,y)
+subplt[0,0].set_title(&amp;quot;Plot1&amp;quot;)
+subplt[0,1].plot(x,-y)
+subplt[0,1].set_title(&amp;quot;Plot2&amp;quot;)
+subplt[1,0].plot(-x,y)
+subplt[1,0].set_title(&amp;quot;Plot3&amp;quot;)
+subplt[1,1].plot(-x,-y)
+subplt[1,1].set_title(&amp;quot;Plot4&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/subplot3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;You can also create specific objects for each of the plots directly when calling &lt;code&gt;subplots()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;fig, ((plt1,plt2), (plt3,plt4)) = plt.subplots(2,2)
+plt1.plot(x,y, color = &amp;quot;red&amp;quot;)
+plt1.set_title(&amp;quot;Plot1&amp;quot;)
+plt2.plot(x,-y, color = &amp;quot;blue&amp;quot;)
+plt2.set_title(&amp;quot;Plot2&amp;quot;)
+plt3.plot(-x,y, color = &amp;quot;orange&amp;quot;)
+plt3.set_title(&amp;quot;Plot3&amp;quot;)
+plt4.plot(-x,-y, color = &amp;quot;green&amp;quot;)
+plt4.set_title(&amp;quot;Plot4&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/subplot4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;By default, each plot will have its axis limits calculated independently, but it is possible to use the &lt;code&gt;sharex&lt;/code&gt; and &lt;code&gt;sharey&lt;/code&gt; arguments to share the axis limits across all plots:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;fig, ((plt1,plt2), (plt3,plt4)) = plt.subplots(2,2, sharex = True, sharey = True)
+plt1.plot(x,2*y, color = &amp;quot;red&amp;quot;)
+plt1.set_title(&amp;quot;Plot1&amp;quot;)
+plt2.plot(x,-y, color = &amp;quot;blue&amp;quot;)
+plt2.set_title(&amp;quot;Plot2&amp;quot;)
+plt3.plot(-3*x,2*y, color = &amp;quot;orange&amp;quot;)
+plt3.set_title(&amp;quot;Plot3&amp;quot;)
+plt4.plot(-x,-4*y, color = &amp;quot;green&amp;quot;)
+plt4.set_title(&amp;quot;Plot4&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/subplot5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;saving-figures&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;11.10&lt;/span&gt; Saving Figures&lt;/h2&gt;
+&lt;p&gt;By default, figures are generated in a separate window by using the &lt;code&gt;show()&lt;/code&gt; function. However, you can save the figure to an external file by using the &lt;code&gt;savefig()&lt;/code&gt; function. The output format can be defined simply by adding a suffix to the file – &lt;code&gt;.jpg&lt;/code&gt;, &lt;code&gt;.pdf&lt;/code&gt;, &lt;code&gt;.png&lt;/code&gt;, etc.:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;plt.plot(x,y)
+plt.savefig(&amp;quot;test.png&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To change the size of the image, you can specify the size of the figure (in inches) before generating the plot using the &lt;code&gt;figsize&lt;/code&gt; argument in the &lt;code&gt;figure()&lt;/code&gt; method. To define the resolution of the output figure, you can set the &lt;code&gt;dpi&lt;/code&gt; argument for &lt;code&gt;savefig()&lt;/code&gt; to change the dots per inch value. Also, by default the margins for output figures can be quite large, so you can use the `bbox_inches’ argument to change this:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;plt.figure(figsize=(10,10))
+plt.plot(x,y)
+plt.savefig(&amp;quot;test.png&amp;quot;, bbox_inches=&amp;#39;tight&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;example-analysis&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;12&lt;/span&gt; Example Analysis&lt;/h1&gt;
+&lt;div id=&#34;introduction-3&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;12.1&lt;/span&gt; Introduction&lt;/h2&gt;
+&lt;p&gt;This is just a simple example analysis to give you an idea of the sort of things that we can do with Python. Suppose that we have two experiments, each looking at the effects on gene expression of using a particular drug (“Drug A” and “Drug B”). For each experiment we have two samples; one showing the gene expression when treated with the drug, and the other showing the gene expression when treated with some control agent. Obviously in a real experiment, we would have many replicates, but here we have &lt;span class=&#34;math inline&#34;&gt;\(n=1\)&lt;/span&gt;. We want to do the following:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;For each drug, we want to get the fold change for each gene&lt;/li&gt;
+&lt;li&gt;For each drug, we want to identify the genes that are significantly changed when using the drug&lt;/li&gt;
+&lt;li&gt;We want to compare the results for Drug A with those from Drug B to find genes that are affected similarly by both drugs&lt;/li&gt;
+&lt;li&gt;We want to plot the correlation between the fold change values for the two drugs to see how similar they are&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For this, we will need four files. These files are in a tab-delimited text format. They are tables of values where each row is separated by a new line, and each column is separated by a tab character (&lt;code&gt;\t&lt;/code&gt;). These files can be created by and read into Excel for ease of use. To avoid errors when reading in files from text, it is good practice to ensure that there are no missing cells in your data. Instead try to get into the habit of using some “missing”&amp;quot; character (e.g. &lt;code&gt;NA&lt;/code&gt;).&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;File Name&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;a href=&#34;experiment1_control.txt&#34;&gt;experiment1_control.txt&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Expression levels for ctrl in expt 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;a href=&#34;experiment1_drug.txt&#34;&gt;experiment1_drug.txt&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Expression levels for drug A in expt 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;a href=&#34;experiment2_control.txt&#34;&gt;experiment2_control.txt&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Expression levels for control in expt 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;a href=&#34;experiment2_drug.txt&#34;&gt;experiment2_drug.txt&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Expression levels for drug A in expt 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;load-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;12.2&lt;/span&gt; Load Data&lt;/h2&gt;
+&lt;p&gt;First let’s load in the data:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;expt1_ctrl = pd.read_csv(&amp;quot;experiment1_control.txt&amp;quot;, sep = &amp;quot;\t&amp;quot;)
+expt1_drug = pd.read_csv(&amp;quot;experiment1_drug.txt&amp;quot;,    sep = &amp;quot;\t&amp;quot;)
+expt2_ctrl = pd.read_csv(&amp;quot;experiment2_control.txt&amp;quot;, sep = &amp;quot;\t&amp;quot;)
+expt2_drug = pd.read_csv(&amp;quot;experiment2_drug.txt&amp;quot;,    sep = &amp;quot;\t&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Each of these files contains two columns; the gene name and some value that represents the expression level for that gene (assume that these values have been calculated after pre-processing, normalisation, etc.).&lt;/p&gt;
+&lt;p&gt;In all of these cases, the list of gene names is identical, and in the same order which means that we could compare row 1 from the control-treated file with row 2 from the drug-treated file to get all of the comparisons. However, in a real data set you will not know for sure that the gene names match so I recommend merging the files together into a single data frame to ensure that all analyses are conducted on a gene by gene basis on the correct values.&lt;/p&gt;
+&lt;p&gt;We therefore create a single DataFrame for both experiments using the &lt;code&gt;merge()&lt;/code&gt; command:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;expt1 = pd.merge(expt1_ctrl, expt1_drug, on = &amp;quot;GeneName&amp;quot;, suffixes = (&amp;quot;_Control&amp;quot;, &amp;quot;_Drug&amp;quot;))
+expt2 = pd.merge(expt2_ctrl, expt2_drug, on = &amp;quot;GeneName&amp;quot;, suffixes = (&amp;quot;_Control&amp;quot;, &amp;quot;_Drug&amp;quot;))
+expt1.head()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   GeneName  Expression_Control  Expression_Drug
+## 0    gene1                  64               48
+## 1    gene2                  50               62
+## 2    gene3                  74               73
+## 3    gene4                  31               34
+## 4    gene5                  63               66&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;expt2.head()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   GeneName  Expression_Control  Expression_Drug
+## 0    gene1                  55               60
+## 1    gene2                  51               51
+## 2    gene3                  77               74
+## 3    gene4                  23               22
+## 4    gene5                  72              101&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;calculate-fold-change&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;12.3&lt;/span&gt; Calculate Fold Change&lt;/h2&gt;
+&lt;p&gt;Now we calculate the fold change for each gene by dividing the drug-treated expression by the control expression. To avoid divide by zero errors, we can set a minimum expression value. This will also ensure that we are only looking at expression changes between significant expression values. Since we want to do the same thing to both the experiment 1 and the experiment 2 data sets, it makes sense to write a single function to use for both. We will use the &lt;code&gt;apply()&lt;/code&gt; function from Pandas to calculate over every row in the DataFrame:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;def get_fold_change(x, min_expression = 10):
+  ctrl_val = x[&amp;quot;Expression_Control&amp;quot;]
+  drug_val = x[&amp;quot;Expression_Drug&amp;quot;]
+  if ctrl_val &amp;lt; min_expression:
+    ctrl_val = min_expression
+  if drug_val &amp;lt; min_expression:
+    drug_val = min_expression  
+  return drug_val/ctrl_val
+expt1[&amp;#39;FoldChange&amp;#39;] = expt1.apply(get_fold_change, axis = 1)
+expt2[&amp;#39;FoldChange&amp;#39;] = expt2.apply(get_fold_change, axis = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;compare-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;12.4&lt;/span&gt; Compare Data&lt;/h2&gt;
+&lt;p&gt;Now let’s find the genes that are upregulated and downregulated in each experiment. Due to the lack of replicates, we do not have any estimate for the variance of these genes, so we cannot use any hypothesis testing methods such as a t-test. Instead, we will have to make do with using a threshold on the fold change:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;fold_change_threshold = 1.5
+expt1_up   = expt1[expt1[&amp;#39;FoldChange&amp;#39;] &amp;gt;= fold_change_threshold][&amp;#39;GeneName&amp;#39;]
+expt1_down = expt1[expt1[&amp;#39;FoldChange&amp;#39;] &amp;lt;= 1/fold_change_threshold][&amp;#39;GeneName&amp;#39;]
+expt2_up   = expt2[expt2[&amp;#39;FoldChange&amp;#39;] &amp;gt;= fold_change_threshold][&amp;#39;GeneName&amp;#39;]
+expt2_down = expt2[expt2[&amp;#39;FoldChange&amp;#39;] &amp;gt;= 1/fold_change_threshold][&amp;#39;GeneName&amp;#39;]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So let’s see which genes are changing:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;Upregulated in Experiment 1:&amp;quot;,   expt1_up.str.cat(sep = &amp;quot;, &amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Upregulated in Experiment 1: gene8, gene12&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;Downregulated in Experiment 1:&amp;quot;, expt1_down.str.cat(sep = &amp;quot;, &amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Downregulated in Experiment 1: gene32, gene46&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;Upregulated in Experiment 2:&amp;quot;,   expt2_up.str.cat(sep = &amp;quot;, &amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Upregulated in Experiment 2: gene8, gene18, gene50&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;Downregulated in Experiment 2:&amp;quot;, expt2_down.str.cat(sep = &amp;quot;, &amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Downregulated in Experiment 2: gene1, gene2, gene3, gene4, gene5, gene6, gene7, gene8, gene9, gene10, gene11, gene12, gene13, gene14, gene15, gene16, gene17, gene18, gene19, gene20, gene21, gene23, gene24, gene25, gene26, gene27, gene28, gene29, gene30, gene31, gene32, gene33, gene34, gene35, gene36, gene37, gene38, gene39, gene40, gene41, gene42, gene44, gene45, gene46, gene47, gene48, gene49, gene50&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So we now have the genes that change when each of the drugs is used. But now we want to compare the two drugs together. First, let’s see if there are any genes similarly affected by both drugs. We can do this using the &lt;code&gt;intersect1d()&lt;/code&gt; function from NumPy which gives the intersect of two arrays:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;common_up   = pd.Series(np.intersect1d(expt1_up, expt2_up))
+common_down = pd.Series(np.intersect1d(expt1_down, expt2_down))
+print(&amp;quot;Upregulated in Experiment 1 and Experiment 2:&amp;quot;,   common_up.str.cat(sep = &amp;quot;, &amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Upregulated in Experiment 1 and Experiment 2: gene8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;print(&amp;quot;Downregulated in Experiment 1 and Experiment 2:&amp;quot;, common_down.str.cat(sep = &amp;quot;, &amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Downregulated in Experiment 1 and Experiment 2: gene32, gene46&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So we can see that only one gene is similarly affected by both drugs (“gene8”). Now let’s plot a figure to see how the fold change differs between the two drugs:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;fc = pd.merge(expt1[[&amp;#39;GeneName&amp;#39;, &amp;#39;FoldChange&amp;#39;]], expt2[[&amp;#39;GeneName&amp;#39;, &amp;#39;FoldChange&amp;#39;]], on = &amp;quot;GeneName&amp;quot;, suffixes = [&amp;quot;_Experiment1&amp;quot;, &amp;quot;_Experiment2&amp;quot;])
+plt.scatter(np.log2(fc[&amp;quot;FoldChange_Experiment1&amp;quot;]), 
+            np.log2(fc[&amp;#39;FoldChange_Experiment2&amp;#39;]),
+            marker = &amp;quot;o&amp;quot;, color = &amp;quot;red&amp;quot;)
+plt.xlim(-2,2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (-2, 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;plt.ylim(-2,2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (-2, 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;plt.title(&amp;quot;Experiment1 vs Experiment2&amp;quot;)
+plt.xlabel(&amp;quot;log2(Experiment1 Fold Change)&amp;quot;)
+plt.ylabel(&amp;quot;log2(Experiment2 Fold Change)&amp;quot;)
+plt.show()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/resources/PythonTutorial/index_files/figure-html/foldchange-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This figure shows that the effect on the gene expression is actually quite different for the two drugs. We can also see this by looking at the correlation between the two experiments:&lt;/p&gt;
+&lt;pre class=&#34;python&#34;&gt;&lt;code&gt;scipy.stats.pearsonr(fc[&amp;quot;FoldChange_Experiment1&amp;quot;], fc[&amp;quot;FoldChange_Experiment2&amp;quot;])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (0.0838161376824968, 0.5627922240659949)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can therefore conclude that the effect of the drug on gene expression is quite different between the two experiments.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
