@@ -15,7 +15,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, error = FALSE, eval = TRUE, results = "hold", fig.height = 10, fig.width = 10, dpi = 300, cache = TRUE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, error = FALSE, eval = TRUE, results = "hold", fig.height = 10, fig.width = 10, dpi = 300)
 options(scipen = 999)
 load("URC_posts.Rdat")
 library("dplyr")

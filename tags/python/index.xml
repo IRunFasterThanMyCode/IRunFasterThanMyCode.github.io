@@ -211,7 +211,7 @@ else:
 &lt;p&gt;The class now exists, but there are no objects of this class. The class has an initializer function (the &lt;code&gt;__init(self)__&lt;/code&gt; function) that will create a new object of class &lt;code&gt;Car&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mycar = Car()
 print(mycar)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## &amp;lt;__main__.Car object at 0x1222ce590&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;lt;__main__.Car object at 0x11f5a8a90&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;So &lt;code&gt;mycar&lt;/code&gt; is an object of class &lt;code&gt;Car&lt;/code&gt;, but does not have any attributes associated with it. So let’s add a few:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;class Car:
   def __init__(self, make, model):
@@ -1065,52 +1065,52 @@ my_mean(my_vals)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Python is a commonly used programming language for data science, so statistical computation is incredibly important. The NumPy package provides a large number of in-built functions for caluclating a wide range of common statistics. The following example creates two vectors of 100 random values sampled from a normal distribution with mean 0 and standard deviation 1, then calculates various basic summary statistics:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = np.sort(np.random.normal(loc = 0, scale = 1, size = (100)))
 np.min(x)   &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -2.8031549213579336&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -2.4936177591812254&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.max(x)   &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 2.108574164721352&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 2.4346192637266206&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.mean(x)  &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -0.2210261496991506&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0.10305460624251134&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.median(x)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -0.0659443934687875&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0.048237898575136356&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The minimum and maximum values are the smallest and largest values respectively. The mean is what most people would think of when you asked for the average, and is calculated by summing the values and dividing by the total number of values. The median is another way of looking at the average, and is essentially the middle value (&lt;code&gt;50^th^&lt;/code&gt; percentile). Other percentiles can be calculated, which can give you an idea of where the majority of your data lie:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.quantile(x, q = 0.25) &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -0.9424030775916994&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -0.7902551896423177&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.quantile(x, q = 0.75) &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 0.5005290640709585&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0.8634971745277915&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.quantile(x, q = np.arange(0, 1, 0.1))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## array([-2.80315492, -1.40131803, -1.11155251, -0.83006173, -0.44917078,
-##        -0.06594439,  0.12740801,  0.37209959,  0.64883335,  0.97720406])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([-2.49361776, -1.34501693, -0.9985679 , -0.46799033, -0.19239044,
+##         0.0482379 ,  0.50111703,  0.78452833,  0.95597404,  1.60507094])&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The &lt;code&gt;stats.describe()&lt;/code&gt; function from the &lt;code&gt;stats&lt;/code&gt; &lt;code&gt;scipy&lt;/code&gt; package will calculate many of these basic statistics for you:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import scipy
 from scipy import stats
 scipy.stats.describe(x)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## DescribeResult(nobs=100, minmax=(-2.8031549213579336, 2.108574164721352), mean=-0.2210261496991506, variance=1.0360918387769724, skewness=-0.2493252756912894, kurtosis=-0.2995050624205762)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## DescribeResult(nobs=100, minmax=(-2.4936177591812254, 2.4346192637266206), mean=0.10305460624251134, variance=1.2117437337387318, skewness=0.01696019336609047, kurtosis=-0.6655411158316218)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The mean and variance show you the average value and the spread about this average value for these data. Skewness and kurtosis tell us how different from a standard normal distribution these data are, with skewness representing asymmmetry and kurtosis representing the presence of a significant tail in the data.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;variation&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;10.2&lt;/span&gt; Variation&lt;/h2&gt;
 &lt;p&gt;Variance is the average of the squared distances of each individual value from their mean, and is a measure of how spread out the data are from the average. The standard deviation is simply the square root of this value &lt;span class=&#34;math inline&#34;&gt;\(var(x) = sd(x)^2\)&lt;/span&gt;:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.std(x)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 1.0127837480870252&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 1.0952745301527578&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.var(x)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 1.0257309203892029&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 1.1996262964013444&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The covariance is a measure of how much two sets of data vary together:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;y = np.sort(np.random.normal(loc = 0, scale = 1, size = (100)))
 np.var(y)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 0.7674318249723211&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 1.2383895497339992&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.cov(x, y)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## array([[1.03609184, 0.88927204],
-##        [0.88927204, 0.77518366]])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([[1.21174373, 1.21899805],
+##        [1.21899805, 1.25089854]])&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;correlation&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;10.3&lt;/span&gt; Correlation&lt;/h2&gt;
 &lt;p&gt;The covariance is related to the correlation between two data sets, which is a number between -1 and 1 indicating the level of dependance between the two variables. A value of 1 indicates perfect correlation, so that as one value increases so does the other. A value of -1 indicates perfect anti-correlation, so that as one value increases the other decreases. A value of 0 indicates that the two values change independently of one another:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.cov(x, y)/(np.std(x) * np.std(y)) &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## array([[1.1677816 , 1.00230065],
-##        [1.00230065, 0.87371136]])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([[0.99416657, 1.00011832],
+##        [1.00011832, 1.02629085]])&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This value is known as the Pearson correlation, which can be calculated using the &lt;code&gt;scipy.stats&lt;/code&gt; function &lt;code&gt;pearsonr()&lt;/code&gt;. The first value gives the Pearson correlation coefficient between the two arrays, and the second gives a p-value which gives some idea of the significance of the correlation (more on this later):&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;scipy.stats.pearsonr(x, y)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## (0.9922776394211461, 1.1923809081205899e-90)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (0.9901171336421961, 2.0126209521921334e-85)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;An alternative method for calculating the correlation between two sets of values is to use the Spearman correlation, which is essentially the same as the Pearson correlation but is calculated on the &lt;em&gt;ranks&lt;/em&gt; of the data rather than the values themselves. In this way, each value increases by only one unit at a time in a monotonic fashion, meaning that the correlation score is more robust to the presence of outliers:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;scipy.stats.spearmanr(x, y)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## SpearmanrResult(correlation=0.9999999999999999, pvalue=0.0)&lt;/code&gt;&lt;/pre&gt;
@@ -1127,22 +1127,22 @@ fit.summary2()&lt;/code&gt;&lt;/pre&gt;
 ## &amp;quot;&amp;quot;&amp;quot;
 ##                        Results: Ordinary least squares
 ## ==============================================================================
-## Model:                  OLS              Adj. R-squared (uncentered): 0.969   
-## Dependent Variable:     y                AIC:                         -87.1039
-## Date:                   2019-11-07 13:36 BIC:                         -84.4987
-## No. Observations:       100              Log-Likelihood:              44.552  
-## Df Model:               1                F-statistic:                 3088.   
-## Df Residuals:           99               Prob (F-statistic):          1.88e-76
-## R-squared (uncentered): 0.969            Scale:                       0.024261
+## Model:                  OLS              Adj. R-squared (uncentered): 0.980   
+## Dependent Variable:     y                AIC:                         -84.9469
+## Date:                   2019-11-07 14:08 BIC:                         -82.3417
+## No. Observations:       100              Log-Likelihood:              43.473  
+## Df Model:               1                F-statistic:                 4952.   
+## Df Residuals:           99               Prob (F-statistic):          2.37e-86
+## R-squared (uncentered): 0.980            Scale:                       0.024790
 ## ------------------------------------------------------------------------------------
 ##           Coef.        Std.Err.          t          P&amp;gt;|t|        [0.025       0.975]
 ## ------------------------------------------------------------------------------------
-## x1        0.8350         0.0150       55.5729       0.0000       0.8052       0.8648
+## x1        1.0072         0.0143       70.3704       0.0000       0.9788       1.0356
 ## ------------------------------------------------------------------------------
-## Omnibus:                  9.502            Durbin-Watson:               0.231 
-## Prob(Omnibus):            0.009            Jarque-Bera (JB):            11.548
-## Skew:                     0.508            Prob(JB):                    0.003 
-## Kurtosis:                 4.319            Condition No.:               1     
+## Omnibus:                  6.488             Durbin-Watson:               0.290
+## Prob(Omnibus):            0.039             Jarque-Bera (JB):            5.919
+## Skew:                     -0.520            Prob(JB):                    0.052
+## Kurtosis:                 3.582             Condition No.:               1    
 ## ==============================================================================
 ## 
 ## &amp;quot;&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
@@ -1150,11 +1150,11 @@ fit.summary2()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The p-value tells us how significant these estimates are, both for the model as a whole from the F-statistic, and from the individual variables from the t-statistics. In statistical terms, we are testing the null hypothesis that the coefficient is actually equal to zero (i.e. there is not an association between &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt;). The p-value gives the probability of detecting a coefficient at least as large as the one that we calculated in our model given that the null hypothesis is actually true. If this probability is low enough, we can safely reject the null hypothesis and say that this variable is statistically significant. Often a value of 0.05 (5%) is used as the cutoff for rejection of the null hypothesis.&lt;/p&gt;
 &lt;p&gt;Hypothesis testing is a large part of statistics. The t-test is a commonly used test for comparing the means of two sets of numeric data. In simple terms we are looking to see if they are significantly different (e.g. does the expression of a particular gene change significantly following treatment with a drug). In statistical terms, we are testing to see if the change that we see in the means is greater than we would expect by chance alone.&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;scipy.stats.ttest_ind(x, y) &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Ttest_indResult(statistic=-1.0731531974246802, pvalue=0.2845085509067514)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Ttest_indResult(statistic=-0.09118866204337545, pvalue=0.9274348706347524)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Since both &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; are drawn from the same distribution, the test shows there is no evidence that there is a difference between the mean. Let’s try again with a different data set, drawn from a different distribution with mean 10:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;z = np.sort(np.random.normal(loc = 10, scale = 1, size = (100)))
 scipy.stats.ttest_ind(x, z) &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Ttest_indResult(statistic=-69.18736290368206, pvalue=1.158008284115118e-140)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Ttest_indResult(statistic=-66.96892738302007, pvalue=5.646782976525004e-138)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This time, the p-value is much less than 0.05, so we can reject the null hypothesis and make the claim that the mean of &lt;code&gt;z&lt;/code&gt; is significantly different from that of &lt;code&gt;x&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;

@@ -211,7 +211,7 @@ else:
 &lt;p&gt;The class now exists, but there are no objects of this class. The class has an initializer function (the &lt;code&gt;__init(self)__&lt;/code&gt; function) that will create a new object of class &lt;code&gt;Car&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;mycar = Car()
 print(mycar)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## &amp;lt;__main__.Car object at 0x1222ce590&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;lt;__main__.Car object at 0x11f5a8a90&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;So &lt;code&gt;mycar&lt;/code&gt; is an object of class &lt;code&gt;Car&lt;/code&gt;, but does not have any attributes associated with it. So let’s add a few:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;class Car:
   def __init__(self, make, model):
@@ -1065,52 +1065,52 @@ my_mean(my_vals)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Python is a commonly used programming language for data science, so statistical computation is incredibly important. The NumPy package provides a large number of in-built functions for caluclating a wide range of common statistics. The following example creates two vectors of 100 random values sampled from a normal distribution with mean 0 and standard deviation 1, then calculates various basic summary statistics:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;x = np.sort(np.random.normal(loc = 0, scale = 1, size = (100)))
 np.min(x)   &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -2.8031549213579336&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -2.4936177591812254&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.max(x)   &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 2.108574164721352&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 2.4346192637266206&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.mean(x)  &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -0.2210261496991506&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0.10305460624251134&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.median(x)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -0.0659443934687875&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0.048237898575136356&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The minimum and maximum values are the smallest and largest values respectively. The mean is what most people would think of when you asked for the average, and is calculated by summing the values and dividing by the total number of values. The median is another way of looking at the average, and is essentially the middle value (&lt;code&gt;50^th^&lt;/code&gt; percentile). Other percentiles can be calculated, which can give you an idea of where the majority of your data lie:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.quantile(x, q = 0.25) &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## -0.9424030775916994&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## -0.7902551896423177&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.quantile(x, q = 0.75) &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 0.5005290640709585&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 0.8634971745277915&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.quantile(x, q = np.arange(0, 1, 0.1))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## array([-2.80315492, -1.40131803, -1.11155251, -0.83006173, -0.44917078,
-##        -0.06594439,  0.12740801,  0.37209959,  0.64883335,  0.97720406])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([-2.49361776, -1.34501693, -0.9985679 , -0.46799033, -0.19239044,
+##         0.0482379 ,  0.50111703,  0.78452833,  0.95597404,  1.60507094])&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The &lt;code&gt;stats.describe()&lt;/code&gt; function from the &lt;code&gt;stats&lt;/code&gt; &lt;code&gt;scipy&lt;/code&gt; package will calculate many of these basic statistics for you:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;import scipy
 from scipy import stats
 scipy.stats.describe(x)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## DescribeResult(nobs=100, minmax=(-2.8031549213579336, 2.108574164721352), mean=-0.2210261496991506, variance=1.0360918387769724, skewness=-0.2493252756912894, kurtosis=-0.2995050624205762)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## DescribeResult(nobs=100, minmax=(-2.4936177591812254, 2.4346192637266206), mean=0.10305460624251134, variance=1.2117437337387318, skewness=0.01696019336609047, kurtosis=-0.6655411158316218)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The mean and variance show you the average value and the spread about this average value for these data. Skewness and kurtosis tell us how different from a standard normal distribution these data are, with skewness representing asymmmetry and kurtosis representing the presence of a significant tail in the data.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;variation&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;10.2&lt;/span&gt; Variation&lt;/h2&gt;
 &lt;p&gt;Variance is the average of the squared distances of each individual value from their mean, and is a measure of how spread out the data are from the average. The standard deviation is simply the square root of this value &lt;span class=&#34;math inline&#34;&gt;\(var(x) = sd(x)^2\)&lt;/span&gt;:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.std(x)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 1.0127837480870252&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 1.0952745301527578&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.var(x)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 1.0257309203892029&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 1.1996262964013444&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The covariance is a measure of how much two sets of data vary together:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;y = np.sort(np.random.normal(loc = 0, scale = 1, size = (100)))
 np.var(y)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 0.7674318249723211&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 1.2383895497339992&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.cov(x, y)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## array([[1.03609184, 0.88927204],
-##        [0.88927204, 0.77518366]])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([[1.21174373, 1.21899805],
+##        [1.21899805, 1.25089854]])&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;correlation&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;10.3&lt;/span&gt; Correlation&lt;/h2&gt;
 &lt;p&gt;The covariance is related to the correlation between two data sets, which is a number between -1 and 1 indicating the level of dependance between the two variables. A value of 1 indicates perfect correlation, so that as one value increases so does the other. A value of -1 indicates perfect anti-correlation, so that as one value increases the other decreases. A value of 0 indicates that the two values change independently of one another:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;np.cov(x, y)/(np.std(x) * np.std(y)) &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## array([[1.1677816 , 1.00230065],
-##        [1.00230065, 0.87371136]])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## array([[0.99416657, 1.00011832],
+##        [1.00011832, 1.02629085]])&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This value is known as the Pearson correlation, which can be calculated using the &lt;code&gt;scipy.stats&lt;/code&gt; function &lt;code&gt;pearsonr()&lt;/code&gt;. The first value gives the Pearson correlation coefficient between the two arrays, and the second gives a p-value which gives some idea of the significance of the correlation (more on this later):&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;scipy.stats.pearsonr(x, y)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## (0.9922776394211461, 1.1923809081205899e-90)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (0.9901171336421961, 2.0126209521921334e-85)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;An alternative method for calculating the correlation between two sets of values is to use the Spearman correlation, which is essentially the same as the Pearson correlation but is calculated on the &lt;em&gt;ranks&lt;/em&gt; of the data rather than the values themselves. In this way, each value increases by only one unit at a time in a monotonic fashion, meaning that the correlation score is more robust to the presence of outliers:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;scipy.stats.spearmanr(x, y)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## SpearmanrResult(correlation=0.9999999999999999, pvalue=0.0)&lt;/code&gt;&lt;/pre&gt;
@@ -1127,22 +1127,22 @@ fit.summary2()&lt;/code&gt;&lt;/pre&gt;
 ## &amp;quot;&amp;quot;&amp;quot;
 ##                        Results: Ordinary least squares
 ## ==============================================================================
-## Model:                  OLS              Adj. R-squared (uncentered): 0.969   
-## Dependent Variable:     y                AIC:                         -87.1039
-## Date:                   2019-11-07 13:36 BIC:                         -84.4987
-## No. Observations:       100              Log-Likelihood:              44.552  
-## Df Model:               1                F-statistic:                 3088.   
-## Df Residuals:           99               Prob (F-statistic):          1.88e-76
-## R-squared (uncentered): 0.969            Scale:                       0.024261
+## Model:                  OLS              Adj. R-squared (uncentered): 0.980   
+## Dependent Variable:     y                AIC:                         -84.9469
+## Date:                   2019-11-07 14:08 BIC:                         -82.3417
+## No. Observations:       100              Log-Likelihood:              43.473  
+## Df Model:               1                F-statistic:                 4952.   
+## Df Residuals:           99               Prob (F-statistic):          2.37e-86
+## R-squared (uncentered): 0.980            Scale:                       0.024790
 ## ------------------------------------------------------------------------------------
 ##           Coef.        Std.Err.          t          P&amp;gt;|t|        [0.025       0.975]
 ## ------------------------------------------------------------------------------------
-## x1        0.8350         0.0150       55.5729       0.0000       0.8052       0.8648
+## x1        1.0072         0.0143       70.3704       0.0000       0.9788       1.0356
 ## ------------------------------------------------------------------------------
-## Omnibus:                  9.502            Durbin-Watson:               0.231 
-## Prob(Omnibus):            0.009            Jarque-Bera (JB):            11.548
-## Skew:                     0.508            Prob(JB):                    0.003 
-## Kurtosis:                 4.319            Condition No.:               1     
+## Omnibus:                  6.488             Durbin-Watson:               0.290
+## Prob(Omnibus):            0.039             Jarque-Bera (JB):            5.919
+## Skew:                     -0.520            Prob(JB):                    0.052
+## Kurtosis:                 3.582             Condition No.:               1    
 ## ==============================================================================
 ## 
 ## &amp;quot;&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
@@ -1150,11 +1150,11 @@ fit.summary2()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The p-value tells us how significant these estimates are, both for the model as a whole from the F-statistic, and from the individual variables from the t-statistics. In statistical terms, we are testing the null hypothesis that the coefficient is actually equal to zero (i.e. there is not an association between &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt;). The p-value gives the probability of detecting a coefficient at least as large as the one that we calculated in our model given that the null hypothesis is actually true. If this probability is low enough, we can safely reject the null hypothesis and say that this variable is statistically significant. Often a value of 0.05 (5%) is used as the cutoff for rejection of the null hypothesis.&lt;/p&gt;
 &lt;p&gt;Hypothesis testing is a large part of statistics. The t-test is a commonly used test for comparing the means of two sets of numeric data. In simple terms we are looking to see if they are significantly different (e.g. does the expression of a particular gene change significantly following treatment with a drug). In statistical terms, we are testing to see if the change that we see in the means is greater than we would expect by chance alone.&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;scipy.stats.ttest_ind(x, y) &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Ttest_indResult(statistic=-1.0731531974246802, pvalue=0.2845085509067514)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Ttest_indResult(statistic=-0.09118866204337545, pvalue=0.9274348706347524)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Since both &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; are drawn from the same distribution, the test shows there is no evidence that there is a difference between the mean. Let’s try again with a different data set, drawn from a different distribution with mean 10:&lt;/p&gt;
 &lt;pre class=&#34;python&#34;&gt;&lt;code&gt;z = np.sort(np.random.normal(loc = 10, scale = 1, size = (100)))
 scipy.stats.ttest_ind(x, z) &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Ttest_indResult(statistic=-69.18736290368206, pvalue=1.158008284115118e-140)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Ttest_indResult(statistic=-66.96892738302007, pvalue=5.646782976525004e-138)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This time, the p-value is much less than 0.05, so we can reject the null hypothesis and make the claim that the mean of &lt;code&gt;z&lt;/code&gt; is significantly different from that of &lt;code&gt;x&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1515,35 +1515,6 @@ plt.show()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Then install and load the &lt;code&gt;keras&lt;/code&gt; package. When we load it using the &lt;code&gt;install_keras()&lt;/code&gt; function, we can define different backend engines and choose to use GPUs rather than CPUs, but for this example I will simply use the default TensorFlow backend on my laptop CPU:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;rstudio/keras&amp;quot;)
 library(&amp;quot;keras&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-##   
-   checking for file ‘/private/var/folders/65/v_ngcf3x1x54czrxj6cr8rdr0000gq/T/RtmplYQ4Ah/remotese5521627c58f/rstudio-keras-9046d28/DESCRIPTION’ ...
-  
-✔  checking for file ‘/private/var/folders/65/v_ngcf3x1x54czrxj6cr8rdr0000gq/T/RtmplYQ4Ah/remotese5521627c58f/rstudio-keras-9046d28/DESCRIPTION’
-## 
-  
-─  preparing ‘keras’: (3.1s)
-## 
-  
-   checking DESCRIPTION meta-information ...
-  
-✔  checking DESCRIPTION meta-information
-## 
-  
-─  checking for LF line-endings in source and make files and shell scripts (1.2s)
-## 
-  
-─  checking for empty or unneeded directories
-## 
-  
-   Removed empty directory ‘keras/man-roxygen’
-## 
-  
-─  building ‘keras_2.2.5.0.tar.gz’
-## 
-  
-   
-## &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;mnist-database&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;4&lt;/span&gt; MNIST Database&lt;/h1&gt;
@@ -1698,16 +1669,16 @@ summary(MNIST_model)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Let’s take a look at how the accuracy and the loss (caluclated as categorical cross-entropy) change as the model training progresses:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(training_output)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2019-10-05-deep-learning-using-tensorflow-through-the-keras-api-in-rstudio/index_files/figure-html/MNIST_training_plot-1.png&#34; width=&#34;3000&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can see that the loss is high and the accuracy low at the start of the training, but they quickly improve within the first 10 epochs. After this, they begin to plateau, resulting in a loss of 0.06 and accuracy of 98.41%.&lt;/p&gt;
+&lt;p&gt;We can see that the loss is high and the accuracy low at the start of the training, but they quickly improve within the first 10 epochs. After this, they begin to plateau, resulting in a loss of 0.07 and accuracy of 98.37%.&lt;/p&gt;
 &lt;p&gt;This is pretty good, so let’s see how it works with the test set:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;test_output &amp;lt;- MNIST_model %&amp;gt;% evaluate(test_dat_x, test_dat_y)
 test_output&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## $loss
-## [1] 0.1108349
+## [1] 0.1095285
 ## 
 ## $acc
-## [1] 0.9815&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;So 98.15% of the 10,000 test cases were predicted accurately. So this means that 185 were wrong. Let’s take a look at some of these:&lt;/p&gt;
+## [1] 0.9809&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So 98.09% of the 10,000 test cases were predicted accurately. So this means that 191 were wrong. Let’s take a look at some of these:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;predicted &amp;lt;- MNIST_model %&amp;gt;% predict_classes(test_dat_x)
 which_wrong &amp;lt;- which(predicted != test_dat_y_raw)
 par(mfcol = c(3,6))
@@ -1802,7 +1773,7 @@ for (i in which_wrong[1:18]) {
 &lt;/div&gt;
 &lt;div id=&#34;conclusions&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;14&lt;/span&gt; Conclusions&lt;/h1&gt;
-&lt;p&gt;According to Wikipedia, one of the best results for the MNIST database used a hierarchical system of convolutional neural networks and managed to get an error rate of 0.23%. Here I have an error rate of 1.85%, so I clearly have a way to go! Often in classification algorithms, using standard machine learning algorithms will get you pretty far with pretty good error rates. However, to tune the models further to get error rates down to these sorts of levels, more complex models are required. Neural networks can be used to push the error rates down further. Getting the right answer 96% of the time is pretty good, but if you’re relying on that classification to tell whether there is a pedestrian stood in front of a self-driving car, it is incredibly important to ensure that this error rate is as close to 0 as possible.&lt;/p&gt;
+&lt;p&gt;According to Wikipedia, one of the best results for the MNIST database used a hierarchical system of convolutional neural networks and managed to get an error rate of 0.23%. Here I have an error rate of 1.91%, so I clearly have a way to go! Often in classification algorithms, using standard machine learning algorithms will get you pretty far with pretty good error rates. However, to tune the models further to get error rates down to these sorts of levels, more complex models are required. Neural networks can be used to push the error rates down further. Getting the right answer 96% of the time is pretty good, but if you’re relying on that classification to tell whether there is a pedestrian stood in front of a self-driving car, it is incredibly important to ensure that this error rate is as close to 0 as possible.&lt;/p&gt;
 &lt;p&gt;However, this has been a very useful attempt at incorparting the powerful interface of Keras and the workflow of TensorFlow in R. Being able to incorporate powerful deep learning networks in R is incredobly useful, and will allow for incorporation with pre-existing pipelines already developed for bioinformatics analyses utilising the powerful pacakges available from &lt;a href=&#34;https://bioconductor.org&#34;&gt;Bioconductor&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Deep learning algorithms currently have a huge number of applications, from self-driving cars to facial recognition, and are being incorporated into technology in many industries. Development of deep learning algorithms and Big Data processing approaches will provide significant technological advancements. I am currently working on some potentially interesting applications, and hope to further my expertise in this area by working more with the R Keras API interface.&lt;/p&gt;
 &lt;/div&gt;
@@ -1835,20 +1806,20 @@ for (i in which_wrong[1:18]) {
 ## [16] pillar_1.4.2      glue_1.3.1        withr_2.1.2      
 ## [19] sessioninfo_1.1.1 plyr_1.8.4        tensorflow_2.0.0 
 ## [22] stringr_1.4.0     munsell_0.5.0     blogdown_0.16    
-## [25] gtable_0.3.0      devtools_2.2.1    codetools_0.2-16 
-## [28] memoise_1.1.0     evaluate_0.14     labeling_0.3     
-## [31] knitr_1.25        callr_3.3.2       ps_1.3.0         
-## [34] tfruns_1.4        curl_4.2          Rcpp_1.0.2       
-## [37] backports_1.1.5   scales_1.0.0      desc_1.2.0       
-## [40] pkgload_1.0.2     jsonlite_1.6      fs_1.3.1         
-## [43] ggplot2_3.2.1     digest_0.6.22     stringi_1.4.3    
-## [46] dplyr_0.8.3       bookdown_0.14     processx_3.4.1   
-## [49] grid_3.6.1        rprojroot_1.3-2   cli_1.1.0        
-## [52] tools_3.6.1       magrittr_1.5      tibble_2.1.3     
-## [55] lazyeval_0.2.2    pkgconfig_2.0.3   crayon_1.3.4     
-## [58] whisker_0.4       zeallot_0.1.0     ellipsis_0.3.0   
-## [61] Matrix_1.2-17     prettyunits_1.0.2 assertthat_0.2.1 
-## [64] rmarkdown_1.16    R6_2.4.0          compiler_3.6.1&lt;/code&gt;&lt;/pre&gt;
+## [25] gtable_0.3.0      devtools_2.2.1    memoise_1.1.0    
+## [28] evaluate_0.14     labeling_0.3      knitr_1.25       
+## [31] callr_3.3.2       ps_1.3.0          tfruns_1.4       
+## [34] curl_4.2          Rcpp_1.0.2        backports_1.1.5  
+## [37] scales_1.0.0      desc_1.2.0        pkgload_1.0.2    
+## [40] jsonlite_1.6      fs_1.3.1          ggplot2_3.2.1    
+## [43] digest_0.6.22     stringi_1.4.3     dplyr_0.8.3      
+## [46] bookdown_0.14     processx_3.4.1    grid_3.6.1       
+## [49] rprojroot_1.3-2   cli_1.1.0         tools_3.6.1      
+## [52] magrittr_1.5      tibble_2.1.3      lazyeval_0.2.2   
+## [55] pkgconfig_2.0.3   crayon_1.3.4      whisker_0.4      
+## [58] zeallot_0.1.0     ellipsis_0.3.0    Matrix_1.2-17    
+## [61] prettyunits_1.0.2 assertthat_0.2.1  rmarkdown_1.16   
+## [64] R6_2.4.0          compiler_3.6.1&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -4336,17 +4307,17 @@ ggplot(sent_dat, aes(x = Sentiment, col = Watch, fill = Watch)) +
 ## [25] munsell_0.5.0       compiler_3.6.1      xfun_0.10          
 ## [28] pkgconfig_2.0.3     htmltools_0.4.0     reports_0.1.4      
 ## [31] tidyselect_0.2.5    tibble_2.1.3        gridExtra_2.3      
-## [34] bookdown_0.14       codetools_0.2-16    XML_3.98-1.20      
-## [37] crayon_1.3.4        withr_2.1.2         bitops_1.0-6       
-## [40] openNLP_0.2-7       grid_3.6.1          gtable_0.3.0       
-## [43] lifecycle_0.1.0     magrittr_1.5        scales_1.0.0       
-## [46] xlsx_0.6.1          stringi_1.4.3       reshape2_1.4.3     
-## [49] NLP_0.2-0           openNLPdata_1.5.3-4 xml2_1.2.2         
-## [52] venneuler_1.1-0     ellipsis_0.3.0      vctrs_0.2.0        
-## [55] wordcloud_2.6       tools_3.6.1         glue_1.3.1         
-## [58] purrr_0.3.3         plotrix_3.7-6       parallel_3.6.1     
-## [61] yaml_2.2.0          tm_0.7-6            colorspace_1.4-1   
-## [64] rJava_0.9-11        knitr_1.25&lt;/code&gt;&lt;/pre&gt;
+## [34] bookdown_0.14       XML_3.98-1.20       crayon_1.3.4       
+## [37] withr_2.1.2         bitops_1.0-6        openNLP_0.2-7      
+## [40] grid_3.6.1          gtable_0.3.0        lifecycle_0.1.0    
+## [43] magrittr_1.5        scales_1.0.0        xlsx_0.6.1         
+## [46] stringi_1.4.3       reshape2_1.4.3      NLP_0.2-0          
+## [49] openNLPdata_1.5.3-4 xml2_1.2.2          venneuler_1.1-0    
+## [52] ellipsis_0.3.0      vctrs_0.2.0         wordcloud_2.6      
+## [55] tools_3.6.1         glue_1.3.1          purrr_0.3.3        
+## [58] plotrix_3.7-6       parallel_3.6.1      yaml_2.2.0         
+## [61] tm_0.7-6            colorspace_1.4-1    rJava_0.9-11       
+## [64] knitr_1.25&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -5779,10 +5750,8 @@ attach(my_df)&lt;/code&gt;&lt;/pre&gt;
                        pVal       = rnorm(10, mean = 0.05, sd = 0.05)) 
 signif_genes &amp;lt;- subset(gene_exp, foldChange &amp;gt; 2 &amp;amp; pVal &amp;lt;= 0.05)
 signif_genes&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##    geneName foldChange         pVal
-## 5     gene5   2.570015  0.001499847
-## 7     gene7   2.520167 -0.068139768
-## 10   gene10   2.012932  0.032922298&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   geneName foldChange        pVal
+## 9    gene9   3.298834 -0.02361531&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Notice here that we use a single &lt;code&gt;&amp;amp;&lt;/code&gt; rather than the double &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; that we used earlier. This is because we are doing a vector-based logical test (that is performing the test on each element of the vector to get a vector of logical values at the end). It is very easy to forget this and accidentally use the &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;, which will not give you what you want:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fake_signif_genes &amp;lt;- subset(gene_exp, foldChange &amp;gt; 2 &amp;amp;&amp;amp; pVal &amp;lt;= 0.05) 
 fake_signif_genes&lt;/code&gt;&lt;/pre&gt;
@@ -5802,25 +5771,25 @@ my_factor&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(gene_exp)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## &amp;#39;data.frame&amp;#39;:    10 obs. of  3 variables:
 ##  $ geneName  : Factor w/ 10 levels &amp;quot;gene1&amp;quot;,&amp;quot;gene10&amp;quot;,..: 1 3 4 5 6 7 8 9 10 2
-##  $ foldChange: num  1.772 -0.335 2.072 2.765 2.57 ...
-##  $ pVal      : num  0.083 -0.0187 0.0512 0.103 0.0015 ...&lt;/code&gt;&lt;/pre&gt;
+##  $ foldChange: num  0.354 0.958 1.997 3.926 0.59 ...
+##  $ pVal      : num  0.0456 -0.033 0.0172 0.1055 0.1327 ...&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Whilst factors are incredibly useful in modelling and plotting, they may not necessarily be exactly what you want. For instance, in this case the column &lt;code&gt;geneName&lt;/code&gt; has been converted into a factor, with levels &lt;code&gt;gene1&lt;/code&gt;, …, &lt;code&gt;gene10&lt;/code&gt;. If we try and add in a new gene, &lt;code&gt;gene11&lt;/code&gt;, this will not work as all entries of a factor must be one of the specified levels:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gene_exp_plus &amp;lt;- rbind(gene_exp, c(&amp;quot;gene11&amp;quot;, 1.789, 0.0034))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Warning in `[&amp;lt;-.factor`(`*tmp*`, ri, value = &amp;quot;gene11&amp;quot;): invalid factor
 ## level, NA generated&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gene_exp_plus&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##    geneName         foldChange                 pVal
-## 1     gene1   1.77247590464332   0.0829876388477264
-## 2     gene2 -0.335478351182657  -0.0187207110598084
-## 3     gene3   2.07239071198297   0.0511951653852145
-## 4     gene4   2.76457615883752    0.103024378174535
-## 5     gene5   2.57001482177711  0.00149984653931296
-## 6     gene6    3.7197841689815   0.0986477230356573
-## 7     gene7   2.52016719863085  -0.0681397676039856
-## 8     gene8   1.39481308494885   0.0066139770306344
-## 9     gene9   1.68575741771675 -0.00607860632237325
-## 10   gene10   2.01293185446079   0.0329222977360627
-## 11     &amp;lt;NA&amp;gt;              1.789               0.0034&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    geneName        foldChange                pVal
+## 1     gene1 0.353952056887015  0.0456470018072924
+## 2     gene2  0.95842475705983 -0.0329559670884031
+## 3     gene3  1.99710708237021  0.0171717501160332
+## 4     gene4  3.92632347531744   0.105501633069267
+## 5     gene5 0.590158412290393   0.132696142295379
+## 6     gene6  2.83069671142655   0.118224527859846
+## 7     gene7 0.384428169315616  0.0313479445279774
+## 8     gene8  1.90574885168176  0.0517571935686495
+## 9     gene9  3.29883359578337 -0.0236153133950252
+## 10   gene10   2.3433798728959   0.060028078125305
+## 11     &amp;lt;NA&amp;gt;             1.789              0.0034&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Instead we would be better off treating &lt;code&gt;geneName&lt;/code&gt; as a character vector, since we are unlikely to treat it as a categorical variable in later model fitting analyses.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;reading-and-writing-data&#34; class=&#34;section level1&#34;&gt;
@@ -6170,49 +6139,49 @@ tapply(my_dat$Expression, INDEX = my_dat$Treatment, FUN = mean)&lt;/code&gt;&lt;
 &lt;p&gt;R is mainly designed for easy computation of statistics and there are many in-built functions and additional libraries that allow you to carry out most tasks. Most simple statistics can be easily calculated using in-built functions. The following example creates two vectors of 100 random values sampled from a normal distribution with mean 0 and standard deviation 1, then calculates various basic summary statistics:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- sort(rnorm(100, mean = 0, sd = 1))
 min(x)   &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] -3.057255&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -2.469406&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;max(x)   &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2.200321&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2.456791&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(x)  &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] -0.01173816&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -0.1545429&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;median(x)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0153598&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -0.05459327&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The minimum and maximum values are the smallest and largest values respectively. The mean is what most people would think of when you asked for the average, and is calculated by summing the values and dividing by the total number of values. The median is another way of looking at the average, and is essentially the middle value (&lt;code&gt;50^th^&lt;/code&gt; percentile). Other percentiles can be calculated, which can give you an idea of where the majority of your data lie:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;quantile(x, probs = 0.25) &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##        25% 
-## -0.6737275&lt;/code&gt;&lt;/pre&gt;
+## -0.8799137&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;quantile(x, probs = 0.75) &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##       75% 
-## 0.6909157&lt;/code&gt;&lt;/pre&gt;
+## 0.5016485&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;quantile(x, probs = seq(0, 1, 0.1))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##         0%        10%        20%        30%        40%        50% 
-## -3.0572551 -1.2383440 -0.7706889 -0.5628077 -0.2291174  0.0153598 
-##        60%        70%        80%        90%       100% 
-##  0.2260718  0.5235532  0.9086134  1.1857342  2.2003207&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##          0%         10%         20%         30%         40%         50% 
+## -2.46940647 -1.40227823 -0.99043502 -0.70290442 -0.39528086 -0.05459327 
+##         60%         70%         80%         90%        100% 
+##  0.13332282  0.41401259  0.65654592  1.10042294  2.45679115&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The &lt;code&gt;summary()&lt;/code&gt; function will calculate many of these basic statistics for you:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(x)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-## -3.05726 -0.67373  0.01536 -0.01174  0.69092  2.20032&lt;/code&gt;&lt;/pre&gt;
+## -2.46941 -0.87991 -0.05459 -0.15454  0.50165  2.45679&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The variance is the average of the squared distances from the mean, and is a measure of how spread out the data are from the average. The standard deviation is simply the square root of this value &lt;span class=&#34;math inline&#34;&gt;\(var(x) = sd(x)^2\)&lt;/span&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sd(x)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.9925375&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1.009332&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;var(x)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.9851307&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1.018752&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;all.equal(sd(x)^2, var(x))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum((x-mean(x))^2)/(length(x)-1)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.9851307&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1.018752&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The covariance is a measure of how much two sets of data vary together:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y &amp;lt;- sort(rnorm(100, mean = 0, sd = 1))
 var(y)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1.331413&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.8662482&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cov(x, y)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1.129482&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.9318779&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The covariance is related to the correlation between two data sets, which is a number between -1 and 1 indicating the level of dependance between the two variables. A value of 1 indicates perfect correlation, so that as one value increases so does the other. A value of -1 indicates perfect anti-correlation, so that as one value increases the other decreases. A value of 0 indicates that the two values change independently of one another:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(x, y)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.9862251&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.9919817&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cov(x, y)/(sd(x) * sd(y)) &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.9862251&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.9919817&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This value is known as the Pearson correlation. An alternative method for calculating the correlation between two sets of values is to use the Spearman correlation, which is essentially the same as the Pearson correlation but is calculated on the ranks of the data rather than the values themselves. In this way, each value increases by only one unit at a time, meaning that the correlation score is more robust to the presence of outliers:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(x, y, method = &amp;quot;spearman&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
@@ -6225,32 +6194,32 @@ summary(my_lin_mod)&lt;/code&gt;&lt;/pre&gt;
 ## 
 ## Residuals:
 ##      Min       1Q   Median       3Q      Max 
-## -0.29723 -0.07516  0.00742  0.06249  1.01244 
+## -0.20933 -0.07078  0.00838  0.06544  0.33903 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&amp;gt;|t|)    
-## (Intercept) -0.06267    0.01918  -3.267   0.0015 ** 
-## x            1.14653    0.01942  59.024   &amp;lt;2e-16 ***
+## (Intercept)  0.15961    0.01196   13.34   &amp;lt;2e-16 ***
+## x            0.91473    0.01177   77.70   &amp;lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
 ## 
-## Residual standard error: 0.1918 on 98 degrees of freedom
-## Multiple R-squared:  0.9726, Adjusted R-squared:  0.9724 
-## F-statistic:  3484 on 1 and 98 DF,  p-value: &amp;lt; 2.2e-16&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Explaining this output is beyond the scope of this short tutorial, but the coefficient estimates give us the values for &lt;code&gt;a&lt;/code&gt; (&lt;code&gt;-0.0626679&lt;/code&gt;) and &lt;code&gt;b&lt;/code&gt; (&lt;code&gt;1.1465303&lt;/code&gt;) in the linear model. The p-value tells us how significant these estimates are. In statistical terms, we are testing the null hypothesis that the coefficient is actually equal to zero (i.e. there is not an association between &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt;). The p-value gives the probability of detecting a coefficient at least as large as the one that we calculated in our model given that the null hypothesis is actually true. If this probability is low enough, we can safely reject the null hypothesis and say that this variable is statistically significant. Often a value of 0.05 (5%) is used as the cutoff for rejection of the null hypothesis.&lt;/p&gt;
+## Residual standard error: 0.1182 on 98 degrees of freedom
+## Multiple R-squared:  0.984,  Adjusted R-squared:  0.9839 
+## F-statistic:  6038 on 1 and 98 DF,  p-value: &amp;lt; 2.2e-16&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Explaining this output is beyond the scope of this short tutorial, but the coefficient estimates give us the values for &lt;code&gt;a&lt;/code&gt; (&lt;code&gt;0.1596068&lt;/code&gt;) and &lt;code&gt;b&lt;/code&gt; (&lt;code&gt;0.9147252&lt;/code&gt;) in the linear model. The p-value tells us how significant these estimates are. In statistical terms, we are testing the null hypothesis that the coefficient is actually equal to zero (i.e. there is not an association between &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt;). The p-value gives the probability of detecting a coefficient at least as large as the one that we calculated in our model given that the null hypothesis is actually true. If this probability is low enough, we can safely reject the null hypothesis and say that this variable is statistically significant. Often a value of 0.05 (5%) is used as the cutoff for rejection of the null hypothesis.&lt;/p&gt;
 &lt;p&gt;Hypothesis testing is a large part of statistics. The t-test is a commonly used test for comparing the means of two sets of data. In simple terms we are looking to see if they are significantly different (e.g. does the expression of a particular gene change significantly following treatment with a drug). In statistical terms, we are testing to see if the change that we see in the means is greater than we would expect by chance alone.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;t.test(x, y) &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
 ##  Welch Two Sample t-test
 ## 
 ## data:  x and y
-## t = 0.42304, df = 193.67, p-value = 0.6727
+## t = -1.2585, df = 196.71, p-value = 0.2097
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -0.2357982  0.3645741
+##  -0.44354509  0.09797417
 ## sample estimates:
-##   mean of x   mean of y 
-## -0.01173816 -0.07612607&lt;/code&gt;&lt;/pre&gt;
+##  mean of x  mean of y 
+## -0.1545429  0.0182426&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Since both &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; are drawn from the same distribution, the test shows there is no evidence that there is a difference between the mean. Let’s try again with a different data set, drawn from a different distribution:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;z &amp;lt;- rnorm(100, mean = 10, sd = 1) 
 t.test(x, z)&lt;/code&gt;&lt;/pre&gt;
@@ -6258,38 +6227,38 @@ t.test(x, z)&lt;/code&gt;&lt;/pre&gt;
 ##  Welch Two Sample t-test
 ## 
 ## data:  x and z
-## t = -68.785, df = 197.91, p-value &amp;lt; 2.2e-16
+## t = -69.957, df = 197.94, p-value &amp;lt; 2.2e-16
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -10.036719  -9.477262
+##  -10.358041  -9.790083
 ## sample estimates:
-##   mean of x   mean of y 
-## -0.01173816  9.74525220&lt;/code&gt;&lt;/pre&gt;
+##  mean of x  mean of y 
+## -0.1545429  9.9195190&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This time, the p-value is much less than 0.05, so we can make the claim that the mean of &lt;code&gt;z&lt;/code&gt; is significantly different from that of &lt;code&gt;x&lt;/code&gt;. By default, the &lt;code&gt;t.test()&lt;/code&gt; function is 2-sided, meaning that it does not distinguish between whether or not the difference in the means is an increase or a decrease in &lt;code&gt;z&lt;/code&gt;. We can specify the &lt;code&gt;alternative&lt;/code&gt; parameter to define the alternative hypothesis that we want to test:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;t.test(x, z, alternative = &amp;quot;less&amp;quot;)    ## Tests if mean(x) &amp;lt; mean(z) &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
 ##  Welch Two Sample t-test
 ## 
 ## data:  x and z
-## t = -68.785, df = 197.91, p-value &amp;lt; 2.2e-16
+## t = -69.957, df = 197.94, p-value &amp;lt; 2.2e-16
 ## alternative hypothesis: true difference in means is less than 0
 ## 95 percent confidence interval:
-##       -Inf -9.522573
+##       -Inf -9.836083
 ## sample estimates:
-##   mean of x   mean of y 
-## -0.01173816  9.74525220&lt;/code&gt;&lt;/pre&gt;
+##  mean of x  mean of y 
+## -0.1545429  9.9195190&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;t.test(x, z, alternative = &amp;quot;greater&amp;quot;) ## Tests if mean(x) &amp;gt; mean(z)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
 ##  Welch Two Sample t-test
 ## 
 ## data:  x and z
-## t = -68.785, df = 197.91, p-value = 1
+## t = -69.957, df = 197.94, p-value = 1
 ## alternative hypothesis: true difference in means is greater than 0
 ## 95 percent confidence interval:
-##  -9.991408       Inf
+##  -10.31204       Inf
 ## sample estimates:
-##   mean of x   mean of y 
-## -0.01173816  9.74525220&lt;/code&gt;&lt;/pre&gt;
+##  mean of x  mean of y 
+## -0.1545429  9.9195190&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This tells us that the difference in the means between &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;z&lt;/code&gt; is less than 0, or that the mean of &lt;code&gt;z&lt;/code&gt; is greater than that of &lt;code&gt;x&lt;/code&gt; (as we expect).&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;plotting-with-r&#34; class=&#34;section level1&#34;&gt;
@@ -6333,10 +6302,10 @@ abline(my_lin_model, lty = 2, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pr
 &lt;p&gt;If you want to explicitly pull out &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt;, use the &lt;code&gt;coef()&lt;/code&gt; function to get the coefficients:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coef(my_lin_model)[1] ## Get the intercept from the coefficients of the model &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## (Intercept) 
-## -0.06266792&lt;/code&gt;&lt;/pre&gt;
+##   0.1596068&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coef(my_lin_model)[2] ## Get the gradient from the coefficients of the model&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##       x 
-## 1.14653&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         x 
+## 0.9147252&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;histograms&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;10.2&lt;/span&gt; Histograms&lt;/h2&gt;
