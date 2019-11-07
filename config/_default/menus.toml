@@ -30,12 +30,12 @@
   
 [[main]]
    name = "R"
-   url = "resources/rtutorial/index.html"
+   url = "resources/r-tutorial/index.html"
    weight = 60
    
 [[main]]
    name = "Python"
-   url = "resources/pythontutorial/index.html"
+   url = "resources/python-tutorial/index.html"
    weight = 70
 
 [[main]]
