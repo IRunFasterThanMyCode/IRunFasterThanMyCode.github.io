@@ -1,0 +1,1462 @@
+---
+title: How To Use Python
+author: samrobson
+date: 2019-10-25
+categories: ["How To", "Tutorials"]
+tags: ["Python", "How To", "Tutorials", "Data Science"]
+image:
+  caption: python.org
+summary: A tutorial for the use of the data science programming language Python
+output: 
+  blogdown::html_page:
+    number_sections: true
+    toc: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#installing-python"><span class="toc-section-number">2</span> Installing Python</a></li>
+<li><a href="#basics-of-python"><span class="toc-section-number">3</span> Basics of Python</a><ul>
+<li><a href="#getting-started"><span class="toc-section-number">3.1</span> Getting started</a></li>
+<li><a href="#loading-new-packages"><span class="toc-section-number">3.2</span> Loading new packages</a></li>
+<li><a href="#white-space"><span class="toc-section-number">3.3</span> White-space</a></li>
+<li><a href="#object-oriented-programming"><span class="toc-section-number">3.4</span> Object-oriented programming</a></li>
+<li><a href="#data-types"><span class="toc-section-number">3.5</span> Data Types</a></li>
+<li><a href="#function"><span class="toc-section-number">3.6</span> Function</a></li>
+<li><a href="#printing"><span class="toc-section-number">3.7</span> Printing</a></li>
+</ul></li>
+<li><a href="#storing-multiple-values"><span class="toc-section-number">4</span> Storing Multiple Values</a><ul>
+<li><a href="#lists-and-tuples"><span class="toc-section-number">4.1</span> Lists and Tuples</a></li>
+<li><a href="#dictionary"><span class="toc-section-number">4.2</span> Dictionary</a></li>
+</ul></li>
+<li><a href="#numpy"><span class="toc-section-number">5</span> NumPy</a><ul>
+<li><a href="#introduction-1"><span class="toc-section-number">5.1</span> Introduction</a></li>
+<li><a href="#arrays"><span class="toc-section-number">5.2</span> Arrays</a></li>
+<li><a href="#matrices"><span class="toc-section-number">5.3</span> Matrices</a></li>
+<li><a href="#indexing-and-slicing"><span class="toc-section-number">5.4</span> Indexing and slicing</a></li>
+<li><a href="#matrix-multiplication"><span class="toc-section-number">5.5</span> Matrix multiplication</a></li>
+<li><a href="#sorting"><span class="toc-section-number">5.6</span> Sorting</a></li>
+<li><a href="#structured-array"><span class="toc-section-number">5.7</span> Structured Array</a></li>
+</ul></li>
+<li><a href="#pandas"><span class="toc-section-number">6</span> Pandas</a><ul>
+<li><a href="#introduction-2"><span class="toc-section-number">6.1</span> Introduction</a></li>
+<li><a href="#data-frames"><span class="toc-section-number">6.2</span> Data Frames</a></li>
+<li><a href="#indexing-and-slicing-1"><span class="toc-section-number">6.3</span> Indexing and Slicing</a></li>
+</ul></li>
+<li><a href="#data-filtering"><span class="toc-section-number">7</span> Data Filtering</a><ul>
+<li><a href="#data-sorting"><span class="toc-section-number">7.1</span> Data Sorting</a></li>
+<li><a href="#data-cleaning"><span class="toc-section-number">7.2</span> Data Cleaning</a></li>
+<li><a href="#combining-dataframes"><span class="toc-section-number">7.3</span> Combining DataFrames</a></li>
+<li><a href="#reading-and-writing-data"><span class="toc-section-number">7.4</span> Reading and Writing Data</a></li>
+</ul></li>
+<li><a href="#control-sequences"><span class="toc-section-number">8</span> Control Sequences</a><ul>
+<li><a href="#if-else"><span class="toc-section-number">8.1</span> IF ELSE</a></li>
+<li><a href="#for"><span class="toc-section-number">8.2</span> FOR</a></li>
+<li><a href="#while"><span class="toc-section-number">8.3</span> WHILE</a></li>
+<li><a href="#loop-control"><span class="toc-section-number">8.4</span> Loop Control</a></li>
+</ul></li>
+<li><a href="#writing-functions"><span class="toc-section-number">9</span> Writing Functions</a></li>
+<li><a href="#statistics"><span class="toc-section-number">10</span> Statistics</a><ul>
+<li><a href="#basic-statistics"><span class="toc-section-number">10.1</span> Basic Statistics</a></li>
+<li><a href="#variation"><span class="toc-section-number">10.2</span> Variation</a></li>
+<li><a href="#correlation"><span class="toc-section-number">10.3</span> Correlation</a></li>
+<li><a href="#linear-models"><span class="toc-section-number">10.4</span> Linear Models</a></li>
+</ul></li>
+<li><a href="#plotting-with-python"><span class="toc-section-number">11</span> Plotting With Python</a><ul>
+<li><a href="#histograms"><span class="toc-section-number">11.1</span> Histograms</a></li>
+<li><a href="#quantile-quantile-plots"><span class="toc-section-number">11.2</span> Quantile-Quantile Plots</a></li>
+<li><a href="#pie-chart"><span class="toc-section-number">11.3</span> Pie Chart</a></li>
+<li><a href="#bar-plot"><span class="toc-section-number">11.4</span> Bar Plot</a></li>
+<li><a href="#line-plots"><span class="toc-section-number">11.5</span> Line Plots</a></li>
+<li><a href="#scatterplots"><span class="toc-section-number">11.6</span> Scatterplots</a></li>
+<li><a href="#boxplots"><span class="toc-section-number">11.7</span> Boxplots</a></li>
+<li><a href="#seaborn-package"><span class="toc-section-number">11.8</span> Seaborn package</a></li>
+<li><a href="#subplots"><span class="toc-section-number">11.9</span> Subplots</a></li>
+<li><a href="#saving-figures"><span class="toc-section-number">11.10</span> Saving Figures</a></li>
+</ul></li>
+<li><a href="#example-analysis"><span class="toc-section-number">12</span> Example Analysis</a><ul>
+<li><a href="#introduction-3"><span class="toc-section-number">12.1</span> Introduction</a></li>
+<li><a href="#load-data"><span class="toc-section-number">12.2</span> Load Data</a></li>
+<li><a href="#calculate-fold-change"><span class="toc-section-number">12.3</span> Calculate Fold Change</a></li>
+<li><a href="#compare-data"><span class="toc-section-number">12.4</span> Compare Data</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>As a bioinformatics researcher, I primarily use the statistical programming language R for my analyses, mainly due to the huge number of resources available in the <a href="https://bioconductor.org">Bioconductor</a> libraries. I have previously written a <a href="/resources/rtutorial/index.html">Tutorial for R</a>, so thought that I would do something similar for the data science programming language <a href="https://www.python.org">Python</a>.</p>
+<p>Python is an interpreted, high-level language that supports both object-oriented and structured programming. Both Python and R are widely used in the data science world, with both having very similar functionality, but specific pros and cons making the “correct” choice for which one to use being somewhat dependent on the task at hand. Python is typically considered to be more memory efficient than R, and has some amazingly powerful libraries for data science such as scikit-learn and <a href="https://www.tensorflow.org">TensorFlow</a>, whilst R has amazing libraries for bioinformatics and superb data visualization through the <a href="https://ggplot2.tidyverse.org">ggplot2</a> package and the other <a href="https://www.tidyverse.org">TidyVerse</a> packages from Hadley Wickham.</p>
+<p>However, R has some amazingly memory-efficient implementations (including an interface to TensorFlow and other machine learning tools), and Python has a huge bioinformatics suite with the <a href="https://biopython.org">biopython</a> suite and excellent plotting packages such as <a href="https://seaborn.pydata.org">seaborn</a>. So ultimately, both are excellent, and knowing either can be a fantastic tool in your data science toolbox.</p>
+<p>This is an introduction to Python that should allow new users to understand how Python works. It will follow a similar flow to the R introduction, so the two can be compared to understand the differences between the two languages.</p>
+<p>As with R and other languages, comments can be added using the <code>#</code> comment character. Everything to the right of this character is ignored by Python. This allows you to add words and descriptions to your code which are ignored entirely by the interpreter, but can be used for people looking at the source code to help document what a particular code chunk does. You can NEVER have too many comments!</p>
+</div>
+<div id="installing-python" class="section level1">
+<h1><span class="header-section-number">2</span> Installing Python</h1>
+<p>Python can be downloaded and installed from the <a href="https://www.python.org/downloads/">Python</a> website. It is available for all major operating systems, and installation is quite straightforward. The current version is 3.8.0, but updates are released regularly. Additional packages can be installed by using the <code>pip</code> Python package manager as follows:</p>
+<pre class="bash"><code>pip install newpackage</code></pre>
+<p>It is also possible to use larger package managers such as the <a href="https://anaconda.org">Anaconda</a> data science platform. This is an open-source distribution containing over 1,500 Python and R packages that ensures all dependencies are maintained and any required packages are present. <code>conda</code> will allow you to generate multiple environments to work in depending on requirements.</p>
+<p>Unlike R, there is no specific Integrated Development Environment, but there are multiple different programs that can be sconsidered such as <a href="https://www.spyder-ide.org">Spyder</a> and <a href="https://www.jetbrains.com/pycharm">PyCharm</a>. There is also the <a href="https://jupyter.org">Jupyter</a> notebook program, which allows interactive computing supporting many different programming languages. This is similar to R markdown (which is used to generate the content of this blog), in that it merges markdown formatted text with code chunks. This can be used to create auto-generated reports by including code output embedded into the text.</p>
+</div>
+<div id="basics-of-python" class="section level1">
+<h1><span class="header-section-number">3</span> Basics of Python</h1>
+<div id="getting-started" class="section level2">
+<h2><span class="header-section-number">3.1</span> Getting started</h2>
+<p>If using a command line interface, Python can be run simply by typing the name as follows:</p>
+<pre class="bash"><code>python</code></pre>
+<p>This will open up an interactive Python environment, which can be closed by pressing <code>Ctrl+D</code>. This is a command line version allowing you to see the results of the commands that you enter as you run them. You can also generate Python scripts, which typically have the suffix <code>.py</code> and can be run by calling Python on them:</p>
+<pre class="bash"><code>python myfile.py</code></pre>
+<p>The command line is shown by the <code>&gt;&gt;&gt;</code> character. Simply type your command here and press return to see the results. If your command is not complete, then you will see a syntax error:</p>
+<pre class="python"><code>print (&quot;Hello World!&quot;</code></pre>
+<p>It is possible to store data values in objects in Python using the <code>=</code> assignment command. Since these objects can have their value reassigned, they are known as variables. Unlike some other languages, variables do not need to be declared ahead of their use, and their type is declared automatically when you assign them based on their value. Basic data types include integers (a whole number), floating point numbers (fractions), and character strings:</p>
+<pre class="python"><code>int = 3
+float = 4.678
+str = &quot;hello&quot;
+
+print (int)</code></pre>
+<pre><code>## 3</code></pre>
+<pre class="python"><code>print (float)</code></pre>
+<pre><code>## 4.678</code></pre>
+<pre class="python"><code>print (str)</code></pre>
+<pre><code>## hello</code></pre>
+<p>Variables should ideally be named with some descriptor that gives some idea of what it represents. It must start with a letter or underscore, and can only contain alpha-numeric characters and underscores. It is worth bearing in mind that the names are case-sensitive, so <code>myvar</code>, <code>MyVar</code> and <code>MYVAR</code> would be three different variables.</p>
+<p>There are lots of different variable naming conventions to choose from (e.g. see <a href="https://en.wikipedia.org/wiki/Naming_convention_(programming)">here</a>), but once you have chosen one try and stick to it throughout.</p>
+<p>Simple arithmetic can be performed using the standard arithmetic operators (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>), as well as the exponent operator (<code>**</code>). There is a level of precedence to these functions – the exponent will be calculated first, followed by multiplication and division, followed by plus and minus. For this reason, you must be careful that your arithmetic is doing what you expect it to do. You can get around this by encapsulating subsets of the sum in parentheses, which will be calculated from the inside out:</p>
+<pre class="python"><code>1 + 2 * 3   # 2 times 3 is 6, then add 1</code></pre>
+<pre><code>## 7</code></pre>
+<pre class="python"><code>(1 + 2) * 3 # 1 plus 2 is 3, then times 3</code></pre>
+<pre><code>## 9</code></pre>
+<pre class="python"><code>1 + (2 * 3) # 2 times 3 is 6, then add 1</code></pre>
+<pre><code>## 7</code></pre>
+<pre class="python"><code>2**4+1      # 2 to the power of 4 is 16, then add 1</code></pre>
+<pre><code>## 17</code></pre>
+<p>The remainder left over following division can be returned by using the “modulo” operator (<code>%%</code>), and can be important for instance when testing for even numbers:</p>
+<pre class="python"><code>6%2 # 6 is divisible by 2 exactly three times</code></pre>
+<pre><code>## 0</code></pre>
+<pre class="python"><code>6%4 # 6 is divisible by 4 one time with a remainder of 2</code></pre>
+<pre><code>## 2</code></pre>
+<p>You can also use other variables in these assignments:</p>
+<pre class="python"><code>x = 1
+y = x
+y</code></pre>
+<pre><code>## 1</code></pre>
+<pre class="python"><code>z = x + y 
+z</code></pre>
+<pre><code>## 2</code></pre>
+</div>
+<div id="loading-new-packages" class="section level2">
+<h2><span class="header-section-number">3.2</span> Loading new packages</h2>
+<p>Additional packages can be loaded into Python by using the <code>import</code> command:</p>
+<pre class="python"><code>import newpackage</code></pre>
+<p>You can name the imported package something different to save having to type the full name every time:</p>
+<pre class="python"><code>import newpackage as new</code></pre>
+<p>To use a method (e.g. <code>foo()</code>) from an imported package, we use the dot notation as follows. If we have used a shorter name for the package, we can use this name to save typing the full name each time:</p>
+<pre class="python"><code>new.foo()</code></pre>
+<p>Sometimes, we may want to only load a package subset which we can do as follows:</p>
+<pre class="python"><code>from newpackage import subpackage</code></pre>
+<p>All functions available from this package are now available for use.</p>
+</div>
+<div id="white-space" class="section level2">
+<h2><span class="header-section-number">3.3</span> White-space</h2>
+<p>One big difference with using Python compared with many other languages is that Python uses white-space to delineate code blocks rather than using curly brackets (<code>{</code> and <code>}</code>). So indentations must align correctly to ensure that the interpreter is able to determine which code chunks are in the same block. An example of a code chunk is an <code>ifelse</code> chunk, which will be described later. In R, using curly braces, this would look like this:</p>
+<pre class="r"><code>x &lt;- 10
+y &lt;- 20
+if (x &gt;= y) {
+  if (x &gt; y) {
+    cat(&quot;x is bigger than y&quot;)
+  } else {
+    cat(&quot;x is equal to y&quot;)
+  }
+} else {
+  cat(&quot;x is smaller than y&quot;)
+} </code></pre>
+<pre><code>## x is smaller than y</code></pre>
+<p>In Python, this is done by ensuring the indentation level of the parent and child statements is kept consistent:</p>
+<pre class="python"><code>x = 10
+y = 20
+if x &gt;= y:
+  if x &gt; y:
+    print (&quot;x is bigger than y&quot;)
+  else:
+    print (&quot;x is equal to y&quot;)
+else:
+  print (&quot;x is smaller than y&quot;)</code></pre>
+<pre><code>## x is smaller than y</code></pre>
+<p>This ensures that the code looks more clean and elegant, but it does mean that it is possible to run into issues if you do not ensure that the indentation levels are correct. For instance, let’s see what happens if we change the indentation levels of the print functions:</p>
+<pre class="python"><code>x = 10
+y = 20
+if x &gt;= y:
+  if x &gt; y:
+  print (&quot;x is bigger than y&quot;)
+  else:
+  print (&quot;x is equal to y&quot;)
+else:
+  print (&quot;x is smaller than y&quot;)</code></pre>
+</div>
+<div id="object-oriented-programming" class="section level2">
+<h2><span class="header-section-number">3.4</span> Object-oriented programming</h2>
+<p>Python supports an object-oriented programming (OOP) paradigm. The idea here is that each object that you use in Python is an instance of some well-defined class of data that has a set of attributes that can be accessed and methods that can be applied to it. New data classes can be specified which inherit the attributes and methods from other data types, making OOP a very modular programming approach. All of this information can be hidden away from the user, and only certain attributes and methods are made available whilst the rest are kept internal and private.</p>
+<p>An example of this is to consider a new class <code>Car</code>. There are many different cars out there, but each specific car is an instance of this new class <code>Car</code>. When creating the new class, we can assign it certain attributes, such as <code>model</code>, <code>make</code>, <code>colour</code>, <code>horsepower</code>, <code>engine size</code>, etc.</p>
+<p>We can create such a new class as follows:</p>
+<pre class="python"><code>class Car:
+  def __init__(self):
+    pass</code></pre>
+<p>The class now exists, but there are no objects of this class. The class has an initializer function (the <code>__init(self)__</code> function) that will create a new object of class <code>Car</code>:</p>
+<pre class="python"><code>mycar = Car()
+print(mycar)</code></pre>
+<pre><code>## &lt;__main__.Car object at 0x12364c9d0&gt;</code></pre>
+<p>So <code>mycar</code> is an object of class <code>Car</code>, but does not have any attributes associated with it. So let’s add a few:</p>
+<pre class="python"><code>class Car:
+  def __init__(self, make, model):
+    self.make  = make
+    self.model = model</code></pre>
+<p>Now we can instantiate a new object of class <code>Car</code> with a specific make and model. The attributes are accessed using dot notation as follows:</p>
+<pre class="python"><code>mycar = Car(&quot;Honda&quot;, &quot;Civic&quot;)
+print(mycar.make)</code></pre>
+<pre><code>## Honda</code></pre>
+<pre class="python"><code>print(mycar.model)</code></pre>
+<pre><code>## Civic</code></pre>
+<p>We may also want to include some methods that can be applied to our object, such as <code>drive</code>, where we can input a new destination to drive to. So let’s add a <code>drive()</code> method to the <code>Car</code> class:</p>
+<pre class="python"><code>class Car:
+  def __init__(self, make, model):
+    self.make  = make
+    self.model = model
+    
+  def drive(self, where):
+    print (&quot;Driving to &quot; + where)</code></pre>
+<p>And let’s drive home in our car:</p>
+<pre class="python"><code>mycar = Car(&quot;Honda&quot;, &quot;Civic&quot;)
+mycar.drive(&quot;home&quot;)</code></pre>
+<pre><code>## Driving to home</code></pre>
+<p>I will describe some of these features in more detail later, but the dot notation for accessing object attributes and methods will feature in the following sections.</p>
+</div>
+<div id="data-types" class="section level2">
+<h2><span class="header-section-number">3.5</span> Data Types</h2>
+<p>There are many classes available in Python, as well as the ability to generate new classes as described above. The most common are “numeric” (which you can do numerical calculations on – integers or floating point numbers), character strings (can contain letters, numbers, symbols etc., but cannot run numerical calculations), and boolean (TRUE or FALSE). The speech marks character <code>&quot;</code> is used to show that the class of y is “character”. You can also use the apostrophe <code>'</code>. You can check the class of a variable by using the <code>type()</code> function:</p>
+<pre class="python"><code>x = 12345
+type(x)</code></pre>
+<pre><code>## &lt;class &#39;int&#39;&gt;</code></pre>
+<pre class="python"><code>y = 12345.0
+type(y)</code></pre>
+<pre><code>## &lt;class &#39;float&#39;&gt;</code></pre>
+<pre class="python"><code>z = &quot;12345&quot;
+type(z)</code></pre>
+<pre><code>## &lt;class &#39;str&#39;&gt;</code></pre>
+<p>Addition is a well-defined operation on numerical objects, but is not defined on character class objects. Attempting to use a function which has not been defined for the object in question will throw an error:</p>
+<pre class="python"><code>x + 1 # x is numeric, so addition is well defined
+y + 1 # y is a character, so addition is not defined - produces an error</code></pre>
+<p>The other important data class is “boolean”, which is simply a binary <code>True</code> or <code>False</code> value. There are certain operators that are used to compare two variables. The obvious ones are “is less than” (<code>&lt;</code>), “is greater than” (<code>&gt;</code>), “is equal to”&quot; (<code>==</code>). You can also combine these to see “is less than or equal to” (<code>&lt;=</code>) or “is greater than or equal to” (<code>&gt;=</code>). If the statement is true, then it will return the output “True”. Otherwise it will return “False”:</p>
+<pre class="python"><code>x = 2
+y = 3
+
+x &lt;= y</code></pre>
+<pre><code>## True</code></pre>
+<pre class="python"><code>x &gt;= y</code></pre>
+<pre><code>## False</code></pre>
+<p>You can also combine these logical tests to ask complex questions by using the <code>and</code> (<code>&amp;</code>) or the <code>or</code> (<code>|</code>) operators. You can also negate the output of a logical test by using the <code>not</code> (<code>!</code>) operator. This lets you test for very specific events in your data. Again, I recommend using parentheses to break up your tests to ensure that the tests occur in the order which you expect:</p>
+<pre class="python"><code>x = 3
+y = 7
+z = 6
+
+(x &lt;= 3 &amp; y &gt;= 8) &amp; z == 6  </code></pre>
+<pre><code>## False</code></pre>
+<pre class="python"><code>(x &lt;= 3 &amp; y &gt;= 8) | z == 6 </code></pre>
+<pre><code>## True</code></pre>
+<pre class="python"><code>(x != y)</code></pre>
+<pre><code>## True</code></pre>
+</div>
+<div id="function" class="section level2">
+<h2><span class="header-section-number">3.6</span> Function</h2>
+<p>A function (also known as a method, subroutine, or procedure) is a named block of code that takes in one or more values, does something to them, and returns a result. A simple example is the <code>sum()</code> function, which takes in two or more values in the form of a list, and returns the sum of all of the values:</p>
+<pre class="python"><code>sum([1,2,3]) </code></pre>
+<pre><code>## 6</code></pre>
+<p>In this example, the <code>sum()</code> function takes only one variable (in this case a numeric list). Sometimes functions take more than one variable (also known as “arguments”). These are named values that must be specified for the function to run. The <code>sum()</code> function takes two named arguments – <code>iterable</code> (the list, tuple, etc whose items you wish to add together) and <code>start</code> (an optional value to start the sum from). By default, the value of <code>start</code> is 0, but you may want to add the sum to another value (for instance if you are calculating a cummulative sum):</p>
+<pre class="python"><code>sum([1,2,3], 10)</code></pre>
+<pre><code>## 16</code></pre>
+<p>If you do not name arguments, they will be taken and assigned to the arguments in the order in which they are input. Any arguments not submitted will use their default value (0 for the case of <code>start</code> here). We can however name the arguments and set the value using the <code>=</code> sign.</p>
+<p>To see the documentation for a specific function, use the <code>help()</code> function:</p>
+<pre class="python"><code>help(sum)</code></pre>
+<pre><code>## Help on built-in function sum in module builtins:
+## 
+## sum(iterable, start=0, /)
+##     Return the sum of a &#39;start&#39; value (default: 0) plus an iterable of numbers
+##     
+##     When the iterable is empty, return the start value.
+##     This function is intended specifically for use with numeric values and may
+##     reject non-numeric types.</code></pre>
+</div>
+<div id="printing" class="section level2">
+<h2><span class="header-section-number">3.7</span> Printing</h2>
+<p><code>print()</code> can be used to print whatever is stored in the variable the function is called on. Print is what is known as an “overloaded”&quot; function, which means that there are many functions named <code>print()</code>, each written to deal with an object of a different class. The correct one is used based on the object that you supply. So calling <code>print()</code> on a numeric variable will print the value stored in the variable. Calling it on a list prints all of the values stored in the list:</p>
+<pre class="python"><code>x = 1
+print (x)</code></pre>
+<pre><code>## 1</code></pre>
+<pre class="python"><code>y = [1,2,3,4,5]
+print (y)</code></pre>
+<pre><code>## [1, 2, 3, 4, 5]</code></pre>
+<p>If you notice, using <code>print()</code> is the default when you just call the variable itself:</p>
+<pre class="python"><code>x</code></pre>
+<pre><code>## 1</code></pre>
+<pre class="python"><code>y</code></pre>
+<pre><code>## [1, 2, 3, 4, 5]</code></pre>
+<p>Here we are supplying a single argument to <code>print()</code>. Multiple different string values can be concatenated using the <code>+</code> character, and this concatenated string can then be printed:</p>
+<pre class="python"><code>x = &quot;hello&quot;
+y = &quot;world&quot;
+print(x + y)</code></pre>
+<pre><code>## helloworld</code></pre>
+<p>Note here that the <code>+</code> character will join the strings directly, so there is no space. However, <code>print()</code> is also able to take any number of different arguments, and will print them one after the other with a space in between:</p>
+<pre class="python"><code>x = &quot;hello&quot;
+y = &quot;world&quot;
+print(x, y)</code></pre>
+<pre><code>## hello world</code></pre>
+<p>The concatenate command is only able to concatanate strings, so could not deal with numerical values:</p>
+<pre class="python"><code>x = 100
+y = &quot;bottles of beer on the wall&quot;
+print(x + y)</code></pre>
+<p>However, it is possible to caste a numeric value to a string using the <code>str()</code> function, but using the multi-parameter use of the <code>print()</code> method will automatically take care of this:</p>
+<pre class="python"><code>x = 100
+y = &quot;bottles of beer on the wall&quot;
+print(x, y)</code></pre>
+<pre><code>## 100 bottles of beer on the wall</code></pre>
+<p><code>\t</code> is a special printing characters that you can use to print a tab character. Another similar special character that you may need to use is <code>\n</code> which prints a new line:</p>
+<pre class="python"><code>x = &quot;hello&quot;
+y = &quot;world&quot;
+print(x + &quot;\t&quot; + y + &#39;\n&#39; + &quot;next line&quot;)</code></pre>
+<pre><code>## hello    world
+## next line</code></pre>
+<p>There are also other characters, such as <code>'</code>, <code>&quot;</code>, <code>/</code> and <code>\</code>, which may require “escaping” with a backslash to avoid being interpreted in a different context. For instance, if you have a string containing an apostrophe within a string defined using apostrophes, the string will be interpreted as terminating earlier, and the code will not do what you expect:</p>
+<pre class="python"><code>print(&#39;It&#39;s very annoying when this happens...&#39;)</code></pre>
+<p>Here, the string submitted to <code>print()</code> is actual “It” rather than the intended “It’s very annoying when this happens…”. The function will not know what to do about the remainder of the string, so an error will occur. However, by escaping the apostrophe, the string will be interpreted correctly:</p>
+<pre class="python"><code>print(&#39;It\&#39;s easily fixed though!&#39;)</code></pre>
+<pre><code>## It&#39;s easily fixed though!</code></pre>
+<p>Another alternative is to use double apostrophes as the delimiter, which will avoid the single apostrophe being misinterpreted:</p>
+<pre class="python"><code>print(&quot;It&#39;s easily fixed though!&quot;)</code></pre>
+<pre><code>## It&#39;s easily fixed though!</code></pre>
+<p>An alternative approach to using the concatanate operator that is able to cope with multiple different classes is to use %-formatting:</p>
+<pre class="python"><code>print(&quot;%10s\t%5s&quot; % (&quot;Hello&quot;, &quot;World&quot;)) </code></pre>
+<pre><code>##      Hello   World</code></pre>
+<pre class="python"><code>print(&quot;%10s\t%5s&quot; % (&quot;Helloooooo&quot;, &quot;World&quot;))</code></pre>
+<pre><code>## Helloooooo   World</code></pre>
+<p>The first string shows how we want the inputs to be formatted, followed by a <code>%</code> operator and a list of the inputs. Within the formatting string, placeholders of the form <code>%10s</code> are replaced by the given inputs, with the first being replaced by the first argument in the list, and so on (so the number of additional arguments after the <code>%</code> operator must match the number of placeholders). The number in the placeholder defines the width to allocate for printing that argument (positive is right aligned, negative is left aligned), decimal numbers in the placeholder define precision of floating point numbers, and the letter defines the type of argument to print (e.g. <code>s</code> for string, <code>i</code> for integer, <code>f</code> for fixed point decimal, <code>e</code> for exponential decimal). Here are some examples:</p>
+<pre class="python"><code>print(&quot;%20s&quot;  % (&quot;Hello&quot;)) </code></pre>
+<pre><code>##                Hello</code></pre>
+<pre class="python"><code>print(&quot;%-20s&quot; % (&quot;Hello&quot;)) </code></pre>
+<pre><code>## Hello</code></pre>
+<pre class="python"><code>print(&quot;%10i&quot;  % (12345)) </code></pre>
+<pre><code>##      12345</code></pre>
+<pre class="python"><code>print(&quot;%10f&quot;  % (12.345)) </code></pre>
+<pre><code>##  12.345000</code></pre>
+<pre class="python"><code>print(&quot;%10e&quot;  % (12.345)) </code></pre>
+<pre><code>## 1.234500e+01</code></pre>
+<p>f-strings offer the same control on incorprating multiple variables into a string, but in a slightly more readable manner. In f-strings, the string is preceeded by the <code>f</code> operator, and the variables are incorprated into the string by name within curly braces:</p>
+<pre class="python"><code>forename = &quot;Sam&quot;
+surname = &quot;Robson&quot;
+job = &quot;Bioinformatician&quot;
+f&quot;My name is {forename} {surname} and I am a {job}&quot;</code></pre>
+<pre><code>## &#39;My name is Sam Robson and I am a Bioinformatician&#39;</code></pre>
+<p>The contents of the curly braces are evaluated at runtime, so can contain any valid expression:</p>
+<pre class="python"><code>f&quot;2 times 3 is {2*3}&quot;</code></pre>
+<pre><code>## &#39;2 times 3 is 6&#39;</code></pre>
+<p>For readibility, these can be split over multiple lines, provided that each new line begins with the <code>f</code> operator:</p>
+<pre class="python"><code>forename = &quot;Sam&quot;
+surname = &quot;Robson&quot;
+job = &quot;Bioinformatician&quot;
+description = (f&quot;My name is {forename} {surname}. &quot;
+               f&quot;I am a {job}&quot;)
+description</code></pre>
+<pre><code>## &#39;My name is Sam Robson. I am a Bioinformatician&#39;</code></pre>
+</div>
+</div>
+<div id="storing-multiple-values" class="section level1">
+<h1><span class="header-section-number">4</span> Storing Multiple Values</h1>
+<div id="lists-and-tuples" class="section level2">
+<h2><span class="header-section-number">4.1</span> Lists and Tuples</h2>
+<p>In Python, vector-like lists of values are known as <code>lists</code>. They can be declared simply by using square bracket notation as follows:</p>
+<pre class="python"><code>mylist = [1,2,3,4,5]
+mylist</code></pre>
+<pre><code>## [1, 2, 3, 4, 5]</code></pre>
+<p>Lists can store multiple variables of any data type, and are a very useful way of storing linked data together:</p>
+<pre class="python"><code>mylist = [1,2,3,4,5,&quot;once&quot;,&quot;I&quot;,&quot;caught&quot;,&quot;a&quot;,&quot;fish&quot;,&quot;alive&quot;,True]
+mylist</code></pre>
+<pre><code>## [1, 2, 3, 4, 5, &#39;once&#39;, &#39;I&#39;, &#39;caught&#39;, &#39;a&#39;, &#39;fish&#39;, &#39;alive&#39;, True]</code></pre>
+<p>You can use the <code>range()</code> function to create a sequence of integer values from a starting value to an end value. However, note that the end value is <em>not</em> included:</p>
+<pre class="python"><code>myrange = range(0,5)
+for i in myrange:
+  print(i)</code></pre>
+<pre><code>## 0
+## 1
+## 2
+## 3
+## 4</code></pre>
+<p>Note that I will discuss the <code>for</code> loop in a later section. You can also add a third parameter to define the step between the sequential values. So to take every <em>other</em> value from 0 to 10, you would add a step value of 2:</p>
+<pre class="python"><code>myrange = range(0,11,2)
+for i in myrange:
+  print(i)</code></pre>
+<pre><code>## 0
+## 2
+## 4
+## 6
+## 8
+## 10</code></pre>
+<p>You can access the individual elements of the list by using square brackets (<code>[</code>) to index the array. The elements in the vector are numbered from 0 upwards, so to take the first and last values we do the following:</p>
+<pre class="python"><code>mylist[0]</code></pre>
+<pre><code>## 1</code></pre>
+<pre class="python"><code>mylist[4]</code></pre>
+<pre><code>## 5</code></pre>
+<pre class="python"><code>mylist[5]</code></pre>
+<pre><code>## &#39;once&#39;</code></pre>
+<p>As you can see, an error is returned if you try to take an element that does not exist. The subset can be as long as you like, as long as it’s not longer than the full set:</p>
+<pre class="python"><code>mylist[1:4]</code></pre>
+<pre><code>## [2, 3, 4]</code></pre>
+<p>This process is known as “slicing”. It is also possible to tell Python how many values we want to increment by as we slice. So to take every <em>other</em> value in the above slice, we would do the following:</p>
+<pre class="python"><code>mylist[1:4:2]</code></pre>
+<pre><code>## [2, 4]</code></pre>
+<p>This can also be used to reverse the order, by adding a minus sign to this final value. Here we do not specifically tell Python which values to use as the first and last value (which will take <em>all</em> values), and increment by 1 again (which is implicit when no third value is included) using a minus sign to get the values in the reverse order:</p>
+<pre class="python"><code>mylist[::-1]</code></pre>
+<pre><code>## [True, &#39;alive&#39;, &#39;fish&#39;, &#39;a&#39;, &#39;caught&#39;, &#39;I&#39;, &#39;once&#39;, 5, 4, 3, 2, 1]</code></pre>
+<p>Here, the <code>:</code> in the brackets simply means to take all of the numbers from the first up to (but not including) the last. So <code>[0:2]</code> will return the first 2 elements of the vector.</p>
+<p>Using negative values for the start or end values will start the counting from the end of the array. So the index -2 will be the position 2 from the end of the array. Thus to get the final 2 values from a list we can do the following:</p>
+<pre class="python"><code>mylist[-2:]</code></pre>
+<pre><code>## [&#39;alive&#39;, True]</code></pre>
+<p>We can also use the square bracket notation to reassign elements of the list:</p>
+<pre class="python"><code>mylist2 = [1,2,3,4,5]
+mylist2[0] = &quot;Hello World!&quot;
+mylist2</code></pre>
+<pre><code>## [&#39;Hello World!&#39;, 2, 3, 4, 5]</code></pre>
+<p>A <code>tuple</code> is very similar to a list, with two main differences. The first is that we use normal parentheses <code>(</code> rather than square brackets, and the second is that we cannot change the elements of the tuple. The tuple isordered and <em>immutable</em>:</p>
+<pre class="python"><code>mylist2 = (1,2,3,4,5)
+mylist2[0] = &quot;Hello World!&quot;
+mylist2</code></pre>
+<p>You can completely reassign the entire variable if you want to, but once the elements of the tuple have been set they cannot be changed.</p>
+<p>To drop elements from a list, you use the <code>pop()</code> method. So to remove the value <code>2</code> from the array we would do the following:</p>
+<pre class="python"><code>mylist = [1,2,3,4,5]
+mylist.pop(1)</code></pre>
+<pre><code>## 2</code></pre>
+<pre class="python"><code>mylist</code></pre>
+<pre><code>## [1, 3, 4, 5]</code></pre>
+<p>To add extra elements to a list, you can use the <code>append()</code> method. So to add the value 2 back in we would do the following:</p>
+<pre class="python"><code>mylist.append(2)
+mylist</code></pre>
+<pre><code>## [1, 3, 4, 5, 2]</code></pre>
+<p>Note here that <code>append()</code> will add the value to the very end of the list To add an element to a specified position, you can use the <code>insert()</code> method, specifying the specific position to which you want to add the value in the list:</p>
+<pre class="python"><code>mylist.insert(1, &quot;Hello World!&quot;)
+mylist</code></pre>
+<pre><code>## [1, &#39;Hello World!&#39;, 3, 4, 5, 2]</code></pre>
+<p>Note that the list can take values of different types. You can even create lists of lists, which can be accessed using multiple square brackets:</p>
+<pre class="python"><code>mylist = [1,2,3]
+mylist.append([&quot;hello&quot;, &quot;world&quot;])
+mylist</code></pre>
+<pre><code>## [1, 2, 3, [&#39;hello&#39;, &#39;world&#39;]]</code></pre>
+<pre class="python"><code>mylist[3][0]</code></pre>
+<pre><code>## &#39;hello&#39;</code></pre>
+<p>Here we select the first value from the array that makes up the fourth element of the array after appending.</p>
+<p>We can also sort data in a list simply using the <code>sort()</code> function:</p>
+<pre class="python"><code>mynum = [3, 94637, 67, 45, 23, 100, 45]
+mynum.sort()
+print(mynum)</code></pre>
+<pre><code>## [3, 23, 45, 45, 67, 100, 94637]</code></pre>
+<p>This works on both numeric and string data:</p>
+<pre class="python"><code>mystr = [&#39;o&#39;, &#39;a&#39;, &#39;u&#39;, &#39;e&#39;, &#39;i&#39;]
+mystr.sort()
+print(mystr)</code></pre>
+<pre><code>## [&#39;a&#39;, &#39;e&#39;, &#39;i&#39;, &#39;o&#39;, &#39;u&#39;]</code></pre>
+<p>By default sorting is from lowest to highest. By including the <code>reverse = True</code> argument, we can get the list sorted in a reverse order:</p>
+<pre class="python"><code>mynum = [3, 94637, 67, 45, 23, 100, 45]
+mynum.sort(reverse = True)
+print(mynum)</code></pre>
+<pre><code>## [94637, 100, 67, 45, 45, 23, 3]</code></pre>
+</div>
+<div id="dictionary" class="section level2">
+<h2><span class="header-section-number">4.2</span> Dictionary</h2>
+<p>A dictionary in Python is a named list, containing a series of key-value pairs, and is declared surrounded by curly braces. Each item in the dictionary is separated by commas and contains a key and a value separated by ‘:’ characters. Each key must be unique, whilst the values to which they refer may not be.</p>
+<p>Dictionaries have the benefit compared to lists that you can access values based on the key values, using standard square bracket notation with the key name. This means that you do not need to know the index number for the value that you wish to access:</p>
+<pre class="python"><code>mydict = {&#39;forename&#39;:&#39;Sam&#39;, &#39;surname&#39;:&#39;Robson&#39;, &#39;job&#39;:&#39;Bioinformatician&#39;}
+print(mydict[&quot;forename&quot;], mydict[&quot;surname&quot;])</code></pre>
+<pre><code>## Sam Robson</code></pre>
+<p>You can use the square bracket notation to update the entry in the dictionary for the specified item:</p>
+<pre class="python"><code>mydict[&quot;forename&quot;] = &quot;Samuel&quot;
+print(mydict[&quot;forename&quot;], mydict[&quot;surname&quot;])</code></pre>
+<pre><code>## Samuel Robson</code></pre>
+<p>And new items can be added by using a key that does not exist in the dictionary already:</p>
+<pre class="python"><code>mydict[&quot;skills&quot;] = &quot;Python&quot;
+print(mydict[&quot;skills&quot;])</code></pre>
+<pre><code>## Python</code></pre>
+<p>The <code>del</code> statement can be used to remove specific entries in the dictionary:</p>
+<pre class="python"><code>del mydict[&quot;skills&quot;]
+print(mydict)</code></pre>
+<pre><code>## {&#39;forename&#39;: &#39;Samuel&#39;, &#39;surname&#39;: &#39;Robson&#39;, &#39;job&#39;: &#39;Bioinformatician&#39;}</code></pre>
+<p>And all items can be cleared by calling the <code>clear()</code> method:</p>
+<pre class="python"><code>mydict.clear()
+print(mydict)</code></pre>
+<pre><code>## {}</code></pre>
+<p>The length of a dictionary, specifically the number of key-value pairs, can be shown by using the <code>len()</code> method:</p>
+<pre class="python"><code>mydict = {&#39;forename&#39;:&#39;Sam&#39;, &#39;surname&#39;:&#39;Robson&#39;, &#39;job&#39;:&#39;Bioinformatician&#39;}
+len(mydict)</code></pre>
+<pre><code>## 3</code></pre>
+<p>We can also pull out all of the key-value pairs in the dictionary using the <code>items()</code> method:</p>
+<pre class="python"><code>mydict = {&#39;forename&#39;:&#39;Sam&#39;, &#39;surname&#39;:&#39;Robson&#39;, &#39;job&#39;:&#39;Bioinformatician&#39;}
+mydict.items()</code></pre>
+<pre><code>## dict_items([(&#39;forename&#39;, &#39;Sam&#39;), (&#39;surname&#39;, &#39;Robson&#39;), (&#39;job&#39;, &#39;Bioinformatician&#39;)])</code></pre>
+</div>
+</div>
+<div id="numpy" class="section level1">
+<h1><span class="header-section-number">5</span> NumPy</h1>
+<div id="introduction-1" class="section level2">
+<h2><span class="header-section-number">5.1</span> Introduction</h2>
+<p>Many calculations in data science require a field of mathematics called “linear algebra”, which is all about multiplication of data stored in vectors and matrices. <a href="https://numpy.org">NumPy</a> is one of the most commonly used packages for scientific computing and provides very powerful tools for linear algebra using code from fast languages such as C/C++ and fortran. It allows you to generate arrays of values and offers vectorised calculations for linear algebra that offer huge improvements in performance. For instance, to sum two vectors of equal size (1 dimensional arrays), the result will be a vector where the i<sup>th</sup> entry is the sum of the i<sup>th</sup> entries from the input vectors.</p>
+<p>NumPy is imported by using the <code>import</code> declaration, and access functions from the package directly using the package name. We can define a shortened name for the package so that we do not have to type <code>numpy</code> every time:</p>
+<pre class="python"><code>import numpy as np</code></pre>
+</div>
+<div id="arrays" class="section level2">
+<h2><span class="header-section-number">5.2</span> Arrays</h2>
+<p>We can convert Python lists into NumPy arrays and use these to access the powerful additional methods associated with these data types:</p>
+<pre class="python"><code>x = np.array([2,3,2,4,5])
+y = np.array([4,1,1,2,3])
+
+x+y</code></pre>
+<pre><code>## array([6, 4, 3, 6, 8])</code></pre>
+<pre class="python"><code>x*y</code></pre>
+<pre><code>## array([ 8,  3,  2,  8, 15])</code></pre>
+<p>There is not much difference between the normal Python lists that we saw previously and the np arrays shown here, but the functionality is significantly improved. One function is the <code>np.arange()</code> method, which allows us to generate a list of values between a start and end point incremented by a specific value. Unlike the <code>range()</code> function seen previously, the step value does not need to be an integer:</p>
+<pre class="python"><code>np.arange(0,10,2)</code></pre>
+<pre><code>## array([0, 2, 4, 6, 8])</code></pre>
+<pre class="python"><code>np.arange(0,100,10)</code></pre>
+<pre><code>## array([ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90])</code></pre>
+<pre class="python"><code>np.arange(1,2,0.1)</code></pre>
+<pre><code>## array([1. , 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9])</code></pre>
+<p>The three arguments are the starting value, the final value (note that this will <em>not</em> be included in the final list), and the step size.</p>
+</div>
+<div id="matrices" class="section level2">
+<h2><span class="header-section-number">5.3</span> Matrices</h2>
+<p>As well as 1D arrays, we can look at 2D arrays, or <code>matrices</code>. For example, this may be how you are used to seeing data in a spreadsheet context, with each row representing a different sample, and each row representing some measurement for that sample. An array is a special case of a matrix with only 1 row. We can use the <code>np.reshape()</code> method to reshape an array into a different shape by giving the number of rows and columns of the output that we want to see:</p>
+<pre class="python"><code>np.arange(1,10,1).reshape(3,3)</code></pre>
+<pre><code>## array([[1, 2, 3],
+##        [4, 5, 6],
+##        [7, 8, 9]])</code></pre>
+<p>Note here that a matrix uses double square brackets <code>[[</code> rather than the single square brackets used for 1-dimensional arrays. We can check the shape of the matrix by using the <code>shape()</code> method:</p>
+<pre class="python"><code>myarray = np.arange(1,10,1)
+myarray.shape</code></pre>
+<pre><code>## (9,)</code></pre>
+<pre class="python"><code>mymatrix = myarray.reshape(3,3)
+mymatrix.shape</code></pre>
+<pre><code>## (3, 3)</code></pre>
+<p>The shape is given by a tuple where the first value gives the number of rows and the second gives the number of columns. Before reshaping, <code>myarray</code> is a 1D array. After reshaping, <code>mymatrix</code> becomes a 2D array, or matrix.</p>
+<p>You can also generate a matrix as an array of arrays using double square baracket notation. Note that when doing this the length of each array must match to create a matrix:</p>
+<pre class="python"><code>mymatrix = np.array([[1,2,3],[4,5,6]])
+print(mymatrix)</code></pre>
+<pre><code>## [[1 2 3]
+##  [4 5 6]]</code></pre>
+</div>
+<div id="indexing-and-slicing" class="section level2">
+<h2><span class="header-section-number">5.4</span> Indexing and slicing</h2>
+<p>Indexing of 1D arrays works similarly to that of lists, by using the index of the value that you want to access in square brackets. Again, remember that indexing begins at 0, not 1, so to get the second value in the array you would use the index 1:</p>
+<pre class="python"><code>mymatrix = np.array([1,2,3,4,5,6])
+print(mymatrix[1])</code></pre>
+<pre><code>## 2</code></pre>
+<p>The syntax for slicing is also the same as for lists, using <code>:</code> to define the range:</p>
+<pre class="python"><code>mymatrix = np.array([1,2,3,4,5,6])
+print(mymatrix[2:4])</code></pre>
+<pre><code>## [3 4]</code></pre>
+<pre class="python"><code>print(mymatrix[::2])</code></pre>
+<pre><code>## [1 3 5]</code></pre>
+<p>For 2D matrix indexing, we need to specify two values - one for the index of the rows and another for the index of the columns:</p>
+<pre class="python"><code>mymatrix = np.array([[1,2,3],[4,5,6]])
+print(mymatrix[0,0])</code></pre>
+<pre><code>## 1</code></pre>
+<p>Slicing can be a little more complex, but you can use the same approach of specifying the row and column slices separated by a comma as above. So to take the first two columns we would do the following to take all of the rows (<code>:</code>), but only the first two columns (<code>0:2</code>):</p>
+<pre class="python"><code>mymatrix = np.array([[1,2,3],[4,5,6]])
+print(mymatrix[:,0:2])</code></pre>
+<pre><code>## [[1 2]
+##  [4 5]]</code></pre>
+</div>
+<div id="matrix-multiplication" class="section level2">
+<h2><span class="header-section-number">5.5</span> Matrix multiplication</h2>
+<p>Multiplication of matrices is probably too much to go into in too much detail here, but the <code>dot product</code> of two matrices can only be performed if the number of <em>columns</em> of the first matrix matches the number of <em>rows</em> of the second. The dot product can be calculated for two such matrices using the <code>np.dot()</code> function:</p>
+<pre class="python"><code>A = np.array([1,2,3]).reshape(1,3)
+B = np.arange(1,10,1).reshape(3,3)
+np.dot(A,B)</code></pre>
+<pre><code>## array([[30, 36, 42]])</code></pre>
+<p>Matrix multiplication does not always follow the commutative law of multiplication, since it is not always the case that <code>A.B</code> is the same as <code>B.A</code>:</p>
+<pre class="python"><code>np.dot(A,B)
+np.dot(B,A)</code></pre>
+<p>The identity matrix is an example where matrix multiplication <em>is</em> commutative, since any matrix multiplied by the identity matrix (of the correct dimensions) gives itself. To give an identity matrix, a square matrix with 1s on the diagonals and 0s everywhere else, you can use the <code>np.eye()</code> function with the dimension specified:</p>
+<pre class="python"><code>C = np.eye(3)
+print(C)</code></pre>
+<pre><code>## [[1. 0. 0.]
+##  [0. 1. 0.]
+##  [0. 0. 1.]]</code></pre>
+<pre class="python"><code>np.dot(B,C)
+np.dot(C,B)</code></pre>
+<p>There are a number of other useful functions available that are very useful in the field of linear algebra and matrix multiplication. For example, to generate a matrix of 0s, you can use the <code>np.zeros()</code> function, giving a 2D tuple as input:</p>
+<pre class="python"><code>np.zeros((2,3))</code></pre>
+<pre><code>## array([[0., 0., 0.],
+##        [0., 0., 0.]])</code></pre>
+</div>
+<div id="sorting" class="section level2">
+<h2><span class="header-section-number">5.6</span> Sorting</h2>
+<p>NumPy has a powerful sorting method, which can act much like the list <code>sort()</code> function seen previously:</p>
+<pre class="python"><code>myarray = np.array([3, 94637, 67, 45, 23, 100, 45])
+myarray.sort()
+print(myarray)</code></pre>
+<pre><code>## [    3    23    45    45    67   100 94637]</code></pre>
+<p>We are also able to use the <code>argsort()</code> method to get the indexing of the input array, rather than the sorted array itself:</p>
+<pre class="python"><code>myarray = np.array([3, 94637, 67, 45, 23, 100, 45])
+myarray.argsort()</code></pre>
+<pre><code>## array([0, 4, 3, 6, 2, 5, 1])</code></pre>
+<p>This sort function is more powerful than the standard Python sort function for lists as it is able to sort both 1D arrays and 2D (and indeed multi-dimensional in general) matrices, and can use multiple different sorting algorithms. For matrices, the default is to sort the values on the final axis, which in the case of the case of a 2D matrix will sort the values within each row individually:</p>
+<pre class="python"><code>mymatrix = np.array([[6,3,3],[1,2,4]])
+mymatrix.sort()
+print(mymatrix)</code></pre>
+<pre><code>## [[3 3 6]
+##  [1 2 4]]</code></pre>
+<p>If we would instead prefer to sort on the columns, we can specify the <code>axis</code> argument:</p>
+<pre class="python"><code>mymatrix = np.array([[6,3,3],[1,2,4]])
+mymatrix.sort(axis=0)
+print(mymatrix)</code></pre>
+<pre><code>## [[1 2 3]
+##  [6 3 4]]</code></pre>
+<p>We can also specify which algorithm we want to use for sorting (e.g. <code>quicksort</code>, <code>mergesort</code> or <code>heapsort</code>), which can have an impact on the speed and efficiency:</p>
+<pre class="python"><code>mymatrix = np.array([[6,3,3],[1,2,4]])
+mymatrix.sort(kind = &#39;mergesort&#39;)
+print(mymatrix)</code></pre>
+<pre><code>## [[3 3 6]
+##  [1 2 4]]</code></pre>
+</div>
+<div id="structured-array" class="section level2">
+<h2><span class="header-section-number">5.7</span> Structured Array</h2>
+<p>NumPy arrays are homogenous, and contain a single class of data. Structured arrays on the other hand are arrays of structures, each of a different class. For this, we need to define ahead of time the class of data to be included by using a <code>dtype</code> parameter. This is a list of tupels, where each tupel is a pair giving the name of the structure and the type of data that it will hold:</p>
+<pre class="python"><code>dtype = [(&#39;Name&#39;, (np.str_, 10)), (&#39;Age&#39;, np.int32), (&#39;Score&#39;, np.float64)]</code></pre>
+<p>Here, we are defining 3 types of fields within the structure:</p>
+<ol style="list-style-type: decimal">
+<li><code>Name</code> – A string with a maximum of 10 characters</li>
+<li><code>Age</code> – A 32 bit integer</li>
+<li><code>Score</code> – A 64 bit floating point value</li>
+</ol>
+<p>Then we can create a structured array where every element is a tuple containing exactly 3 values corresponding to the types as described in <code>dtype</code>:</p>
+<pre class="python"><code>mystruct = np.array([(&#39;John&#39;, 37, 99.3), (&#39;Paul&#39;, 33, 92.6), (&#39;Ringo&#39;, 40, 97.5), (&#39;George&#39;, 35, 92.6)], dtype = dtype)
+print(mystruct)</code></pre>
+<pre><code>## [(&#39;John&#39;, 37, 99.3) (&#39;Paul&#39;, 33, 92.6) (&#39;Ringo&#39;, 40, 97.5)
+##  (&#39;George&#39;, 35, 92.6)]</code></pre>
+<p>This structured array is a table-like structure that can make it easier to access and modify elements of the data. For instance, the sort function on this data type can take the parameter <code>order</code> to specify which field to use for sorting. So to sort by the <code>Score</code> field, we would do the following:</p>
+<pre class="python"><code>mystruct.sort(order=&quot;Score&quot;)
+print(mystruct)</code></pre>
+<pre><code>## [(&#39;George&#39;, 35, 92.6) (&#39;Paul&#39;, 33, 92.6) (&#39;Ringo&#39;, 40, 97.5)
+##  (&#39;John&#39;, 37, 99.3)]</code></pre>
+<p>We can order on multiple fields to break ties in the <code>Score</code> field by organising also on the <code>Age</code> field:</p>
+<pre class="python"><code>mystruct.sort(order=[&quot;Score&quot;,&quot;Age&quot;])
+print(mystruct)</code></pre>
+<pre><code>## [(&#39;Paul&#39;, 33, 92.6) (&#39;George&#39;, 35, 92.6) (&#39;Ringo&#39;, 40, 97.5)
+##  (&#39;John&#39;, 37, 99.3)]</code></pre>
+</div>
+</div>
+<div id="pandas" class="section level1">
+<h1><span class="header-section-number">6</span> Pandas</h1>
+<div id="introduction-2" class="section level2">
+<h2><span class="header-section-number">6.1</span> Introduction</h2>
+<p><a href="https://pandas.pydata.org">Pandas</a> is another commonly used library in Python that introduces a number of incredibly powerful tools for data wrangling from Wes McKinney. Pandas can load data from a number of sources, including comma separated or tab-delimited text files (CSV or TSV files respectively) and creates aPython object in the sort of structure that one would expect from a spreadsheet type software such as Excel. This <code>data frame</code> shows many similarities with the <code>data.frame</code> class in R. This is a high-level data structure, offering more control in order to access specific data than working with dictionaries and structured arrays.</p>
+<p>To import the package, we use the <code>import</code> command, and as with NumPy we can give it a local name to avoid having to write the whole name every time:</p>
+<pre class="python"><code>import pandas as pd</code></pre>
+</div>
+<div id="data-frames" class="section level2">
+<h2><span class="header-section-number">6.2</span> Data Frames</h2>
+<p>Data frames can be generated by converting lists, dictionaries or NumPy arrays by using the <code>pd.DataFrame()</code> function. Unlike the structured array, we do not need to specify the data types ahead of time. DataFrames can be generated from a list of lists by specifying the column names as follows:</p>
+<pre class="python"><code>array = [[&#39;John&#39;, 37, 99.3], [&#39;Paul&#39;, 33, 92.6], [&#39;Ringo&#39;, 40, 97.5], [&#39;George&#39;, 35, 92.6]]
+df = pd.DataFrame(array, columns = [&#39;Name&#39;, &#39;Age&#39;, &#39;Score&#39;])
+df</code></pre>
+<pre><code>##      Name  Age  Score
+## 0    John   37   99.3
+## 1    Paul   33   92.6
+## 2   Ringo   40   97.5
+## 3  George   35   92.6</code></pre>
+<p>Alternatively, you can use the dict syntax, wherby each column of the DataFrame is a different key-value pair in the dictionary, and the value is a list of entries of the same type:</p>
+<pre class="python"><code>dict = {&#39;Name&#39;:[&#39;John&#39;, &#39;Paul&#39;, &#39;Ringo&#39;, &#39;George&#39;], &#39;Age&#39;:[37,33,40,35], &#39;Score&#39;:[99.3,92.6,97.5,92.6]}
+df = pd.DataFrame(dict)
+df</code></pre>
+<pre><code>##      Name  Age  Score
+## 0    John   37   99.3
+## 1    Paul   33   92.6
+## 2   Ringo   40   97.5
+## 3  George   35   92.6</code></pre>
+<p>The Pandas DataFrame class offers a large number of commonly used statistical functions which can generate summary statistics for the columns in the dataFrame. So to get the mean value of the numerical columns we would use <code>df.mean()</code>:</p>
+<pre class="python"><code>df.mean()</code></pre>
+<pre><code>## Age      36.25
+## Score    95.50
+## dtype: float64</code></pre>
+<p>And for the standard deviation we would use df.std()`:</p>
+<pre class="python"><code>df.std()</code></pre>
+<pre><code>## Age      2.986079
+## Score    3.428313
+## dtype: float64</code></pre>
+</div>
+<div id="indexing-and-slicing-1" class="section level2">
+<h2><span class="header-section-number">6.3</span> Indexing and Slicing</h2>
+<p>Selecting data from a DataFrame is significantly easier than trying to do so from lower-level Python classes. Getting data from specific columns is simply done by using the name of the column in square brackets:</p>
+<pre class="python"><code>df[&#39;Name&#39;]</code></pre>
+<pre><code>## 0      John
+## 1      Paul
+## 2     Ringo
+## 3    George
+## Name: Name, dtype: object</code></pre>
+<p>Multiple columns can be specified as a list:</p>
+<pre class="python"><code>df[[&#39;Age&#39;, &#39;Score&#39;]]</code></pre>
+<pre><code>##    Age  Score
+## 0   37   99.3
+## 1   33   92.6
+## 2   40   97.5
+## 3   35   92.6</code></pre>
+<p>Selecting data in this way will return a new DataFrame. Rows of a DataFrame are labelled by an index, which can be accessed via the <code>index</code> attribute:</p>
+<pre class="python"><code>df.index</code></pre>
+<pre><code>## RangeIndex(start=0, stop=4, step=1)</code></pre>
+<p>By default, the index is a range of indices starting from 0, and these are immutable. However, these can be converted to anything that you like provided that they are unique:</p>
+<pre class="python"><code>df.index = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;]
+df</code></pre>
+<pre><code>##      Name  Age  Score
+## a    John   37   99.3
+## b    Paul   33   92.6
+## c   Ringo   40   97.5
+## d  George   35   92.6</code></pre>
+<p>It is also possible to specify an index when you generate the DataFrame:</p>
+<pre class="python"><code>df = pd.DataFrame(dict, index = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;])
+df</code></pre>
+<pre><code>##      Name  Age  Score
+## a    John   37   99.3
+## b    Paul   33   92.6
+## c   Ringo   40   97.5
+## d  George   35   92.6</code></pre>
+<p>These indexes can then be used select rows of interest. This can be done either by the index as we have done previously with lists, or by the index name. So to get the second row, we could either use the index number (2) or the index name (‘b’). To index by location, we use the <code>iloc</code> attribute:</p>
+<pre class="python"><code>df.iloc[1]</code></pre>
+<pre><code>## Name     Paul
+## Age        33
+## Score    92.6
+## Name: b, dtype: object</code></pre>
+<p>Or to index by the row index names we use te <code>loc</code> attribute:</p>
+<pre class="python"><code>df.loc[&#39;b&#39;]</code></pre>
+<pre><code>## Name     Paul
+## Age        33
+## Score    92.6
+## Name: b, dtype: object</code></pre>
+<p>We can of course slice multiple rows and multiple columns to select any combination of the DataFrame that we desire:</p>
+<pre class="python"><code>df.loc[[&#39;b&#39;,&#39;d&#39;],[&#39;Name&#39;,&#39;Age&#39;]]</code></pre>
+<pre><code>##      Name  Age
+## b    Paul   33
+## d  George   35</code></pre>
+</div>
+</div>
+<div id="data-filtering" class="section level1">
+<h1><span class="header-section-number">7</span> Data Filtering</h1>
+<p>DataFrames can be filtered by using a conditional index to the rows or columns. So for instance, if we wanted to select only the people who scored greater than 95% in their test, we might run the following:</p>
+<pre class="python"><code>df[df[&#39;Score&#39;] &gt; 95]</code></pre>
+<pre><code>##     Name  Age  Score
+## a   John   37   99.3
+## c  Ringo   40   97.5</code></pre>
+<p>Conditional statements can include any logical operators such as <code>and</code> and <code>or</code>, provided that they result in a list of booleans.</p>
+<div id="data-sorting" class="section level2">
+<h2><span class="header-section-number">7.1</span> Data Sorting</h2>
+<p>Sorting of the data can be done by using the <code>sort_values</code> method. This is similar to the NumPy sort, but will sort the whole DataFrame using the sorted index of the column (or index) of interest. There are a number of important parameters to consider:</p>
+<ol style="list-style-type: decimal">
+<li><code>by</code> – The name or index of the column (or row) to use for sorting</li>
+<li><code>axis</code> – Whether you want to sort over the indexes (0) or the columns (1)</li>
+<li><code>ascending</code> – Whether to sort in ascending (True) or descending order (False)</li>
+<li><code>kind</code> – The sorting algorithm to use</li>
+</ol>
+<p>So to sort the DataFrame in descending order on the <code>Score</code> field, we would do the following:</p>
+<pre class="python"><code>df_srt = df.sort_values(by = [&#39;Score&#39;], ascending = False)
+df_srt</code></pre>
+<pre><code>##      Name  Age  Score
+## a    John   37   99.3
+## c   Ringo   40   97.5
+## b    Paul   33   92.6
+## d  George   35   92.6</code></pre>
+<p>In addition, there is another parameter, <code>inplace</code>. If set to True, calling this method will replace the original object with its sorted output, rather than you having to explicitly assign this:</p>
+<pre class="python"><code>df.sort_values(by = [&#39;Score&#39;], ascending = False, inplace = True)
+df</code></pre>
+<pre><code>##      Name  Age  Score
+## a    John   37   99.3
+## c   Ringo   40   97.5
+## b    Paul   33   92.6
+## d  George   35   92.6</code></pre>
+<p>It is also possible to use the function <code>sort_index()</code> to sort on the index of the DataFrame rather than the values within the DataFrame itself. This can be used, for instance, to return a sorted DataFrame back to its original state. By sorting the DataFrame above, we have created DataFrame with a non-consecutive index. By sorting on the index, we will return the DataFrame to its original state before we sorted it:</p>
+<pre class="python"><code>df.sort_index(inplace = True)
+df</code></pre>
+<pre><code>##      Name  Age  Score
+## a    John   37   99.3
+## b    Paul   33   92.6
+## c   Ringo   40   97.5
+## d  George   35   92.6</code></pre>
+</div>
+<div id="data-cleaning" class="section level2">
+<h2><span class="header-section-number">7.2</span> Data Cleaning</h2>
+<p>One of the first steps for any data analysis is to ensure that the data set that you are starting with is clean and does not contain any missing values. Let’s create a DataFrame with some missing values using the <code>np.nan</code> value:</p>
+<pre class="python"><code>dict = {&#39;Name&#39;:[&#39;John&#39;, np.nan, &#39;Ringo&#39;, &#39;George&#39;], &#39;Age&#39;:[37,np.nan,40,35], &#39;Score&#39;:[99.3,92.6,97.5,np.nan]}
+df = pd.DataFrame(dict)
+df</code></pre>
+<pre><code>##      Name   Age  Score
+## 0    John  37.0   99.3
+## 1     NaN   NaN   92.6
+## 2   Ringo  40.0   97.5
+## 3  George  35.0    NaN</code></pre>
+<p>Missing values can be identified using the <code>isnull()</code> method, which produces an array of True or False values depending on whether the data are missing or not:</p>
+<pre class="python"><code>df.isnull()</code></pre>
+<pre><code>##     Name    Age  Score
+## 0  False  False  False
+## 1   True   True  False
+## 2  False  False  False
+## 3  False  False   True</code></pre>
+<p>Since True is treated as 1, whilst False is treated as 0 in numerical calculations, we can count the number of missing values by simply summing the values in this array:</p>
+<pre class="python"><code>df.isnull().sum()</code></pre>
+<pre><code>## Name     1
+## Age      1
+## Score    1
+## dtype: int64</code></pre>
+<p>So we have 1 value missing in each column. There are different ways of dealing with missing values, and it largely depends on the context. Sometimes, we may want to simply drop the data if it is no longer useful. For instance, the second row gives us only the score but we cannot link this to the name nor the age. Similarly, we may not be able to use the data for individuals where we do not have a score. The <code>dropna()</code> method will remove all rows that contain an NA value:</p>
+<pre class="python"><code>df.dropna()</code></pre>
+<pre><code>##     Name   Age  Score
+## 0   John  37.0   99.3
+## 2  Ringo  40.0   97.5</code></pre>
+<p>If we want to instead remove all <em>columns</em> that contain an NA value, we can use the <code>axis</code> parameter:</p>
+<pre class="python"><code>df.dropna(axis = 1)</code></pre>
+<pre><code>## Empty DataFrame
+## Columns: []
+## Index: [0, 1, 2, 3]</code></pre>
+<p>Since every column contains a missing value, we end up with an empty DataFrame. Other times, it may make sense to replace missing values with another value. The following will replace every missing value with the value <code>Missing</code>:</p>
+<pre class="python"><code>df.fillna(&#39;Missing&#39;)</code></pre>
+<pre><code>##       Name      Age    Score
+## 0     John       37     99.3
+## 1  Missing  Missing     92.6
+## 2    Ringo       40     97.5
+## 3   George       35  Missing</code></pre>
+<p>Of course, this is not a whole lot better than the missing values for the numeric data. For numeric values, we can attempt to impute a value that is suitable by using the other data in the data set. Sometimes, simply using the mean of all of the other values in the column may be suitable:</p>
+<pre class="python"><code>df.fillna(df.mean())</code></pre>
+<pre><code>##      Name        Age      Score
+## 0    John  37.000000  99.300000
+## 1     NaN  37.333333  92.600000
+## 2   Ringo  40.000000  97.500000
+## 3  George  35.000000  96.466667</code></pre>
+</div>
+<div id="combining-dataframes" class="section level2">
+<h2><span class="header-section-number">7.3</span> Combining DataFrames</h2>
+<p>Very often, it is necessary to combine data from multiple sources. For instance, we may want to scrape data from multiple different websites, and then combine them into a single DataFrame for analysis. If we have two DataFrames containing the same columns, we can append the rows of one to the other using the <code>append()</code> function:</p>
+<pre class="python"><code>df1 = pd.DataFrame({&#39;Name&#39;:[&#39;John&#39;, &#39;Paul&#39;, &#39;Ringo&#39;, &#39;George&#39;], &#39;Age&#39;:[37,33,40,35], &#39;Score&#39;:[99.3,92.6,97.5,92.6]})
+df2 = pd.DataFrame({&#39;Name&#39;:[&#39;Yoko&#39;, &#39;Brian&#39;], &#39;Age&#39;:[32,54], &#39;Score&#39;:[91.6,97.0]})
+df1.append(df2)</code></pre>
+<pre><code>##      Name  Age  Score
+## 0    John   37   99.3
+## 1    Paul   33   92.6
+## 2   Ringo   40   97.5
+## 3  George   35   92.6
+## 0    Yoko   32   91.6
+## 1   Brian   54   97.0</code></pre>
+<p>Notice here that the row indexes are appended as is, and should be regenerated to make this dataframe more usable.</p>
+<p>To add additional columns when the number of rows are identical, we use the <code>concat</code> method:</p>
+<pre class="python"><code>df1 = pd.DataFrame({&#39;Name&#39;:[&#39;John&#39;, &#39;Paul&#39;, &#39;Ringo&#39;, &#39;George&#39;], &#39;Age&#39;:[37,33,40,35], &#39;Score&#39;:[99.3,92.6,97.5,92.6]})
+df2 = pd.DataFrame({&#39;Gender&#39;:[&#39;Male&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Male&#39;]})
+pd.concat([df1,df2], axis = 1)</code></pre>
+<pre><code>##      Name  Age  Score Gender
+## 0    John   37   99.3   Male
+## 1    Paul   33   92.6   Male
+## 2   Ringo   40   97.5   Male
+## 3  George   35   92.6   Male</code></pre>
+<p>A slightly safer way to combine two DataFrames is to merge them using <code>join()</code>, where you can combine two DataFrames that share Columns. This might happen where you have two different sets of data for the same set of samples:</p>
+<pre class="python"><code>df1 = pd.DataFrame({&#39;Name&#39;:[&#39;John&#39;, &#39;Paul&#39;, &#39;Ringo&#39;, &#39;George&#39;], &#39;Age&#39;:[37,33,40,35], &#39;Score&#39;:[99.3,92.6,97.5,92.6]})
+df2 = pd.DataFrame({&#39;Name&#39;:[&#39;John&#39;, &#39;Paul&#39;], &#39;Gender&#39;:[&#39;Male&#39;, &#39;Male&#39;]})
+pd.merge(df1, df2, on = &#39;Name&#39;)</code></pre>
+<pre><code>##    Name  Age  Score Gender
+## 0  John   37   99.3   Male
+## 1  Paul   33   92.6   Male</code></pre>
+<p>By default, this uses an <code>inner</code> join, such that outputs are only given where values for <code>Name</code> are found for both <code>df1</code> and <code>df2</code>. However, if we want to create a DataFrame with all values in it, but missing values where necessary, we can use an <code>outer</code> join:</p>
+<pre class="python"><code>pd.merge(df1, df2, on = &#39;Name&#39;, how = &#39;outer&#39;)</code></pre>
+<pre><code>##      Name  Age  Score Gender
+## 0    John   37   99.3   Male
+## 1    Paul   33   92.6   Male
+## 2   Ringo   40   97.5    NaN
+## 3  George   35   92.6    NaN</code></pre>
+</div>
+<div id="reading-and-writing-data" class="section level2">
+<h2><span class="header-section-number">7.4</span> Reading and Writing Data</h2>
+<p>As well as generating DataFrames from arrays created in Python, we can directly read data from a variety of sources using Pandas. Examples include comma-separated value (CSV) files and tab-separated value (TSV) files, where rows are separated by new lines and columns are separated by a delimiter such as a comma or tab-character. In addition, Pandas can read directly from SQL databases, web sites, or Excel spreadsheets. There are some very basic example files available from <a href="/files/RTutorial/">here</a>.</p>
+<p>The function <code>read_csv</code> is one of the most commonly used functions and will load in data from a CSV or TSV file. By default, it uses new lines (<code>\n</code>) to delimit rows and commas (<code>,</code>) to delimit columns. The <code>sep</code> parameter can be used to set a different delimiter, for instance if the data are tab-delimited:</p>
+<pre class="python"><code>pd.read_csv(&quot;sample_annotation.txt&quot;, sep = &quot;\t&quot;)</code></pre>
+<pre><code>##   SampleName Treatment  Replicate CellType
+## 0    sample1   Control          1     HeLa
+## 1    sample2   Control          2     HeLa
+## 2    sample3   Control          3     HeLa
+## 3    sample4      Drug          1     HeLa
+## 4    sample5      Drug          2     HeLa
+## 5    sample6      Drug          3     HeLa</code></pre>
+<p>There are lots of additional arguments to the <code>read_csv()</code> function; <code>header</code> allows you to specify the row that should be used to name the columns of the data frame, <code>index_col</code> allows you to specify the column that should be used as the row index, <code>sep</code> gives the delimiter between column entries (e.g. <code>\t</code> for tab-delimited files, or <code>,</code> for comma-separated files), ‘usecols’ allows you to specify which subset of columns to load, <code>dtype</code> allows you to specify which data types each column represent (as seen previously for structured arrays), <code>skiprows</code> allows you to skip the given numbber of rows at the start of the file, <code>skipfooter</code> does the same but skipping from the bottom of the file, <code>nrows</code> gives the number of rows to read in, <code>na_values</code> allows you to specify which values to count as being ‘NaN’. There are many more, but here is an example of using some of these different parameters:</p>
+<pre class="python"><code>pd.read_csv(&quot;sample_annotation.txt&quot;, sep = &quot;\t&quot;, nrows = 4, index_col = 0)</code></pre>
+<pre><code>##            Treatment  Replicate CellType
+## SampleName                              
+## sample1      Control          1     HeLa
+## sample2      Control          2     HeLa
+## sample3      Control          3     HeLa
+## sample4         Drug          1     HeLa</code></pre>
+<p>Here, the unique <code>SampleName</code> field has been used as the index, which may be more useful than simply numbering them as it is more descriptive.</p>
+</div>
+</div>
+<div id="control-sequences" class="section level1">
+<h1><span class="header-section-number">8</span> Control Sequences</h1>
+<p>One of the most useful things to be able to do with computers is to repeat the same command multiple times without having to do it by hand each time. For this, control sequences can be used to give you close control over the progress of your program.</p>
+<div id="if-else" class="section level2">
+<h2><span class="header-section-number">8.1</span> IF ELSE</h2>
+<p>The first control sequence to look at is the “if else” command, which acts as a switch to run one of a selection of possible commands given a switch that you specify. For instance, you may want to do something different depending on whether a value is odd or even:</p>
+<pre class="python"><code>val = 3
+if val%2 == 0:   # If it is even (exactly divisible by 2)
+  print(&quot;Value is even&quot;)
+else:             # Otherwise it must be odd
+  print(&quot;Value is odd&quot;)</code></pre>
+<pre><code>## Value is odd</code></pre>
+<p>Here, the expression in the parentheses following “if” is evaluated, and if it evaluates to True then the block of code contained within the following curly braces is evaluated. Otherwise, the block of code following the “else” statement is evaluated. You can add additional tests by using the <code>elif</code> statement:</p>
+<pre class="python"><code>my_val = 27
+if my_val%2 == 0:
+  print(&quot;Value is divisible by 2\n&quot;)
+elif my_val%3 == 0:
+  print(&quot;Value is divisible by 3\n&quot;)
+else:
+  print(&quot;Value is not divisible by 2 or 3&quot;)</code></pre>
+<pre><code>## Value is divisible by 3</code></pre>
+<p>Each switch is followed by a block of code in the same indentation level, and the conditional statements are evaluated until one evaluates to True, at which point the relevant output is produced. If none of them evaluate to True, then the default code block following <code>else</code> is evaluated instead. If no <code>else</code> block is present, then the default is to just do nothing. These blocks can be as complicated as you like, and you can have <code>elif</code> statements within the blocks to create a hierarchical structure.</p>
+</div>
+<div id="for" class="section level2">
+<h2><span class="header-section-number">8.2</span> FOR</h2>
+<p>Another control structure is the <code>for</code> loop, which will conduct the code in the block multiple times for a variety of values that you specify at the start. For instance, here is a simple countdown script:</p>
+<pre class="python"><code>for i in range(10,0,-1):
+  print(i)
+  if i == 1:
+    print(&quot;Blastoff!&quot;) </code></pre>
+<pre><code>## 10
+## 9
+## 8
+## 7
+## 6
+## 5
+## 4
+## 3
+## 2
+## 1
+## Blastoff!</code></pre>
+<p>So the index <code>i</code> is taken from the set of numbers (10, 9, …, 1), starting at the first value 10, and each time prints out the number followed by a newline. Then an <code>if</code> statement checks to see if we have reached the final number, which we have not. It therefore returns to the start of the block, updates the number to the second value 9, and repeats. It does this until there are no more values to use.</p>
+<p>As a small aside, this is slightly inefficient. Evaluation of the <code>if</code> statement is conducted every single time the loop is traversed (10 times in this example). It will only ever be True at the end of the loop, so we could always take this out of the loop and evaluate the final printout after the loop is finished and save ourselves 10 calculations. Whilst the difference here is negligible, thinking of things like this may save you time in the future:</p>
+<pre class="python"><code>for i in range(10,0,-1):
+  print(i)</code></pre>
+<pre><code>## 10
+## 9
+## 8
+## 7
+## 6
+## 5
+## 4
+## 3
+## 2
+## 1</code></pre>
+<pre class="python"><code>print(&quot;Blastoff!&quot;)</code></pre>
+<pre><code>## Blastoff!</code></pre>
+</div>
+<div id="while" class="section level2">
+<h2><span class="header-section-number">8.3</span> WHILE</h2>
+<p>The final main control structure is the <code>while</code> loop. This is similar to the <code>for</code> loop, and will continue to evaluate the code chunk as long as the specified expression evaluates to True:</p>
+<pre class="python"><code>i = 10
+while i &gt; 0:
+  print(i)
+  i -= 1 ## Equavalent to i = i-1</code></pre>
+<pre><code>## 10
+## 9
+## 8
+## 7
+## 6
+## 5
+## 4
+## 3
+## 2
+## 1</code></pre>
+<pre class="python"><code>print(&quot;Blastoff!&quot;)</code></pre>
+<pre><code>## Blastoff!</code></pre>
+<p>This does exactly the same as the <code>for</code> loop above. In general, either can be used for a given purpose, but there are times when one would be more “elegant” than the other. For instance, here the for loop is better as you do not need to manually subtract 1 from the index each time.</p>
+<p>However, if you did not know how many iterations were required before finding what you are looking for (for instance searching through a number of files), a <code>while</code> loop may be more suitable.</p>
+<p><strong>HOWEVER</strong>: Be aware that it is possible to get caught up in an “infinite loop”. This happens if the conditional statement never evaluates to False. For instance, if we forget to decrement the index, <code>i</code> will always be 10 and will therefore never be less than 0. This loop will therefore run forever:</p>
+<pre class="python"><code>i = 10
+while i &gt; 0:
+  print(i)
+print(&quot;Blastoff!&quot;)</code></pre>
+</div>
+<div id="loop-control" class="section level2">
+<h2><span class="header-section-number">8.4</span> Loop Control</h2>
+<p>You can leave control loops early by using flow control constructs. <code>continue</code> skips out of the current loop and moves onto the next in the sequence. In the following case, it will restart the loop when <code>i</code> is 5 before printing:</p>
+<pre class="python"><code>for i in range(1,11):
+  if i == 5:
+    continue
+  print(i) </code></pre>
+<pre><code>## 1
+## 2
+## 3
+## 4
+## 6
+## 7
+## 8
+## 9
+## 10</code></pre>
+<pre class="python"><code>print(&quot;Finished loop&quot;)</code></pre>
+<pre><code>## Finished loop</code></pre>
+<p><code>break</code> will leave the code chunk entirely, and in this case will move onto the final print function as soon as it is identified that <code>i</code> is equal to 5:</p>
+<pre class="python"><code>for i in range(1,11):
+  if i == 5:
+    break
+  print(i) </code></pre>
+<pre><code>## 1
+## 2
+## 3
+## 4</code></pre>
+<pre class="python"><code>print(&quot;Finished loop&quot;)</code></pre>
+<pre><code>## Finished loop</code></pre>
+</div>
+</div>
+<div id="writing-functions" class="section level1">
+<h1><span class="header-section-number">9</span> Writing Functions</h1>
+<p>There are many functions available in Python, and chances are if you want to do something somebody has already written the function to do it. It is best to not re-invent the wheel if possible (or at least it is more efficient – sometimes it is good to reinvent the wheel to understand how it works), but very often you will want to create your own functions to save replicating code.</p>
+<p>A function takes in one or more variables, does something with them, and returns something (e.g. a value or a plot). For instance, calculating the mean of a number of values is simply a case of adding them together and dividing by the number of values. Let’s write a function to do this and check that it matches the <code>mean()</code> function from NumPy:</p>
+<pre class="python"><code>def my_mean (x): # Here, x is an array of numbers
+  nvals = len(x)
+  valsum = sum(x)
+  return valsum/nvals
+
+my_vals = [3,5,6,3,4,3,4,7]
+my_mean(my_vals) </code></pre>
+<pre><code>## 4.375</code></pre>
+<pre class="python"><code>np.mean(my_vals)</code></pre>
+<pre><code>## 4.375</code></pre>
+<p>So, as with the loops earlier, the function is contained within a block of code with the same indentation level. A numeric vector is given to the function, the mean is calculated, and this value is returned to the user using the <code>return()</code> function. This value can be captured into a variable of your choosing in the same way as with any function. As we see here, the value returned by this user-defined function is identical to that from the NumPy pacakge.</p>
+<p>You can also add further arguments to the function call. If you want an argument to have a default value, you can specify this in the function declaration. This is the value that will be used if no argument value is specified. Any arguments that do not have a default value must be specified when calling the function, or an error will be thrown:</p>
+<pre class="python"><code>def foo(x, arg):
+  print(x, arg)
+foo (&quot;Hello&quot;) </code></pre>
+<p>Now let’s try and add a default value for <code>arg</code>:</p>
+<pre class="python"><code>def foo(x, arg = &quot;World!&quot;):
+  print(x, arg)
+foo (&quot;Hello&quot;) </code></pre>
+<pre><code>## Hello World!</code></pre>
+<p>This is a good point to mention an idea known as “scope”. After running the following function, have a look at the value <code>valsum</code> calculated within the function:</p>
+<pre class="python"><code>def my_mean(x): # Here, x is a numeric vector 
+  nvals = len(x)
+  valsum = sum(x)
+  return valsum/nvals
+my_vals = [3,5,6,3,4,3,4,7]
+my_mean(my_vals)</code></pre>
+<pre><code>## 4.375</code></pre>
+<pre class="python"><code>print(valsum) </code></pre>
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;valsum&#39; is not defined
+## 
+## Detailed traceback: 
+##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
+<p>So what went wrong? When we try to print the variable, Python is unable to find the object <code>valsum</code>. So where is it? The “scope” of an object is the environment where it can be found. Up until now, we have been using what are known as “global variables”. That is we have created all of our objects within the “global environment”, which is the top level where Python searches for objects. These objects are available at all times.</p>
+<p>However, when we call a function, a new environment, or “scope”, is created, and all variables created within the function become “local variables” that can only be accessed from within the function itself. As soon as we leave the scope of the function, these local variables are deleted. If you think about it, this makes sense – otherwise, every time we called a function, memory would fill up with a whole load of temporary objects.</p>
+<p>So, the function itself is completely self-contained. A copy of the input variable is stored in a new local variable (called <code>x</code> in this case), something is done to this object (possibly creating additional objects along the way), something is returned, and then all of these objects in the scope of the function are removed, and we move back into the global environment.</p>
+</div>
+<div id="statistics" class="section level1">
+<h1><span class="header-section-number">10</span> Statistics</h1>
+<div id="basic-statistics" class="section level2">
+<h2><span class="header-section-number">10.1</span> Basic Statistics</h2>
+<p>Python is a commonly used programming language for data science, so statistical computation is incredibly important. The NumPy package provides a large number of in-built functions for caluclating a wide range of common statistics. The following example creates two vectors of 100 random values sampled from a normal distribution with mean 0 and standard deviation 1, then calculates various basic summary statistics:</p>
+<pre class="python"><code>x = np.sort(np.random.normal(loc = 0, scale = 1, size = (100)))
+np.min(x)   </code></pre>
+<pre><code>## -2.191341964261704</code></pre>
+<pre class="python"><code>np.max(x)   </code></pre>
+<pre><code>## 3.0234715863228256</code></pre>
+<pre class="python"><code>np.mean(x)  </code></pre>
+<pre><code>## -0.02658968907074031</code></pre>
+<pre class="python"><code>np.median(x)</code></pre>
+<pre><code>## -0.09629367427221434</code></pre>
+<p>The minimum and maximum values are the smallest and largest values respectively. The mean is what most people would think of when you asked for the average, and is calculated by summing the values and dividing by the total number of values. The median is another way of looking at the average, and is essentially the middle value (<code>50^th^</code> percentile). Other percentiles can be calculated, which can give you an idea of where the majority of your data lie:</p>
+<pre class="python"><code>np.quantile(x, q = 0.25) </code></pre>
+<pre><code>## -0.7335896883406099</code></pre>
+<pre class="python"><code>np.quantile(x, q = 0.75) </code></pre>
+<pre><code>## 0.7764169151981889</code></pre>
+<pre class="python"><code>np.quantile(x, q = np.arange(0, 1, 0.1))</code></pre>
+<pre><code>## array([-2.19134196, -1.2621361 , -1.01715929, -0.63272545, -0.367729  ,
+##        -0.09629367,  0.15154289,  0.47888619,  0.88250353,  1.21040588])</code></pre>
+<p>The <code>stats.describe()</code> function from the <code>stats</code> <code>scipy</code> package will calculate many of these basic statistics for you:</p>
+<pre class="python"><code>import scipy
+from scipy import stats
+scipy.stats.describe(x)</code></pre>
+<pre><code>## DescribeResult(nobs=100, minmax=(-2.191341964261704, 3.0234715863228256), mean=-0.02658968907074031, variance=1.0904853834373622, skewness=0.38851698736714385, kurtosis=-0.09922476449388062)</code></pre>
+<p>The mean and variance show you the average value and the spread about this average value for these data. Skewness and kurtosis tell us how different from a standard normal distribution these data are, with skewness representing asymmmetry and kurtosis representing the presence of a significant tail in the data.</p>
+</div>
+<div id="variation" class="section level2">
+<h2><span class="header-section-number">10.2</span> Variation</h2>
+<p>Variance is the average of the squared distances of each individual value from their mean, and is a measure of how spread out the data are from the average. The standard deviation is simply the square root of this value <span class="math inline">\(var(x) = sd(x)^2\)</span>:</p>
+<pre class="python"><code>np.std(x)</code></pre>
+<pre><code>## 1.0390286471522276</code></pre>
+<pre class="python"><code>np.var(x)</code></pre>
+<pre><code>## 1.0795805296029886</code></pre>
+<p>The covariance is a measure of how much two sets of data vary together:</p>
+<pre class="python"><code>y = np.sort(np.random.normal(loc = 0, scale = 1, size = (100)))
+np.var(y)</code></pre>
+<pre><code>## 1.1562321979101573</code></pre>
+<pre class="python"><code>np.cov(x, y)</code></pre>
+<pre><code>## array([[1.09048538, 1.12330681],
+##        [1.12330681, 1.16791131]])</code></pre>
+</div>
+<div id="correlation" class="section level2">
+<h2><span class="header-section-number">10.3</span> Correlation</h2>
+<p>The covariance is related to the correlation between two data sets, which is a number between -1 and 1 indicating the level of dependance between the two variables. A value of 1 indicates perfect correlation, so that as one value increases so does the other. A value of -1 indicates perfect anti-correlation, so that as one value increases the other decreases. A value of 0 indicates that the two values change independently of one another:</p>
+<pre class="python"><code>np.cov(x, y)/(np.std(x) * np.std(y)) </code></pre>
+<pre><code>## array([[0.9760449, 1.0054219],
+##        [1.0054219, 1.0453454]])</code></pre>
+<p>This value is known as the Pearson correlation, which can be calculated using the <code>scipy.stats</code> function <code>pearsonr()</code>. The first value gives the Pearson correlation coefficient between the two arrays, and the second gives a p-value which gives some idea of the significance of the correlation (more on this later):</p>
+<pre class="python"><code>scipy.stats.pearsonr(x, y)</code></pre>
+<pre><code>## (0.9953676794560373, 1.7078527495920207e-101)</code></pre>
+<p>An alternative method for calculating the correlation between two sets of values is to use the Spearman correlation, which is essentially the same as the Pearson correlation but is calculated on the <em>ranks</em> of the data rather than the values themselves. In this way, each value increases by only one unit at a time in a monotonic fashion, meaning that the correlation score is more robust to the presence of outliers:</p>
+<pre class="python"><code>scipy.stats.spearmanr(x, y)</code></pre>
+<pre><code>## SpearmanrResult(correlation=0.9999999999999999, pvalue=0.0)</code></pre>
+<p>So these values are pretty highly dependent on one another – not surprising considering that they are both drawn randomly from the same distribution (notice that we sorted them such that the values were increasing for both <code>x</code> and <code>y</code>).</p>
+</div>
+<div id="linear-models" class="section level2">
+<h2><span class="header-section-number">10.4</span> Linear Models</h2>
+<p>We can calculate the line of best fit between the two vectors by using linear regression, which searches for the best model <span class="math inline">\(y = a + bx\)</span> that minimises the squared distances between the line (estimated values) and the observed data points. We can implement this using the <code>OLS</code> ordinary least squares function from package from <code>statsmodels</code>. We will use <code>y</code> as the response variable, and <code>x</code> as the explanatory variable:</p>
+<pre class="python"><code>import statsmodels.api as sm
+model = sm.OLS(y,x)
+fit = model.fit()
+fit.summary2()</code></pre>
+<pre><code>## &lt;class &#39;statsmodels.iolib.summary2.Summary&#39;&gt;
+## &quot;&quot;&quot;
+##                         Results: Ordinary least squares
+## ===============================================================================
+## Model:                  OLS              Adj. R-squared (uncentered): 0.991    
+## Dependent Variable:     y                AIC:                         -166.7227
+## Date:                   2019-11-07 19:12 BIC:                         -164.1176
+## No. Observations:       100              Log-Likelihood:              84.361   
+## Df Model:               1                F-statistic:                 1.048e+04
+## Df Residuals:           99               Prob (F-statistic):          3.00e-102
+## R-squared (uncentered): 0.991            Scale:                       0.010943 
+## -------------------------------------------------------------------------------------
+##           Coef.        Std.Err.          t           P&gt;|t|        [0.025       0.975]
+## -------------------------------------------------------------------------------------
+## x1        1.0304         0.0101       102.3777       0.0000       1.0104       1.0504
+## -------------------------------------------------------------------------------
+## Omnibus:                   4.049             Durbin-Watson:               0.610
+## Prob(Omnibus):             0.132             Jarque-Bera (JB):            3.895
+## Skew:                      -0.253            Prob(JB):                    0.143
+## Kurtosis:                  3.824             Condition No.:               1    
+## ===============================================================================
+## 
+## &quot;&quot;&quot;</code></pre>
+<p>Explaining this output is beyond the scope of this short tutorial, but the coefficient estimates give us the values for the slope in the linear model, and tells us by how many units y increases as x increases by 1. The R-squared value is the proportion of variance in the data that is explained by the model, with a number closer to 1 indicating a better model fit.</p>
+<p>The p-value tells us how significant these estimates are, both for the model as a whole from the F-statistic, and from the individual variables from the t-statistics. In statistical terms, we are testing the null hypothesis that the coefficient is actually equal to zero (i.e. there is not an association between <code>x</code> and <code>y</code>). The p-value gives the probability of detecting a coefficient at least as large as the one that we calculated in our model given that the null hypothesis is actually true. If this probability is low enough, we can safely reject the null hypothesis and say that this variable is statistically significant. Often a value of 0.05 (5%) is used as the cutoff for rejection of the null hypothesis.</p>
+<p>Hypothesis testing is a large part of statistics. The t-test is a commonly used test for comparing the means of two sets of numeric data. In simple terms we are looking to see if they are significantly different (e.g. does the expression of a particular gene change significantly following treatment with a drug). In statistical terms, we are testing to see if the change that we see in the means is greater than we would expect by chance alone.</p>
+<pre class="python"><code>scipy.stats.ttest_ind(x, y) </code></pre>
+<pre><code>## Ttest_indResult(statistic=0.0858431145338794, pvalue=0.93167787490961)</code></pre>
+<p>Since both <code>x</code> and <code>y</code> are drawn from the same distribution, the test shows there is no evidence that there is a difference between the mean. Let’s try again with a different data set, drawn from a different distribution with mean 10:</p>
+<pre class="python"><code>z = np.sort(np.random.normal(loc = 10, scale = 1, size = (100)))
+scipy.stats.ttest_ind(x, z) </code></pre>
+<pre><code>## Ttest_indResult(statistic=-70.137323691227, pvalue=8.64602699945602e-142)</code></pre>
+<p>This time, the p-value is much less than 0.05, so we can reject the null hypothesis and make the claim that the mean of <code>z</code> is significantly different from that of <code>x</code>.</p>
+</div>
+</div>
+<div id="plotting-with-python" class="section level1">
+<h1><span class="header-section-number">11</span> Plotting With Python</h1>
+<p>Similarly to R, Python is able to generate publication quality figures simply and easily. One of the most common packages for plotting in Python is the <a href="https://matplotlib.org"><code>matplotlib</code></a> package, in particular using the <code>pyplot</code> module:</p>
+<pre class="python"><code>import matplotlib.pyplot as plt</code></pre>
+<p>The <code>pyplot</code> module gives a Matlab-like interface for plotting figures in Python. The general layout is to call a plot function from <code>pyplot</code> such as <code>plot()</code>, <code>hist()</code>, <code>scatter()</code>, etc to initiate the plot, add various additional features (such as labels and legends), and finally use <code>show()</code> to generate the image from the combined components.</p>
+<p>There are a huge number of features that can be added to any plot, including the following:</p>
+<ol style="list-style-type: decimal">
+<li>Label the x-axis and y-axis with <code>xlabel()</code> and <code>ylabel()</code></li>
+<li>Add a title to the plot with <code>title()</code></li>
+<li>Add a legend with <code>legend()</code></li>
+<li>Change the range of the x-axis and y-axis by using <code>xlim()</code> and <code>ylim()</code></li>
+<li>Define the position of the ticks in the x and y-axes with <code>xticks()</code> and <code>yticks()</code></li>
+</ol>
+<p>There are also some common arguments in <code>pyplot</code></p>
+<ol style="list-style-type: decimal">
+<li><code>color</code> for specifying the color</li>
+<li><code>alpha</code> to define the opacity of the colors (0 is entirely see through, 1 is solid)</li>
+<li><code>linestyle</code> to define whether the line should be solid (<code>-</code>), dashed (<code>--</code>), dot-dashed (<code>-.</code>, etc)</li>
+<li><code>linewidth</code> to define the width of the line</li>
+<li><code>marker</code> to define the type of point to use (<code>.</code> for points, <code>o</code> for circles, <code>s</code> for square, <code>v</code> for downward triangle, <code>^</code> for upward triangle, <code>$...$</code> to render strings in mathtext style)</li>
+<li><code>markersize</code> to define the size of the points to use</li>
+</ol>
+<p>Whilst this is not an in depth tutorial for plotting in Python, here are a selection of commonly used plots, and how to generate them. We will use two randomly generated independent normally distributed arrays as an example:</p>
+<pre class="python"><code>x = np.random.normal(loc = 0, scale = 1, size = (100))
+y = np.random.normal(loc = 0, scale = 1, size = (100))</code></pre>
+<div id="histograms" class="section level2">
+<h2><span class="header-section-number">11.1</span> Histograms</h2>
+<p>A histogram is used to examine the distribution of 1-dimensional data, by counting up the number of values that fall into discrete bins. The size of the bins (or the number of bins) can be specified by using the <code>bins</code> argument. The counts for each bin are returned in the form of an array for further analysis:</p>
+<pre class="python"><code>h = plt.hist(x, bins = 20, range = (-3,3), color = &quot;red&quot;)
+plt.title(&quot;This is a histogram&quot;)
+plt.xlabel(&quot;x&quot;)
+plt.ylabel(&quot;count&quot;)
+plt.show()</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/histogram-1.png" width="672" /></p>
+</div>
+<div id="quantile-quantile-plots" class="section level2">
+<h2><span class="header-section-number">11.2</span> Quantile-Quantile Plots</h2>
+<p>After looking at the histogram, we may think that our data follows some specific distribution (e.g. normal distribution). Quantile-quantile plots can be used to see if two data sets are drawn from the same distribution. To do this, it plots the quantiles of each data set against one another. That is, it plots the 0<sup>th</sup> percentile of data set A (the minimum value) against the 0th percentile of data set B, the 50<sup>th</sup> percentiles (the medians) against each other, the 100<sup>th</sup> percentiles (the maximum values) against each other, etc. Simply, it sorts both data sets, and makes them both the same length by estimating any missing values, then plots a scatterplot of the sorted data. If the two data sets are drawn from the same distribution, this plot should follow the <span class="math inline">\(x = y\)</span> identity line at all but the most extreme point.</p>
+<p>We can use the <code>api</code> module from <code>statsmodels</code> to plot a QQ plot to see if our randomly generated array was indeed drawn from a normal distribution, by comparing <code>x</code> with a standard normal distribution (<code>scipy.stats.distributions.norm</code>). A 45 degree line is added to show the theoretical identity between the two distributions. The closer the points lie to this line, the closer the two distributions are:</p>
+<pre class="python"><code>import statsmodels.api as sm
+sm.qqplot(x, line = &#39;45&#39;, dist = scipy.stats.distributions.norm)</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/QQplot1-1.png" width="672" /></p>
+<p>Indeed, these data seem to approximate a normal distribution.</p>
+</div>
+<div id="pie-chart" class="section level2">
+<h2><span class="header-section-number">11.3</span> Pie Chart</h2>
+<p>Now let’s say that we have a data set that shows the number of called peaks from a ChIPseq data set that fall into distinct genomic features (exons, introns, promoters and intergenic regions). One way to look at how the peaks fall would be to look at a pie graph, which shows proportions in a data set represented by slices of a circle:</p>
+<pre class="python"><code>peaknums  = [1400,900,200,150]
+peaknames = [&quot;exons&quot;, &quot;intron&quot;, &quot;promoter&quot;, &quot;intergenic&quot;]
+p = plt.pie(peaknums, labels = peaknames)
+plt.show()</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/pie1-1.png" width="672" /></p>
+<p>This figure shows that the majority of the peaks fall into exons.</p>
+</div>
+<div id="bar-plot" class="section level2">
+<h2><span class="header-section-number">11.4</span> Bar Plot</h2>
+<p>However, pie charts are typically discouraged by statisticians, because your eyes can often misjudge estimates of the area taken up by each feature. A better way of looking at data such as this would be in the form of a barplot:</p>
+<pre class="python"><code>b = plt.bar(peaknames, peaknums)
+plt.show()</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/barplot1-1.png" width="672" /></p>
+</div>
+<div id="line-plots" class="section level2">
+<h2><span class="header-section-number">11.5</span> Line Plots</h2>
+<p>The <code>pyplot</code> function <code>plot()</code> is the standard plotting method for 2-dimensional data, and is used to plot paired data <code>x</code> and <code>y</code> against one another, using markers and/or lines. Plots such as these are useful for looking at correlation between two data sets. By default, the <code>plot()</code> function will plot a line plot:</p>
+<pre class="python"><code>plt.plot(x,y)</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/lineplot1-1.png" width="672" /></p>
+<p>Note that this looks very messy. This is due to the fact that the line starts with the first pair of values <code>($x_1$, $x_2$)</code>, then plots a line to the second pair of values <code>($x_1$, $x_2$)</code>, and so on. Since <code>x</code> and <code>y</code> are completely random, there is no order from lowest to highest for either, and so we end up with this messy image. For a line plot, we need to sort the data so that the x-axis data run from left to right. Since both data sets need to remain paired, we only sort one data set, and use this ordering to rearrange both data sets using the <code>argsort()</code> method:</p>
+<pre class="python"><code>plt.plot(x[x.argsort()],y[x.argsort()])
+plt.show()</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/lineplot2-1.png" width="672" /></p>
+<p>We can use a number of the arguments described above to modify this plot, including adding axis labels, a title, and some markers for each of the points:</p>
+<pre class="python"><code>plt.plot(x[x.argsort()],y[x.argsort()], marker = &#39;o&#39;, color = &#39;red&#39;, linestyle = &#39;--&#39;)
+plt.title(&quot;This is y vs. x&quot;)
+plt.xlabel(&quot;This is x&quot;)
+plt.ylabel(&quot;This is y&quot;)
+plt.show()</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/lineplot3-1.png" width="672" /></p>
+</div>
+<div id="scatterplots" class="section level2">
+<h2><span class="header-section-number">11.6</span> Scatterplots</h2>
+<p>Sometimes we may only want to look at the markers and not plot a line between them, for instance to save us worrying about ordering as we had to do above. This allows us to take a general look over the relationship between two numeric data sets. For instance, for every student in a class, we may have scores from tests taken at the start and at the end of the year, and we want to compare them against one another to see how they compare. We can use the same function, and simply set the <code>linestyle</code> to <code>''</code>:</p>
+<pre class="python"><code>plt.plot(x,y, color = &quot;red&quot;, marker = &#39;o&#39;, markersize = 10, linestyle = &#39;&#39;)
+plt.title(&quot;This is y vs. x&quot;)
+plt.xlabel(&quot;This is x&quot;)
+plt.ylabel(&quot;This is y&quot;)
+plt.show()</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/scatterplot1-1.png" width="672" /></p>
+<p>Here we have coloured all of our points a single colour by using the <code>color = &quot;red&quot;</code> argument. However, we may want to assign colours to each point separately by supplying an array of colours that is the same length as <code>x</code> and <code>y</code>. This means that we can set colours based on the data themselves, e.g. to colour male and female samples differently to one another, or to color points that exceed some threshold of interest. To do this, we can use the <code>scatter()</code> function, which can take a list of colors using the <code>c</code> argument:</p>
+<pre class="python"><code>## Create an array containing &quot;black&quot; for every element in x
+mycols = np.repeat(&quot;black&quot;, len(x))
+
+## Change the color based on the values in x and y
+mycols[(x &gt;  0.5) &amp; (y &gt;  0.5)] = &quot;red&quot;
+mycols[(x &lt; -0.5) &amp; (y &lt; -0.5)] = &quot;blue&quot;
+
+## Plot the scatter plot
+plt.scatter(x, y, color = mycols, marker = &#39;o&#39;)
+plt.title(&quot;This is y vs. x&quot;)
+plt.xlabel(&quot;This is x&quot;)
+plt.ylabel(&quot;This is y&quot;)
+plt.show()</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/scatterplot2-1.png" width="672" /></p>
+</div>
+<div id="boxplots" class="section level2">
+<h2><span class="header-section-number">11.7</span> Boxplots</h2>
+<p>To compare the distribution of multiple numeric data sets, we can use boxplots. A boxplot shows the overal distribution by plotting a box bounded by the first and third quartiles, with the median highlighted. This shows where the majority of the data lie. Additional values are plotted as whiskers coming out from the main box. Multiple boxes can be plotted next to one another allowing you to compare similarlities or differences between them. This can be used for instance to compare distributions of two different data sets, or to compare a numeric value in a data set after separating out multiple classes (e.g. comparing different age groups). The plot produces a <code>dict</code> object:</p>
+<pre class="python"><code>bp = plt.boxplot([x,y])
+plt.show()</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/boxplot1-1.png" width="672" /></p>
+<p>There are a number of arguments that can be supplied, including <code>labels</code> which allows you to specify the labels on the x-axis, <code>notch</code> which will add a notch into the boxplot to represent the confident interval, <code>whis</code> to determine the extent of the whiskers (any values not included within the whiskers are plotted as outliers), and <code>widths</code> to change the widths of the boxes:</p>
+<pre class="python"><code>bp = plt.boxplot([x,y], labels = [&#39;x&#39;, &#39;y&#39;], notch = 1, whis = 1, widths = [0.1, 1])
+plt.show()</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/boxplot2-1.png" width="672" /></p>
+<p>Pandas also has a <code>boxplot()</code> function which can take the data in the form of a DataFrame, which is useful for instance if you want to compare the distribution of expression values over all genes for a number of different samples. It will do a pretty good job of pulling out only the numeric columns by default, or you can specify which columns you would like to plot:</p>
+<pre class="python"><code>df = pd.DataFrame({&#39;Name&#39;:[&#39;John&#39;, &#39;Paul&#39;, &#39;Jean&#39;, &#39;Paula&#39;], &#39;Age&#39;:[37,33,40,35], &#39;Score&#39;:[99.3,92.6,97.5,92.6], &#39;Gender&#39;:[&#39;Male&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Female&#39;]})
+df.boxplot(column = [&#39;Age&#39;, &#39;Score&#39;])</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/boxplot3-1.png" width="672" /></p>
+</div>
+<div id="seaborn-package" class="section level2">
+<h2><span class="header-section-number">11.8</span> Seaborn package</h2>
+<p>The <a href="https://seaborn.pydata.org/generated/seaborn.boxplot.html">Seaborn</a> package is an incredibly powerful package for plotting using DataFrames, and is quite similar to the `<code>ggplots2</code> package in R. It makes defining the components of a plot much simpler in cases when data are stored correctly in DataFrame objects. It is beyond the scope of this tutorial to go into this in too much detail, but the idea is to use the names of the variables in the DataFrame to define various elements of the plot. For instance, in the following plot, we split data on the x-axis by their Gender, and then for each subset we plot the score:</p>
+<pre class="python"><code>import seaborn as sb
+sb.boxplot(x = &#39;Gender&#39;, y = &#39;Score&#39;, data = df)</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/unnamed-chunk-145-1.png" width="672" /></p>
+<p>Seaborn will use some defaults to make this figure look nice, such as filling in the boxes automatically, labelling the axes, etc. However, a lot of additional parameters can be set to change these. If you are interested, I recommend spending some time looking over this package to see the number of options available to you.</p>
+</div>
+<div id="subplots" class="section level2">
+<h2><span class="header-section-number">11.9</span> Subplots</h2>
+<p>By default, the graphics device will plot a single figure only. The <code>subplots()</code> function can be used to create multiple subplots within a single plot. By default, the method will create a single figure and a single axis, but by including the number of rows and columns the axis can contain a list of multiple axes for plotting. Each element of the list can then be used to build up the plot as described above:</p>
+<pre class="python"><code>fig, subplt = plt.subplots(2, 1)
+subplt[0].plot(x,y)
+subplt[1].plot(x,-y)</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/subplot1-1.png" width="672" /></p>
+<p>To plot them side-by side instead, this is as simple as changing the arguments to <code>subplots()</code>:</p>
+<pre class="python"><code>fig, subplt = plt.subplots(1,2)
+subplt[0].plot(x,y)
+subplt[1].plot(x,-y)</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/subplot2-1.png" width="672" /></p>
+<p>For multiple rows and columns, the axis output is a 2-dimensional NumPy array so each plot can be accessed and modified using square brackets notation:</p>
+<pre class="python"><code>fig, subplt = plt.subplots(2,2)
+subplt[0,0].plot(x,y)
+subplt[0,0].set_title(&quot;Plot1&quot;)
+subplt[0,1].plot(x,-y)
+subplt[0,1].set_title(&quot;Plot2&quot;)
+subplt[1,0].plot(-x,y)
+subplt[1,0].set_title(&quot;Plot3&quot;)
+subplt[1,1].plot(-x,-y)
+subplt[1,1].set_title(&quot;Plot4&quot;)</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/subplot3-1.png" width="672" /></p>
+<p>You can also create specific objects for each of the plots directly when calling <code>subplots()</code>:</p>
+<pre class="python"><code>fig, ((plt1,plt2), (plt3,plt4)) = plt.subplots(2,2)
+plt1.plot(x,y, color = &quot;red&quot;)
+plt1.set_title(&quot;Plot1&quot;)
+plt2.plot(x,-y, color = &quot;blue&quot;)
+plt2.set_title(&quot;Plot2&quot;)
+plt3.plot(-x,y, color = &quot;orange&quot;)
+plt3.set_title(&quot;Plot3&quot;)
+plt4.plot(-x,-y, color = &quot;green&quot;)
+plt4.set_title(&quot;Plot4&quot;)</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/subplot4-1.png" width="672" /></p>
+<p>By default, each plot will have its axis limits calculated independently, but it is possible to use the <code>sharex</code> and <code>sharey</code> arguments to share the axis limits across all plots:</p>
+<pre class="python"><code>fig, ((plt1,plt2), (plt3,plt4)) = plt.subplots(2,2, sharex = True, sharey = True)
+plt1.plot(x,2*y, color = &quot;red&quot;)
+plt1.set_title(&quot;Plot1&quot;)
+plt2.plot(x,-y, color = &quot;blue&quot;)
+plt2.set_title(&quot;Plot2&quot;)
+plt3.plot(-3*x,2*y, color = &quot;orange&quot;)
+plt3.set_title(&quot;Plot3&quot;)
+plt4.plot(-x,-4*y, color = &quot;green&quot;)
+plt4.set_title(&quot;Plot4&quot;)</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/subplot5-1.png" width="672" /></p>
+</div>
+<div id="saving-figures" class="section level2">
+<h2><span class="header-section-number">11.10</span> Saving Figures</h2>
+<p>By default, figures are generated in a separate window by using the <code>show()</code> function. However, you can save the figure to an external file by using the <code>savefig()</code> function. The output format can be defined simply by adding a suffix to the file – <code>.jpg</code>, <code>.pdf</code>, <code>.png</code>, etc.:</p>
+<pre class="python"><code>plt.plot(x,y)
+plt.savefig(&quot;test.png&quot;)</code></pre>
+<p>To change the size of the image, you can specify the size of the figure (in inches) before generating the plot using the <code>figsize</code> argument in the <code>figure()</code> method. To define the resolution of the output figure, you can set the <code>dpi</code> argument for <code>savefig()</code> to change the dots per inch value. Also, by default the margins for output figures can be quite large, so you can use the `bbox_inches’ argument to change this:</p>
+<pre class="python"><code>plt.figure(figsize=(10,10))
+plt.plot(x,y)
+plt.savefig(&quot;test.png&quot;, bbox_inches=&#39;tight&#39;)</code></pre>
+</div>
+</div>
+<div id="example-analysis" class="section level1">
+<h1><span class="header-section-number">12</span> Example Analysis</h1>
+<div id="introduction-3" class="section level2">
+<h2><span class="header-section-number">12.1</span> Introduction</h2>
+<p>This is just a simple example analysis to give you an idea of the sort of things that we can do with Python. Suppose that we have two experiments, each looking at the effects on gene expression of using a particular drug (“Drug A” and “Drug B”). For each experiment we have two samples; one showing the gene expression when treated with the drug, and the other showing the gene expression when treated with some control agent. Obviously in a real experiment, we would have many replicates, but here we have <span class="math inline">\(n=1\)</span>. We want to do the following:</p>
+<ol style="list-style-type: decimal">
+<li>For each drug, we want to get the fold change for each gene</li>
+<li>For each drug, we want to identify the genes that are significantly changed when using the drug</li>
+<li>We want to compare the results for Drug A with those from Drug B to find genes that are affected similarly by both drugs</li>
+<li>We want to plot the correlation between the fold change values for the two drugs to see how similar they are</li>
+</ol>
+<p>For this, we will need four files. These files are in a tab-delimited text format. They are tables of values where each row is separated by a new line, and each column is separated by a tab character (<code>\t</code>). These files can be created by and read into Excel for ease of use. To avoid errors when reading in files from text, it is good practice to ensure that there are no missing cells in your data. Instead try to get into the habit of using some “missing”&quot; character (e.g. <code>NA</code>).</p>
+<table>
+<thead>
+<tr class="header">
+<th>File Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="experiment1_control.txt">experiment1_control.txt</a></td>
+<td>Expression levels for ctrl in expt 1</td>
+</tr>
+<tr class="even">
+<td><a href="experiment1_drug.txt">experiment1_drug.txt</a></td>
+<td>Expression levels for drug A in expt 1</td>
+</tr>
+<tr class="odd">
+<td><a href="experiment2_control.txt">experiment2_control.txt</a></td>
+<td>Expression levels for control in expt 2</td>
+</tr>
+<tr class="even">
+<td><a href="experiment2_drug.txt">experiment2_drug.txt</a></td>
+<td>Expression levels for drug A in expt 2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="load-data" class="section level2">
+<h2><span class="header-section-number">12.2</span> Load Data</h2>
+<p>First let’s load in the data:</p>
+<pre class="python"><code>expt1_ctrl = pd.read_csv(&quot;experiment1_control.txt&quot;, sep = &quot;\t&quot;)
+expt1_drug = pd.read_csv(&quot;experiment1_drug.txt&quot;,    sep = &quot;\t&quot;)
+expt2_ctrl = pd.read_csv(&quot;experiment2_control.txt&quot;, sep = &quot;\t&quot;)
+expt2_drug = pd.read_csv(&quot;experiment2_drug.txt&quot;,    sep = &quot;\t&quot;)</code></pre>
+<p>Each of these files contains two columns; the gene name and some value that represents the expression level for that gene (assume that these values have been calculated after pre-processing, normalisation, etc.).</p>
+<p>In all of these cases, the list of gene names is identical, and in the same order which means that we could compare row 1 from the control-treated file with row 2 from the drug-treated file to get all of the comparisons. However, in a real data set you will not know for sure that the gene names match so I recommend merging the files together into a single data frame to ensure that all analyses are conducted on a gene by gene basis on the correct values.</p>
+<p>We therefore create a single DataFrame for both experiments using the <code>merge()</code> command:</p>
+<pre class="python"><code>expt1 = pd.merge(expt1_ctrl, expt1_drug, on = &quot;GeneName&quot;, suffixes = (&quot;_Control&quot;, &quot;_Drug&quot;))
+expt2 = pd.merge(expt2_ctrl, expt2_drug, on = &quot;GeneName&quot;, suffixes = (&quot;_Control&quot;, &quot;_Drug&quot;))
+expt1.head()</code></pre>
+<pre><code>##   GeneName  Expression_Control  Expression_Drug
+## 0    gene1                  64               48
+## 1    gene2                  50               62
+## 2    gene3                  74               73
+## 3    gene4                  31               34
+## 4    gene5                  63               66</code></pre>
+<pre class="python"><code>expt2.head()</code></pre>
+<pre><code>##   GeneName  Expression_Control  Expression_Drug
+## 0    gene1                  55               60
+## 1    gene2                  51               51
+## 2    gene3                  77               74
+## 3    gene4                  23               22
+## 4    gene5                  72              101</code></pre>
+</div>
+<div id="calculate-fold-change" class="section level2">
+<h2><span class="header-section-number">12.3</span> Calculate Fold Change</h2>
+<p>Now we calculate the fold change for each gene by dividing the drug-treated expression by the control expression. To avoid divide by zero errors, we can set a minimum expression value. This will also ensure that we are only looking at expression changes between significant expression values. Since we want to do the same thing to both the experiment 1 and the experiment 2 data sets, it makes sense to write a single function to use for both. We will use the <code>apply()</code> function from Pandas to calculate over every row in the DataFrame:</p>
+<pre class="python"><code>def get_fold_change(x, min_expression = 10):
+  ctrl_val = x[&quot;Expression_Control&quot;]
+  drug_val = x[&quot;Expression_Drug&quot;]
+  if ctrl_val &lt; min_expression:
+    ctrl_val = min_expression
+  if drug_val &lt; min_expression:
+    drug_val = min_expression  
+  return drug_val/ctrl_val
+expt1[&#39;FoldChange&#39;] = expt1.apply(get_fold_change, axis = 1)
+expt2[&#39;FoldChange&#39;] = expt2.apply(get_fold_change, axis = 1)</code></pre>
+</div>
+<div id="compare-data" class="section level2">
+<h2><span class="header-section-number">12.4</span> Compare Data</h2>
+<p>Now let’s find the genes that are upregulated and downregulated in each experiment. Due to the lack of replicates, we do not have any estimate for the variance of these genes, so we cannot use any hypothesis testing methods such as a t-test. Instead, we will have to make do with using a threshold on the fold change:</p>
+<pre class="python"><code>fold_change_threshold = 1.5
+expt1_up   = expt1[expt1[&#39;FoldChange&#39;] &gt;= fold_change_threshold][&#39;GeneName&#39;]
+expt1_down = expt1[expt1[&#39;FoldChange&#39;] &lt;= 1/fold_change_threshold][&#39;GeneName&#39;]
+expt2_up   = expt2[expt2[&#39;FoldChange&#39;] &gt;= fold_change_threshold][&#39;GeneName&#39;]
+expt2_down = expt2[expt2[&#39;FoldChange&#39;] &gt;= 1/fold_change_threshold][&#39;GeneName&#39;]</code></pre>
+<p>So let’s see which genes are changing:</p>
+<pre class="python"><code>print(&quot;Upregulated in Experiment 1:&quot;,   expt1_up.str.cat(sep = &quot;, &quot;))</code></pre>
+<pre><code>## Upregulated in Experiment 1: gene8, gene12</code></pre>
+<pre class="python"><code>print(&quot;Downregulated in Experiment 1:&quot;, expt1_down.str.cat(sep = &quot;, &quot;))</code></pre>
+<pre><code>## Downregulated in Experiment 1: gene32, gene46</code></pre>
+<pre class="python"><code>print(&quot;Upregulated in Experiment 2:&quot;,   expt2_up.str.cat(sep = &quot;, &quot;))</code></pre>
+<pre><code>## Upregulated in Experiment 2: gene8, gene18, gene50</code></pre>
+<pre class="python"><code>print(&quot;Downregulated in Experiment 2:&quot;, expt2_down.str.cat(sep = &quot;, &quot;))</code></pre>
+<pre><code>## Downregulated in Experiment 2: gene1, gene2, gene3, gene4, gene5, gene6, gene7, gene8, gene9, gene10, gene11, gene12, gene13, gene14, gene15, gene16, gene17, gene18, gene19, gene20, gene21, gene23, gene24, gene25, gene26, gene27, gene28, gene29, gene30, gene31, gene32, gene33, gene34, gene35, gene36, gene37, gene38, gene39, gene40, gene41, gene42, gene44, gene45, gene46, gene47, gene48, gene49, gene50</code></pre>
+<p>So we now have the genes that change when each of the drugs is used. But now we want to compare the two drugs together. First, let’s see if there are any genes similarly affected by both drugs. We can do this using the <code>intersect1d()</code> function from NumPy which gives the intersect of two arrays:</p>
+<pre class="python"><code>common_up   = pd.Series(np.intersect1d(expt1_up, expt2_up))
+common_down = pd.Series(np.intersect1d(expt1_down, expt2_down))
+print(&quot;Upregulated in Experiment 1 and Experiment 2:&quot;,   common_up.str.cat(sep = &quot;, &quot;))</code></pre>
+<pre><code>## Upregulated in Experiment 1 and Experiment 2: gene8</code></pre>
+<pre class="python"><code>print(&quot;Downregulated in Experiment 1 and Experiment 2:&quot;, common_down.str.cat(sep = &quot;, &quot;))</code></pre>
+<pre><code>## Downregulated in Experiment 1 and Experiment 2: gene32, gene46</code></pre>
+<p>So we can see that only one gene is similarly affected by both drugs (“gene8”). Now let’s plot a figure to see how the fold change differs between the two drugs:</p>
+<pre class="python"><code>fc = pd.merge(expt1[[&#39;GeneName&#39;, &#39;FoldChange&#39;]], expt2[[&#39;GeneName&#39;, &#39;FoldChange&#39;]], on = &quot;GeneName&quot;, suffixes = [&quot;_Experiment1&quot;, &quot;_Experiment2&quot;])
+plt.scatter(np.log2(fc[&quot;FoldChange_Experiment1&quot;]), 
+            np.log2(fc[&#39;FoldChange_Experiment2&#39;]),
+            marker = &quot;o&quot;, color = &quot;red&quot;)
+plt.xlim(-2,2)</code></pre>
+<pre><code>## (-2, 2)</code></pre>
+<pre class="python"><code>plt.ylim(-2,2)</code></pre>
+<pre><code>## (-2, 2)</code></pre>
+<pre class="python"><code>plt.title(&quot;Experiment1 vs Experiment2&quot;)
+plt.xlabel(&quot;log2(Experiment1 Fold Change)&quot;)
+plt.ylabel(&quot;log2(Experiment2 Fold Change)&quot;)
+plt.show()</code></pre>
+<p><img src="/resources/python-tutorial/index_files/figure-html/foldchange-1.png" width="672" /></p>
+<p>This figure shows that the effect on the gene expression is actually quite different for the two drugs. We can also see this by looking at the correlation between the two experiments:</p>
+<pre class="python"><code>scipy.stats.pearsonr(fc[&quot;FoldChange_Experiment1&quot;], fc[&quot;FoldChange_Experiment2&quot;])</code></pre>
+<pre><code>## (0.0838161376824968, 0.5627922240659949)</code></pre>
+<p>We can therefore conclude that the effect of the drug on gene expression is quite different between the two experiments.</p>
+</div>
+</div>
