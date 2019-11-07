@@ -13,12 +13,12 @@
   </url>
   
   <url>
-    <loc>/tags/how-to/</loc>
+    <loc>/categories/how-to/</loc>
     <lastmod>2019-10-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/how-to/</loc>
+    <loc>/tags/how-to/</loc>
     <lastmod>2019-10-25T00:00:00+00:00</lastmod>
   </url>
   
@@ -48,12 +48,12 @@
   </url>
   
   <url>
-    <loc>/categories/tutorials/</loc>
+    <loc>/tags/tutorials/</loc>
     <lastmod>2019-10-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/tutorials/</loc>
+    <loc>/categories/tutorials/</loc>
     <lastmod>2019-10-25T00:00:00+00:00</lastmod>
   </url>
   
@@ -83,12 +83,12 @@
   </url>
   
   <url>
-    <loc>/categories/machine-learning/</loc>
+    <loc>/tags/machine-learning/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/machine-learning/</loc>
+    <loc>/categories/machine-learning/</loc>
     <lastmod>2019-10-05T00:00:00+00:00</lastmod>
   </url>
   
