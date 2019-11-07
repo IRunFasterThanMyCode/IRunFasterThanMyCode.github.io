@@ -6,7 +6,7 @@ date: 2017-08-17
 draft: false
 featured: false
 image:
-  caption: https://orig09.deviantart.net/9bfb/f/2009/208/b/d/chernobyl_wallpaper_4_by_lordyo.jpg
+  caption: 
   focal_point: 
   placement: 1
   preview_only: false

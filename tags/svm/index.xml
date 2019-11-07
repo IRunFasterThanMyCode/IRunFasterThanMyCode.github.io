@@ -42,11 +42,11 @@
 &lt;li&gt;&lt;a href=&#34;#looking-for-patterns&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6&lt;/span&gt; Looking for Patterns&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#correlation-of-variables&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6.1&lt;/span&gt; Correlation of Variables&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#height-vs-weight&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6.2&lt;/span&gt; Height vs Weight&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#correlation-between-pokemon&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6.3&lt;/span&gt; Correlation between Pokémon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#correlation-between-pokémon&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6.3&lt;/span&gt; Correlation between Pokémon&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#principal-component-analysis&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6.4&lt;/span&gt; Principal Component Analysis&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#correlation-based-recommendation&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6.5&lt;/span&gt; Correlation-Based Recommendation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#predicting-legendary-pokemon&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7&lt;/span&gt; Predicting Legendary Pokémon&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#predicting-legendary-pokémon&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7&lt;/span&gt; Predicting Legendary Pokémon&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#support-vector-machine&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7.1&lt;/span&gt; Support-Vector Machine&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#k-nearest-neighbour&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7.2&lt;/span&gt; k-Nearest Neighbour&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#logistic-regression&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7.3&lt;/span&gt; Logistic Regression&lt;/a&gt;&lt;/li&gt;
@@ -817,7 +817,7 @@ pheatmap(pokecor_var,
 &lt;p class=&#34;caption&#34;&gt;Cosmoem, the smallest Pokemon&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;correlation-between-pokemon&#34; class=&#34;section level2&#34;&gt;
+&lt;div id=&#34;correlation-between-pokémon&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;span class=&#34;header-section-number&#34;&gt;6.3&lt;/span&gt; Correlation between Pokémon&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pokecor_sample &amp;lt;- cor(t(pokedat_norm), method = &amp;quot;spearman&amp;quot;)        
 colors  &amp;lt;- colorRampPalette(c(&amp;#39;dark blue&amp;#39;,&amp;#39;white&amp;#39;,&amp;#39;dark red&amp;#39;))(255)
@@ -923,7 +923,7 @@ head(sort(eevee_cor_pca, decreasing = TRUE), 10)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Obviously here we are simply looking for Pokémon with similar characteristics. This is not as in-depth as a collaboritive filtering method where we have some subjective ranking of items to help us to determine the &lt;em&gt;best&lt;/em&gt; Pokémon to match somebody’s needs. However, by using the reduced PCA data set we are able to find very close matches using only a reduced subset of the data.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;predicting-legendary-pokemon&#34; class=&#34;section level1&#34;&gt;
+&lt;div id=&#34;predicting-legendary-pokémon&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;&lt;span class=&#34;header-section-number&#34;&gt;7&lt;/span&gt; Predicting Legendary Pokémon&lt;/h1&gt;
 &lt;p&gt;Based on our previous analyses, we see that there is a clear discrimination between normal and Legendary Pokémon. These are incredibly rare, and very powerful Pokémon in the game. So is it possible to identify a Legendary Pokémon based on the variables available from this database? And if so, which variables are the most important?&lt;/p&gt;
 &lt;p&gt;To do predictive modelling, we need to first split our data up into a training data set to use to train the model, and then a validation data set to use to confirm the accuracy of the predictions that this model makes. There are more robust ways to do this, such as &lt;a href=&#34;https://en.wikipedia.org/wiki/Cross-validation_(statistics)&#34;&gt;cross-validation&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Bootstrapping_(statistics)&#34;&gt;bootstrapping&lt;/a&gt;, which allow you to assess the accuracy of the model. Cross validation can be applied simply by using the &lt;code&gt;caret&lt;/code&gt; package in R.&lt;/p&gt;
@@ -1229,31 +1229,31 @@ confusionMatrix(predict_legendary, validation_dat[[&amp;quot;is_legendary&amp;qu
 ## other attached packages:
 ## [1] caret_6.0-84       lattice_0.20-38    pheatmap_1.0.12   
 ## [4] RColorBrewer_1.1-2 ggrepel_0.8.1      dplyr_0.8.3       
-## [7] ggplot2_3.2.0     
+## [7] ggplot2_3.2.1     
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] Rcpp_1.0.2          lubridate_1.7.4     tidyr_1.0.0        
 ##  [4] class_7.3-15        assertthat_0.2.1    zeallot_0.1.0      
-##  [7] digest_0.6.20       ipred_0.9-9         foreach_1.4.7      
-## [10] R6_2.4.0            plyr_1.8.4          backports_1.1.4    
+##  [7] digest_0.6.22       ipred_0.9-9         foreach_1.4.7      
+## [10] R6_2.4.0            plyr_1.8.4          backports_1.1.5    
 ## [13] stats4_3.6.1        evaluate_0.14       e1071_1.7-2        
-## [16] blogdown_0.16       pillar_1.4.2        rlang_0.4.0        
-## [19] lazyeval_0.2.2      data.table_1.12.2   kernlab_0.9-27     
-## [22] rpart_4.1-15        Matrix_1.2-17       rmarkdown_1.14     
+## [16] blogdown_0.16       pillar_1.4.2        rlang_0.4.1        
+## [19] lazyeval_0.2.2      data.table_1.12.6   kernlab_0.9-27     
+## [22] rpart_4.1-15        Matrix_1.2-17       rmarkdown_1.16     
 ## [25] labeling_0.3        splines_3.6.1       gower_0.2.1        
 ## [28] stringr_1.4.0       munsell_0.5.0       compiler_3.6.1     
-## [31] xfun_0.8            pkgconfig_2.0.2     htmltools_0.3.6    
+## [31] xfun_0.10           pkgconfig_2.0.3     htmltools_0.4.0    
 ## [34] nnet_7.3-12         tidyselect_0.2.5    tibble_2.1.3       
-## [37] prodlim_2018.04.18  bookdown_0.12       codetools_0.2-16   
+## [37] prodlim_2018.04.18  bookdown_0.14       codetools_0.2-16   
 ## [40] randomForest_4.6-14 crayon_1.3.4        withr_2.1.2        
 ## [43] MASS_7.3-51.4       recipes_0.1.7       ModelMetrics_1.2.2 
-## [46] grid_3.6.1          nlme_3.1-140        gtable_0.3.0       
+## [46] grid_3.6.1          nlme_3.1-141        gtable_0.3.0       
 ## [49] lifecycle_0.1.0     magrittr_1.5        scales_1.0.0       
 ## [52] stringi_1.4.3       reshape2_1.4.3      timeDate_3043.102  
-## [55] ellipsis_0.2.0.1    generics_0.0.2      vctrs_0.2.0        
+## [55] ellipsis_0.3.0      generics_0.0.2      vctrs_0.2.0        
 ## [58] lava_1.6.6          iterators_1.0.12    tools_3.6.1        
 ## [61] glue_1.3.1          purrr_0.3.3         survival_2.44-1.1  
-## [64] yaml_2.2.0          colorspace_1.4-1    knitr_1.23&lt;/code&gt;&lt;/pre&gt;
+## [64] yaml_2.2.0          colorspace_1.4-1    knitr_1.25&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
