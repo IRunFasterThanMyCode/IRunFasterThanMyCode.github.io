@@ -5,7 +5,7 @@
     <link>/authors/</link>
       <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Tue, 18 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Sun, 23 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/irunfasterthanmycode.jpg</url>
       <title>Authors</title>
@@ -15,7 +15,7 @@
     <item>
       <title></title>
       <link>/authors/samrobson/</link>
-      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 23 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/authors/samrobson/</guid>
       <description>
 
@@ -31,6 +31,166 @@
 
 &lt;p&gt;The University of Portsmouth hosts a Bioinformatics-specific compute cluster, with well-maintained pipelines for RNA-seq, ChIP-seq, CLIP-seq, BS-seq, Exome-seq, amplicon sequencing, and other sequencing data types used by researchers throughout the University. The cluster consists of 4 compute nodes and 1 head node. The compute nodes consist of Dell PowerEdge R630 Servers with Intel Xeon E5-2650 v4 Processors (12 cores, 2.2GHz), 128GB RAM and 2x 240GB flash (SSD) storage. This provides a total of 48 cores, or 96 threads (via Hyperthreading). The head node is a Dell PowerEdge R630 Server with 2x Intel Xeon E5-2650 v4 Processors (12 cores, 2.2GHz), 384GB RAM and 2x 240GB flash (SSD) storage. Local storage is provided by a Synology RS3617RPxs NAS Server with 120TB HDD storage, connected to the compute nodes via a 10GbE Network. We also use both &lt;a href=&#34;https://aws.amazon.com&#34; target=&#34;_blank&#34;&gt;Amazon Web Services (AWS)&lt;/a&gt; and &lt;a href=&#34;https://cloud.google.com&#34; target=&#34;_blank&#34;&gt;Google Cloud Platform&lt;/a&gt; for cloud computing resources.&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Caputo DR</title>
+      <link>/authors/caputo-dr/</link>
+      <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/caputo-dr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ford A</title>
+      <link>/authors/ford-a/</link>
+      <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/ford-a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Robson SC</title>
+      <link>/authors/robson-sc/</link>
+      <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/robson-sc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Werner I</title>
+      <link>/authors/werner-i/</link>
+      <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/werner-i/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lerebours A</title>
+      <link>/authors/lerebours-a/</link>
+      <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/lerebours-a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Robson S</title>
+      <link>/authors/robson-s/</link>
+      <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/robson-s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sharpe C</title>
+      <link>/authors/sharpe-c/</link>
+      <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/sharpe-c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Smith J</title>
+      <link>/authors/smith-j/</link>
+      <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/smith-j/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bozycki L</title>
+      <link>/authors/bozycki-l/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/bozycki-l/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chira N</title>
+      <link>/authors/chira-n/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/chira-n/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dunlop JN</title>
+      <link>/authors/dunlop-jn/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/dunlop-jn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gorecki D</title>
+      <link>/authors/gorecki-d/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/gorecki-d/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gosselin, MRF</title>
+      <link>/authors/gosselin-mrf/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/gosselin-mrf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kao A</title>
+      <link>/authors/kao-a/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/kao-a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Matryba P</title>
+      <link>/authors/matryba-p/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/matryba-p/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Oksiejuk, A</title>
+      <link>/authors/oksiejuk-a/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/oksiejuk-a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rumney RMH</title>
+      <link>/authors/rumney-rmh/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/rumney-rmh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Young C</title>
+      <link>/authors/young-c/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/young-c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zabłocki, K</title>
+      <link>/authors/zab%C5%82ocki-k/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/zab%C5%82ocki-k/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Łukasiewicz K</title>
+      <link>/authors/%C5%82ukasiewicz-k/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/%C5%82ukasiewicz-k/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -202,14 +362,6 @@
     </item>
     
     <item>
-      <title>Gosselin, MRF</title>
-      <link>/authors/gosselin-mrf/</link>
-      <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>/authors/gosselin-mrf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Górecki, DC</title>
       <link>/authors/gorecki-dc/</link>
       <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
@@ -226,26 +378,10 @@
     </item>
     
     <item>
-      <title>Oksiejuk, A</title>
-      <link>/authors/oksiejuk-a/</link>
-      <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>/authors/oksiejuk-a/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Róg, J</title>
       <link>/authors/rog-j/</link>
       <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
       <guid>/authors/rog-j/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Zabłocki, K</title>
-      <link>/authors/zab%C5%82ocki-k/</link>
-      <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>/authors/zab%C5%82ocki-k/</guid>
       <description></description>
     </item>
     

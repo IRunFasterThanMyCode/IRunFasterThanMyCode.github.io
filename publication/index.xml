@@ -5,12 +5,36 @@
     <link>/publication/</link>
       <atom:link href="/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Thu, 09 May 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Mon, 03 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/irunfasterthanmycode.jpg</url>
       <title>Publications</title>
       <link>/publication/</link>
     </image>
+    
+    <item>
+      <title>Complete transcriptome assembly and annotation of a critically important amphipod species in freshwater ecotoxicological risk assessment - gammarus fossarum</title>
+      <link>/publication/2020_complete_transcriptome_assembly_and_annotation_of_a_critically_important_amphipod_species_in_freshwater_ecotoxicological_risk_assessment_gammarus_fossarum/</link>
+      <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/publication/2020_complete_transcriptome_assembly_and_annotation_of_a_critically_important_amphipod_species_in_freshwater_ecotoxicological_risk_assessment_gammarus_fossarum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Subtle effects of radiation on embryo development of the 3-spined stickleback</title>
+      <link>/publication/2020_subtle_effects_of_radiation_on_embryo_development_of_the_3-spined_stickleback/</link>
+      <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/publication/2020_subtle_effects_of_radiation_on_embryo_development_of_the_3-spined_stickleback/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Total absence of dystrophin expression exacerbates ectopic myofiber calcification and fibrosis and alters macrophage infiltration patterns</title>
+      <link>/publication/2020_total_absence_of_dystrophin_expression_exacerbates_ectopic_myofiber_calcification_and_fibrosis_and_alters_macrophage_infiltration_patterns/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>/publication/2020_total_absence_of_dystrophin_expression_exacerbates_ectopic_myofiber_calcification_and_fibrosis_and_alters_macrophage_infiltration_patterns/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Interaction of Sox2 with RNA binding proteins in mouse embryonic stem cells</title>

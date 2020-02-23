@@ -5,12 +5,60 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Sun, 23 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/irunfasterthanmycode.jpg</url>
       <title>Tags</title>
       <link>/tags/</link>
     </image>
+    
+    <item>
+      <title>Bioinformatics</title>
+      <link>/tags/bioinformatics/</link>
+      <pubDate>Sun, 23 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/bioinformatics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Genomics</title>
+      <link>/tags/genomics/</link>
+      <pubDate>Sun, 23 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/genomics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>/tags/machine-learning/</link>
+      <pubDate>Sun, 23 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microbiology</title>
+      <link>/tags/microbiology/</link>
+      <pubDate>Sun, 23 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/microbiology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NGS</title>
+      <link>/tags/ngs/</link>
+      <pubDate>Sun, 23 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/ngs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transcriptomics</title>
+      <link>/tags/transcriptomics/</link>
+      <pubDate>Sun, 23 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/transcriptomics/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Data Science</title>
@@ -57,14 +105,6 @@
       <link>/tags/keras/</link>
       <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
       <guid>/tags/keras/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine learning</title>
-      <link>/tags/machine-learning/</link>
-      <pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>/tags/machine-learning/</guid>
       <description></description>
     </item>
     
@@ -157,22 +197,6 @@
     </item>
     
     <item>
-      <title>Bioinformatics</title>
-      <link>/tags/bioinformatics/</link>
-      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
-      <guid>/tags/bioinformatics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Genomics</title>
-      <link>/tags/genomics/</link>
-      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
-      <guid>/tags/genomics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Heritage</title>
       <link>/tags/heritage/</link>
       <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
@@ -185,14 +209,6 @@
       <link>/tags/research-centres/</link>
       <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/research-centres/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Transcriptomics</title>
-      <link>/tags/transcriptomics/</link>
-      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
-      <guid>/tags/transcriptomics/</guid>
       <description></description>
     </item>
     
@@ -217,14 +233,6 @@
       <link>/tags/university-of-portsmouth/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/university-of-portsmouth/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>NGS</title>
-      <link>/tags/ngs/</link>
-      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
-      <guid>/tags/ngs/</guid>
       <description></description>
     </item>
     
@@ -277,7 +285,7 @@
     </item>
     
     <item>
-      <title>Ultra</title>
+      <title>ultra</title>
       <link>/tags/ultra/</link>
       <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/tags/ultra/</guid>
@@ -349,7 +357,7 @@
     </item>
     
     <item>
-      <title>Marathon</title>
+      <title>marathon</title>
       <link>/tags/marathon/</link>
       <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
       <guid>/tags/marathon/</guid>
@@ -389,7 +397,7 @@
     </item>
     
     <item>
-      <title>Running</title>
+      <title>running</title>
       <link>/tags/running/</link>
       <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
       <guid>/tags/running/</guid>
@@ -445,22 +453,6 @@
     </item>
     
     <item>
-      <title>Marine Biology</title>
-      <link>/tags/marine-biology/</link>
-      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
-      <guid>/tags/marine-biology/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Microbiology</title>
-      <link>/tags/microbiology/</link>
-      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
-      <guid>/tags/microbiology/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Tools</title>
       <link>/tags/tools/</link>
       <pubDate>Wed, 23 Aug 2017 00:00:00 +0000</pubDate>
@@ -489,6 +481,14 @@
       <link>/tags/epigenetics-and-development/</link>
       <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
       <guid>/tags/epigenetics-and-development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Marine Biology</title>
+      <link>/tags/marine-biology/</link>
+      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/tags/marine-biology/</guid>
       <description></description>
     </item>
     

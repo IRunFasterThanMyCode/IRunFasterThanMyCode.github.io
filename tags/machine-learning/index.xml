@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>machine learning | IRunFasterThanMyCode</title>
+    <title>Machine Learning | IRunFasterThanMyCode</title>
     <link>/tags/machine-learning/</link>
       <atom:link href="/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
-    <description>machine learning</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Sat, 05 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <description>Machine Learning</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Sun, 23 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/irunfasterthanmycode.jpg</url>
-      <title>machine learning</title>
+      <title>Machine Learning</title>
       <link>/tags/machine-learning/</link>
     </image>
+    
+    <item>
+      <title>Biofilm Composition in Prosthetic Joint Infection</title>
+      <link>/project/2020-02-23-biofilm-composition-in-prosthetic-joint-infection/</link>
+      <pubDate>Sun, 23 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/project/2020-02-23-biofilm-composition-in-prosthetic-joint-infection/</guid>
+      <description>&lt;p&gt;Prosthetic joint infection (PJI) represents one of the most common reasons for failure among hip and knee arthroplasty, with an incidence of around 1-2%. Infection can occur early (within days of surgery) or late (over a year after surgery), and no specific early markers for infection onset exist. Given the significant costs to the NHS for corrective revision surgery, the added suffering and risks to patients from surgery, and the risk of enhancing antimicrobial resistance through the use of broad-spectrum antibiotics, a more specific predictive test for early onset of infection is required.&lt;/p&gt;
+
+&lt;p&gt;Over 80% of human infection is estimated to be a result of biofilm formation. Biofilms are an accumulation of microorganisms on a surface, resulting in a functional community which provides antibiotic resistance and a beneficial environment for the growth of pathogenic species that would otherwise be removed by the body’s defences. Biofilms can rupture, allowing pathogens to spread infection. To date, biofilm development and diversity on periprosthetic implants is poorly understood.&lt;/p&gt;
+
+&lt;p&gt;We are exploring biofilm formation on hip joint prostheses using techniques including next generation sequencing (NGS) and 3D phase-contrast X-ray microscopy, and aim to compare bacterial diversity and biofilm structure between infected and non-infected samples. Our goal is to identify novel biomarkers using an innovative inter-disciplinary approach, which can be tested in a clinical setting in a sustainable and highly impactful research program.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Deep Learning using TensorFlow Through the Keras API in RStudio</title>

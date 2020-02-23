@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sharpe C | IRunFasterThanMyCode</title>
+    <link>/authors/sharpe-c/</link>
+      <atom:link href="/authors/sharpe-c/index.xml" rel="self" type="application/rss+xml" />
+    <description>Sharpe C</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Mon, 27 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Sharpe C</title>
+      <link>/authors/sharpe-c/</link>
+    </image>
+    
+    <item>
+      <title>Subtle effects of radiation on embryo development of the 3-spined stickleback</title>
+      <link>/publication/2020_subtle_effects_of_radiation_on_embryo_development_of_the_3-spined_stickleback/</link>
+      <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/publication/2020_subtle_effects_of_radiation_on_embryo_development_of_the_3-spined_stickleback/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

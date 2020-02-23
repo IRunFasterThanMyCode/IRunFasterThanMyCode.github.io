@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Werner I | IRunFasterThanMyCode</title>
+    <link>/authors/werner-i/</link>
+      <atom:link href="/authors/werner-i/index.xml" rel="self" type="application/rss+xml" />
+    <description>Werner I</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Mon, 03 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/irunfasterthanmycode.jpg</url>
+      <title>Werner I</title>
+      <link>/authors/werner-i/</link>
+    </image>
+    
+    <item>
+      <title>Complete transcriptome assembly and annotation of a critically important amphipod species in freshwater ecotoxicological risk assessment - gammarus fossarum</title>
+      <link>/publication/2020_complete_transcriptome_assembly_and_annotation_of_a_critically_important_amphipod_species_in_freshwater_ecotoxicological_risk_assessment_gammarus_fossarum/</link>
+      <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/publication/2020_complete_transcriptome_assembly_and_annotation_of_a_critically_important_amphipod_species_in_freshwater_ecotoxicological_risk_assessment_gammarus_fossarum/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

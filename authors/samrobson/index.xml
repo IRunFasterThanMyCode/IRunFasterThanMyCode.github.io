@@ -5,12 +5,25 @@
     <link>/authors/samrobson/</link>
       <atom:link href="/authors/samrobson/index.xml" rel="self" type="application/rss+xml" />
     <description>IRunFasterThanMyCode</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Tue, 18 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2017 Sam Robson</copyright><lastBuildDate>Sun, 23 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/irunfasterthanmycode.jpg</url>
       <title>IRunFasterThanMyCode</title>
       <link>/authors/samrobson/</link>
     </image>
+    
+    <item>
+      <title>Biofilm Composition in Prosthetic Joint Infection</title>
+      <link>/project/2020-02-23-biofilm-composition-in-prosthetic-joint-infection/</link>
+      <pubDate>Sun, 23 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/project/2020-02-23-biofilm-composition-in-prosthetic-joint-infection/</guid>
+      <description>&lt;p&gt;Prosthetic joint infection (PJI) represents one of the most common reasons for failure among hip and knee arthroplasty, with an incidence of around 1-2%. Infection can occur early (within days of surgery) or late (over a year after surgery), and no specific early markers for infection onset exist. Given the significant costs to the NHS for corrective revision surgery, the added suffering and risks to patients from surgery, and the risk of enhancing antimicrobial resistance through the use of broad-spectrum antibiotics, a more specific predictive test for early onset of infection is required.&lt;/p&gt;
+
+&lt;p&gt;Over 80% of human infection is estimated to be a result of biofilm formation. Biofilms are an accumulation of microorganisms on a surface, resulting in a functional community which provides antibiotic resistance and a beneficial environment for the growth of pathogenic species that would otherwise be removed by the body’s defences. Biofilms can rupture, allowing pathogens to spread infection. To date, biofilm development and diversity on periprosthetic implants is poorly understood.&lt;/p&gt;
+
+&lt;p&gt;We are exploring biofilm formation on hip joint prostheses using techniques including next generation sequencing (NGS) and 3D phase-contrast X-ray microscopy, and aim to compare bacterial diversity and biofilm structure between infected and non-infected samples. Our goal is to identify novel biomarkers using an innovative inter-disciplinary approach, which can be tested in a clinical setting in a sustainable and highly impactful research program.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Center for Enzyme Innovation</title>
@@ -105,17 +118,6 @@
       <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
       <guid>/publication/2017_promoter-bound_mettl3_maintains_myeloid_leukaemia_by_m6a-dependent_translation_control/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Changes in microbial communities of Cliona celeta during observed changes in sponge health</title>
-      <link>/project/2017-09-29-microbial-community-of-cliona-celeta-during-observed-changes-in-sponge-health/</link>
-      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
-      <guid>/project/2017-09-29-microbial-community-of-cliona-celeta-during-observed-changes-in-sponge-health/</guid>
-      <description>&lt;p&gt;Cliona celeta is a yellow boring sponge found around the waters of the UK. The diversity of sponges in the Skomer Marine Nature Reserve has been surveyed since the 1990s. In 2013 divers observed apparent disease in C. celeta individuals across Skomer Island and the Marloes Peninsula. The previously healthy yellow sponge became colonised by fouling organisms followed by tissue decay and patches of black necrotic sponge. This issue appears to be seasonal, largely seen between the months of March and October, and is the first recorded incidence of sponge disease in temperate coastal waters. In addition, several sponges were seen to be fouled by algal and invertebrate species, without progression to the black state, which is indicative of reduced anti-fouling mechanisms in the sponge.&lt;/p&gt;
-
-&lt;p&gt;Working together with &lt;a href=&#34;http://www.port.ac.uk/school-of-biological-sciences/staff/dr-joanne-preston.html&#34; target=&#34;_blank&#34;&gt;Dr Joanne Preston&lt;/a&gt;, we are working to identify the change in microbial communities following the shift between healthy and fouled or necrotic tissue in sponges based on microbiological culturing and 16S rDNA sequencing of the sponge host and the microbial communities.&lt;/p&gt;
-</description>
     </item>
     
     <item>
